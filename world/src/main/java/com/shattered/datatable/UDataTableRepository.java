@@ -16,7 +16,7 @@ public class UDataTableRepository {
     /**
      * Represents the Item DataTable Path
      */
-    public static final String DATA_TABLE_PATHS = "./repository/data_tables/";
+    public static final String DATA_TABLE_PATHS = "";
 
     /**
      * Represents the Item DataTable Repository

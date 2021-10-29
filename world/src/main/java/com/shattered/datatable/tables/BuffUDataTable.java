@@ -50,7 +50,7 @@ public class BuffUDataTable {
      */
     public static void parse() {
         try {
-            Object dataTable = new JSONParser().parse(new FileReader(UDataTableRepository.DATA_TABLE_PATHS + "buffs_dt.json"));
+            Object dataTable = new JSONParser().parse(new FileReader(UDataTableRepository.DATA_TABLE_PATHS + "../repository/data_tables/buffs_dt.json"));
 
             // typecasting obj to JSONObject
             JSONArray items = (JSONArray) dataTable;

@@ -114,7 +114,7 @@ public class AbilityUDataTable {
      */
     public static void parse() {
         try {
-            Object dataTable = new JSONParser().parse(new FileReader(UDataTableRepository.DATA_TABLE_PATHS + "ability_dt.json"));
+            Object dataTable = new JSONParser().parse(new FileReader(UDataTableRepository.DATA_TABLE_PATHS + "./repository/data_tables/ability_dt.json"));
 
             // typecasting obj to JSONObject
             JSONArray items = (JSONArray) dataTable;

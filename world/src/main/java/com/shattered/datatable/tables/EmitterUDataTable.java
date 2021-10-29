@@ -35,7 +35,7 @@ public class EmitterUDataTable {
     public static void parse() {
 
         try {
-            Object dataTable = new JSONParser().parse(new FileReader(UDataTableRepository.DATA_TABLE_PATHS + "emitters_dt.json"));
+            Object dataTable = new JSONParser().parse(new FileReader(UDataTableRepository.DATA_TABLE_PATHS + "/repository/data_tables/emitters_dt.json"));
 
             // typecasting obj to JSONObject
             JSONArray items = (JSONArray) dataTable;
