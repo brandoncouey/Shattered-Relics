@@ -3,8 +3,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
 trigger:
-  - master
-  - main
+  - none
 
 resources:
   - repo: self
