@@ -113,14 +113,17 @@ public class GameWorld {
         WORLD_LOCATION = worldLocation;
         WORLD_TYPE = worldType;
 
-        WidgetEventRepository.parseRepository();
-
-        ScriptManager.init(false);
-        ScriptLoader.init();
-        GridNodeBuilder.parseNPCsExports();
-        GridNodeBuilder.parseObjectsExports();
-        GridNodeBuilder.parseMapVolumeExports();
-        GridNodeBuilder.parseLocationPoints();
+        try {
+            WidgetEventRepository.parseRepository();
+            ScriptManager.init(false);
+            ScriptLoader.init();
+            GridNodeBuilder.parseNPCsExports();
+            GridNodeBuilder.parseObjectsExports();
+            GridNodeBuilder.parseMapVolumeExports();
+            GridNodeBuilder.parseLocationPoints();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         WORLD_STATE = WorldState.LOADED;
 
     }

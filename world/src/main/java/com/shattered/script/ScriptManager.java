@@ -150,203 +150,207 @@ public class ScriptManager {
             URLClassLoader cl = URLClassLoader.newInstance(urls);
 
             while (e.hasMoreElements()) {
-                JarEntry je = e.nextElement();
-                if(je.isDirectory() || !je.getName().endsWith(".class")){
-                    continue;
-                }
-                // -6 because of .class
-                String className = je.getName().substring(0,je.getName().length() -6);
-                className = className.replace('/', '.');
+                try {
+                    JarEntry je = e.nextElement();
+                    if (je.isDirectory() || !je.getName().endsWith(".class")) {
+                        continue;
+                    }
+                    // -6 because of .class
+                    String className = je.getName().substring(0, je.getName().length() - 6);
+                    className = className.replace('/', '.');
 
-                if (className.contains("$"))
-                    continue;
+                    if (className.contains("$"))
+                        continue;
 
-                Class c = cl.loadClass(className);
-                Object script = c.newInstance();
+                    Class c = cl.loadClass(className);
+                    Object script = c.newInstance();
 
-                //TODO check
-                if (script instanceof PlayerScript) {
-                    playerScripts.add((PlayerScript) script);
-                }
+                    //TODO check
+                    if (script instanceof PlayerScript) {
+                        playerScripts.add((PlayerScript) script);
+                    }
 
-                if (script instanceof NPCDialogScript) {
-                    NPCDialogScript npc = (NPCDialogScript) script;
-                    if (npc.for_npcs() != null) {
-                        for (String npcName : npc.for_npcs()) {
-                            if (!npcDialogScripts.containsKey(npcName)) {
-                                npcDialogScripts.put(npcName.toLowerCase().replace("_", " "), npc);
+                    if (script instanceof NPCDialogScript) {
+                        NPCDialogScript npc = (NPCDialogScript) script;
+                        if (npc.for_npcs() != null) {
+                            for (String npcName : npc.for_npcs()) {
+                                if (!npcDialogScripts.containsKey(npcName)) {
+                                    npcDialogScripts.put(npcName.toLowerCase().replace("_", " "), npc);
+                                } else {
+                                    SystemLogger.sendSystemErrMessage("Could not register " + npc.getClass().getSimpleName() + " as a dialog script for " + npcName + " as they already are binded to the dialog script " + npcDialogScripts.get(npcName).getClass().getSimpleName() + "!");
+                                }
+                            }
+                        }
+                        if (npc.fornpc() != null) {
+                            if (!npcDialogScripts.containsKey(npc.fornpc())) {
+                                npcDialogScripts.put(npc.fornpc().toLowerCase().replace("_", " "), npc);
                             } else {
-                                SystemLogger.sendSystemErrMessage("Could not register " + npc.getClass().getSimpleName() + " as a dialog script for " + npcName + " as they already are binded to the dialog script " + npcDialogScripts.get(npcName).getClass().getSimpleName() + "!");
+                                SystemLogger.sendSystemErrMessage("Could not register " + npc.getClass().getSimpleName() + " as a dialog script for " + npc.fornpc() + " as they already are binded to the dialog script " + npcDialogScripts.get(npc.fornpc()).getClass().getSimpleName() + "!");
                             }
                         }
                     }
-                    if (npc.fornpc() != null) {
-                        if (!npcDialogScripts.containsKey(npc.fornpc())) {
-                            npcDialogScripts.put(npc.fornpc().toLowerCase().replace("_", " "), npc);
-                        } else {
-                            SystemLogger.sendSystemErrMessage("Could not register " + npc.getClass().getSimpleName() + " as a dialog script for " + npc.fornpc() + " as they already are binded to the dialog script " + npcDialogScripts.get(npc.fornpc()).getClass().getSimpleName() + "!");
-                        }
-                    }
-                }
 
-                if (script instanceof NPCCombatScript) {
-                    NPCCombatScript npc = (NPCCombatScript) script;
-                    if (npc.for_npcs() != null) {
-                        for (String npcName : npc.for_npcs()) {
-                            if (!npcCombatScripts.containsKey(npcName)) {
-                                npcCombatScripts.put(npcName.toLowerCase().replace("_", " "), npc);
+                    if (script instanceof NPCCombatScript) {
+                        NPCCombatScript npc = (NPCCombatScript) script;
+                        if (npc.for_npcs() != null) {
+                            for (String npcName : npc.for_npcs()) {
+                                if (!npcCombatScripts.containsKey(npcName)) {
+                                    npcCombatScripts.put(npcName.toLowerCase().replace("_", " "), npc);
+                                } else {
+                                    SystemLogger.sendSystemErrMessage("Could not register " + npc.getClass().getSimpleName() + " as a combat script for " + npcName + " as they already are binded to the combat script " + npcCombatScripts.get(npcName).getClass().getSimpleName() + "!");
+                                }
+                            }
+                        }
+                        if (npc.fornpc() != null) {
+                            if (!npcCombatScripts.containsKey(npc.fornpc())) {
+                                npcCombatScripts.put(npc.fornpc().toLowerCase().replace("_", " "), npc);
                             } else {
-                                SystemLogger.sendSystemErrMessage("Could not register " + npc.getClass().getSimpleName() + " as a combat script for " + npcName + " as they already are binded to the combat script " + npcCombatScripts.get(npcName).getClass().getSimpleName() + "!");
+                                SystemLogger.sendSystemErrMessage("Could not register " + npc.getClass().getSimpleName() + " as a combat script for " + npc.fornpc() + " as they already are binded to the combat script " + npcCombatScripts.get(npc.fornpc()).getClass().getSimpleName() + "!");
                             }
                         }
                     }
-                    if (npc.fornpc() != null) {
-                        if (!npcCombatScripts.containsKey(npc.fornpc())) {
-                            npcCombatScripts.put(npc.fornpc().toLowerCase().replace("_", " "), npc);
-                        } else {
-                            SystemLogger.sendSystemErrMessage("Could not register " + npc.getClass().getSimpleName() + " as a combat script for " + npc.fornpc() + " as they already are binded to the combat script " + npcCombatScripts.get(npc.fornpc()).getClass().getSimpleName() + "!");
-                        }
-                    }
-                }
 
-                if (script instanceof NPCScript) {
-                    NPCScript npc = (NPCScript) script;
-                    if (npc.for_npcs() != null) {
-                        for (String npcName : npc.for_npcs()) {
-                            if (!npcScripts.containsKey(npcName)) {
-                                npcScripts.put(npcName, npc);
+                    if (script instanceof NPCScript) {
+                        NPCScript npc = (NPCScript) script;
+                        if (npc.for_npcs() != null) {
+                            for (String npcName : npc.for_npcs()) {
+                                if (!npcScripts.containsKey(npcName)) {
+                                    npcScripts.put(npcName, npc);
+                                } else {
+                                    SystemLogger.sendSystemErrMessage("Could not register " + npc.getClass().getSimpleName() + " as a script for " + npcName + " as they already are binded to script " + npcScripts.get(npcName).getClass().getSimpleName() + "!");
+                                }
+                            }
+                        }
+                        if (npc.fornpc() != null) {
+                            if (!npcScripts.containsKey(npc.fornpc())) {
+                                npcScripts.put(npc.fornpc(), npc);
                             } else {
-                                SystemLogger.sendSystemErrMessage("Could not register " + npc.getClass().getSimpleName() + " as a script for " + npcName + " as they already are binded to script " + npcScripts.get(npcName).getClass().getSimpleName() + "!");
+                                SystemLogger.sendSystemErrMessage("Could not register " + npc.getClass().getSimpleName() + " as a script for " + npc.fornpc() + " as they already are binded to script " + npcScripts.get(npc.fornpc()).getClass().getSimpleName() + "!");
                             }
                         }
                     }
-                    if (npc.fornpc() != null) {
-                        if (!npcScripts.containsKey(npc.fornpc())) {
-                            npcScripts.put(npc.fornpc(), npc);
-                        } else {
-                            SystemLogger.sendSystemErrMessage("Could not register " + npc.getClass().getSimpleName() + " as a script for " + npc.fornpc() + " as they already are binded to script " + npcScripts.get(npc.fornpc()).getClass().getSimpleName() + "!");
-                        }
-                    }
-                }
 
-                if (script instanceof ActionScript && (!(script instanceof ObjectActionScript))) {
-                    ActionScript action = (ActionScript) script;
-                    if (action.action_name() != null) {
-                        if (!actionScripts.containsKey(action.action_name())) {
-                            actionScripts.put(action.action_name(), action);
-                        } else {
-                            SystemLogger.sendSystemErrMessage("Could not register " + action.getClass().getSimpleName() + " as a action script for " + action + " as they already are binded to the action script " + actionScripts.get(action).getClass().getSimpleName() + "!");
-                        }
-                    }
-
-                }
-
-                if (script instanceof ObjectActionScript) {
-                    ObjectActionScript object = (ObjectActionScript) script;
-                    if (object.for_objects() != null) {
-                        for (String objName : object.for_objects()) {
-                            if (!objectActionScripts.containsKey(objName)) {
-                                objectActionScripts.put(objName.toLowerCase(), object);
+                    if (script instanceof ActionScript && (!(script instanceof ObjectActionScript))) {
+                        ActionScript action = (ActionScript) script;
+                        if (action.action_name() != null) {
+                            if (!actionScripts.containsKey(action.action_name())) {
+                                actionScripts.put(action.action_name(), action);
                             } else {
-                                SystemLogger.sendSystemErrMessage("Could not register " + object.getClass().getSimpleName() + " as a object action script for " + objName + " as they already are binded to the action script " + objectActionScripts.get(objName).getClass().getSimpleName() + "!");
+                                SystemLogger.sendSystemErrMessage("Could not register " + action.getClass().getSimpleName() + " as a action script for " + action + " as they already are binded to the action script " + actionScripts.get(action).getClass().getSimpleName() + "!");
+                            }
+                        }
+
+                    }
+
+                    if (script instanceof ObjectActionScript) {
+                        ObjectActionScript object = (ObjectActionScript) script;
+                        if (object.for_objects() != null) {
+                            for (String objName : object.for_objects()) {
+                                if (!objectActionScripts.containsKey(objName)) {
+                                    objectActionScripts.put(objName.toLowerCase(), object);
+                                } else {
+                                    SystemLogger.sendSystemErrMessage("Could not register " + object.getClass().getSimpleName() + " as a object action script for " + objName + " as they already are binded to the action script " + objectActionScripts.get(objName).getClass().getSimpleName() + "!");
+                                }
+                            }
+                        }
+                        if (object.for_object() != null) {
+                            if (!objectActionScripts.containsKey(object.for_object())) {
+                                objectActionScripts.put(object.for_object().toLowerCase(), object);
+                            } else {
+                                SystemLogger.sendSystemErrMessage("Could not register " + object.getClass().getSimpleName() + " as a object action script for " + object.for_object() + " as they already are binded to the action script " + objectActionScripts.get(object.for_object()).getClass().getSimpleName() + "!");
                             }
                         }
                     }
-                    if (object.for_object() != null) {
-                        if (!objectActionScripts.containsKey(object.for_object())) {
-                            objectActionScripts.put(object.for_object().toLowerCase(), object);
-                        } else {
-                            SystemLogger.sendSystemErrMessage("Could not register " + object.getClass().getSimpleName() + " as a object action script for " + object.for_object() + " as they already are binded to the action script " + objectActionScripts.get(object.for_object()).getClass().getSimpleName() + "!");
-                        }
-                    }
-                }
 
-                if (script instanceof ObjectScript) {
-                    ObjectScript object = (ObjectScript) script;
-                    if (object.for_objects() != null) {
-                        for (String objectName : object.for_objects()) {
-                            if (!objectScripts.containsKey(objectName)) {
-                                objectScripts.put(objectName, object);
+                    if (script instanceof ObjectScript) {
+                        ObjectScript object = (ObjectScript) script;
+                        if (object.for_objects() != null) {
+                            for (String objectName : object.for_objects()) {
+                                if (!objectScripts.containsKey(objectName)) {
+                                    objectScripts.put(objectName, object);
+                                } else {
+                                    SystemLogger.sendSystemErrMessage("Could not register " + object.getClass().getSimpleName() + " as a script for " + objectName + " as they already are binded to script " + objectScripts.get(objectName).getClass().getSimpleName() + "!");
+                                }
+                            }
+                        }
+                        if (object.forobject() != null) {
+                            if (!objectScripts.containsKey(object.forobject())) {
+                                objectScripts.put(object.forobject(), object);
                             } else {
-                                SystemLogger.sendSystemErrMessage("Could not register " + object.getClass().getSimpleName() + " as a script for " + objectName + " as they already are binded to script " + objectScripts.get(objectName).getClass().getSimpleName() + "!");
+                                SystemLogger.sendSystemErrMessage("Could not register " + object.getClass().getSimpleName() + " as a script for " + object.forobject() + " as they already are binded to script " + objectScripts.get(object.forobject()).getClass().getSimpleName() + "!");
                             }
                         }
                     }
-                    if (object.forobject() != null) {
-                        if (!objectScripts.containsKey(object.forobject())) {
-                            objectScripts.put(object.forobject(), object);
-                        } else {
-                            SystemLogger.sendSystemErrMessage("Could not register " + object.getClass().getSimpleName() + " as a script for " + object.forobject() + " as they already are binded to script " + objectScripts.get(object.forobject()).getClass().getSimpleName() + "!");
-                        }
-                    }
-                }
 
-                if (script instanceof ItemUseScript) {
-                    ItemUseScript item = (ItemUseScript) script;
-                    if (item.for_items() != null) {
-                        for (String itemname : item.for_items()) {
-                            if (!itemUseScripts.containsKey(itemname)) {
-                                itemUseScripts.put(itemname.toLowerCase(), item);
+                    if (script instanceof ItemUseScript) {
+                        ItemUseScript item = (ItemUseScript) script;
+                        if (item.for_items() != null) {
+                            for (String itemname : item.for_items()) {
+                                if (!itemUseScripts.containsKey(itemname)) {
+                                    itemUseScripts.put(itemname.toLowerCase(), item);
+                                } else {
+                                    SystemLogger.sendSystemErrMessage("Could not register " + item.getClass().getSimpleName() + " as a script for " + itemname + " as they already are binded to script " + itemUseScripts.get(itemname).getClass().getSimpleName() + "!");
+                                }
+                            }
+                        }
+                        if (item.foritem() != null) {
+                            if (!itemUseScripts.containsKey(item.foritem())) {
+                                itemUseScripts.put(item.foritem().toLowerCase(), item);
                             } else {
-                                SystemLogger.sendSystemErrMessage("Could not register " + item.getClass().getSimpleName() + " as a script for " + itemname + " as they already are binded to script " + itemUseScripts.get(itemname).getClass().getSimpleName() + "!");
+                                SystemLogger.sendSystemErrMessage("Could not register " + item.getClass().getSimpleName() + " as a script for " + item.foritem() + " as they already are binded to script " + itemUseScripts.get(item.foritem()).getClass().getSimpleName() + "!");
                             }
                         }
                     }
-                    if (item.foritem() != null) {
-                        if (!itemUseScripts.containsKey(item.foritem())) {
-                            itemUseScripts.put(item.foritem().toLowerCase(), item);
+
+                    if (script instanceof CommandScript) {
+                        commandScripts.add((CommandScript) script);
+                    }
+
+                    if (script instanceof WidgetScript) {
+                        WidgetScript widget = (WidgetScript) script;
+                        //Used for 'Core' Widgets (i.e trading)
+                        if (WidgetEventRepository.isHandled(widget.forwidget())) {
+                            SystemLogger.sendSystemErrMessage("Could not register " + widget.forwidget() + " as a widget script as it is already registered as a core widget script!");
+                            return;
+                        }
+                        if (!widgetScripts.containsKey(widget.forwidget())) {
+                            widgetScripts.put(widget.forwidget(), widget);
                         } else {
-                            SystemLogger.sendSystemErrMessage("Could not register " + item.getClass().getSimpleName() + " as a script for " + item.foritem() + " as they already are binded to script " + itemUseScripts.get(item.foritem()).getClass().getSimpleName() + "!");
+                            SystemLogger.sendSystemErrMessage("Could not register " + widget.forwidget() + " as a widget script as it is already registered for the script " + widgetScripts.get(widget.forwidget()).getClass().getSimpleName() + "!");
                         }
                     }
-                }
 
-                if (script instanceof CommandScript) {
-                    commandScripts.add((CommandScript) script);
-                }
-
-                if (script instanceof WidgetScript) {
-                    WidgetScript widget = (WidgetScript) script;
-                    //Used for 'Core' Widgets (i.e trading)
-                    if (WidgetEventRepository.isHandled(widget.forwidget())) {
-                        SystemLogger.sendSystemErrMessage("Could not register " + widget.forwidget() + " as a widget script as it is already registered as a core widget script!");
-                        return;
+                    if (script instanceof AbilityScript) {
+                        AbilityScript ability = (AbilityScript) script;
+                        if (!abilityScripts.containsKey(ability.name().toLowerCase())) {
+                            abilityScripts.put(ability.name().toLowerCase().replace("_", " "), ability);
+                        } else {
+                            SystemLogger.sendSystemErrMessage("Could not register " + ability.name() + " as an ability script as it is already registered for the script " + abilityScripts.get(ability.name()).getClass().getSimpleName() + "!");
+                        }
                     }
-                    if (!widgetScripts.containsKey(widget.forwidget())) {
-                        widgetScripts.put(widget.forwidget(), widget);
-                    } else {
-                        SystemLogger.sendSystemErrMessage("Could not register " + widget.forwidget() + " as a widget script as it is already registered for the script " + widgetScripts.get(widget.forwidget()).getClass().getSimpleName() + "!");
-                    }
-                }
 
-                if (script instanceof AbilityScript) {
-                    AbilityScript ability = (AbilityScript) script;
-                    if (!abilityScripts.containsKey(ability.name().toLowerCase())) {
-                        abilityScripts.put(ability.name().toLowerCase().replace("_", " "), ability);
-                    } else {
-                        SystemLogger.sendSystemErrMessage("Could not register " + ability.name() + " as an ability script as it is already registered for the script " + abilityScripts.get(ability.name()).getClass().getSimpleName() + "!");
+                    if (script instanceof BuffScript) {
+                        BuffScript buff = (BuffScript) script;
+                        if (!buffScripts.containsKey(buff.name())) {
+                            buffScripts.put(buff.name().toLowerCase().replace("_", " "), buff);
+                        } else {
+                            SystemLogger.sendSystemErrMessage("Could not register " + buff.name() + " as a buff script as it is already registered for the script " + buffScripts.get(buff.name()).getClass().getSimpleName() + "!");
+                        }
                     }
-                }
 
-                if (script instanceof BuffScript) {
-                    BuffScript buff = (BuffScript) script;
-                    if (!buffScripts.containsKey(buff.name())) {
-                        buffScripts.put(buff.name().toLowerCase().replace("_", " "), buff);
-                    } else {
-                        SystemLogger.sendSystemErrMessage("Could not register " + buff.name() + " as a buff script as it is already registered for the script " + buffScripts.get(buff.name()).getClass().getSimpleName() + "!");
+                    if (script instanceof QuestScript) {
+                        QuestScript quest = (QuestScript) script;
+                        quest.construct();
+                        if (!questScripts.containsKey(quest.name())) {
+                            questScripts.put(quest.name().toLowerCase().replace("_", " "), quest);
+                        } else {
+                            SystemLogger.sendSystemErrMessage("Could not register " + quest.name() + " as a quest script as it is already registered for the script " + questScripts.get(quest.name()).getClass().getSimpleName() + "!");
+                        }
                     }
-                }
 
-                if (script instanceof QuestScript) {
-                    QuestScript quest = (QuestScript) script;
-                    quest.construct();
-                    if (!questScripts.containsKey(quest.name())) {
-                        questScripts.put(quest.name().toLowerCase().replace("_", " "), quest);
-                    } else {
-                        SystemLogger.sendSystemErrMessage("Could not register " + quest.name() + " as a quest script as it is already registered for the script " + questScripts.get(quest.name()).getClass().getSimpleName() + "!");
-                    }
+                } catch (Exception es) {
+                    //
                 }
-
             }
             cl.close();
 
