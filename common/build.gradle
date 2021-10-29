@@ -24,7 +24,7 @@ dependencies {
     compile 'io.netty:netty-all:4.1.27.Final'
     compile 'com.google.protobuf:protobuf-javalite:3.13.0'
     compile 'com.google.protobuf:protobuf-java-util:3.10.0'
-    compile 'mysql:mysql-connector-java:5.1.27'
+    compile 'mysql:mysql-connector-java:8.0.25'
 }
 
 task packageCore(type: Jar) {

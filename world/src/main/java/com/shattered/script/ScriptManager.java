@@ -125,7 +125,7 @@ public class ScriptManager {
      */
     public static String getScriptVersion() {
         try {
-            File version = new File("/repository/scripts/version.json");
+            File version = new File("repository/scripts/version.json");
             Scanner reader = new Scanner(version);
             return reader.nextLine();
         } catch (Exception e) {
@@ -140,7 +140,7 @@ public class ScriptManager {
     public static void init(boolean reload) {
         SystemLogger.sendSystemMessage("Initializing Scripting Manager -> Loading Version=" + getScriptVersion() + ".");
         try {
-            File pathToJar = new File("/repository/scripts/scripts-all-" + getScriptVersion() + ".jar");
+            File pathToJar = new File("repository/scripts/scripts-all-" + getScriptVersion() + ".jar");
 
             JarFile jarFile;
             jarFile = new JarFile(pathToJar);
