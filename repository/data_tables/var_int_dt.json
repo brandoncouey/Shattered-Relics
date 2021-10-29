@@ -1,0 +1,58 @@
+[
+	{
+		"Name": "health",
+		"DefaultValue": 500
+	},
+	{
+		"Name": "max_health",
+		"DefaultValue": 500
+	},
+	{
+		"Name": "energy",
+		"DefaultValue": 100
+	},
+	{
+		"Name": "max_energy",
+		"DefaultValue": 100
+	},
+	{
+		"Name": "xp_accuracy",
+		"DefaultValue": 0
+	},
+	{
+		"Name": "xp_strength",
+		"DefaultValue": 0
+	},
+	{
+		"Name": "xp_resilience",
+		"DefaultValue": 0
+	},
+	{
+		"Name": "xp_stamina",
+		"DefaultValue": 0
+	},
+	{
+		"Name": "xp_focus",
+		"DefaultValue": 0
+	},
+	{
+		"Name": "xp_intellect",
+		"DefaultValue": 0
+	},
+	{
+		"Name": "xp_warrior",
+		"DefaultValue": 0
+	},
+	{
+		"Name": "xp_fire_mage",
+		"DefaultValue": 0
+	},
+	{
+		"Name": "xp_archer",
+		"DefaultValue": 0
+	},
+	{
+		"Name": "coins",
+		"DefaultValue": 100
+	}
+]

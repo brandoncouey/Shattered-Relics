@@ -1,0 +1,1 @@
+LocationName=Respawn1, X=11908, Y=18641, Z=306

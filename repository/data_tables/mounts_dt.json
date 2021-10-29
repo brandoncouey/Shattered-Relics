@@ -1,0 +1,8 @@
+[
+	{
+		"Name": "undead_horse",
+		"Mesh": "SkeletalMesh'/Game/UndeadHorse/Meshes/Horses/UndeadHorse_Re.UndeadHorse_Re'",
+		"AnimInstance": "AnimBlueprintGeneratedClass'/Game/UndeadHorse/Animations/Horse/BlendSpaces/ABP_Horse.ABP_Horse_C'",
+		"SpeedBonus": 300
+	}
+]

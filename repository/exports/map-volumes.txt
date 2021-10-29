@@ -1,0 +1,3 @@
+MapName=Impcampment, OriginX=-13782, OriginY=-12968, OriginZ=2288, ExtentX=6000, ExtentY=10999, ExtentZ=2500
+MapName=Tiger's_Reach, OriginX=-1658, OriginY=21474, OriginZ=2288, ExtentX=7500, ExtentY=5000, ExtentZ=2500
+MapName=Embers_Overpass, OriginX=-3433, OriginY=4259, OriginZ=2288, ExtentX=4000, ExtentY=8999, ExtentZ=2500

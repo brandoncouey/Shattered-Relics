@@ -1,0 +1,56 @@
+[
+	{
+		"Name": "wooden_chest",
+		"Blueprint": "BlueprintGeneratedClass'/Game/Actors/Objects/Networked/NOBP_Wooden_Chest.NOBP_Wooden_Chest_C'",
+		"ObjectAction": "Open",
+		"ObjectActionOverride": ""
+	},
+	{
+		"Name": "fishing_spot",
+		"Blueprint": "BlueprintGeneratedClass'/Game/Actors/Objects/Networked/NOBP_Fishing_Spot.NOBP_Fishing_Spot_C'",
+		"ObjectAction": "Gather",
+		"ObjectActionOverride": ""
+	},
+	{
+		"Name": "Fire",
+		"Blueprint": "BlueprintGeneratedClass'/Game/Actors/Objects/Networked/NOBP_Fire.NOBP_Fire_C'",
+		"ObjectAction": "None",
+		"ObjectActionOverride": "NSLOCTEXT(\"[05E99DE047B3C50121D43BA3282BD475]\", \"B5E1DE904478527E198822891923C260\", \"Cook At\")"
+	},
+	{
+		"Name": "oak_logs",
+		"Blueprint": "BlueprintGeneratedClass'/Game/Actors/Objects/Networked/NOBP_Oak_Logs.NOBP_Oak_Logs_C'",
+		"ObjectAction": "Gather",
+		"ObjectActionOverride": ""
+	},
+	{
+		"Name": "flint",
+		"Blueprint": "BlueprintGeneratedClass'/Game/Actors/Objects/Networked/NOBP_Flint.NOBP_Flint_C'",
+		"ObjectAction": "Gather",
+		"ObjectActionOverride": ""
+	},
+	{
+		"Name": "oak_tree",
+		"Blueprint": "BlueprintGeneratedClass'/Game/Actors/Objects/Networked/NOBP_Oak_Tree.NOBP_Oak_Tree_C'",
+		"ObjectAction": "Gather",
+		"ObjectActionOverride": ""
+	},
+	{
+		"Name": "pine_tree",
+		"Blueprint": "BlueprintGeneratedClass'/Game/Actors/Objects/Networked/NOBP_Pine_Tree.NOBP_Pine_Tree_C'",
+		"ObjectAction": "Gather",
+		"ObjectActionOverride": ""
+	},
+	{
+		"Name": "maple_tree",
+		"Blueprint": "BlueprintGeneratedClass'/Game/Actors/Objects/Networked/NOBP_Maple_Tree.NOBP_Maple_Tree_C'",
+		"ObjectAction": "Gather",
+		"ObjectActionOverride": ""
+	},
+	{
+		"Name": "tree_stump",
+		"Blueprint": "BlueprintGeneratedClass'/Game/Actors/Objects/Networked/NOBP_Tree_Stump.NOBP_Tree_Stump_C'",
+		"ObjectAction": "None",
+		"ObjectActionOverride": ""
+	}
+]
