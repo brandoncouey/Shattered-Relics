@@ -24,9 +24,9 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.8'
     compile project (':common')
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    compile 'com.googlecode.json-simple:json-simple:1.1.1'
-    compile 'io.grpc:grpc-all:1.39.0'
-    compile 'org.apache.commons:commons-math3:3.6.1'
+    compileOnly 'com.googlecode.json-simple:json-simple:1.1.1'
+    implementation 'io.grpc:grpc-all:1.39.0'
+    implementation 'org.apache.commons:commons-math3:3.6.1'
 
 }// Inform IDEs like IntelliJ IDEA, Eclipse or NetBeans about the generated code.
 
