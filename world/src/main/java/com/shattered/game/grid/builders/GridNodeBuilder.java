@@ -30,7 +30,7 @@ public class GridNodeBuilder {
     public static void parseNPCsExports() {
         try {
 
-            BufferedReader reader = new BufferedReader(new FileReader("repository/exports/npcs.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader(".../repository/exports/npcs.txt"));
             String line;
             int count = 0;
             while ((line = reader.readLine()) != null) {
@@ -87,7 +87,7 @@ public class GridNodeBuilder {
     public static void parseMapVolumeExports() {
         try {
 
-            BufferedReader reader = new BufferedReader(new FileReader("repository/exports/map-volumes.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader("../repository/exports/map-volumes.txt"));
             String line;
             int count = 0;
             while ((line = reader.readLine()) != null) {
@@ -117,7 +117,7 @@ public class GridNodeBuilder {
     public static void parseLocationPoints() {
         try {
 
-            BufferedReader reader = new BufferedReader(new FileReader("repository/exports/location-points.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader("/repository/exports/location-points.txt"));
             String line;
             int count = 0;
             while ((line = reader.readLine()) != null) {
@@ -144,7 +144,7 @@ public class GridNodeBuilder {
     public static void parseObjectsExports() {
         try {
 
-            BufferedReader reader = new BufferedReader(new FileReader("repository/exports/objects.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader("../repository/exports/objects.txt"));
             String line;
             int count = 0;
             while ((line = reader.readLine()) != null) {
