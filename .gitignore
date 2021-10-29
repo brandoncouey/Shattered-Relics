@@ -66,6 +66,7 @@ modules.xml
 .idea/modules
 
 # Package Files #
+*.jar
 *.war
 *.nar
 *.ear

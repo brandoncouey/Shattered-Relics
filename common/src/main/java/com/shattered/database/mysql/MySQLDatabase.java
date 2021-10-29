@@ -29,7 +29,7 @@ public class MySQLDatabase {
     public void prepare(String host, String username, String password) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            this.connection = DriverManager.getConnection("jdbc:mysql://" + host + "/" + this.getName() + "?autoReconnect=true?zeroDateTimeBehavior=convertToNull", username, password);
+            this.connection = DriverManager.getConnection("jdbc:mysql://" + host + "/" + this.getName() + "?zeroDateTimeBehavior=convertToNull", username, password);
             this.status = MySQLConnectionStatus.CONNECTED;
         } catch (ClassNotFoundException | SQLException var5) {
             this.status = MySQLConnectionStatus.UNABLE_TO_CONNECT;
