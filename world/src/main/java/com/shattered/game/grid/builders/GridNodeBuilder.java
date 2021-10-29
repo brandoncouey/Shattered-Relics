@@ -144,7 +144,7 @@ public class GridNodeBuilder {
     public static void parseObjectsExports() {
         try {
 
-            BufferedReader reader = new BufferedReader(new FileReader("../repository/exports/objects.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader("./repository/exports/objects.txt"));
             String line;
             int count = 0;
             while ((line = reader.readLine()) != null) {
