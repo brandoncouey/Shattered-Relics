@@ -86,21 +86,32 @@ public class BuildWorld extends Build {
             ServerConstants.LIVE_DB = true;
         }
 
-        //Binds the socket and initializes the server
-        getInstance().build(ServerType.WORLD, "0.0.0.0", ServerConstants.WORLD_DEFAULT_PORT + portIndex);
+        try {
 
-        //Initializes the game engine
-        getInstance().setEngine(new WorldEngine());
-        getInstance().getEngine().run();
+            //Binds the socket and initializes the server
+            getInstance().build(ServerType.WORLD, "0.0.0.0", ServerConstants.WORLD_DEFAULT_PORT + portIndex);
 
-        //Parses the UDataTables
-        UDataTableRepository.parse();
+            //Initializes the game engine
+            getInstance().setEngine(new WorldEngine());
+            getInstance().getEngine().run();
 
-        //Parses all Character Variables
-        PlayerVariableRepository.parse();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-        //Initializes the Game World
-        GameWorld.initialize(name, location, type);
+        try {
+
+            //Parses the UDataTables
+            UDataTableRepository.parse();
+
+            //Parses all Character Variables
+            PlayerVariableRepository.parse();
+
+            //Initializes the Game World
+            GameWorld.initialize(name, location, type);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         //Increments from default port +1
         getInstance().getNetwork().setPortIndex(portIndex);

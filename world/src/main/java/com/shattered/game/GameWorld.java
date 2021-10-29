@@ -115,7 +115,7 @@ public class GameWorld {
 
         try {
             WidgetEventRepository.parseRepository();
-            ScriptManager.init(false);
+            //ScriptManager.init(false); TODO we need to make this load non jar files
             ScriptLoader.init();
             GridNodeBuilder.parseNPCsExports();
             GridNodeBuilder.parseObjectsExports();
