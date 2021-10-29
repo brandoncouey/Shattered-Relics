@@ -2,6 +2,8 @@ FROM openjdk:8
 
 ADD build/libs/world-*.jar .
 
+ADD ./repository .
+
 ENV index = 1
 
 ENV name = "Development"
