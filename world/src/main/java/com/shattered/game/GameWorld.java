@@ -115,12 +115,12 @@ public class GameWorld {
 
         WidgetEventRepository.parseRepository();
 
-        ScriptManager.init(false);
+       /* ScriptManager.init(false);
         ScriptLoader.init();
         GridNodeBuilder.parseNPCsExports();
         GridNodeBuilder.parseObjectsExports();
         GridNodeBuilder.parseMapVolumeExports();
-        GridNodeBuilder.parseLocationPoints();
+        GridNodeBuilder.parseLocationPoints();*/
         WORLD_STATE = WorldState.LOADED;
 
     }

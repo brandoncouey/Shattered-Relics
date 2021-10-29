@@ -94,10 +94,10 @@ public class BuildWorld extends Build {
         getInstance().getEngine().run();
 
         //Parses the UDataTables
-        UDataTableRepository.parse();
+        //UDataTableRepository.parse();
 
         //Parses all Character Variables
-        PlayerVariableRepository.parse();
+        //PlayerVariableRepository.parse();
 
         //Initializes the Game World
         GameWorld.initialize(name, location, type);

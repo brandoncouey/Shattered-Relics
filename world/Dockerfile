@@ -2,7 +2,7 @@ FROM openjdk:8
 
 ADD build/libs/world-*.jar .
 
-ADD repository .
+COPY repository/ repository/
 
 ENV index = 1
 
