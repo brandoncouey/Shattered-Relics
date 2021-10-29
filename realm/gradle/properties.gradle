@@ -1,0 +1,8 @@
+ext {
+    jvmVersion = '1.8'
+    kotlinVersion = '1.3.11'
+    kcoroutineVersion = '1.1.0'
+    nettyVersion = '4.1.27.Final'
+    reflectionsVersion = '0.9.11'
+    commonsIoVersion = '2.4'
+}

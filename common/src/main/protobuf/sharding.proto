@@ -1,0 +1,54 @@
+syntax = "proto3";
+package shattered.protocol;
+option java_package = "com.shattered.networking.proto";
+option cc_enable_arenas = true;
+
+message RegisterServer {
+    string cuuid = 1;
+    string token = 2;
+}
+
+message UnregisterServer {
+    string cuuid = 1;
+    string token = 2;
+}
+
+message RequestConnectionInfo {
+    string token = 1;
+}
+
+message ConnectionInfo {
+    string cuuid = 1;
+    string token = 2;
+    string host = 3;
+    int32 port = 4;
+}
+
+message WorldInformation {
+    string cuuid = 1;
+    string name = 2;
+    int32 index = 3;
+    string location = 4;
+    string type = 5;
+    string population = 6;
+}
+
+message UpdateWorldList {
+
+    message Entry {
+        string connUuid = 1;
+        int32 index = 2;
+        string host = 3;
+        int32 port = 4;
+        string name = 5;
+        string location = 6;
+        string type = 7;
+        string population = 8;
+    }
+    
+    repeated Entry entry = 1;
+}
+
+message UpdateWorldEntry {
+    UpdateWorldList.Entry entry = 1;
+}

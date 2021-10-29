@@ -1,0 +1,81 @@
+syntax = "proto3";
+package shattered.protocol;
+option java_package = "com.shattered.networking.proto";
+option cc_enable_arenas = true;
+
+//Tuuid = Target Account ID / Reference to the Player
+//uuid = From / Current Reference to the Player
+//connectionUuid = SERVER uuid.
+
+
+message RegisterPlayer {
+    int32 uuid = 1;
+    string connectionUuid = 2;
+    string name = 3;
+    string location = 4;
+    string serverName = 5;
+}
+
+//Unusued but this will be used for any attribtues that can be seen that can be updated on the regular.
+//idk don't want same name for confusion...
+
+message PlayerOnlineStatus {
+    int32 tuuid = 1;
+    int32 uuid = 2;
+    string connectionUuid = 3;
+    string name = 4;
+    string location = 5;
+    string serverName = 6;
+}
+
+message PlayerLocationStatus {
+    int32 uuid = 1;
+    string location = 2;
+}
+
+message SendPrivateMessage {
+    string from = 1;
+    string to = 2;
+    string message = 3;
+    int32 permissionLevel = 4;
+}
+
+message ReceivePrivateMessage {
+    int32 tuuid = 1;
+    string from = 2;
+    string message = 3;
+    int32 permissionLevel = 4;
+}
+
+message PlayerOffline {
+    int32 tuuid = 1;
+    int32 uuid = 2;
+    string name = 3;
+}
+
+message UnregisterPlayer {
+    int32 uuid = 1;
+}
+
+message Friend {
+    int32 tuuid = 1;
+    int32 uuid = 2;
+    string connectionUuid = 3;
+    string name = 4;
+    string location = 5;
+    string serverName = 6;
+}
+
+message FetchFriendsList {
+    int32 uuid = 1;
+}
+
+message FriendsList {
+    int32 uuid = 1;
+    repeated Friend friend = 2;
+}
+
+message AddRemoveFriend {
+    int32 uuid = 1;
+    string name = 2;
+}

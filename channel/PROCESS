@@ -1,0 +1,29 @@
+//Player logs in... requests friends list from channel server with their given DB Index.
+//Channel Server Grabs Friends List via DB and sends back to the DB Index provided along with a list of friends..
+
+
+
+//TODO update online status via sql on login..?
+
+//TODO figure out how to grab their CUUID + Online Status + World Name
+
+
+
+
+//got to figure out a way to find their conuuid and online status....
+
+
+[Channel Server]
+* Connect to each world...?
+* Store each and every player that is online with ID, CUUID, Online Status, World Name...?
+
+
+
+[Central Server]
+
+* Has a list of all worlds with their connection uuid.
+
+
+[Private Message]
+
+* Sends targetServerUUID, fromName, targetName

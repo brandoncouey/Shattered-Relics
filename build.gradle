@@ -1,0 +1,60 @@
+apply from: 'gradle/properties.gradle'
+apply from: 'gradle/wrapper.gradle'
+apply plugin: 'application'
+
+allprojects {
+
+    group = 'shattered.relics'
+    version = '0.0.4'
+
+    repositories {
+        mavenLocal()
+        jcenter()
+    }
+}
+
+subprojects {
+
+    task collectJars(type: Copy) {
+        into "$rootDir/build/libs/"
+        from "$buildDir/libs/"
+    }
+
+    task collectDist {
+        doLast {
+            copy {
+                from fileTree(dir: "$buildDir/distributions/")
+                into "$rootDir/build/collected/"
+            }
+        }
+    }
+
+
+    collectDist.dependsOn(assembleDist)
+    collectJars.dependsOn( jar )
+    collectJars.group = "deployment"
+
+    collectDist.group = "deployment";
+}
+
+task jarAll {
+    def servers = [ "central", "channel", "realm", "proxy", "world" ]
+    servers.each { dependsOn("$it:packageServer") }
+        doLast {
+        }
+
+}
+
+task runAll {
+    def servers = ["central", "channel", "realm", "proxy", "world"]
+    servers.each { dependsOn("$it:run") }
+        doLast {
+        }
+
+}
+
+repositories {
+    mavenCentral()
+}
+
+

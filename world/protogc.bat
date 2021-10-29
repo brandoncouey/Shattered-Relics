@@ -1,0 +1,3 @@
+@title Compiling ProtoBuffers...
+start protoc -I="src/main/protobuf/" --java_out="src/main/java/" "src/main/protobuf/"internal_vmap.proto
+pause

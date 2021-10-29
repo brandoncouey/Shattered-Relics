@@ -1,0 +1,47 @@
+package com.shattered.game.engine.threads;
+
+import com.shattered.BuildWorld;
+import com.shattered.game.GameWorld;
+import com.shattered.networking.proto.PacketOuterClass;
+import com.shattered.networking.proto.Sharding;
+import com.shattered.networking.session.ext.ChannelSession;
+import com.shattered.system.SystemLogger;
+
+/**
+ * @author JTlr Frost 1/21/2020 : 12:34 AM
+ */
+public class CentralTaskThread extends Thread {
+
+    /**
+     * Represents the Central Server Thread
+     */
+    public CentralTaskThread() {
+        setPriority(Thread.MAX_PRIORITY);
+        setName("Central Task Thread");
+    }
+
+
+    @Override
+    public void run() {
+        while (!BuildWorld.getInstance().getEngine().isShuttingDown()) {
+            try {
+                Thread.sleep(30000);// 30 seconds - MUST sleep first otherwise null-pointers will occur.
+                BuildWorld.getInstance().getNetwork().getCentralSession().sendMessage(PacketOuterClass.Opcode.S_WorldInformation, Sharding.WorldInformation.newBuilder().
+                        setCuuid(BuildWorld.getInstance().getNetwork().getConnectionUuid()).
+                        setName(GameWorld.WORLD_NAME).setLocation(GameWorld.WORLD_LOCATION).
+                        setType(GameWorld.WORLD_TYPE).setPopulation(GameWorld.getPopulation()).
+                        build());
+
+               if (!BuildWorld.getInstance().getNetwork().hasChannelSession() && BuildWorld.getInstance().getNetwork().hasCentralSession()) {
+                    BuildWorld.getInstance().getNetwork().getCentralSession().sendMessage(PacketOuterClass.Opcode.S_RequestConnectionInfo, Sharding.RequestConnectionInfo.newBuilder().setToken(ChannelSession.CHANNEL_TOKEN).build());
+                   SystemLogger.sendSystemMessage("Attempting to request a Channel Server...");
+               }
+
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+}

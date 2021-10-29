@@ -1,0 +1,8 @@
+rootProject.name = 'com.shattered'
+include ':common'
+include ':central'
+include ':proxy'
+include ':realm'
+include ':channel'
+include ':world'
+

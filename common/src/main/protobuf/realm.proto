@@ -1,0 +1,81 @@
+syntax = "proto3";
+package shattered.protocol;
+option java_package = "com.shattered.networking.proto";
+option cc_enable_arenas = true;
+
+
+//+ue:exclude
+message AccountInformation {
+    int32 level = 1;
+    string name = 2;
+    string world = 3;
+    int32 index = 4;
+}
+
+//+ustruct:BlueprintType
+message CharacterInformation {
+    string name = 1;
+    string location = 2;
+    bool male = 3;
+    int32 race = 5;// << 5 color
+    int32 hair_style = 6;// << 5 color
+    int32 eye_color = 7;
+    int32 eyebrow_style = 8;// << 5 color
+    int32 beard_style = 9;// << 5 color
+
+    int32 head_slot_id = 10;
+    int32 necklace_slot_id = 11;
+    int32 shoulders_slot_id = 12;
+    int32 back_slot_id = 13;
+    int32 chest_slot_id = 14;
+    int32 belt_slot_id = 15;
+    int32 pants_slot_id = 16;
+    int32 wrists_slot_id = 17;
+    int32 gloves_slot_id = 18;
+    int32 mainhand_slot_id = 19;
+    int32 offhand_slot_id = 20;
+    int32 boots_slot_id = 21;
+}
+
+message CreateCharacterRequest {
+    string character_name = 1;
+    bool male = 2;
+    int32 body_color = 3;
+    int32 hair_style = 4;// << 5 color
+    int32 eye_color = 5;
+    int32 eyebrow_style = 6;// << 5 color
+    int32 beard_style = 7;// << 5 color
+}
+
+//+ustruct:BlueprintType
+message CharacterCreationResponse {
+    //+uproperty:EditAnywhere, BlueprintReadWrite
+    int32 response_id = 1;
+}
+
+//+ustruct:BlueprintType
+message UpdateRealmList {
+
+    //+ustruct:BlueprintType
+    message WorldEntry {
+        //+uproperty:EditAnywhere, BlueprintReadOnly
+        int32 index = 1;
+        //+uproperty:EditAnywhere, BlueprintReadWrite
+        string name = 2;
+        //+uproperty:EditAnywhere, BlueprintReadWrite
+        string location = 3;
+        //+uproperty:EditAnywhere, BlueprintReadWrite
+        string type = 4;
+        //+uproperty:EditAnywhere, BlueprintReadWrite
+        string population = 5;
+    }
+    //+uproperty:EditAnywhere, BlueprintReadWrite
+    repeated WorldEntry entry = 1;
+}
+
+
+//+ue:exclude
+message WorldLoginRequest {
+    int32 world_index = 1;
+    string character_name = 2;
+}

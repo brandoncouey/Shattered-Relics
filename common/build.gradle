@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+}
+
+group 'relic-core'
+version '0.0.7'
+
+sourceCompatibility = 1.8
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+
+        flatDir {
+            dirs 'libs'
+        }
+    }
+
+
+dependencies {
+    compile files(fileTree(dir: 'libs', includes: ['*.jar']))
+    compileOnly 'org.projectlombok:lombok:1.18.8'
+    annotationProcessor 'org.projectlombok:lombok:1.18.8'
+    compile 'io.netty:netty-all:4.1.27.Final'
+    compile 'com.google.protobuf:protobuf-javalite:3.13.0'
+    compile 'com.google.protobuf:protobuf-java-util:3.10.0'
+    compile 'mysql:mysql-connector-java:5.1.27'
+}
+
+task packageCore(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Jar File Example',
+                'Implementation-Version': version
+    }
+    baseName = project.name + '-all'
+    from configurations.runtime.collect { zipTree(it) }
+    with jar
+}

@@ -1,0 +1,280 @@
+syntax = "proto3";
+package shattered.protocol;
+option java_package = "com.shattered.networking.proto";
+option cc_enable_arenas = true;
+
+/**
+* Shattered Relics - Protocol wrapper.
+* Uppercase = World -> Client | Realm -> Client | Client -> Realm | Client -> World | Client -> Proxy | Proxy -> Client
+* Lowercase = Server to Server related packets
+* P_ = Proxy
+* U_ = Universal
+* S_ = Shard
+* C_ = Channel
+* CMSG = Client Message
+* SMSG = Server Message
+*/
+
+enum Opcode {
+    INVALID_OPCODE = 0; // After hours of contemplating ripping my hair out, opcode 0 on an empty packet results in a zero length packet, and is therefore ignored.
+
+    //Universal Packets
+    U_Messages = 1;
+    U_Ping = 2;
+    U_ServerPerformance = 3;
+    reserved 4 to 26;
+    U_EO_Messages = 27;
+
+    //Proxy Packets
+    Proxy_Messages = 28;
+    P_OpenConnection = 29;
+    P_CloseConnection = 30;
+    P_ServerAvailability = 31;
+    P_TransmitAccount = 32;
+    P_RequestRealm = 33;
+    P_TransferConnection = 34;
+    P_ServerTransferResponse = 35;
+    P_RequestNewTransferConnection = 36;
+    P_TransferToWorld = 37;
+    P_TransferToRealm = 38;
+    P_TransferWorldToRealm = 39;
+    P_WorldCharacterInformation = 40;
+    reserved 41 to 50;
+    Proxy_EO_Messages = 51;
+
+    //Sharding Packets (Central)
+    Sharding_Messages = 52;
+    S_Register = 53;
+    S_Unregister = 54;
+    S_ConnectionInfo = 55;
+    S_RequestConnectionInfo = 56;
+    S_OpenConnection = 57;
+    S_WorldInformation = 58;
+    S_UpdateWorldList = 59;
+    S_UpdateWorldEntry = 60;
+    reserved 61 to 75;
+    Sharding_EO_Messages = 76;
+
+    //Channel Messages (Shared between (world/realm) and channel)
+    Channel_Messages = 77;
+    C_Register_Player = 78;
+    C_Unregister_Player = 79;
+    C_OnlineStatus_Player = 80;
+    C_OfflineStatus_Player = 81;
+    C_LocationStatus = 82;
+    C_Friends_List = 83;
+    C_AddFriend = 84;
+    C_RemoveFriend = 85;
+    C_AddIgnore = 86;
+    C_RemoveIgnore = 87;
+    C_PrivateMessage = 88;
+    reserved 89 to 100;
+    Channel_EO_Messages = 101;
+
+    //Shared Messages (Shared between realm and world)
+    Shared_Messages = 102;
+    SMSG_CONNECTED = 103;
+    SMSG_DISCONNECTED = 104;
+    SMSG_ACCOUNT_INFORMATION = 105;
+    CMSG_LOGIN_REQUEST = 106;
+    SMSG_LOGIN_RESPONSE = 107;
+    CMSG_REQUEST_LOGOUT = 108;
+    SMSG_LOGOUT = 109;
+    SMSG_LOGOUT_WITH_RESPONSE = 110;
+    CMSG_REQUEST_FRIENDS = 111;
+    CMSG_FRIENDS_LIST = 112;
+    CMSG_PRIVATE_MESSAGE = 113;
+    SMSG_PRIVATE_MESSAGE = 114;
+    SMSG_FRIENDS_LIST = 115;
+    SMSG_UPDATE_FRIEND = 116;
+    CMSG_ADD_FRIEND = 117;
+    CMSG_REMOVE_FRIEND = 118;
+    CMSG_IGNORE_CHARACTER = 119;
+    CMSG_SET_ONLINE_STATUS = 120;
+    CMSG_SET_PUBLIC_STATUS = 121;
+    SMSG_SET_SOCIAL_STATUS = 122;
+    CMSG_REQUEST_BUTTON_HANDLE = 123;
+    SMSG_SET_WIDGET_PARAM_STR = 124;
+    SMSG_SET_WIDGET_PARAM_INT = 125;
+    SMSG_SET_WIDGET_PARAM_BOOL = 126;
+    reserved 127 to 150;
+    Shared_EO_Messages = 151;
+
+    //Shattered Realm Messages
+    Shattered_Realm_Messages = 152;
+    CMSG_REALM_LOADED = 153;
+    CMSG_REQUEST_REALM_LIST = 154;
+    SMSG_UPDATE_REALM_LIST = 155;
+    CMSG_REQUEST_CHARACTER_INFORMATION = 156;
+    SMSG_CHARACTER_INFORMATION = 157;
+    SMSG_CREATE_CHARACTER = 158;
+    CMSG_CREATE_CHARACTER_REQUEST = 159;
+    SMSG_CHARACTER_CREATION_RESPONSE = 160;
+    CMSG_WORLD_LOGIN_REQUEST = 161;
+    SMSG_WORLD_LOGIN_TRANSFER = 162;
+    reserved 163 to 250;
+    Shattered_Realm_EO_Messages = 251;
+
+    //Shattered World Messages
+    Shattered_World_Messages = 252;
+    CMSG_WORLD_LOADED = 253;
+    CMSG_CHARACTER_READY = 254;
+    SMSG_WORLD_READY = 255;
+    CMSG_TRANSFORM_UPDATE = 256;
+
+    SMSG_CHARACTER_SYNCHRONIZE = 257;
+    SMSG_NPC_SYNCHRONIZE = 258;
+    SMSG_OBJECT_SYNCHRONIZE = 259;
+    UNSET_FIELD = 260;
+
+
+    SMSG_TRANSFER_WORLDS = 261;
+
+    CMSG_CHAT_MESSAGE = 262;
+    SMSG_CHAT_MESSAGE = 263;
+    SMSG_GAME_MESSAGE = 264;
+
+    CMSG_NPC_INTERACTION = 265;
+    CMSG_OBJECT_INTERACTION = 266;
+    CMSG_CHARACTER_INTERACTION = 267;
+
+    //Containers
+    CMSG_SHIFT_CONTAINER_SLOT = 268;
+    CMSG_SHIFT_CONTAINER_SLOT_TO_WIDGET = 269;
+    SMSG_UPDATE_ITEM_CONTAINER_FULL = 270;
+    SMSG_UPDATE_ITEM_CONTAINER_SLOT = 271;
+    CMSG_USE_ITEM_CONTAINER_SLOT = 272;
+    CMSG_USE_ABILITY_CONTAINER_SLOT = 273;
+
+    //unset fields
+    reserved 274 to 279;
+
+    SMSG_PLAY_SOUND_EFFECT = 280;
+    SMSG_PLAY_SOUND_EFFECT_AT_LOC = 281;
+    SMSG_PLAY_SOUND_TRACK = 282;
+
+    SMSG_SPAWN_PROJECTILE = 283;
+    SMSG_SPAWN_EMITTER = 284;
+
+    SMSG_CHAR_VAR_INT = 285;
+    SMSG_CHAR_VAR_STRING = 286;
+    SMSG_CHAR_VAR_BOOL = 287;
+
+    SMSG_CHAR_TVAR_INT = 288;
+    SMSG_CHAR_TVAR_STRING = 289;
+    SMSG_CHAR_TVAR_BOOL = 290;
+
+    //Sets Local Character Variables
+    SMSG_LCHARACTER_VAR_INT = 291;
+    SMSG_LCHARACTER_VAR_STRING = 292;
+    SMSG_LCHARACTER_VAR_BOOL = 293;
+
+    SMSG_LCHARACTER_TVAR_INT = 294;
+    SMSG_LCHARACTER_TVAR_STRING = 295;
+    SMSG_LCHARACTER_TVAR_BOOL = 296;
+
+    SMSG_LNPC_VAR_INT = 297;
+    SMSG_LNPC_VAR_STRING = 298;
+    SMSG_LNPC_VAR_BOOL = 299;
+    SMSG_LNPC_TVAR_INT = 300;
+    SMSG_LNPC_TVAR_STRING = 301;
+    SMSG_LNPC_TVAR_BOOL = 302;
+
+    SMSG_DIALOG = 303;
+    SMSG_OPTION_DIALOG = 304;
+    CMSG_DIALOG_OPTION = 305;
+    UNSET_FIELD_4 = 306;
+
+    SMSG_CREATE_WIDGET = 307;
+    SMSG_DESTRUCT_WIDGET = 308;
+    SMSG_SHOW_WIDGET = 309;
+    SMSG_HIDE_WIDGET = 310;
+
+    SMSG_SET_MARKER_ON_NPC = 311;
+    SMSG_SET_MARKER_ON_OBJECT = 312;
+    SMSG_SET_MARKER_ON_CHARACTER = 313;
+    SMSG_UPDATE_MARKER_ON_NPC = 314;
+    SMSG_UPDATE_MARKER_ON_OBJECT = 315;
+    SMSG_UPDATE_MARKER_ON_CHARACTER = 316;
+    SMSG_REMOVE_MARKER_ON_NPC = 317;
+    SMSG_REMOVE_MARKER_ON_OBJECT = 318;
+    SMSG_REMOVE_MARKER_ON_CHARACTER = 319;
+
+
+    UNSET_FIELD_11 = 320;
+    UNSET_FIELD_12 = 321;
+    UNSET_FIELD_13 = 322;
+    CMSG_OFFER_COINS = 323;
+    CMSG_REQUEST_VENDOR_PURCHASE = 324;
+    SMSG_DISPLAY_ACTOR_WARNING_MESSAGE = 325;
+    SMSG_DISPLAY_ZONE_NOTIFICATION = 326;
+
+    SMSG_DISPLAY_ACTION_PROGRESS_BAR = 327;
+    SMSG_DISPLAY_COOLDOWN_TIMER = 328;
+    SMSG_ADUP_BUFF = 329;
+    SMSG_REMOVE_BUFF = 330;
+    SMSG_DISPLAY_CAST_TIME = 331;
+    SMSG_CANCEL_CAST = 332;
+
+    SMSG_REVERSE_MOVEMENT_CONTROLS = 333;
+    CMSG_REQUEST_WEAPON_SWAP = 334;
+
+    CMSG_REQUEST_STOP_ACTION = 336;
+    CMSG_REQUEST_ROLL = 337;
+    CMSG_REQUEST_ABILITY = 338;
+    CMSG_SELECT_AREA_TELEGRAPH = 339;
+    SMSG_SPAWN_PROJECTILE_FOR_ACTOR = 340;
+    SMSG_CANCEL_HPROJECTILE = 341;
+    SMSG_PLAY_MONTAGE = 342;
+    CMSG_SET_TARGET = 343;
+    SMSG_CLEAR_TARGET = 344;
+    SMSG_ADD_PARTY_MEMBER = 345;
+    SMSG_REMOVE_PARTY_MEMBER = 346;
+    SMSG_UPDATE_PARTY_MEMBER = 347;
+    SMSG_PARTY_INVITE = 348;
+    UNSET_FIELD_23 = 349;
+    UNSET_FIELD_24 = 350;
+
+    SMSG_ACCEPT_QUEST = 351;
+    SMSG_QUEST_ENTRY = 352;
+    SMSG_QUEST_LOG = 354;
+
+
+    SMSG_SEND_ACCEPT_JOB = 355;
+    SMSG_SEND_JOB_INFO = 356;
+
+    SMSG_COMBAT_LEVEL_NOTIFICATION = 357;
+    SMSG_LEARNED_NOTIFICATION = 358;
+    SMSG_QUEST_COMPLETED_NOTIFICATION = 359;
+    SMSG_QUEST_DISCOVERED_NOTIFICATION = 360;
+    SMSG_REPUTATION_GAINED_NOTIFICATION = 361;
+    SMSG_REPUTATION_LEVELUP_NOTIFICATION = 362;
+    SMSG_STAT_MASTERY_NOTIFICATION = 363;
+    SMSG_TRADE_MASTERY_NOTIFICATION = 364;
+    SMSG_STAT_XP_NOTIFICATION = 365;
+    SMSG_TRADE_XP_NOTIFICATION = 366;
+    SMSG_ENTERED_AREA_NOTIFICATION = 367;
+    SMSG_DISCOVERED_AREA_NOTIFICATION = 368;
+    SMSG_ITEM_REWARD_NOTIFICATION = 369;
+
+    CMSG_AUTO_ATTACK = 370;
+    CMSG_IS_AIMBLOCKING = 371;
+    CMSG_NOT_AIMBLOCKING = 372;
+    CMSG_TOGGLE_SHEATHE = 373;
+
+    reserved 374 to 400;
+    Shattered_World_EO_Messages = 401;
+
+}
+
+
+message Packet {
+    Opcode opcode = 1;
+    bytes payload = 2;
+}
+
+message EmptyPayload {}
+message StringPayload {
+    string payload = 1;
+}
+
