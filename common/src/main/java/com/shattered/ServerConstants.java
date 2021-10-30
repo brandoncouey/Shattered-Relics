@@ -41,7 +41,6 @@ public class ServerConstants {
      */
     public static boolean LIVE_DB = false;
 
-
     /**aaaa
      * Represents the AWS Central Host
      */
