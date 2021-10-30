@@ -2,7 +2,7 @@ FROM openjdk:8
 
 ADD build/libs/channel-*.jar .
 
-ENV index = 1
+ENV index = "1"
 
 ENV live = "true"
 
