@@ -154,7 +154,7 @@ public class GameRealm {
             if (getWorldList().contains(entry))
                 return;
             getWorldList().add(entry);
-            SystemLogger.sendSystemMessage("GameRealm -> Successfully Registered Entry {cuuid=" + entry.getConnectionUuid()+ ", name=" + entry.getName() + ", host=" + entry.getSocket().getAddress().toString() + "}");
+            SystemLogger.sendSystemMessage("GameRealm -> Successfully Registered Entry {cuuid=" + entry.getConnectionUuid()+ ", index=" + entry.getId() + ", name=" + entry.getName() + ", host=" + entry.getSocket().getAddress().toString() + "}");
         }
     }
 
