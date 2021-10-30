@@ -89,7 +89,7 @@ public interface MySQLFetch {
 
 		result = database.execute(databaseName, select).getResultSet();
 
-		/*try {
+		try {
 
 			result.last();
 			result.getRow();
@@ -97,7 +97,7 @@ public interface MySQLFetch {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}*/
+		}
 		return result;
 	}
 
