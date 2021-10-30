@@ -4,7 +4,7 @@ ADD build/libs/world-*.jar .
 
 COPY repository/ repository/
 
-ENV index = 1
+ENV index = "1"
 
 ENV name = "Development"
 
