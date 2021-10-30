@@ -39,7 +39,7 @@ public class ServerConstants {
     /**
      * Represents if Live DB
      */
-    public static boolean LIVE_DB = false;
+    public static boolean LIVE_DB = true;
 
 
     /**aaaa
