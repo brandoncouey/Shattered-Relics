@@ -113,7 +113,7 @@ public class GameWorld {
         WORLD_LOCATION = worldLocation;
         WORLD_TYPE = worldType;
 
-        try {
+        /*try {
             WidgetEventRepository.parseRepository();
             //ScriptManager.init(false); TODO we need to make this load non jar files
             ScriptLoader.init();
@@ -123,7 +123,7 @@ public class GameWorld {
             GridNodeBuilder.parseLocationPoints();
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
         WORLD_STATE = WorldState.LOADED;
 
     }

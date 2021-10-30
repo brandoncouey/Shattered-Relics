@@ -25,6 +25,8 @@ import com.shattered.system.SystemLogger;
 import io.netty.channel.ChannelFuture;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 
 /**
@@ -50,6 +52,10 @@ public class BuildWorld extends Build {
      */
     private ClientRegistering clientRegistry;
 
+    @Getter
+    @Setter
+    private int index;
+
 
     /**
      *
@@ -66,11 +72,7 @@ public class BuildWorld extends Build {
 
         //Represents the Port Index Increment
         int portIndex = Integer.parseInt(args[0]);
-
-        if (portIndex != 1) {
-            getInstance().getNetwork().setPortIndex(1);
-            System.out.println("WE HAD TO FORCE PORT INDEX TO !");
-        }
+        getInstance().getNetwork().setPortIndex(portIndex);
 
         //Represents the World Name
         String name = String.valueOf(args[1]);

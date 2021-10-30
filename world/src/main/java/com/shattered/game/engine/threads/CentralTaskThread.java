@@ -20,7 +20,6 @@ public class CentralTaskThread extends Thread {
      * Represents the Central Server Thread
      */
     public CentralTaskThread() {
-        setPriority(Thread.MAX_PRIORITY);
         setName("Central Task Thread");
     }
 
@@ -37,13 +36,15 @@ public class CentralTaskThread extends Thread {
                 }
 
                 if (BuildWorld.getInstance().getNetwork().hasCentralSession()) {
-                    BuildWorld.getInstance().getNetwork().getCentralSession().sendMessage(PacketOuterClass.Opcode.S_WorldInformation, Sharding.WorldInformation.newBuilder().
-                            setCuuid(BuildWorld.getInstance().getNetwork().getConnectionUuid()).
-                            setIndex(BuildWorld.getInstance().getNetwork().getPortIndex()).
-                            setName(GameWorld.WORLD_NAME).setLocation(GameWorld.WORLD_LOCATION).
-                            setType(GameWorld.WORLD_TYPE).setPopulation(GameWorld.getPopulation()).
-                            build());
-                    System.out.println("Sending with index: " + BuildWorld.getInstance().getNetwork().getPortIndex());
+                    if (BuildWorld.getInstance().getNetwork().getPortIndex() != 0) {
+                        BuildWorld.getInstance().getNetwork().getCentralSession().sendMessage(PacketOuterClass.Opcode.S_WorldInformation, Sharding.WorldInformation.newBuilder().
+                                setCuuid(BuildWorld.getInstance().getNetwork().getConnectionUuid()).
+                                setIndex(BuildWorld.getInstance().getNetwork().getPortIndex()).
+                                setName(GameWorld.WORLD_NAME).setLocation(GameWorld.WORLD_LOCATION).
+                                setType(GameWorld.WORLD_TYPE).setPopulation(GameWorld.getPopulation()).
+                                build());
+                        System.out.println("Sending with index: " + BuildWorld.getInstance().getNetwork().getPortIndex());
+                    }
                 }
 
                if (!BuildWorld.getInstance().getNetwork().hasChannelSession() && BuildWorld.getInstance().getNetwork().hasCentralSession()) {
