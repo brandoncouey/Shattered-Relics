@@ -71,7 +71,6 @@ public class RealmListManagerComponent extends Component {
                     world.setPopulation(entry.getPopulation());
                     world.build();
                     builder.addEntry(world);
-                    System.out.println("ADDING LIST WITH ID:" + entry.getId());
                 }
                 builder.getEntryList().forEach(e -> System.out.println(e.getIndex()));
                 account.sendMessage(PacketOuterClass.Opcode.SMSG_UPDATE_REALM_LIST, builder.build());

@@ -203,7 +203,6 @@ public class BuildRealm extends Build {
             @Override
             public void handle(Sharding.UpdateWorldEntry message, Session session) {
                 WorldListEntry entry = GameRealm.forUuid(message.getEntry().getConnUuid());
-                System.out.println("We are receiving more fkn entries : " + message.getEntry().getIndex());
                 if (message.getEntry().getIndex() != -1) {
                     WorldListEntry updatedEntry = new WorldListEntry(message.getEntry().getConnUuid(), message.getEntry().getIndex(), message.getEntry().getName(), message.getEntry().getLocation(), message.getEntry().getType(), message.getEntry().getPopulation(), new InetSocketAddress(message.getEntry().getHost(), message.getEntry().getPort()));
                     if (entry == null)

@@ -133,13 +133,7 @@ public class PlayerCombatComponent extends CharacterCombatComponent {
              */
             @Override
             public void handle(PacketOuterClass.EmptyPayload message, Player player) {
-                if (message == null)
-                    System.out.println("oh fuck");
-                if (player == null)
-                    System.out.println("oh fuck me harder");
                 PlayerCombatComponent combat = (PlayerCombatComponent) player.component(CharacterComponents.COMBAT);
-                if (combat == null)
-                    System.out.println("hmmm");
                 combat.onAutoAttack();
                 /*try {
                     PlayerCombatComponent combat = (PlayerCombatComponent) player.component(CharacterComponents.COMBAT);
@@ -256,12 +250,6 @@ public class PlayerCombatComponent extends CharacterCombatComponent {
                 //ScriptManager.useAbility(new PlayerAPI(getPlayer()), "quickfire");
                 // getPlayer().component(CharacterComponents.COMBAT).sendProjectile("arrow", getPlayer().component(CharacterComponents.COMBAT).getTarget(), 3, 300.f);
 
-                if (getPlayer() == null)
-                    System.out.println("oh no");
-                if (getPlayer().component(CharacterComponents.COMBAT) == null)
-                    System.out.println("oh what the fuck");
-                if (getPlayer().component(CharacterComponents.COMBAT).getTarget() == null)
-                    System.out.println("HMMMMM");
                 getPlayer().component(CharacterComponents.COMBAT).hitCharacter(getPlayer().component(CharacterComponents.COMBAT).getTarget(), 30, 0f, null);
                 /*if (getPlayer().component(CharacterComponents.COMBAT).getTarget() != null) {
                     getPlayer().component(CharacterComponents.COMBAT).hitCharacter(getPlayer().component(CharacterComponents.COMBAT).getTarget(), 30, 0f, null);

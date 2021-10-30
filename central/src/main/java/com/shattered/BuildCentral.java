@@ -64,7 +64,6 @@ public class BuildCentral extends Build {
 
         getInstance().build(ServerType.CENTRAL, "0.0.0.0", ServerConstants.CENTRAL_DEFAULT_PORT);
 
-        System.out.println("WE ARE TESTING THE UPDATEEghkjhgkjhgkjh BITCHES!");
 
         //Starts the Server Responder
         getInstance().getServerTimeoutListener().start();
@@ -266,7 +265,6 @@ public class BuildCentral extends Build {
             public void handle(Sharding.WorldInformation message, Session session) {
                 ServerService server = ServiceConnections.forUUID(message.getCuuid());
                 if (server != null) {
-                    System.out.println("We are receiving a entry with the index : " + message.getIndex());
                     ServiceConnections.registerService(new WorldListEntry(message.getCuuid(), message.getIndex(), message.getName(), message.getLocation(), message.getType(), message.getPopulation(), server.getAddress()));
                 }
             }
