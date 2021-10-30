@@ -125,7 +125,7 @@ public class BankContainer extends Container {
 
     @Override
     public boolean insert() {
-        try {
+        /*try {
             for (int index = 0; index < getItems().length; index++) {
                 List<MySQLColumn> columns = new ArrayList<>();
                 Item item = get(index);
@@ -139,12 +139,13 @@ public class BankContainer extends Container {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return false;*/
         return false;
     }
 
     @Override
     public boolean update() {
-        try {
+        /*try {
             for (int index = 0; index < getItems().length; index++) {
                 List<MySQLColumn> columns = new ArrayList<>();
                 Item item = get(index);
@@ -157,12 +158,13 @@ public class BankContainer extends Container {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return false;*/
         return false;
     }
 
     @Override
     public boolean fetch() {
-        ResultSet resultSet = getResults();
+        /*ResultSet resultSet = getResults();
         try {
             if (!hasResults()) {
                 insert();
@@ -179,7 +181,8 @@ public class BankContainer extends Container {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return true;
+        return true;*/
+        return false;
     }
 
 
