@@ -104,6 +104,7 @@ public class ServiceConnections {
             for (ServerService server : getServices()) {
                 if (server == null) return;
                 if (server.getServerType() != ServerType.REALM) continue;
+                System.out.println("Sending another one with index of :" + entry.getId());
                 NetworkBootstrap.sendPacket(server.getSession().getChannel(), PacketOuterClass.Opcode.S_UpdateWorldEntry, Sharding.UpdateWorldEntry.newBuilder().setEntry(
                         Sharding.UpdateWorldList.Entry.newBuilder().setConnUuid(entry.getConnectionUuid()).setIndex(entry.getId()).setHost(entry.getSocket().getHostName())
                         .setPort(entry.getSocket().getPort()).setName(entry.getName()).setLocation(entry.getLocation()).setType(entry.getType()).setPopulation(entry.getPopulation()).build()

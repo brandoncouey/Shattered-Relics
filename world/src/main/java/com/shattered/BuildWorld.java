@@ -121,6 +121,7 @@ public class BuildWorld extends Build {
 
         //Connects to Central ServerConnections & Registers this Connection
         getInstance().getNetwork().authenticate(ServerType.WORLD, getInstance().getNetwork().connect(ServerConstants.CENTRAL_HOST, ServerConstants.CENTRAL_DEFAULT_PORT), WorldSession.WORLD_TOKEN);
+        System.out.println("WE ARE SENDING ID OF PORT : " + portIndex);
         NetworkBootstrap.sendPacket(getInstance().getNetwork().getCentralSession().getChannel(), PacketOuterClass.Opcode.S_WorldInformation, Sharding.WorldInformation.newBuilder().setCuuid(getInstance().getNetwork().getConnectionUuid()).setName(name).setIndex(portIndex).setLocation(GameWorld.WORLD_LOCATION).setType(GameWorld.WORLD_TYPE).setPopulation(GameWorld.getPopulation()).build());
         SystemLogger.sendSystemMessage("S_WorldInformation -> Registering World Information {cuuid=" + getInstance().getNetwork().getConnectionUuid() + ", name=" + name + "}");
         SystemCommandRepository.startup();
