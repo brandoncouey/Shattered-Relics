@@ -39,6 +39,7 @@ public class CentralTaskThread extends Thread {
                 if (BuildWorld.getInstance().getNetwork().hasCentralSession()) {
                     BuildWorld.getInstance().getNetwork().getCentralSession().sendMessage(PacketOuterClass.Opcode.S_WorldInformation, Sharding.WorldInformation.newBuilder().
                             setCuuid(BuildWorld.getInstance().getNetwork().getConnectionUuid()).
+                            setIndex(BuildWorld.getInstance().getNetwork().getPortIndex()).
                             setName(GameWorld.WORLD_NAME).setLocation(GameWorld.WORLD_LOCATION).
                             setType(GameWorld.WORLD_TYPE).setPopulation(GameWorld.getPopulation()).
                             build());
