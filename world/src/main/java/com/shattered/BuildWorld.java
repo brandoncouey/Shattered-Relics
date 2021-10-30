@@ -72,7 +72,6 @@ public class BuildWorld extends Build {
 
         //Represents the Port Index Increment
         int portIndex = Integer.parseInt(args[0]);
-        getInstance().getNetwork().setPortIndex(portIndex);
 
         //Represents the World Name
         String name = String.valueOf(args[1]);
