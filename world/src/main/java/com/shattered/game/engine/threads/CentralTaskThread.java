@@ -43,6 +43,7 @@ public class CentralTaskThread extends Thread {
                             setName(GameWorld.WORLD_NAME).setLocation(GameWorld.WORLD_LOCATION).
                             setType(GameWorld.WORLD_TYPE).setPopulation(GameWorld.getPopulation()).
                             build());
+                    System.out.println("Sending with index: " + BuildWorld.getInstance().getNetwork().getPortIndex());
                 }
 
                if (!BuildWorld.getInstance().getNetwork().hasChannelSession() && BuildWorld.getInstance().getNetwork().hasCentralSession()) {
