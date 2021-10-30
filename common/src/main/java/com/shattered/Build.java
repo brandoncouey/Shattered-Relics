@@ -59,10 +59,10 @@ public abstract class Build implements ChannelListener {
             if (!type.equals(ServerType.PROXY)) {
                 //Checks if MySQL Should be Enabled # Development Configuration
                 //Initializes the MySQL Database Connection
-                SystemLogger.sendSystemMessage("Connecting to database services... Set=" + (ServerConstants.LIVE_DB ? "LIVE" : "LOCAL" + " services."));
+                SystemLogger.sendSystemMessage("Connecting to database services... Set=" + (ServerConstants.LIVE_DB || ServerConstants.LIVE ? "LIVE" : "LOCAL" + " services."));
                 setGrizzlyDatabase(new MySQLManager(DatabaseConfiguration.GRIZZLY_DATABASES));
                 setShatteredDatabase(new MySQLManager(DatabaseConfiguration.SHATTERED_DATABASES));
-                if (ServerConstants.LIVE_DB) {
+                if (ServerConstants.LIVE_DB || ServerConstants.LIVE) {
                     getGrizzlyDatabase().connect("grizzlyent.cpde7dtfjvvy.us-west-2.rds.amazonaws.com", "admin", "!003786dc");
                     getShatteredDatabase().connect("shatteredrelics.cpde7dtfjvvy.us-west-2.rds.amazonaws.com", "admin", "!003786dc");
                 } else {
