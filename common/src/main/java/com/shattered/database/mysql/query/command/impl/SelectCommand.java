@@ -1,7 +1,8 @@
-package com.shattered.database.mysql.command.impl;
+package com.shattered.database.mysql.query.command.impl;
 
 
-import com.shattered.database.mysql.command.SQLCommand;
+import com.shattered.database.mysql.query.command.SQLCommand;
+import com.shattered.database.mysql.query.options.SQLOption;
 import com.shattered.database.mysql.query.options.impl.LimitClauseOption;
 import com.shattered.database.mysql.query.options.impl.OrderByKeywordOption;
 import com.shattered.database.mysql.query.options.impl.WhereConditionOption;
@@ -24,7 +25,7 @@ public class SelectCommand extends SQLCommand {
             query = query.replace("<RANGE>", String.join(",", range.getColumns()));
         }
 
-        List<WhereConditionOption> conditions = (List<WhereConditionOption>) this.getOptionsByType(WhereConditionOption.class);
+        List<? extends SQLOption> conditions = this.getOptionsByType(WhereConditionOption.class);
         if (conditions.isEmpty()) {
             query = query.replace("<CONDITIONS>", "");
         } else {
@@ -44,7 +45,7 @@ public class SelectCommand extends SQLCommand {
             query = query.replace("<CONDITIONS>", builder.toString());
         }
 
-        List<OrderByKeywordOption> ordering = (List<OrderByKeywordOption>) this.getOptionsByType(OrderByKeywordOption.class);
+        List<? extends SQLOption> ordering = this.getOptionsByType(OrderByKeywordOption.class);
         if (ordering.isEmpty()) {
             query = query.replace("<ORDERING>", "");
         } else {

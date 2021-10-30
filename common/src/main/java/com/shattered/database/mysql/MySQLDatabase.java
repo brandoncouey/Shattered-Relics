@@ -5,7 +5,8 @@
 
 package com.shattered.database.mysql;
 
-import com.shattered.database.mysql.command.impl.SelectCommand;
+
+import com.shattered.database.mysql.query.command.impl.SelectCommand;
 import com.shattered.database.mysql.query.SQLQuery;
 import com.shattered.database.mysql.query.result.QueryResult;
 
@@ -19,10 +20,10 @@ import java.util.Map.Entry;
 public class MySQLDatabase {
     private String name;
     private Connection connection;
-    private MySQLConnectionStatus status;
+    private MySQLDatabase.MySQLConnectionStatus status;
 
     public MySQLDatabase(String name) {
-        this.status = MySQLConnectionStatus.NOT_CONNECTED;
+        this.status = MySQLDatabase.MySQLConnectionStatus.NOT_CONNECTED;
         this.name = name;
     }
 
@@ -30,16 +31,16 @@ public class MySQLDatabase {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             this.connection = DriverManager.getConnection("jdbc:mysql://" + host + "/" + this.getName() + "?zeroDateTimeBehavior=convertToNull", username, password);
-            this.status = MySQLConnectionStatus.CONNECTED;
+            this.status = MySQLDatabase.MySQLConnectionStatus.CONNECTED;
         } catch (ClassNotFoundException | SQLException var5) {
-            this.status = MySQLConnectionStatus.UNABLE_TO_CONNECT;
+            this.status = MySQLDatabase.MySQLConnectionStatus.UNABLE_TO_CONNECT;
         }
 
     }
 
     public QueryResult execute(SQLQuery query) {
         try {
-            if (this.getStatus() != MySQLConnectionStatus.CONNECTED) {
+            if (this.getStatus() != MySQLDatabase.MySQLConnectionStatus.CONNECTED) {
                 return null;
             } else {
                 String constructed = query.construct();
@@ -84,12 +85,12 @@ public class MySQLDatabase {
 
     public void terminate() {
         try {
-            if (this.getStatus() != MySQLConnectionStatus.CONNECTED || this.getConnection() == null || this.getConnection().isClosed()) {
+            if (this.getStatus() != MySQLDatabase.MySQLConnectionStatus.CONNECTED || this.getConnection() == null || this.getConnection().isClosed()) {
                 return;
             }
 
             this.getConnection().close();
-            this.status = MySQLConnectionStatus.NOT_CONNECTED;
+            this.status = MySQLDatabase.MySQLConnectionStatus.NOT_CONNECTED;
         } catch (SQLException var2) {
             var2.printStackTrace();
         }
@@ -104,7 +105,7 @@ public class MySQLDatabase {
         return this.connection;
     }
 
-    public MySQLConnectionStatus getStatus() {
+    public MySQLDatabase.MySQLConnectionStatus getStatus() {
         return this.status;
     }
 

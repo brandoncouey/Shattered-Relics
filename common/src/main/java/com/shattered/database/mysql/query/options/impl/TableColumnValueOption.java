@@ -1,8 +1,8 @@
 package com.shattered.database.mysql.query.options.impl;
 
-import com.shattered.database.mysql.command.impl.InsertCommand;
-import com.shattered.database.mysql.command.impl.UpdateCommand;
-import com.shattered.database.mysql.command.SQLCommand;
+import com.shattered.database.mysql.query.command.impl.InsertCommand;
+import com.shattered.database.mysql.query.command.impl.UpdateCommand;
+import com.shattered.database.mysql.query.command.SQLCommand;
 import com.shattered.database.mysql.query.options.SQLOption;
 
 import java.util.List;

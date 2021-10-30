@@ -1,7 +1,8 @@
-package com.shattered.database.mysql.command.impl;
+package com.shattered.database.mysql.query.command.impl;
 
 
-import com.shattered.database.mysql.command.SQLCommand;
+import com.shattered.database.mysql.query.command.SQLCommand;
+import com.shattered.database.mysql.query.options.SQLOption;
 import com.shattered.database.mysql.query.options.impl.TableColumnValueOption;
 
 import java.util.Iterator;
@@ -15,7 +16,7 @@ public class InsertCommand extends SQLCommand {
     public String construct() {
         String query = this.getQuery();
         query = query.replace("<TABLE>", this.getTable());
-        List<TableColumnValueOption> columns = (List<TableColumnValueOption>) this.getOptionsByType(TableColumnValueOption.class);
+        List<? extends SQLOption> columns = this.getOptionsByType(TableColumnValueOption.class);
         if (columns.isEmpty()) {
             return null;
         } else {

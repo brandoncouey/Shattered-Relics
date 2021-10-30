@@ -1,17 +1,17 @@
 package com.shattered.database.mysql.query.options.impl;
 
 
-import com.shattered.database.mysql.command.SQLCommand;
-import com.shattered.database.mysql.command.impl.SelectCommand;
+import com.shattered.database.mysql.query.command.SQLCommand;
+import com.shattered.database.mysql.query.command.impl.SelectCommand;
 import com.shattered.database.mysql.query.options.SQLOption;
 
 import java.util.List;
 
 public class OrderByKeywordOption extends SQLOption {
     private String name;
-    private OrderByDirection direction;
+    private OrderByKeywordOption.OrderByDirection direction;
 
-    public OrderByKeywordOption(String name, OrderByDirection direction) {
+    public OrderByKeywordOption(String name, OrderByKeywordOption.OrderByDirection direction) {
         this.name = name;
         this.direction = direction;
     }
@@ -29,7 +29,7 @@ public class OrderByKeywordOption extends SQLOption {
         return this.name;
     }
 
-    public OrderByDirection getDirection() {
+    public OrderByKeywordOption.OrderByDirection getDirection() {
         return this.direction;
     }
 

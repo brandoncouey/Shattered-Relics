@@ -1,12 +1,15 @@
-package com.shattered.database.mysql.command.impl;
+package com.shattered.database.mysql.query.command.impl;
 
 
-import com.shattered.database.mysql.command.SQLCommand;
+import com.shattered.database.mysql.query.command.SQLCommand;
+import com.shattered.database.mysql.query.options.SQLOption;
 import com.shattered.database.mysql.query.options.impl.WhereConditionOption;
 
 import java.util.List;
 
 public class DeleteCommand extends SQLCommand {
+
+
     public DeleteCommand(String table) {
         super(table);
     }
@@ -14,7 +17,7 @@ public class DeleteCommand extends SQLCommand {
     public String construct() {
         String query = this.getQuery();
         query = query.replace("<TABLE>", this.getTable());
-        List<WhereConditionOption> conditions = (List<WhereConditionOption>) this.getOptionsByType(WhereConditionOption.class);
+        List<? extends SQLOption> conditions = this.getOptionsByType(WhereConditionOption.class);
         if (!conditions.isEmpty()) {
             StringBuilder builder = new StringBuilder();
             builder.append("WHERE ");

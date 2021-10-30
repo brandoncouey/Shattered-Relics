@@ -1,7 +1,7 @@
 package com.shattered.database.mysql;
 
 import com.shattered.Build;
-import com.shattered.database.mysql.command.impl.SelectCommand;
+import com.shattered.database.mysql.query.command.impl.SelectCommand;
 import com.shattered.database.mysql.query.options.impl.WhereConditionOption;
 import com.shattered.database.DatabaseService;
 import com.shattered.system.SystemLogger;

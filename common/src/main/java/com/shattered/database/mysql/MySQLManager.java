@@ -1,7 +1,7 @@
 package com.shattered.database.mysql;
 
 import com.shattered.database.DatabaseService;
-import com.shattered.database.mysql.command.SQLCommand;
+import com.shattered.database.mysql.query.command.SQLCommand;
 import com.shattered.database.mysql.query.result.QueryResult;
 import com.shattered.system.SystemLogger;
 

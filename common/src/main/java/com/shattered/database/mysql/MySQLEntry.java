@@ -1,12 +1,12 @@
 package com.shattered.database.mysql;
 
 import com.shattered.Build;
-import com.shattered.database.mysql.command.impl.InsertCommand;
-import com.shattered.database.mysql.command.impl.UpdateCommand;
+import com.shattered.database.mysql.query.command.impl.InsertCommand;
+import com.shattered.database.mysql.query.command.impl.UpdateCommand;
 import com.shattered.database.mysql.query.options.impl.TableColumnValueOption;
 import com.shattered.database.mysql.query.options.impl.WhereConditionOption;
-import com.shattered.database.mysql.command.impl.DeleteCommand;
-import com.shattered.database.mysql.command.impl.SelectCommand;
+import com.shattered.database.mysql.query.command.impl.DeleteCommand;
+import com.shattered.database.mysql.query.command.impl.SelectCommand;
 import com.shattered.database.mysql.query.result.QueryResult;
 
 import java.sql.ResultSet;

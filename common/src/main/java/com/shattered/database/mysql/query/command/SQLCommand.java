@@ -1,4 +1,4 @@
-package com.shattered.database.mysql.command;
+package com.shattered.database.mysql.query.command;
 
 
 import com.shattered.database.mysql.query.SQLQuery;
