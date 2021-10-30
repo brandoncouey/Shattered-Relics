@@ -62,7 +62,7 @@ public interface MySQLFetch {
 
 		result = database.execute(getDatabaseName(), select).getResultSet();
 
-		try {
+		/*try {
 
 			result.last();
 			result.getRow();
@@ -70,12 +70,12 @@ public interface MySQLFetch {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
+		}*/
 		return result;
 	}
 
 	default ResultSet getResults(String databaseName, String tableName, WhereConditionOption[] conditions) {
-		ResultSet result = null;
+		ResultSet result;
 		final MySQLManager database = getSelectedFetchDatabase(databaseName);
 
 		if (!database.isConnected(databaseName)) {
@@ -87,10 +87,9 @@ public interface MySQLFetch {
 		if (conditions != null)
 			select.addOptions(conditions);
 
-
 		result = database.execute(databaseName, select).getResultSet();
 
-		try {
+		/*try {
 
 			result.last();
 			result.getRow();
@@ -98,7 +97,7 @@ public interface MySQLFetch {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
+		}*/
 		return result;
 	}
 
