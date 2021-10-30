@@ -109,8 +109,4 @@ stages:
               script: |
                 docker run -d --name proxy -p 18550:18550/tcp -e "index=1" -e "live=true" grizzlyentertainment.azurecr.io/proxy:latest
 
-          - task: CmdLine@2
-            inputs:
-              script: |
-                docker run -d --name valjar -p 18851:18851/tcp -e "index=1" -e "name=Valjar" -e "location=United-States" -e "type=Normal" -e "live=true" grizzlyentertainment.azurecr.io/world:latest
-
+      
