@@ -33,6 +33,11 @@ public class  RealmCharacterManagerComponent extends Component {
     @Setter
     private PlayerInformation characterInformation;
 
+    /**
+     * Represents the Default Map Name
+     */
+    private static final String DEFAULT_MAP_NAME = "NetworkingTest";
+
 
     /**
      * Creates a new constructor setting the {@link Account}
@@ -89,7 +94,7 @@ public class  RealmCharacterManagerComponent extends Component {
                         return;
                     }
 
-                    ResultSet name = getResults(getDatabaseName(), getTableName(), new WhereConditionOption[]{new WhereConditionOption("name", characterName)});
+                    ResultSet name = getResults(getDatabaseName(), getTableName(), new WhereConditionOption[] { new WhereConditionOption("name", characterName) });
 
                     if (name.next()) {
                         account.sendMessage(PacketOuterClass.Opcode.SMSG_CHARACTER_CREATION_RESPONSE, Realm.CharacterCreationResponse.newBuilder().setResponseId(CharacterCreationResponse.NAME_IN_USE.ordinal()).build());
@@ -169,7 +174,7 @@ public class  RealmCharacterManagerComponent extends Component {
             if (results.next()) {
                 int id = results.getInt("id");
                 String name = results.getString("name");
-                setCharacterInformation(new PlayerInformation(id, name, ""));
+                setCharacterInformation(new PlayerInformation(id, name, "Unavailable"));
             }
 
             Realm.CharacterInformation.Builder modelInformation = Realm.CharacterInformation.newBuilder();
@@ -194,7 +199,6 @@ public class  RealmCharacterManagerComponent extends Component {
                 modelInformation.setEyebrowStyle(eyebrowStyle << 5 | eyebrowColor);
                 modelInformation.setEyeColor(eyeColor);
                 modelInformation.setBeardStyle(beardStyle << 5 | beardColor);
-
             }
 
             ResultSet equipmentResults = getResults(getDatabaseName(), "equipment", new WhereConditionOption[] { new WhereConditionOption("character_id",  getCharacterInformation().getId())});
@@ -223,6 +227,14 @@ public class  RealmCharacterManagerComponent extends Component {
             }
 
             getCharacterInformation().setModelInformation(modelInformation);
+
+            ResultSet zoneResult = getResults(getDatabaseName(), "zone", new WhereConditionOption[] { new WhereConditionOption("characterId", getCharacterInformation().getId()) });
+            String mapName = "";
+
+            if (zoneResult.next()) {
+                mapName = zoneResult.getString("map");
+            }
+            getCharacterInformation().setMapName(mapName.isEmpty() ? DEFAULT_MAP_NAME : mapName);
             return true;
         } catch (Exception e) {
             e.printStackTrace();

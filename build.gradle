@@ -38,7 +38,7 @@ subprojects {
 }
 
 task jarAll {
-    def servers = [ "central", "channel", "realm", "proxy", "world" ]
+    def servers = [ "central", "channel", "realm", "proxy"]
     servers.each { dependsOn("$it:packageServer") }
         doLast {
         }
@@ -46,7 +46,7 @@ task jarAll {
 }
 
 task runAll {
-    def servers = ["central", "channel", "realm", "proxy", "world"]
+    def servers = ["central", "channel", "realm", "proxy"]
     servers.each { dependsOn("$it:run") }
         doLast {
         }

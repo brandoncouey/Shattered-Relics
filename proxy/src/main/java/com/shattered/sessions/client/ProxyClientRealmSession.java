@@ -75,11 +75,12 @@ public class ProxyClientRealmSession extends RealmSession {
                         String accountName = message.getAccountName();
                         int characterId = message.getCharacterId();
                         String characterName = message.getCharacterName();
+                        String mapName = message.getMapName();
                         String password = message.getPassword();
                         String connectionUuid = message.getCuuid();
                         ProxyClientRealmSession realmSession = (ProxyClientRealmSession) session;
                         realmSession.getProxyClientSession().connect(ServerType.WORLD, message.getHost(), message.getPort());
-                        realmSession.getProxyClientSession().transferToWorld(message.getPermissionLevel(), characterId, characterName, connectionUuid, accountId, accountName, password);
+                        realmSession.getProxyClientSession().transferToWorld(message.getPermissionLevel(), characterId, characterName, mapName, connectionUuid, accountId, accountName, password);
                         break;
                     }
                 }

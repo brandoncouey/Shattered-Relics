@@ -5136,82 +5136,92 @@ public final class Proxy {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 accountId = 1;</code>
+     * <code>int32 account_id = 1;</code>
      */
     int getAccountId();
 
     /**
-     * <code>int32 permissionLevel = 2;</code>
+     * <code>int32 permission_level = 2;</code>
      */
     int getPermissionLevel();
 
     /**
-     * <code>string accountName = 3;</code>
+     * <code>string account_name = 3;</code>
      */
     java.lang.String getAccountName();
     /**
-     * <code>string accountName = 3;</code>
+     * <code>string account_name = 3;</code>
      */
     com.google.protobuf.ByteString
         getAccountNameBytes();
 
     /**
-     * <code>int32 characterId = 4;</code>
+     * <code>int32 character_id = 4;</code>
      */
     int getCharacterId();
 
     /**
-     * <code>string characterName = 5;</code>
+     * <code>string character_name = 5;</code>
      */
     java.lang.String getCharacterName();
     /**
-     * <code>string characterName = 5;</code>
+     * <code>string character_name = 5;</code>
      */
     com.google.protobuf.ByteString
         getCharacterNameBytes();
 
     /**
-     * <code>string password = 6;</code>
+     * <code>string map_name = 6;</code>
+     */
+    java.lang.String getMapName();
+    /**
+     * <code>string map_name = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getMapNameBytes();
+
+    /**
+     * <code>string password = 7;</code>
      */
     java.lang.String getPassword();
     /**
-     * <code>string password = 6;</code>
+     * <code>string password = 7;</code>
      */
     com.google.protobuf.ByteString
         getPasswordBytes();
 
     /**
-     * <code>string cuuid = 7;</code>
+     * <code>string cuuid = 8;</code>
      */
     java.lang.String getCuuid();
     /**
-     * <code>string cuuid = 7;</code>
+     * <code>string cuuid = 8;</code>
      */
     com.google.protobuf.ByteString
         getCuuidBytes();
 
     /**
-     * <code>string token = 8;</code>
+     * <code>string token = 9;</code>
      */
     java.lang.String getToken();
     /**
-     * <code>string token = 8;</code>
+     * <code>string token = 9;</code>
      */
     com.google.protobuf.ByteString
         getTokenBytes();
 
     /**
-     * <code>string host = 9;</code>
+     * <code>string host = 10;</code>
      */
     java.lang.String getHost();
     /**
-     * <code>string host = 9;</code>
+     * <code>string host = 10;</code>
      */
     com.google.protobuf.ByteString
         getHostBytes();
 
     /**
-     * <code>int32 port = 10;</code>
+     * <code>int32 port = 11;</code>
      */
     int getPort();
   }
@@ -5233,6 +5243,7 @@ public final class Proxy {
       accountName_ = "";
       characterId_ = 0;
       characterName_ = "";
+      mapName_ = "";
       password_ = "";
       cuuid_ = "";
       token_ = "";
@@ -5294,28 +5305,34 @@ public final class Proxy {
             case 50: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              password_ = s;
+              mapName_ = s;
               break;
             }
             case 58: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              cuuid_ = s;
+              password_ = s;
               break;
             }
             case 66: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              token_ = s;
+              cuuid_ = s;
               break;
             }
             case 74: {
               java.lang.String s = input.readStringRequireUtf8();
 
+              token_ = s;
+              break;
+            }
+            case 82: {
+              java.lang.String s = input.readStringRequireUtf8();
+
               host_ = s;
               break;
             }
-            case 80: {
+            case 88: {
 
               port_ = input.readInt32();
               break;
@@ -5352,28 +5369,28 @@ public final class Proxy {
               com.shattered.networking.proto.Proxy.TransferToWorld.class, com.shattered.networking.proto.Proxy.TransferToWorld.Builder.class);
     }
 
-    public static final int ACCOUNTID_FIELD_NUMBER = 1;
+    public static final int ACCOUNT_ID_FIELD_NUMBER = 1;
     private int accountId_;
     /**
-     * <code>int32 accountId = 1;</code>
+     * <code>int32 account_id = 1;</code>
      */
     public int getAccountId() {
       return accountId_;
     }
 
-    public static final int PERMISSIONLEVEL_FIELD_NUMBER = 2;
+    public static final int PERMISSION_LEVEL_FIELD_NUMBER = 2;
     private int permissionLevel_;
     /**
-     * <code>int32 permissionLevel = 2;</code>
+     * <code>int32 permission_level = 2;</code>
      */
     public int getPermissionLevel() {
       return permissionLevel_;
     }
 
-    public static final int ACCOUNTNAME_FIELD_NUMBER = 3;
+    public static final int ACCOUNT_NAME_FIELD_NUMBER = 3;
     private volatile java.lang.Object accountName_;
     /**
-     * <code>string accountName = 3;</code>
+     * <code>string account_name = 3;</code>
      */
     public java.lang.String getAccountName() {
       java.lang.Object ref = accountName_;
@@ -5388,7 +5405,7 @@ public final class Proxy {
       }
     }
     /**
-     * <code>string accountName = 3;</code>
+     * <code>string account_name = 3;</code>
      */
     public com.google.protobuf.ByteString
         getAccountNameBytes() {
@@ -5404,19 +5421,19 @@ public final class Proxy {
       }
     }
 
-    public static final int CHARACTERID_FIELD_NUMBER = 4;
+    public static final int CHARACTER_ID_FIELD_NUMBER = 4;
     private int characterId_;
     /**
-     * <code>int32 characterId = 4;</code>
+     * <code>int32 character_id = 4;</code>
      */
     public int getCharacterId() {
       return characterId_;
     }
 
-    public static final int CHARACTERNAME_FIELD_NUMBER = 5;
+    public static final int CHARACTER_NAME_FIELD_NUMBER = 5;
     private volatile java.lang.Object characterName_;
     /**
-     * <code>string characterName = 5;</code>
+     * <code>string character_name = 5;</code>
      */
     public java.lang.String getCharacterName() {
       java.lang.Object ref = characterName_;
@@ -5431,7 +5448,7 @@ public final class Proxy {
       }
     }
     /**
-     * <code>string characterName = 5;</code>
+     * <code>string character_name = 5;</code>
      */
     public com.google.protobuf.ByteString
         getCharacterNameBytes() {
@@ -5447,10 +5464,44 @@ public final class Proxy {
       }
     }
 
-    public static final int PASSWORD_FIELD_NUMBER = 6;
+    public static final int MAP_NAME_FIELD_NUMBER = 6;
+    private volatile java.lang.Object mapName_;
+    /**
+     * <code>string map_name = 6;</code>
+     */
+    public java.lang.String getMapName() {
+      java.lang.Object ref = mapName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        mapName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string map_name = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getMapNameBytes() {
+      java.lang.Object ref = mapName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        mapName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PASSWORD_FIELD_NUMBER = 7;
     private volatile java.lang.Object password_;
     /**
-     * <code>string password = 6;</code>
+     * <code>string password = 7;</code>
      */
     public java.lang.String getPassword() {
       java.lang.Object ref = password_;
@@ -5465,7 +5516,7 @@ public final class Proxy {
       }
     }
     /**
-     * <code>string password = 6;</code>
+     * <code>string password = 7;</code>
      */
     public com.google.protobuf.ByteString
         getPasswordBytes() {
@@ -5481,10 +5532,10 @@ public final class Proxy {
       }
     }
 
-    public static final int CUUID_FIELD_NUMBER = 7;
+    public static final int CUUID_FIELD_NUMBER = 8;
     private volatile java.lang.Object cuuid_;
     /**
-     * <code>string cuuid = 7;</code>
+     * <code>string cuuid = 8;</code>
      */
     public java.lang.String getCuuid() {
       java.lang.Object ref = cuuid_;
@@ -5499,7 +5550,7 @@ public final class Proxy {
       }
     }
     /**
-     * <code>string cuuid = 7;</code>
+     * <code>string cuuid = 8;</code>
      */
     public com.google.protobuf.ByteString
         getCuuidBytes() {
@@ -5515,10 +5566,10 @@ public final class Proxy {
       }
     }
 
-    public static final int TOKEN_FIELD_NUMBER = 8;
+    public static final int TOKEN_FIELD_NUMBER = 9;
     private volatile java.lang.Object token_;
     /**
-     * <code>string token = 8;</code>
+     * <code>string token = 9;</code>
      */
     public java.lang.String getToken() {
       java.lang.Object ref = token_;
@@ -5533,7 +5584,7 @@ public final class Proxy {
       }
     }
     /**
-     * <code>string token = 8;</code>
+     * <code>string token = 9;</code>
      */
     public com.google.protobuf.ByteString
         getTokenBytes() {
@@ -5549,10 +5600,10 @@ public final class Proxy {
       }
     }
 
-    public static final int HOST_FIELD_NUMBER = 9;
+    public static final int HOST_FIELD_NUMBER = 10;
     private volatile java.lang.Object host_;
     /**
-     * <code>string host = 9;</code>
+     * <code>string host = 10;</code>
      */
     public java.lang.String getHost() {
       java.lang.Object ref = host_;
@@ -5567,7 +5618,7 @@ public final class Proxy {
       }
     }
     /**
-     * <code>string host = 9;</code>
+     * <code>string host = 10;</code>
      */
     public com.google.protobuf.ByteString
         getHostBytes() {
@@ -5583,10 +5634,10 @@ public final class Proxy {
       }
     }
 
-    public static final int PORT_FIELD_NUMBER = 10;
+    public static final int PORT_FIELD_NUMBER = 11;
     private int port_;
     /**
-     * <code>int32 port = 10;</code>
+     * <code>int32 port = 11;</code>
      */
     public int getPort() {
       return port_;
@@ -5621,20 +5672,23 @@ public final class Proxy {
       if (!getCharacterNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, characterName_);
       }
+      if (!getMapNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, mapName_);
+      }
       if (!getPasswordBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, password_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, password_);
       }
       if (!getCuuidBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, cuuid_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, cuuid_);
       }
       if (!getTokenBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, token_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, token_);
       }
       if (!getHostBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, host_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, host_);
       }
       if (port_ != 0) {
-        output.writeInt32(10, port_);
+        output.writeInt32(11, port_);
       }
       unknownFields.writeTo(output);
     }
@@ -5663,21 +5717,24 @@ public final class Proxy {
       if (!getCharacterNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, characterName_);
       }
+      if (!getMapNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, mapName_);
+      }
       if (!getPasswordBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, password_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, password_);
       }
       if (!getCuuidBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, cuuid_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, cuuid_);
       }
       if (!getTokenBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, token_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, token_);
       }
       if (!getHostBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, host_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, host_);
       }
       if (port_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(10, port_);
+          .computeInt32Size(11, port_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5705,6 +5762,8 @@ public final class Proxy {
           == other.getCharacterId());
       result = result && getCharacterName()
           .equals(other.getCharacterName());
+      result = result && getMapName()
+          .equals(other.getMapName());
       result = result && getPassword()
           .equals(other.getPassword());
       result = result && getCuuid()
@@ -5726,16 +5785,18 @@ public final class Proxy {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + ACCOUNTID_FIELD_NUMBER;
+      hash = (37 * hash) + ACCOUNT_ID_FIELD_NUMBER;
       hash = (53 * hash) + getAccountId();
-      hash = (37 * hash) + PERMISSIONLEVEL_FIELD_NUMBER;
+      hash = (37 * hash) + PERMISSION_LEVEL_FIELD_NUMBER;
       hash = (53 * hash) + getPermissionLevel();
-      hash = (37 * hash) + ACCOUNTNAME_FIELD_NUMBER;
+      hash = (37 * hash) + ACCOUNT_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getAccountName().hashCode();
-      hash = (37 * hash) + CHARACTERID_FIELD_NUMBER;
+      hash = (37 * hash) + CHARACTER_ID_FIELD_NUMBER;
       hash = (53 * hash) + getCharacterId();
-      hash = (37 * hash) + CHARACTERNAME_FIELD_NUMBER;
+      hash = (37 * hash) + CHARACTER_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getCharacterName().hashCode();
+      hash = (37 * hash) + MAP_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getMapName().hashCode();
       hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
       hash = (53 * hash) + getPassword().hashCode();
       hash = (37 * hash) + CUUID_FIELD_NUMBER;
@@ -5889,6 +5950,8 @@ public final class Proxy {
 
         characterName_ = "";
 
+        mapName_ = "";
+
         password_ = "";
 
         cuuid_ = "";
@@ -5930,6 +5993,7 @@ public final class Proxy {
         result.accountName_ = accountName_;
         result.characterId_ = characterId_;
         result.characterName_ = characterName_;
+        result.mapName_ = mapName_;
         result.password_ = password_;
         result.cuuid_ = cuuid_;
         result.token_ = token_;
@@ -6000,6 +6064,10 @@ public final class Proxy {
           characterName_ = other.characterName_;
           onChanged();
         }
+        if (!other.getMapName().isEmpty()) {
+          mapName_ = other.mapName_;
+          onChanged();
+        }
         if (!other.getPassword().isEmpty()) {
           password_ = other.password_;
           onChanged();
@@ -6050,13 +6118,13 @@ public final class Proxy {
 
       private int accountId_ ;
       /**
-       * <code>int32 accountId = 1;</code>
+       * <code>int32 account_id = 1;</code>
        */
       public int getAccountId() {
         return accountId_;
       }
       /**
-       * <code>int32 accountId = 1;</code>
+       * <code>int32 account_id = 1;</code>
        */
       public Builder setAccountId(int value) {
         
@@ -6065,7 +6133,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>int32 accountId = 1;</code>
+       * <code>int32 account_id = 1;</code>
        */
       public Builder clearAccountId() {
         
@@ -6076,13 +6144,13 @@ public final class Proxy {
 
       private int permissionLevel_ ;
       /**
-       * <code>int32 permissionLevel = 2;</code>
+       * <code>int32 permission_level = 2;</code>
        */
       public int getPermissionLevel() {
         return permissionLevel_;
       }
       /**
-       * <code>int32 permissionLevel = 2;</code>
+       * <code>int32 permission_level = 2;</code>
        */
       public Builder setPermissionLevel(int value) {
         
@@ -6091,7 +6159,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>int32 permissionLevel = 2;</code>
+       * <code>int32 permission_level = 2;</code>
        */
       public Builder clearPermissionLevel() {
         
@@ -6102,7 +6170,7 @@ public final class Proxy {
 
       private java.lang.Object accountName_ = "";
       /**
-       * <code>string accountName = 3;</code>
+       * <code>string account_name = 3;</code>
        */
       public java.lang.String getAccountName() {
         java.lang.Object ref = accountName_;
@@ -6117,7 +6185,7 @@ public final class Proxy {
         }
       }
       /**
-       * <code>string accountName = 3;</code>
+       * <code>string account_name = 3;</code>
        */
       public com.google.protobuf.ByteString
           getAccountNameBytes() {
@@ -6133,7 +6201,7 @@ public final class Proxy {
         }
       }
       /**
-       * <code>string accountName = 3;</code>
+       * <code>string account_name = 3;</code>
        */
       public Builder setAccountName(
           java.lang.String value) {
@@ -6146,7 +6214,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>string accountName = 3;</code>
+       * <code>string account_name = 3;</code>
        */
       public Builder clearAccountName() {
         
@@ -6155,7 +6223,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>string accountName = 3;</code>
+       * <code>string account_name = 3;</code>
        */
       public Builder setAccountNameBytes(
           com.google.protobuf.ByteString value) {
@@ -6171,13 +6239,13 @@ public final class Proxy {
 
       private int characterId_ ;
       /**
-       * <code>int32 characterId = 4;</code>
+       * <code>int32 character_id = 4;</code>
        */
       public int getCharacterId() {
         return characterId_;
       }
       /**
-       * <code>int32 characterId = 4;</code>
+       * <code>int32 character_id = 4;</code>
        */
       public Builder setCharacterId(int value) {
         
@@ -6186,7 +6254,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>int32 characterId = 4;</code>
+       * <code>int32 character_id = 4;</code>
        */
       public Builder clearCharacterId() {
         
@@ -6197,7 +6265,7 @@ public final class Proxy {
 
       private java.lang.Object characterName_ = "";
       /**
-       * <code>string characterName = 5;</code>
+       * <code>string character_name = 5;</code>
        */
       public java.lang.String getCharacterName() {
         java.lang.Object ref = characterName_;
@@ -6212,7 +6280,7 @@ public final class Proxy {
         }
       }
       /**
-       * <code>string characterName = 5;</code>
+       * <code>string character_name = 5;</code>
        */
       public com.google.protobuf.ByteString
           getCharacterNameBytes() {
@@ -6228,7 +6296,7 @@ public final class Proxy {
         }
       }
       /**
-       * <code>string characterName = 5;</code>
+       * <code>string character_name = 5;</code>
        */
       public Builder setCharacterName(
           java.lang.String value) {
@@ -6241,7 +6309,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>string characterName = 5;</code>
+       * <code>string character_name = 5;</code>
        */
       public Builder clearCharacterName() {
         
@@ -6250,7 +6318,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>string characterName = 5;</code>
+       * <code>string character_name = 5;</code>
        */
       public Builder setCharacterNameBytes(
           com.google.protobuf.ByteString value) {
@@ -6264,9 +6332,78 @@ public final class Proxy {
         return this;
       }
 
+      private java.lang.Object mapName_ = "";
+      /**
+       * <code>string map_name = 6;</code>
+       */
+      public java.lang.String getMapName() {
+        java.lang.Object ref = mapName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          mapName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string map_name = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getMapNameBytes() {
+        java.lang.Object ref = mapName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          mapName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string map_name = 6;</code>
+       */
+      public Builder setMapName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        mapName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string map_name = 6;</code>
+       */
+      public Builder clearMapName() {
+        
+        mapName_ = getDefaultInstance().getMapName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string map_name = 6;</code>
+       */
+      public Builder setMapNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        mapName_ = value;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object password_ = "";
       /**
-       * <code>string password = 6;</code>
+       * <code>string password = 7;</code>
        */
       public java.lang.String getPassword() {
         java.lang.Object ref = password_;
@@ -6281,7 +6418,7 @@ public final class Proxy {
         }
       }
       /**
-       * <code>string password = 6;</code>
+       * <code>string password = 7;</code>
        */
       public com.google.protobuf.ByteString
           getPasswordBytes() {
@@ -6297,7 +6434,7 @@ public final class Proxy {
         }
       }
       /**
-       * <code>string password = 6;</code>
+       * <code>string password = 7;</code>
        */
       public Builder setPassword(
           java.lang.String value) {
@@ -6310,7 +6447,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>string password = 6;</code>
+       * <code>string password = 7;</code>
        */
       public Builder clearPassword() {
         
@@ -6319,7 +6456,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>string password = 6;</code>
+       * <code>string password = 7;</code>
        */
       public Builder setPasswordBytes(
           com.google.protobuf.ByteString value) {
@@ -6335,7 +6472,7 @@ public final class Proxy {
 
       private java.lang.Object cuuid_ = "";
       /**
-       * <code>string cuuid = 7;</code>
+       * <code>string cuuid = 8;</code>
        */
       public java.lang.String getCuuid() {
         java.lang.Object ref = cuuid_;
@@ -6350,7 +6487,7 @@ public final class Proxy {
         }
       }
       /**
-       * <code>string cuuid = 7;</code>
+       * <code>string cuuid = 8;</code>
        */
       public com.google.protobuf.ByteString
           getCuuidBytes() {
@@ -6366,7 +6503,7 @@ public final class Proxy {
         }
       }
       /**
-       * <code>string cuuid = 7;</code>
+       * <code>string cuuid = 8;</code>
        */
       public Builder setCuuid(
           java.lang.String value) {
@@ -6379,7 +6516,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>string cuuid = 7;</code>
+       * <code>string cuuid = 8;</code>
        */
       public Builder clearCuuid() {
         
@@ -6388,7 +6525,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>string cuuid = 7;</code>
+       * <code>string cuuid = 8;</code>
        */
       public Builder setCuuidBytes(
           com.google.protobuf.ByteString value) {
@@ -6404,7 +6541,7 @@ public final class Proxy {
 
       private java.lang.Object token_ = "";
       /**
-       * <code>string token = 8;</code>
+       * <code>string token = 9;</code>
        */
       public java.lang.String getToken() {
         java.lang.Object ref = token_;
@@ -6419,7 +6556,7 @@ public final class Proxy {
         }
       }
       /**
-       * <code>string token = 8;</code>
+       * <code>string token = 9;</code>
        */
       public com.google.protobuf.ByteString
           getTokenBytes() {
@@ -6435,7 +6572,7 @@ public final class Proxy {
         }
       }
       /**
-       * <code>string token = 8;</code>
+       * <code>string token = 9;</code>
        */
       public Builder setToken(
           java.lang.String value) {
@@ -6448,7 +6585,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>string token = 8;</code>
+       * <code>string token = 9;</code>
        */
       public Builder clearToken() {
         
@@ -6457,7 +6594,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>string token = 8;</code>
+       * <code>string token = 9;</code>
        */
       public Builder setTokenBytes(
           com.google.protobuf.ByteString value) {
@@ -6473,7 +6610,7 @@ public final class Proxy {
 
       private java.lang.Object host_ = "";
       /**
-       * <code>string host = 9;</code>
+       * <code>string host = 10;</code>
        */
       public java.lang.String getHost() {
         java.lang.Object ref = host_;
@@ -6488,7 +6625,7 @@ public final class Proxy {
         }
       }
       /**
-       * <code>string host = 9;</code>
+       * <code>string host = 10;</code>
        */
       public com.google.protobuf.ByteString
           getHostBytes() {
@@ -6504,7 +6641,7 @@ public final class Proxy {
         }
       }
       /**
-       * <code>string host = 9;</code>
+       * <code>string host = 10;</code>
        */
       public Builder setHost(
           java.lang.String value) {
@@ -6517,7 +6654,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>string host = 9;</code>
+       * <code>string host = 10;</code>
        */
       public Builder clearHost() {
         
@@ -6526,7 +6663,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>string host = 9;</code>
+       * <code>string host = 10;</code>
        */
       public Builder setHostBytes(
           com.google.protobuf.ByteString value) {
@@ -6542,13 +6679,13 @@ public final class Proxy {
 
       private int port_ ;
       /**
-       * <code>int32 port = 10;</code>
+       * <code>int32 port = 11;</code>
        */
       public int getPort() {
         return port_;
       }
       /**
-       * <code>int32 port = 10;</code>
+       * <code>int32 port = 11;</code>
        */
       public Builder setPort(int value) {
         
@@ -6557,7 +6694,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>int32 port = 10;</code>
+       * <code>int32 port = 11;</code>
        */
       public Builder clearPort() {
         
@@ -6623,11 +6760,11 @@ public final class Proxy {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string accountName = 1;</code>
+     * <code>string account_name = 1;</code>
      */
     java.lang.String getAccountName();
     /**
-     * <code>string accountName = 1;</code>
+     * <code>string account_name = 1;</code>
      */
     com.google.protobuf.ByteString
         getAccountNameBytes();
@@ -6727,10 +6864,10 @@ public final class Proxy {
               com.shattered.networking.proto.Proxy.TransferToRealm.class, com.shattered.networking.proto.Proxy.TransferToRealm.Builder.class);
     }
 
-    public static final int ACCOUNTNAME_FIELD_NUMBER = 1;
+    public static final int ACCOUNT_NAME_FIELD_NUMBER = 1;
     private volatile java.lang.Object accountName_;
     /**
-     * <code>string accountName = 1;</code>
+     * <code>string account_name = 1;</code>
      */
     public java.lang.String getAccountName() {
       java.lang.Object ref = accountName_;
@@ -6745,7 +6882,7 @@ public final class Proxy {
       }
     }
     /**
-     * <code>string accountName = 1;</code>
+     * <code>string account_name = 1;</code>
      */
     public com.google.protobuf.ByteString
         getAccountNameBytes() {
@@ -6861,7 +6998,7 @@ public final class Proxy {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + ACCOUNTNAME_FIELD_NUMBER;
+      hash = (37 * hash) + ACCOUNT_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getAccountName().hashCode();
       hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
       hash = (53 * hash) + getPassword().hashCode();
@@ -7117,7 +7254,7 @@ public final class Proxy {
 
       private java.lang.Object accountName_ = "";
       /**
-       * <code>string accountName = 1;</code>
+       * <code>string account_name = 1;</code>
        */
       public java.lang.String getAccountName() {
         java.lang.Object ref = accountName_;
@@ -7132,7 +7269,7 @@ public final class Proxy {
         }
       }
       /**
-       * <code>string accountName = 1;</code>
+       * <code>string account_name = 1;</code>
        */
       public com.google.protobuf.ByteString
           getAccountNameBytes() {
@@ -7148,7 +7285,7 @@ public final class Proxy {
         }
       }
       /**
-       * <code>string accountName = 1;</code>
+       * <code>string account_name = 1;</code>
        */
       public Builder setAccountName(
           java.lang.String value) {
@@ -7161,7 +7298,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>string accountName = 1;</code>
+       * <code>string account_name = 1;</code>
        */
       public Builder clearAccountName() {
         
@@ -7170,7 +7307,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>string accountName = 1;</code>
+       * <code>string account_name = 1;</code>
        */
       public Builder setAccountNameBytes(
           com.google.protobuf.ByteString value) {
@@ -7330,46 +7467,56 @@ public final class Proxy {
         getTokenBytes();
 
     /**
-     * <code>int32 accountId = 3;</code>
+     * <code>int32 account_id = 3;</code>
      */
     int getAccountId();
 
     /**
-     * <code>int32 permissionLevel = 4;</code>
+     * <code>int32 permission_level = 4;</code>
      */
     int getPermissionLevel();
 
     /**
-     * <code>string accountName = 5;</code>
+     * <code>string account_name = 5;</code>
      */
     java.lang.String getAccountName();
     /**
-     * <code>string accountName = 5;</code>
+     * <code>string account_name = 5;</code>
      */
     com.google.protobuf.ByteString
         getAccountNameBytes();
 
     /**
-     * <code>int32 characterId = 6;</code>
+     * <code>int32 character_id = 6;</code>
      */
     int getCharacterId();
 
     /**
-     * <code>string characterName = 7;</code>
+     * <code>string character_name = 7;</code>
      */
     java.lang.String getCharacterName();
     /**
-     * <code>string characterName = 7;</code>
+     * <code>string character_name = 7;</code>
      */
     com.google.protobuf.ByteString
         getCharacterNameBytes();
 
     /**
-     * <code>string password = 8;</code>
+     * <code>string map_name = 8;</code>
+     */
+    java.lang.String getMapName();
+    /**
+     * <code>string map_name = 8;</code>
+     */
+    com.google.protobuf.ByteString
+        getMapNameBytes();
+
+    /**
+     * <code>string password = 9;</code>
      */
     java.lang.String getPassword();
     /**
-     * <code>string password = 8;</code>
+     * <code>string password = 9;</code>
      */
     com.google.protobuf.ByteString
         getPasswordBytes();
@@ -7394,6 +7541,7 @@ public final class Proxy {
       accountName_ = "";
       characterId_ = 0;
       characterName_ = "";
+      mapName_ = "";
       password_ = "";
     }
 
@@ -7461,6 +7609,12 @@ public final class Proxy {
               break;
             }
             case 66: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              mapName_ = s;
+              break;
+            }
+            case 74: {
               java.lang.String s = input.readStringRequireUtf8();
 
               password_ = s;
@@ -7566,28 +7720,28 @@ public final class Proxy {
       }
     }
 
-    public static final int ACCOUNTID_FIELD_NUMBER = 3;
+    public static final int ACCOUNT_ID_FIELD_NUMBER = 3;
     private int accountId_;
     /**
-     * <code>int32 accountId = 3;</code>
+     * <code>int32 account_id = 3;</code>
      */
     public int getAccountId() {
       return accountId_;
     }
 
-    public static final int PERMISSIONLEVEL_FIELD_NUMBER = 4;
+    public static final int PERMISSION_LEVEL_FIELD_NUMBER = 4;
     private int permissionLevel_;
     /**
-     * <code>int32 permissionLevel = 4;</code>
+     * <code>int32 permission_level = 4;</code>
      */
     public int getPermissionLevel() {
       return permissionLevel_;
     }
 
-    public static final int ACCOUNTNAME_FIELD_NUMBER = 5;
+    public static final int ACCOUNT_NAME_FIELD_NUMBER = 5;
     private volatile java.lang.Object accountName_;
     /**
-     * <code>string accountName = 5;</code>
+     * <code>string account_name = 5;</code>
      */
     public java.lang.String getAccountName() {
       java.lang.Object ref = accountName_;
@@ -7602,7 +7756,7 @@ public final class Proxy {
       }
     }
     /**
-     * <code>string accountName = 5;</code>
+     * <code>string account_name = 5;</code>
      */
     public com.google.protobuf.ByteString
         getAccountNameBytes() {
@@ -7618,19 +7772,19 @@ public final class Proxy {
       }
     }
 
-    public static final int CHARACTERID_FIELD_NUMBER = 6;
+    public static final int CHARACTER_ID_FIELD_NUMBER = 6;
     private int characterId_;
     /**
-     * <code>int32 characterId = 6;</code>
+     * <code>int32 character_id = 6;</code>
      */
     public int getCharacterId() {
       return characterId_;
     }
 
-    public static final int CHARACTERNAME_FIELD_NUMBER = 7;
+    public static final int CHARACTER_NAME_FIELD_NUMBER = 7;
     private volatile java.lang.Object characterName_;
     /**
-     * <code>string characterName = 7;</code>
+     * <code>string character_name = 7;</code>
      */
     public java.lang.String getCharacterName() {
       java.lang.Object ref = characterName_;
@@ -7645,7 +7799,7 @@ public final class Proxy {
       }
     }
     /**
-     * <code>string characterName = 7;</code>
+     * <code>string character_name = 7;</code>
      */
     public com.google.protobuf.ByteString
         getCharacterNameBytes() {
@@ -7661,10 +7815,44 @@ public final class Proxy {
       }
     }
 
-    public static final int PASSWORD_FIELD_NUMBER = 8;
+    public static final int MAP_NAME_FIELD_NUMBER = 8;
+    private volatile java.lang.Object mapName_;
+    /**
+     * <code>string map_name = 8;</code>
+     */
+    public java.lang.String getMapName() {
+      java.lang.Object ref = mapName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        mapName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string map_name = 8;</code>
+     */
+    public com.google.protobuf.ByteString
+        getMapNameBytes() {
+      java.lang.Object ref = mapName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        mapName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PASSWORD_FIELD_NUMBER = 9;
     private volatile java.lang.Object password_;
     /**
-     * <code>string password = 8;</code>
+     * <code>string password = 9;</code>
      */
     public java.lang.String getPassword() {
       java.lang.Object ref = password_;
@@ -7679,7 +7867,7 @@ public final class Proxy {
       }
     }
     /**
-     * <code>string password = 8;</code>
+     * <code>string password = 9;</code>
      */
     public com.google.protobuf.ByteString
         getPasswordBytes() {
@@ -7730,8 +7918,11 @@ public final class Proxy {
       if (!getCharacterNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 7, characterName_);
       }
+      if (!getMapNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, mapName_);
+      }
       if (!getPasswordBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, password_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, password_);
       }
       unknownFields.writeTo(output);
     }
@@ -7766,8 +7957,11 @@ public final class Proxy {
       if (!getCharacterNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, characterName_);
       }
+      if (!getMapNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, mapName_);
+      }
       if (!getPasswordBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, password_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, password_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -7799,6 +7993,8 @@ public final class Proxy {
           == other.getCharacterId());
       result = result && getCharacterName()
           .equals(other.getCharacterName());
+      result = result && getMapName()
+          .equals(other.getMapName());
       result = result && getPassword()
           .equals(other.getPassword());
       result = result && unknownFields.equals(other.unknownFields);
@@ -7816,16 +8012,18 @@ public final class Proxy {
       hash = (53 * hash) + getCuuid().hashCode();
       hash = (37 * hash) + TOKEN_FIELD_NUMBER;
       hash = (53 * hash) + getToken().hashCode();
-      hash = (37 * hash) + ACCOUNTID_FIELD_NUMBER;
+      hash = (37 * hash) + ACCOUNT_ID_FIELD_NUMBER;
       hash = (53 * hash) + getAccountId();
-      hash = (37 * hash) + PERMISSIONLEVEL_FIELD_NUMBER;
+      hash = (37 * hash) + PERMISSION_LEVEL_FIELD_NUMBER;
       hash = (53 * hash) + getPermissionLevel();
-      hash = (37 * hash) + ACCOUNTNAME_FIELD_NUMBER;
+      hash = (37 * hash) + ACCOUNT_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getAccountName().hashCode();
-      hash = (37 * hash) + CHARACTERID_FIELD_NUMBER;
+      hash = (37 * hash) + CHARACTER_ID_FIELD_NUMBER;
       hash = (53 * hash) + getCharacterId();
-      hash = (37 * hash) + CHARACTERNAME_FIELD_NUMBER;
+      hash = (37 * hash) + CHARACTER_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getCharacterName().hashCode();
+      hash = (37 * hash) + MAP_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getMapName().hashCode();
       hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
       hash = (53 * hash) + getPassword().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -7975,6 +8173,8 @@ public final class Proxy {
 
         characterName_ = "";
 
+        mapName_ = "";
+
         password_ = "";
 
         return this;
@@ -8010,6 +8210,7 @@ public final class Proxy {
         result.accountName_ = accountName_;
         result.characterId_ = characterId_;
         result.characterName_ = characterName_;
+        result.mapName_ = mapName_;
         result.password_ = password_;
         onBuilt();
         return result;
@@ -8082,6 +8283,10 @@ public final class Proxy {
         }
         if (!other.getCharacterName().isEmpty()) {
           characterName_ = other.characterName_;
+          onChanged();
+        }
+        if (!other.getMapName().isEmpty()) {
+          mapName_ = other.mapName_;
           onChanged();
         }
         if (!other.getPassword().isEmpty()) {
@@ -8257,13 +8462,13 @@ public final class Proxy {
 
       private int accountId_ ;
       /**
-       * <code>int32 accountId = 3;</code>
+       * <code>int32 account_id = 3;</code>
        */
       public int getAccountId() {
         return accountId_;
       }
       /**
-       * <code>int32 accountId = 3;</code>
+       * <code>int32 account_id = 3;</code>
        */
       public Builder setAccountId(int value) {
         
@@ -8272,7 +8477,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>int32 accountId = 3;</code>
+       * <code>int32 account_id = 3;</code>
        */
       public Builder clearAccountId() {
         
@@ -8283,13 +8488,13 @@ public final class Proxy {
 
       private int permissionLevel_ ;
       /**
-       * <code>int32 permissionLevel = 4;</code>
+       * <code>int32 permission_level = 4;</code>
        */
       public int getPermissionLevel() {
         return permissionLevel_;
       }
       /**
-       * <code>int32 permissionLevel = 4;</code>
+       * <code>int32 permission_level = 4;</code>
        */
       public Builder setPermissionLevel(int value) {
         
@@ -8298,7 +8503,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>int32 permissionLevel = 4;</code>
+       * <code>int32 permission_level = 4;</code>
        */
       public Builder clearPermissionLevel() {
         
@@ -8309,7 +8514,7 @@ public final class Proxy {
 
       private java.lang.Object accountName_ = "";
       /**
-       * <code>string accountName = 5;</code>
+       * <code>string account_name = 5;</code>
        */
       public java.lang.String getAccountName() {
         java.lang.Object ref = accountName_;
@@ -8324,7 +8529,7 @@ public final class Proxy {
         }
       }
       /**
-       * <code>string accountName = 5;</code>
+       * <code>string account_name = 5;</code>
        */
       public com.google.protobuf.ByteString
           getAccountNameBytes() {
@@ -8340,7 +8545,7 @@ public final class Proxy {
         }
       }
       /**
-       * <code>string accountName = 5;</code>
+       * <code>string account_name = 5;</code>
        */
       public Builder setAccountName(
           java.lang.String value) {
@@ -8353,7 +8558,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>string accountName = 5;</code>
+       * <code>string account_name = 5;</code>
        */
       public Builder clearAccountName() {
         
@@ -8362,7 +8567,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>string accountName = 5;</code>
+       * <code>string account_name = 5;</code>
        */
       public Builder setAccountNameBytes(
           com.google.protobuf.ByteString value) {
@@ -8378,13 +8583,13 @@ public final class Proxy {
 
       private int characterId_ ;
       /**
-       * <code>int32 characterId = 6;</code>
+       * <code>int32 character_id = 6;</code>
        */
       public int getCharacterId() {
         return characterId_;
       }
       /**
-       * <code>int32 characterId = 6;</code>
+       * <code>int32 character_id = 6;</code>
        */
       public Builder setCharacterId(int value) {
         
@@ -8393,7 +8598,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>int32 characterId = 6;</code>
+       * <code>int32 character_id = 6;</code>
        */
       public Builder clearCharacterId() {
         
@@ -8404,7 +8609,7 @@ public final class Proxy {
 
       private java.lang.Object characterName_ = "";
       /**
-       * <code>string characterName = 7;</code>
+       * <code>string character_name = 7;</code>
        */
       public java.lang.String getCharacterName() {
         java.lang.Object ref = characterName_;
@@ -8419,7 +8624,7 @@ public final class Proxy {
         }
       }
       /**
-       * <code>string characterName = 7;</code>
+       * <code>string character_name = 7;</code>
        */
       public com.google.protobuf.ByteString
           getCharacterNameBytes() {
@@ -8435,7 +8640,7 @@ public final class Proxy {
         }
       }
       /**
-       * <code>string characterName = 7;</code>
+       * <code>string character_name = 7;</code>
        */
       public Builder setCharacterName(
           java.lang.String value) {
@@ -8448,7 +8653,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>string characterName = 7;</code>
+       * <code>string character_name = 7;</code>
        */
       public Builder clearCharacterName() {
         
@@ -8457,7 +8662,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>string characterName = 7;</code>
+       * <code>string character_name = 7;</code>
        */
       public Builder setCharacterNameBytes(
           com.google.protobuf.ByteString value) {
@@ -8471,9 +8676,78 @@ public final class Proxy {
         return this;
       }
 
+      private java.lang.Object mapName_ = "";
+      /**
+       * <code>string map_name = 8;</code>
+       */
+      public java.lang.String getMapName() {
+        java.lang.Object ref = mapName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          mapName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string map_name = 8;</code>
+       */
+      public com.google.protobuf.ByteString
+          getMapNameBytes() {
+        java.lang.Object ref = mapName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          mapName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string map_name = 8;</code>
+       */
+      public Builder setMapName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        mapName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string map_name = 8;</code>
+       */
+      public Builder clearMapName() {
+        
+        mapName_ = getDefaultInstance().getMapName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string map_name = 8;</code>
+       */
+      public Builder setMapNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        mapName_ = value;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object password_ = "";
       /**
-       * <code>string password = 8;</code>
+       * <code>string password = 9;</code>
        */
       public java.lang.String getPassword() {
         java.lang.Object ref = password_;
@@ -8488,7 +8762,7 @@ public final class Proxy {
         }
       }
       /**
-       * <code>string password = 8;</code>
+       * <code>string password = 9;</code>
        */
       public com.google.protobuf.ByteString
           getPasswordBytes() {
@@ -8504,7 +8778,7 @@ public final class Proxy {
         }
       }
       /**
-       * <code>string password = 8;</code>
+       * <code>string password = 9;</code>
        */
       public Builder setPassword(
           java.lang.String value) {
@@ -8517,7 +8791,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>string password = 8;</code>
+       * <code>string password = 9;</code>
        */
       public Builder clearPassword() {
         
@@ -8526,7 +8800,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>string password = 8;</code>
+       * <code>string password = 9;</code>
        */
       public Builder setPasswordBytes(
           com.google.protobuf.ByteString value) {
@@ -9421,21 +9695,21 @@ public final class Proxy {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string accountName = 1;</code>
+     * <code>string account_name = 1;</code>
      */
     java.lang.String getAccountName();
     /**
-     * <code>string accountName = 1;</code>
+     * <code>string account_name = 1;</code>
      */
     com.google.protobuf.ByteString
         getAccountNameBytes();
 
     /**
-     * <code>string accountPassword = 2;</code>
+     * <code>string account_password = 2;</code>
      */
     java.lang.String getAccountPassword();
     /**
-     * <code>string accountPassword = 2;</code>
+     * <code>string account_password = 2;</code>
      */
     com.google.protobuf.ByteString
         getAccountPasswordBytes();
@@ -9525,10 +9799,10 @@ public final class Proxy {
               com.shattered.networking.proto.Proxy.RequestWorldToRealmTransfer.class, com.shattered.networking.proto.Proxy.RequestWorldToRealmTransfer.Builder.class);
     }
 
-    public static final int ACCOUNTNAME_FIELD_NUMBER = 1;
+    public static final int ACCOUNT_NAME_FIELD_NUMBER = 1;
     private volatile java.lang.Object accountName_;
     /**
-     * <code>string accountName = 1;</code>
+     * <code>string account_name = 1;</code>
      */
     public java.lang.String getAccountName() {
       java.lang.Object ref = accountName_;
@@ -9543,7 +9817,7 @@ public final class Proxy {
       }
     }
     /**
-     * <code>string accountName = 1;</code>
+     * <code>string account_name = 1;</code>
      */
     public com.google.protobuf.ByteString
         getAccountNameBytes() {
@@ -9559,10 +9833,10 @@ public final class Proxy {
       }
     }
 
-    public static final int ACCOUNTPASSWORD_FIELD_NUMBER = 2;
+    public static final int ACCOUNT_PASSWORD_FIELD_NUMBER = 2;
     private volatile java.lang.Object accountPassword_;
     /**
-     * <code>string accountPassword = 2;</code>
+     * <code>string account_password = 2;</code>
      */
     public java.lang.String getAccountPassword() {
       java.lang.Object ref = accountPassword_;
@@ -9577,7 +9851,7 @@ public final class Proxy {
       }
     }
     /**
-     * <code>string accountPassword = 2;</code>
+     * <code>string account_password = 2;</code>
      */
     public com.google.protobuf.ByteString
         getAccountPasswordBytes() {
@@ -9659,9 +9933,9 @@ public final class Proxy {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + ACCOUNTNAME_FIELD_NUMBER;
+      hash = (37 * hash) + ACCOUNT_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getAccountName().hashCode();
-      hash = (37 * hash) + ACCOUNTPASSWORD_FIELD_NUMBER;
+      hash = (37 * hash) + ACCOUNT_PASSWORD_FIELD_NUMBER;
       hash = (53 * hash) + getAccountPassword().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -9915,7 +10189,7 @@ public final class Proxy {
 
       private java.lang.Object accountName_ = "";
       /**
-       * <code>string accountName = 1;</code>
+       * <code>string account_name = 1;</code>
        */
       public java.lang.String getAccountName() {
         java.lang.Object ref = accountName_;
@@ -9930,7 +10204,7 @@ public final class Proxy {
         }
       }
       /**
-       * <code>string accountName = 1;</code>
+       * <code>string account_name = 1;</code>
        */
       public com.google.protobuf.ByteString
           getAccountNameBytes() {
@@ -9946,7 +10220,7 @@ public final class Proxy {
         }
       }
       /**
-       * <code>string accountName = 1;</code>
+       * <code>string account_name = 1;</code>
        */
       public Builder setAccountName(
           java.lang.String value) {
@@ -9959,7 +10233,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>string accountName = 1;</code>
+       * <code>string account_name = 1;</code>
        */
       public Builder clearAccountName() {
         
@@ -9968,7 +10242,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>string accountName = 1;</code>
+       * <code>string account_name = 1;</code>
        */
       public Builder setAccountNameBytes(
           com.google.protobuf.ByteString value) {
@@ -9984,7 +10258,7 @@ public final class Proxy {
 
       private java.lang.Object accountPassword_ = "";
       /**
-       * <code>string accountPassword = 2;</code>
+       * <code>string account_password = 2;</code>
        */
       public java.lang.String getAccountPassword() {
         java.lang.Object ref = accountPassword_;
@@ -9999,7 +10273,7 @@ public final class Proxy {
         }
       }
       /**
-       * <code>string accountPassword = 2;</code>
+       * <code>string account_password = 2;</code>
        */
       public com.google.protobuf.ByteString
           getAccountPasswordBytes() {
@@ -10015,7 +10289,7 @@ public final class Proxy {
         }
       }
       /**
-       * <code>string accountPassword = 2;</code>
+       * <code>string account_password = 2;</code>
        */
       public Builder setAccountPassword(
           java.lang.String value) {
@@ -10028,7 +10302,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>string accountPassword = 2;</code>
+       * <code>string account_password = 2;</code>
        */
       public Builder clearAccountPassword() {
         
@@ -10037,7 +10311,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>string accountPassword = 2;</code>
+       * <code>string account_password = 2;</code>
        */
       public Builder setAccountPasswordBytes(
           com.google.protobuf.ByteString value) {
@@ -10189,23 +10463,24 @@ public final class Proxy {
       "\tavailable\030\001 \001(\010\"\035\n\014RequestRealm\022\r\n\005cuui" +
       "d\030\001 \001(\t\"N\n\022TransferConnection\022\r\n\005cuuid\030\001" +
       " \001(\t\022\r\n\005token\030\002 \001(\t\022\014\n\004host\030\003 \001(\t\022\014\n\004por" +
-      "t\030\004 \001(\005\"\312\001\n\017TransferToWorld\022\021\n\taccountId" +
-      "\030\001 \001(\005\022\027\n\017permissionLevel\030\002 \001(\005\022\023\n\013accou" +
-      "ntName\030\003 \001(\t\022\023\n\013characterId\030\004 \001(\005\022\025\n\rcha" +
-      "racterName\030\005 \001(\t\022\020\n\010password\030\006 \001(\t\022\r\n\005cu" +
-      "uid\030\007 \001(\t\022\r\n\005token\030\010 \001(\t\022\014\n\004host\030\t \001(\t\022\014" +
-      "\n\004port\030\n \001(\005\"8\n\017TransferToRealm\022\023\n\013accou" +
-      "ntName\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"\270\001\n\031World" +
-      "CharacterInformation\022\r\n\005cuuid\030\001 \001(\t\022\r\n\005t" +
-      "oken\030\002 \001(\t\022\021\n\taccountId\030\003 \001(\005\022\027\n\017permiss" +
-      "ionLevel\030\004 \001(\005\022\023\n\013accountName\030\005 \001(\t\022\023\n\013c" +
-      "haracterId\030\006 \001(\005\022\025\n\rcharacterName\030\007 \001(\t\022" +
-      "\020\n\010password\030\010 \001(\t\"L\n\034RequestNewTransferC" +
-      "onnection\022\016\n\006tccuid\030\001 \001(\t\022\r\n\005cuuid\030\002 \001(\t" +
-      "\022\r\n\005token\030\003 \001(\t\"K\n\033RequestWorldToRealmTr" +
-      "ansfer\022\023\n\013accountName\030\001 \001(\t\022\027\n\017accountPa" +
-      "ssword\030\002 \001(\tB#\n\036com.shattered.networking" +
-      ".proto\370\001\001b\006proto3"
+      "t\030\004 \001(\005\"\341\001\n\017TransferToWorld\022\022\n\naccount_i" +
+      "d\030\001 \001(\005\022\030\n\020permission_level\030\002 \001(\005\022\024\n\014acc" +
+      "ount_name\030\003 \001(\t\022\024\n\014character_id\030\004 \001(\005\022\026\n" +
+      "\016character_name\030\005 \001(\t\022\020\n\010map_name\030\006 \001(\t\022" +
+      "\020\n\010password\030\007 \001(\t\022\r\n\005cuuid\030\010 \001(\t\022\r\n\005toke" +
+      "n\030\t \001(\t\022\014\n\004host\030\n \001(\t\022\014\n\004port\030\013 \001(\005\"9\n\017T" +
+      "ransferToRealm\022\024\n\014account_name\030\001 \001(\t\022\020\n\010" +
+      "password\030\002 \001(\t\"\317\001\n\031WorldCharacterInforma" +
+      "tion\022\r\n\005cuuid\030\001 \001(\t\022\r\n\005token\030\002 \001(\t\022\022\n\nac" +
+      "count_id\030\003 \001(\005\022\030\n\020permission_level\030\004 \001(\005" +
+      "\022\024\n\014account_name\030\005 \001(\t\022\024\n\014character_id\030\006" +
+      " \001(\005\022\026\n\016character_name\030\007 \001(\t\022\020\n\010map_name" +
+      "\030\010 \001(\t\022\020\n\010password\030\t \001(\t\"L\n\034RequestNewTr" +
+      "ansferConnection\022\016\n\006tccuid\030\001 \001(\t\022\r\n\005cuui" +
+      "d\030\002 \001(\t\022\r\n\005token\030\003 \001(\t\"M\n\033RequestWorldTo" +
+      "RealmTransfer\022\024\n\014account_name\030\001 \001(\t\022\030\n\020a" +
+      "ccount_password\030\002 \001(\tB#\n\036com.shattered.n" +
+      "etworking.proto\370\001\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -10272,7 +10547,7 @@ public final class Proxy {
     internal_static_shattered_protocol_TransferToWorld_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_TransferToWorld_descriptor,
-        new java.lang.String[] { "AccountId", "PermissionLevel", "AccountName", "CharacterId", "CharacterName", "Password", "Cuuid", "Token", "Host", "Port", });
+        new java.lang.String[] { "AccountId", "PermissionLevel", "AccountName", "CharacterId", "CharacterName", "MapName", "Password", "Cuuid", "Token", "Host", "Port", });
     internal_static_shattered_protocol_TransferToRealm_descriptor =
       getDescriptor().getMessageTypes().get(9);
     internal_static_shattered_protocol_TransferToRealm_fieldAccessorTable = new
@@ -10284,7 +10559,7 @@ public final class Proxy {
     internal_static_shattered_protocol_WorldCharacterInformation_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_WorldCharacterInformation_descriptor,
-        new java.lang.String[] { "Cuuid", "Token", "AccountId", "PermissionLevel", "AccountName", "CharacterId", "CharacterName", "Password", });
+        new java.lang.String[] { "Cuuid", "Token", "AccountId", "PermissionLevel", "AccountName", "CharacterId", "CharacterName", "MapName", "Password", });
     internal_static_shattered_protocol_RequestNewTransferConnection_descriptor =
       getDescriptor().getMessageTypes().get(11);
     internal_static_shattered_protocol_RequestNewTransferConnection_fieldAccessorTable = new

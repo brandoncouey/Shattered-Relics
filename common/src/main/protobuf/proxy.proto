@@ -45,32 +45,34 @@ message TransferConnection {
 }
 
 message TransferToWorld {
-    int32 accountId = 1;
-    int32 permissionLevel = 2;
-    string accountName = 3;
-    int32 characterId = 4;
-    string characterName = 5;
-    string password  = 6;
-    string cuuid = 7;
-    string token = 8;
-    string host = 9;
-    int32 port = 10;
+    int32 account_id = 1;
+    int32 permission_level = 2;
+    string account_name = 3;
+    int32 character_id = 4;
+    string character_name = 5;
+    string map_name = 6;
+    string password  = 7;
+    string cuuid = 8;
+    string token = 9;
+    string host = 10;
+    int32 port = 11;
 }
 
 message TransferToRealm {
-    string accountName = 1;
+    string account_name = 1;
     string password = 2;
 }
 
 message WorldCharacterInformation {
     string cuuid = 1;
     string token = 2;
-    int32 accountId = 3;
-    int32 permissionLevel = 4;
-    string accountName = 5;
-    int32 characterId = 6;
-    string characterName = 7;
-    string password = 8;
+    int32 account_id = 3;
+    int32 permission_level = 4;
+    string account_name = 5;
+    int32 character_id = 6;
+    string character_name = 7;
+    string map_name = 8;
+    string password = 9;
 }
 
 message RequestNewTransferConnection {
@@ -80,6 +82,6 @@ message RequestNewTransferConnection {
 }
 
 message RequestWorldToRealmTransfer {
-    string accountName = 1;
-    string accountPassword = 2;
+    string account_name = 1;
+    string account_password = 2;
 }

@@ -12,7 +12,6 @@
         <module name="com.shattered.channel.main" />
         <module name="com.shattered.realm.main" />
         <module name="com.shattered.common.main" />
-        <module name="com.shattered.world.main" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8" />

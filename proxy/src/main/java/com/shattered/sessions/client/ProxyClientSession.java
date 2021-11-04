@@ -289,10 +289,10 @@ public class ProxyClientSession extends ClientSession {
      * @param characterName
      * @param connectionUuid
      */
-    public void transferToWorld(int permissionLevel, int characterId, String characterName, String connectionUuid, int accountId, String accountName, String password) {
+    public void transferToWorld(int permissionLevel, int characterId, String characterName, String mapName, String connectionUuid, int accountId, String accountName, String password) {
         if (getProxyClientWorldSession() != null) {
             NetworkBootstrap.sendPacket(getProxyClientWorldSession().getChannel(), PacketOuterClass.Opcode.P_WorldCharacterInformation, Proxy.WorldCharacterInformation.newBuilder().setCuuid(connectionUuid).setToken(CLIENT_TOKEN).
-                    setPermissionLevel(permissionLevel).setCharacterId(characterId).setCharacterName(characterName).setAccountId(accountId).setAccountName(accountName).setPassword(password).build());
+                    setPermissionLevel(permissionLevel).setCharacterId(characterId).setCharacterName(characterName).setMapName(mapName).setAccountId(accountId).setAccountName(accountName).setPassword(password).build());
 
         }
     }

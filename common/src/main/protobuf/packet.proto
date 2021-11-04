@@ -112,7 +112,8 @@ enum Opcode {
     SMSG_CHARACTER_CREATION_RESPONSE = 160;
     CMSG_WORLD_LOGIN_REQUEST = 161;
     SMSG_WORLD_LOGIN_TRANSFER = 162;
-    reserved 163 to 250;
+    SMSG_MAP_TRANSFER = 163;
+    reserved 164 to 250;
     Shattered_Realm_EO_Messages = 251;
 
     //Shattered World Messages
@@ -205,9 +206,9 @@ enum Opcode {
     UNSET_FIELD_12 = 321;
     UNSET_FIELD_13 = 322;
     CMSG_OFFER_COINS = 323;
-    CMSG_REQUEST_VENDOR_PURCHASE = 324;
+    UNSET_FIELD_14 = 324;
     SMSG_DISPLAY_ACTOR_WARNING_MESSAGE = 325;
-    SMSG_DISPLAY_ZONE_NOTIFICATION = 326;
+    UNSET_FIELD_15 = 326;
 
     SMSG_DISPLAY_ACTION_PROGRESS_BAR = 327;
     SMSG_DISPLAY_COOLDOWN_TIMER = 328;
@@ -267,12 +268,12 @@ enum Opcode {
 
 }
 
-
 message Packet {
     Opcode opcode = 1;
     bytes payload = 2;
 }
 
+//+ue:exclude
 message EmptyPayload {}
 message StringPayload {
     string payload = 1;

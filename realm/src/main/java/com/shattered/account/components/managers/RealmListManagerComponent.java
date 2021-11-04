@@ -89,7 +89,12 @@ public class RealmListManagerComponent extends Component {
                 WorldListEntry world = GameRealm.forIndex(message.getWorldIndex());
                 if (world != null) {
                     account.sendMessage(PacketOuterClass.Opcode.P_TransferToWorld, Proxy.TransferToWorld.newBuilder().setCuuid(world.getConnectionUuid()).setToken(WorldSession.WORLD_TOKEN)
-                            .setPermissionLevel(account.getAccountInformation().getAccountLevel().ordinal()).setCharacterId(account.component(RealmAccountComponents.CHARACTER_MANAGER).getCharacterInformation().getId()).setCharacterName(account.component(RealmAccountComponents.CHARACTER_MANAGER).getCharacterInformation().getName()).setAccountId(account.getAccountInformation().getAccountId()).setAccountName(account.getAccountInformation().getAccountName()).setPassword(account.getAccountInformation().getPassword()).setHost(world.getSocket().getHostName()).setPort(world.getSocket().getPort()).build());
+                            .setPermissionLevel(account.getAccountInformation().getAccountLevel().ordinal()).
+                            setCharacterId(account.component(RealmAccountComponents.CHARACTER_MANAGER).getCharacterInformation().getId()).
+                            setCharacterName(account.component(RealmAccountComponents.CHARACTER_MANAGER).getCharacterInformation().getName()).
+                            setMapName(account.component(RealmAccountComponents.CHARACTER_MANAGER).getCharacterInformation().getMapName()).
+                            setAccountId(account.getAccountInformation().getAccountId()).setAccountName(account.getAccountInformation().getAccountName()).
+                            setPassword(account.getAccountInformation().getPassword()).setHost(world.getSocket().getHostName()).setPort(world.getSocket().getPort()).build());
                     account.component(RealmAccountComponents.REALM_LIST_MANAGER).setLastWorld(world.getName());
                 } else
                     account.sendMessage(PacketOuterClass.Opcode.SMSG_LOGIN_RESPONSE, Shared.LoginResponse.newBuilder().setResponseId(AccountResponses.ERR_SYSTEM_UNAVAILABLE.ordinal()).build());

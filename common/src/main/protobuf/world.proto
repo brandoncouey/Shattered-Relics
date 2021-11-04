@@ -3,6 +3,10 @@ package shattered.protocol;
 option java_package = "com.shattered.networking.proto";
 option cc_enable_arenas = true;
 
+//+ustruct:BlueprintType
+message TransferMap {
+    string name = 1;
+}
 
 //+ustruct:BlueprintType
 message WorldVector {
@@ -12,7 +16,7 @@ message WorldVector {
 }
 
 //+ustruct:BlueprintType
-message WorldRotation {
+message WorldRotator {
     float yaw = 1;
     float pitch = 2;
     float roll = 3;
@@ -21,11 +25,11 @@ message WorldRotation {
 //+ustruct:BlueprintType
 message WorldTransform {
     WorldVector location = 1;
-    WorldRotation rotation = 2;
+    WorldRotator rotation = 2;
 }
 
 //+ustruct:BlueprintType
-message CharacterTransformUpdate {
+message MovementUpdate {
     int32 flags = 1;
     int32 mount_id = 2;
     WorldVector position = 3;
@@ -33,14 +37,7 @@ message CharacterTransformUpdate {
     float speed = 5;
     int64 time = 6;
     bool forced = 7;
-}
 
-//+ustruct:BlueprintType
-message CharacterMovementInput {
-    WorldVector position = 1;
-    float direction = 2;
-    int32 flags = 3;
-    int64 time = 4;
 }
 
 //+ustruct:BlueprintType
@@ -51,7 +48,14 @@ message MapMarker {
 }
 
 //+ustruct:BlueprintType
-message CharacterModelBlock {
+message HitMark {
+    int32 amount = 1;
+    int32 type = 2;
+    bool critical = 3;
+}
+
+//+ustruct:BlueprintType
+message PlayerModelBlock {
 
     string character_name = 1;
     string title = 2;
@@ -80,18 +84,11 @@ message CharacterModelBlock {
 }
 
 //+ustruct:BlueprintType
-message HitMark {
-    int32 amount = 1;
-    int32 type = 2;
-    bool is_criticial = 3;
-}
-
-//+ustruct:BlueprintType
-message LocalCharacter {
-    int32 character_index = 1;
+message PlayerUpdateBlock {
+    int32 player_index = 1;
     int32 flags = 2;
-    CharacterModelBlock model = 3;
-    CharacterTransformUpdate movement = 4;
+    PlayerModelBlock model = 3;
+    MovementUpdate movement = 4;
     MapMarker marker = 5;
     repeated HitMark hit_marks = 6;
     int32 interact_flags = 7;
@@ -107,22 +104,23 @@ message LocalCharacter {
     bool needs_added = 17;
     bool needs_removed = 18;
 }
-//+ustruct:BlueprintType
-message CharacterSynchronize {
 
-    int32 client_index = 1;
-    repeated LocalCharacter local_character = 2;
+//+ustruct:BlueprintType
+message PlayerSynchronize {
+
+    int32 uuid = 1;
+    repeated PlayerUpdateBlock player = 2;
 }
 
 //+ustruct:BlueprintType
-message LocalNPC {
+message NPCUpdateBlock {
     int32 npc_index = 1;
     int32 npc_id = 2;
     int32 flags = 3;
     string npc_name = 4;
     int32 health = 5;
     int32 max_health = 6;
-    CharacterTransformUpdate movement = 7;
+    MovementUpdate movement = 7;
     MapMarker marker = 8;
     repeated HitMark hit_marks = 9;
     int32 anim_sequence_id = 10;
@@ -137,7 +135,7 @@ message LocalNPC {
 message NPCSynchronize {
 
     //+uproperty:BlueprintReadOnly
-    repeated LocalNPC local_npc = 1;
+    repeated NPCUpdateBlock npc = 1;
 }
 
 //+ustruct:BlueprintType
@@ -159,50 +157,7 @@ message ObjectSynchronize {
     repeated LocalObject local_object = 1;
 }
 
-//+ustruct:BlueprintType
-message CharVarBool {
-    //+uproperty:BlueprintReadOnly
-    int32 id = 1;
-    //+uproperty:BlueprintReadOnly
-    bool value = 2;
-}
 
-//+ustruct:BlueprintType
-message CharVarInt {
-    //+uproperty:BlueprintReadOnly
-    int32 id = 1;
-    //+uproperty:BlueprintReadOnly
-    int32 value = 2;
-}
-
-//+ustruct:BlueprintType
-message CharVarString {
-    //+uproperty:BlueprintReadOnly
-    int32 id = 1;
-    //+uproperty:BlueprintReadOnly
-    string value = 2;
-}
-
-//+ustruct:BlueprintType
-message ActorCharVarBool {
-    int32 client_index = 1;
-    int32 id = 2;
-    bool value = 3;
-}
-
-//+ustruct:BlueprintType
-message ActorCharVarInt {
-    int32 client_index = 1;
-    int32 id = 2;
-    int32 value = 3;
-}
-
-//+ustruct:BlueprintType
-message ActorCharVarString {
-    int32 client_index = 1;
-    int32 id = 2;
-    string value = 3;
-}
 
 //+ustruct:BlueprintType
 message ChatRequestMessage {
@@ -228,9 +183,8 @@ message ChannelMessage {
 //+ue:exclude
 message ActorInteraction {
     int32 id = 1;
-    int32 index = 2;
+    int32 uuid = 2;
     int32 modifier = 3;
-    WorldTransform transform = 4;//optional this is if the index = -1 (client-spawned interactable actors)
 }
 
 //+ustruct:BlueprintType
@@ -239,28 +193,185 @@ message StructWidget {
     string widget_name = 1;
 }
 
+
 //+ustruct:BlueprintType
-message AbilitySlot {
-    //+uproperty:BlueprintReadOnly
-    int32 slot_id = 1;
-    //+uproperty:BlueprintReadOnly
+message Dialog {
+    int32 npc_id = 1;
+    string message = 2;
+    string button_text = 3;
+}
+
+//+ustruct:BlueprintType
+message DialogOption {
+    int32 sprite_id = 1;
+    string button_text = 2;
+}
+
+//+ustruct:BlueprintType
+message DialogOptions {
+    repeated DialogOption option = 1;
+}
+
+//+ustruct:BlueprintType
+message DialogSelectOption {
+    int32 option_id = 1;
+}
+
+//+ue:exclude
+message SetTarget {
+    int32 client_index = 1;// << 1 | 0 = npc, 1
+}
+
+//+ustruct:BlueprintType
+message Ability {
+    int32 slot = 1;
     int32 id = 2;
 }
 
 //+ustruct:BlueprintType
-message ItemSlot {
-    //+uproperty:BlueprintReadOnly
+message Item {
     int32 id = 1;
-    //+uproperty:BlueprintReadOnly
     int32 amount = 2;
-    //+uproperty:BlueprintReadOnly
-    int32 cost = 3;
+}
+
+
+//+ustruct:BlueprintType
+message PartyMember {
+    int32 id = 1;
+    string name = 2;
+    int32 combat_level = 3;
+    int32 health = 4;
+    int32 max_health = 5;
+    int32 energy = 6;
+    int32 max_energy = 7;
+}
+
+//+ustruct:BlueprintType
+message Invite {
+    string from = 1;
+}
+
+//+ustruct:BlueprintType
+message QuestList {
+    repeated Quest quest = 1;
+}
+
+//+ustruct:BlueprintType
+message Quest {
+    string name = 1;
+    int32 state = 2;
+}
+
+//+ustruct:BlueprintType
+message QuestEntry {
+    string name = 1;
+    string description = 2;
+    repeated Item item_reward = 3;
+    repeated string string_reward = 4;
+}
+
+//+ustruct:BlueprintType
+message QuestLog {
+    string name = 1;
+    repeated string logs = 2;
+}
+
+//+ustruct:BlueprintType
+message JobList {
+    repeated Job job = 1;
+}
+
+//+ustruct:BlueprintType
+message Job {
+    string name = 1;
+    int32 state = 2;
+}
+
+//+ustruct:BlueprintType
+message JobEntry {
+    string name = 1;
+    string description = 2;
+    repeated Item item_reward = 3;
+    repeated string string_reward = 4;
+}
+
+//+ustruct:BlueprintType
+message CombatLevelUpNotification {
+    int32 level = 1;
+}
+
+//+ustruct:BlueprintType
+message AreaNotification {
+    string zone_name = 1;
+}
+
+//+ustruct:BlueprintType
+message LearnedNotification {
+    int32 item_id = 1;
+}
+
+//+ustruct:BlueprintType
+message QuestNotification {
+    string quest_name = 1;
+}
+
+//+ustruct:BlueprintType
+message ReputationLevelUpNotification {
+    string name = 1;
+    string state = 2;
+}
+
+//+ustruct:BlueprintType
+message MasteryNotification {
+    int32 id = 1;
+    int32 state = 2;
+}
+
+//+ustruct:BlueprintType
+message Projectile {
+    int32 id = 1;
+    int32 uuid = 2;
+}
+
+//+ustruct:BlueprintType
+message SpawnProjectileForActor {
+    int32 index = 1;
+    int32 to_index = 2;
+    Projectile projectile = 3;
+    float pitch = 4;
+}
+
+//+ustruct:BlueprintType
+message SpawnEmitter {
+    int32 emitter_id = 1;
+    WorldTransform transform = 2;
+}
+
+//+ustruct:BlueprintType
+message PlaySoundEffectAtActor {
+    int32 id = 1;
+    int32 uuid = 2;
+}
+
+//+ustruct:BlueprintType
+message PlaySoundEffectAtLocation {
+    int32 id = 1;
+    WorldTransform transform = 2;
+}
+
+//+ustruct:BlueprintType
+message PlaySoundCue {
+    int32 cue_id = 1;
 }
 
 //+ue:exclude
-message DisplayActionProgressBar {
-    string action = 1;
-    int32 duration = 2;
+message RequestRollDirection {
+    int32 direction = 1;
+}
+
+//+ue:exclude
+message ReverseMovementControls {
+    bool backwards = 1;
 }
 
 //+ustruct:BlueprintType
@@ -314,6 +425,12 @@ message UseAbilitySlot {
     int32 ability_id = 4;
 }
 
+//+ustruct:BlueprintType
+message AbilityCooldown {
+    int32 ability_id = 1;
+    int64 duration = 2;
+}
+
 
 //+ue:exclude
 message UseContainerSlot {
@@ -322,326 +439,4 @@ message UseContainerSlot {
     int32 item_id = 3;
 }
 
-//+ustruct:BlueprintType
-message AddBuff {
-    int32 client_index = 1;// << 1 | 0 = npc ; 1 = player
-    int32 id = 2;
-    int32 stacks = 3;
-    float duration = 4;//0 = remove
-}
 
-//+ustruct:BlueprintType
-message RemoveBuff {
-    int32 client_index = 1;//<< 1 | 0 = npc . 1 player
-    int32 id = 2;
-}
-
-//+ustruct:BlueprintType
-message CancelProjectile {
-    int32 uuid = 1;
-}
-
-//+ustruct:BlueprintType
-message Projectile {
-    int32 id = 1;
-    int32 uuid = 2;
-}
-
-//+ustruct:BlueprintType
-message SpawnProjectile {
-    Projectile projectile = 1;
-    WorldTransform transform = 2;
-}
-
-//+ustruct:BlueprintType
-message SpawnProjectileForActor {
-    int32 index = 1;
-    int32 to_index = 2;
-    Projectile projectile = 3;
-    float pitch = 4;
-}
-
-//+ustruct:BlueprintType
-message SpawnEmitter {
-    int32 emitter_id = 1;
-    WorldTransform transform = 2;
-}
-
-//+ustruct:BlueprintType
-message Dialog {
-    int32 npc_id = 1;
-    string message = 2;
-    string button_text = 3;
-}
-
-//+ustruct:BlueprintType
-message DialogOption {
-    int32 sprite_id = 1;
-    string button_text = 2;
-}
-
-//+ustruct:BlueprintType
-message DialogOptions {
-    repeated DialogOption option = 1;
-}
-
-//+ustruct:BlueprintType
-message DialogSelectOption {
-    int32 option_id = 1;
-}
-
-//+ustruct:BlueprintType
-message PlaySoundEffectAtActor {
-    int32 id = 1;
-    int32 uuid = 2;
-}
-
-//+ustruct:BlueprintType
-message PlaySoundEffectAtLocation {
-    int32 id = 1;
-    WorldTransform transform = 2;
-}
-
-//+ustruct:BlueprintType
-message PlaySoundCue {
-    int32 cue_id = 1;
-}
-
-//+ue:exclude
-message SetTarget {
-    int32 client_index = 1;// << 1 | 0 = npc, 1
-}
-
-//+ue:exclude
-message SetMarkerOnNPC {
-    int32 npc_index = 1;
-    int32 marker_type = 2;
-}
-
-//+ue:exclude
-message UpdateMarkerOnNPC {
-    int32 npcIndex = 1;
-    int32 markerType = 2;
-}
-
-//+ue:exclude
-message RemoveMarkerOnNPC {
-    int32 npcIndex = 1;
-}
-
-//+ue:exclude
-message SetMarkerOnObject {
-    int32 npcIndex = 1;
-    int32 markerType = 2;
-}
-
-//+ue:exclude
-message UpdateMarkerOnObject {
-    int32 npcIndex = 1;
-    int32 markerType = 2;
-}
-
-//+ue:exclude
-message RemoveMarkerOnObject {
-    int32 npcIndex = 1;
-}
-
-//+ue:exclude
-message SetMarkerOnCharacter {
-    int32 npcIndex = 1;
-    int32 markerType = 2;
-}
-
-//+ue:exclude
-message UpdateMarkerOnCharacter {
-    int32 npcIndex = 1;
-    int32 markerType = 2;
-}
-
-//+ue:exclude
-message RemoveMarkerOnCharacter {
-    int32 npcIndex = 1;
-}
-
-//+ustruct:BlueprintType
-message CombatLevelUpNotification {
-    int32 level = 1;
-}
-
-//+ustruct:BlueprintType
-message AreaNotification {
-    string zone_name = 1;
-}
-
-//+ustruct:BlueprintType
-message LearnedNotification {
-    int32 item_id = 1;
-}
-
-//+ustruct:BlueprintType
-message QuestNotification {
-    string quest_name = 1;
-}
-
-//+ustruct:BlueprintType
-message ReputationLevelUpNotification {
-    string name = 1;
-    string state = 2;
-}
-
-//+ustruct:BlueprintType
-message SXPNotification {
-    string name = 1;
-    int32 amount = 2;
-}
-
-//+ustruct:BlueprintType
-message IXPNotification {
-    int32 id = 1;
-    int32 amount = 2;
-}
-
-//+ustruct:BlueprintType
-message MasteryNotification {
-    int32 id = 1;
-    int32 state = 2;
-}
-
-//+ustruct:BlueprintType
-message AcquiredNotification {
-    int32 item_id = 1;
-    int32 amount = 2;
-}
-
-//+ustruct:BlueprintType
-message ActorWarningMessage {
-    int32 uuid = 1;// << 2 | entity_type
-    string message = 2;
-}
-
-//+ue:exclude
-message TradeWindow {
-    string name = 1;
-}
-
-//+ue:exclude
-message TradeOfferItems {
-    repeated ItemSlot items = 1;
-    bool accepted = 2;
-}
-
-//+ue:exclude
-message TradeOfferCoins {
-    int32 coins = 1;
-}
-
-//+ue:exclude
-message RequestRollDirection {
-    int32 direction = 1;
-}
-
-//+ue:exclude
-message RequestAbilityAction {
-    int32 action_id = 1;
-}
-
-//+ue:exclude
-message ForcePlayMontage {
-    int32 client_index = 1;
-    int32 montage_id = 2;
-}
-
-//+ustruct:BlueprintType
-message AbilityCooldown {
-    int32 ability_id = 1;
-    int64 duration = 2;
-}
-
-//+ue:exclude
-message SelectedAreaTelegraph {
-    int32 ability_id = 1;
-    WorldVector location = 2;
-}
-
-//+ue:exclude
-message UpdateCastTime {
-    int32 ability_id = 1;
-    int32 duration = 2;
-}
-
-//+ue:exclude
-message ReverseMovementControls {
-    bool backwards = 1;
-}
-
-//+ustruct:BlueprintType
-message PartyMember {
-    int32 id = 1;
-    string name = 2;
-    int32 combat_level = 3;
-    int32 health = 4;
-    int32 max_health = 5;
-    int32 energy = 6;
-    int32 max_energy = 7;
-}
-
-//+ustruct:BlueprintType
-message UpdatePartyMember {
-    int32 id = 1;
-    int32 combat_level = 2;
-    int32 health = 3;
-    int32 max_health = 4;
-    int32 energy = 5;
-    int32 max_energy = 6;
-}
-
-//+ustruct:BlueprintType
-message Invite {
-    string from = 1;
-}
-
-//+ustruct:BlueprintType
-message QuestList {
-    repeated Quest quest = 1;
-}
-
-//+ustruct:BlueprintType
-message Quest {
-    string name = 1;
-    int32 state = 2;
-}
-
-//+ustruct:BlueprintType
-message QuestEntry {
-    string name = 1;
-    string description = 2;
-    repeated ItemSlot item_reward = 3;
-    repeated string string_reward = 4;
-}
-
-//+ustruct:BlueprintType
-message QuestLog {
-    string name = 1;
-    repeated string logs = 2;
-}
-
-//Jobs
-
-//+ustruct:BlueprintType
-message JobList {
-    repeated Job job = 1;
-}
-
-//+ustruct:BlueprintType
-message Job {
-    string name = 1;
-    int32 state = 2;
-}
-
-//+ustruct:BlueprintType
-message JobEntry {
-    string name = 1;
-    string description = 2;
-    repeated ItemSlot item_reward = 3;
-    repeated string string_reward = 4;
-}

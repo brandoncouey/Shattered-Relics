@@ -17,12 +17,17 @@ public class PlayerInformation {
     private final int id;
 
     /**
-     * Represents the Name of the Character
+     * Represents the Name of the Player
      */
     private final String name;
 
     /**
-     * Represents the location of the Character
+     * Represents the last location of the Player
+     */
+    private String mapName;
+
+    /**
+     * Represents the location of the Player
      */
     private final String location;
 
