@@ -36,8 +36,8 @@ message MovementUpdate {
     float direction = 4;
     float speed = 5;
     int64 time = 6;
-    bool forced = 7;
-
+    WorldVector velocity = 7;
+    bool forced = 8;
 }
 
 //+ustruct:BlueprintType
