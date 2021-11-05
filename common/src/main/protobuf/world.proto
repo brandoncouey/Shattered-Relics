@@ -3,6 +3,7 @@ package shattered.protocol;
 option java_package = "com.shattered.networking.proto";
 option cc_enable_arenas = true;
 
+
 //+ustruct:BlueprintType
 message TransferMap {
     string name = 1;
@@ -84,6 +85,13 @@ message PlayerModelBlock {
 }
 
 //+ustruct:BlueprintType
+message AnimationSequence {
+    int32 animation_id = 1;
+    float speed = 2;
+    string section_name = 3;
+}
+
+//+ustruct:BlueprintType
 message PlayerUpdateBlock {
     int32 player_index = 1;
     int32 flags = 2;
@@ -92,7 +100,7 @@ message PlayerUpdateBlock {
     MapMarker marker = 5;
     repeated HitMark hit_marks = 6;
     int32 interact_flags = 7;
-    int32 anim_sequence_id = 8;
+    AnimationSequence animation = 8;
     int32 blend_id = 9;
     int32 combat_level = 10;
     int32 health = 11;
@@ -123,7 +131,7 @@ message NPCUpdateBlock {
     MovementUpdate movement = 7;
     MapMarker marker = 8;
     repeated HitMark hit_marks = 9;
-    int32 anim_sequence_id = 10;
+    AnimationSequence animation = 10;
     int32 interact_flags = 11;
     int32 hostility_level = 12;
     int32 blend_id = 13;
@@ -373,7 +381,6 @@ message RequestRollDirection {
 message ReverseMovementControls {
     bool backwards = 1;
 }
-
 //+ustruct:BlueprintType
 message UpdateActionBarSlot {
     //+uproperty:BlueprintReadOnly
@@ -387,7 +394,7 @@ message UpdateItemContainerFull {
     //+uproperty:BlueprintReadOnly
     int32 container_id = 1;
     //+uproperty:BlueprintReadOnly
-    repeated ItemSlot item_slot = 2;
+    repeated Item item_slot = 2;
 }
 
 //+ustruct:BlueprintType
@@ -397,7 +404,7 @@ message UpdateItemContainerSlot {
     //+uproperty:BlueprintReadOnly
     int32 slot_id = 2;
     //+uproperty:BlueprintReadOnly
-    ItemSlot item_slot = 3;
+    Item item_slot = 3;
 }
 
 //+ue:exclude
@@ -430,7 +437,6 @@ message AbilityCooldown {
     int32 ability_id = 1;
     int64 duration = 2;
 }
-
 
 //+ue:exclude
 message UseContainerSlot {
