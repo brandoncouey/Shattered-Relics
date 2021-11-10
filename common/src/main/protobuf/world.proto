@@ -29,12 +29,13 @@ message WorldTransform {
     WorldRotator rotation = 2;
 }
 
+
 //+ustruct:BlueprintType
 message MovementUpdate {
     int32 flags = 1;
     int32 mount_id = 2;
     WorldVector position = 3;
-    float direction = 4;
+    WorldRotator rotation = 4;
     float speed = 5;
     int64 time = 6;
     WorldVector velocity = 7;

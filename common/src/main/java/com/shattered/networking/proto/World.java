@@ -2647,9 +2647,17 @@ public final class World {
     com.shattered.networking.proto.World.WorldVectorOrBuilder getPositionOrBuilder();
 
     /**
-     * <code>float direction = 4;</code>
+     * <code>.shattered.protocol.WorldRotator rotation = 4;</code>
      */
-    float getDirection();
+    boolean hasRotation();
+    /**
+     * <code>.shattered.protocol.WorldRotator rotation = 4;</code>
+     */
+    com.shattered.networking.proto.World.WorldRotator getRotation();
+    /**
+     * <code>.shattered.protocol.WorldRotator rotation = 4;</code>
+     */
+    com.shattered.networking.proto.World.WorldRotatorOrBuilder getRotationOrBuilder();
 
     /**
      * <code>float speed = 5;</code>
@@ -2698,7 +2706,6 @@ public final class World {
     private MovementUpdate() {
       flags_ = 0;
       mountId_ = 0;
-      direction_ = 0F;
       speed_ = 0F;
       time_ = 0L;
       forced_ = false;
@@ -2751,9 +2758,17 @@ public final class World {
 
               break;
             }
-            case 37: {
+            case 34: {
+              com.shattered.networking.proto.World.WorldRotator.Builder subBuilder = null;
+              if (rotation_ != null) {
+                subBuilder = rotation_.toBuilder();
+              }
+              rotation_ = input.readMessage(com.shattered.networking.proto.World.WorldRotator.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(rotation_);
+                rotation_ = subBuilder.buildPartial();
+              }
 
-              direction_ = input.readFloat();
               break;
             }
             case 45: {
@@ -2855,13 +2870,25 @@ public final class World {
       return getPosition();
     }
 
-    public static final int DIRECTION_FIELD_NUMBER = 4;
-    private float direction_;
+    public static final int ROTATION_FIELD_NUMBER = 4;
+    private com.shattered.networking.proto.World.WorldRotator rotation_;
     /**
-     * <code>float direction = 4;</code>
+     * <code>.shattered.protocol.WorldRotator rotation = 4;</code>
      */
-    public float getDirection() {
-      return direction_;
+    public boolean hasRotation() {
+      return rotation_ != null;
+    }
+    /**
+     * <code>.shattered.protocol.WorldRotator rotation = 4;</code>
+     */
+    public com.shattered.networking.proto.World.WorldRotator getRotation() {
+      return rotation_ == null ? com.shattered.networking.proto.World.WorldRotator.getDefaultInstance() : rotation_;
+    }
+    /**
+     * <code>.shattered.protocol.WorldRotator rotation = 4;</code>
+     */
+    public com.shattered.networking.proto.World.WorldRotatorOrBuilder getRotationOrBuilder() {
+      return getRotation();
     }
 
     public static final int SPEED_FIELD_NUMBER = 5;
@@ -2935,8 +2962,8 @@ public final class World {
       if (position_ != null) {
         output.writeMessage(3, getPosition());
       }
-      if (direction_ != 0F) {
-        output.writeFloat(4, direction_);
+      if (rotation_ != null) {
+        output.writeMessage(4, getRotation());
       }
       if (speed_ != 0F) {
         output.writeFloat(5, speed_);
@@ -2971,9 +2998,9 @@ public final class World {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getPosition());
       }
-      if (direction_ != 0F) {
+      if (rotation_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(4, direction_);
+          .computeMessageSize(4, getRotation());
       }
       if (speed_ != 0F) {
         size += com.google.protobuf.CodedOutputStream
@@ -3016,10 +3043,11 @@ public final class World {
         result = result && getPosition()
             .equals(other.getPosition());
       }
-      result = result && (
-          java.lang.Float.floatToIntBits(getDirection())
-          == java.lang.Float.floatToIntBits(
-              other.getDirection()));
+      result = result && (hasRotation() == other.hasRotation());
+      if (hasRotation()) {
+        result = result && getRotation()
+            .equals(other.getRotation());
+      }
       result = result && (
           java.lang.Float.floatToIntBits(getSpeed())
           == java.lang.Float.floatToIntBits(
@@ -3052,9 +3080,10 @@ public final class World {
         hash = (37 * hash) + POSITION_FIELD_NUMBER;
         hash = (53 * hash) + getPosition().hashCode();
       }
-      hash = (37 * hash) + DIRECTION_FIELD_NUMBER;
-      hash = (53 * hash) + java.lang.Float.floatToIntBits(
-          getDirection());
+      if (hasRotation()) {
+        hash = (37 * hash) + ROTATION_FIELD_NUMBER;
+        hash = (53 * hash) + getRotation().hashCode();
+      }
       hash = (37 * hash) + SPEED_FIELD_NUMBER;
       hash = (53 * hash) + java.lang.Float.floatToIntBits(
           getSpeed());
@@ -3215,8 +3244,12 @@ public final class World {
           position_ = null;
           positionBuilder_ = null;
         }
-        direction_ = 0F;
-
+        if (rotationBuilder_ == null) {
+          rotation_ = null;
+        } else {
+          rotation_ = null;
+          rotationBuilder_ = null;
+        }
         speed_ = 0F;
 
         time_ = 0L;
@@ -3262,7 +3295,11 @@ public final class World {
         } else {
           result.position_ = positionBuilder_.build();
         }
-        result.direction_ = direction_;
+        if (rotationBuilder_ == null) {
+          result.rotation_ = rotation_;
+        } else {
+          result.rotation_ = rotationBuilder_.build();
+        }
         result.speed_ = speed_;
         result.time_ = time_;
         if (velocityBuilder_ == null) {
@@ -3328,8 +3365,8 @@ public final class World {
         if (other.hasPosition()) {
           mergePosition(other.getPosition());
         }
-        if (other.getDirection() != 0F) {
-          setDirection(other.getDirection());
+        if (other.hasRotation()) {
+          mergeRotation(other.getRotation());
         }
         if (other.getSpeed() != 0F) {
           setSpeed(other.getSpeed());
@@ -3541,30 +3578,121 @@ public final class World {
         return positionBuilder_;
       }
 
-      private float direction_ ;
+      private com.shattered.networking.proto.World.WorldRotator rotation_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.shattered.networking.proto.World.WorldRotator, com.shattered.networking.proto.World.WorldRotator.Builder, com.shattered.networking.proto.World.WorldRotatorOrBuilder> rotationBuilder_;
       /**
-       * <code>float direction = 4;</code>
+       * <code>.shattered.protocol.WorldRotator rotation = 4;</code>
        */
-      public float getDirection() {
-        return direction_;
+      public boolean hasRotation() {
+        return rotationBuilder_ != null || rotation_ != null;
       }
       /**
-       * <code>float direction = 4;</code>
+       * <code>.shattered.protocol.WorldRotator rotation = 4;</code>
        */
-      public Builder setDirection(float value) {
-        
-        direction_ = value;
-        onChanged();
+      public com.shattered.networking.proto.World.WorldRotator getRotation() {
+        if (rotationBuilder_ == null) {
+          return rotation_ == null ? com.shattered.networking.proto.World.WorldRotator.getDefaultInstance() : rotation_;
+        } else {
+          return rotationBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.shattered.protocol.WorldRotator rotation = 4;</code>
+       */
+      public Builder setRotation(com.shattered.networking.proto.World.WorldRotator value) {
+        if (rotationBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          rotation_ = value;
+          onChanged();
+        } else {
+          rotationBuilder_.setMessage(value);
+        }
+
         return this;
       }
       /**
-       * <code>float direction = 4;</code>
+       * <code>.shattered.protocol.WorldRotator rotation = 4;</code>
        */
-      public Builder clearDirection() {
-        
-        direction_ = 0F;
-        onChanged();
+      public Builder setRotation(
+          com.shattered.networking.proto.World.WorldRotator.Builder builderForValue) {
+        if (rotationBuilder_ == null) {
+          rotation_ = builderForValue.build();
+          onChanged();
+        } else {
+          rotationBuilder_.setMessage(builderForValue.build());
+        }
+
         return this;
+      }
+      /**
+       * <code>.shattered.protocol.WorldRotator rotation = 4;</code>
+       */
+      public Builder mergeRotation(com.shattered.networking.proto.World.WorldRotator value) {
+        if (rotationBuilder_ == null) {
+          if (rotation_ != null) {
+            rotation_ =
+              com.shattered.networking.proto.World.WorldRotator.newBuilder(rotation_).mergeFrom(value).buildPartial();
+          } else {
+            rotation_ = value;
+          }
+          onChanged();
+        } else {
+          rotationBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.shattered.protocol.WorldRotator rotation = 4;</code>
+       */
+      public Builder clearRotation() {
+        if (rotationBuilder_ == null) {
+          rotation_ = null;
+          onChanged();
+        } else {
+          rotation_ = null;
+          rotationBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.shattered.protocol.WorldRotator rotation = 4;</code>
+       */
+      public com.shattered.networking.proto.World.WorldRotator.Builder getRotationBuilder() {
+        
+        onChanged();
+        return getRotationFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.shattered.protocol.WorldRotator rotation = 4;</code>
+       */
+      public com.shattered.networking.proto.World.WorldRotatorOrBuilder getRotationOrBuilder() {
+        if (rotationBuilder_ != null) {
+          return rotationBuilder_.getMessageOrBuilder();
+        } else {
+          return rotation_ == null ?
+              com.shattered.networking.proto.World.WorldRotator.getDefaultInstance() : rotation_;
+        }
+      }
+      /**
+       * <code>.shattered.protocol.WorldRotator rotation = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.shattered.networking.proto.World.WorldRotator, com.shattered.networking.proto.World.WorldRotator.Builder, com.shattered.networking.proto.World.WorldRotatorOrBuilder> 
+          getRotationFieldBuilder() {
+        if (rotationBuilder_ == null) {
+          rotationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.shattered.networking.proto.World.WorldRotator, com.shattered.networking.proto.World.WorldRotator.Builder, com.shattered.networking.proto.World.WorldRotatorOrBuilder>(
+                  getRotation(),
+                  getParentForChildren(),
+                  isClean());
+          rotation_ = null;
+        }
+        return rotationBuilder_;
       }
 
       private float speed_ ;
@@ -45405,137 +45533,138 @@ public final class World {
       "ll\030\003 \001(\002\"w\n\016WorldTransform\0221\n\010location\030\001" +
       " \001(\0132\037.shattered.protocol.WorldVector\0222\n" +
       "\010rotation\030\002 \001(\0132 .shattered.protocol.Wor" +
-      "ldRotator\"\327\001\n\016MovementUpdate\022\r\n\005flags\030\001 " +
+      "ldRotator\"\370\001\n\016MovementUpdate\022\r\n\005flags\030\001 " +
       "\001(\005\022\020\n\010mount_id\030\002 \001(\005\0221\n\010position\030\003 \001(\0132" +
-      "\037.shattered.protocol.WorldVector\022\021\n\tdire" +
-      "ction\030\004 \001(\002\022\r\n\005speed\030\005 \001(\002\022\014\n\004time\030\006 \001(\003" +
-      "\0221\n\010velocity\030\007 \001(\0132\037.shattered.protocol." +
-      "WorldVector\022\016\n\006forced\030\010 \001(\010\"7\n\tMapMarker" +
-      "\022\n\n\002id\030\001 \001(\005\022\016\n\006clamps\030\002 \001(\010\022\016\n\006global\030\003" +
-      " \001(\010\"9\n\007HitMark\022\016\n\006amount\030\001 \001(\005\022\014\n\004type\030" +
-      "\002 \001(\005\022\020\n\010critical\030\003 \001(\010\"\336\003\n\020PlayerModelB" +
-      "lock\022\026\n\016character_name\030\001 \001(\t\022\r\n\005title\030\002 " +
-      "\001(\t\022\022\n\nguild_name\030\003 \001(\t\022\017\n\007is_male\030\004 \001(\010" +
-      "\022\014\n\004race\030\005 \001(\005\022\022\n\nhair_style\030\006 \001(\005\022\021\n\tey" +
-      "e_color\030\007 \001(\005\022\025\n\reyebrow_style\030\010 \001(\005\022\023\n\013" +
-      "beard_style\030\t \001(\005\022\024\n\014head_slot_id\030\n \001(\005\022" +
-      "\030\n\020necklace_slot_id\030\013 \001(\005\022\031\n\021shoulders_s" +
-      "lot_id\030\014 \001(\005\022\024\n\014back_slot_id\030\r \001(\005\022\025\n\rch" +
-      "est_slot_id\030\016 \001(\005\022\024\n\014belt_slot_id\030\017 \001(\005\022" +
-      "\025\n\rpants_slot_id\030\020 \001(\005\022\026\n\016wrists_slot_id" +
-      "\030\021 \001(\005\022\026\n\016gloves_slot_id\030\022 \001(\005\022\030\n\020mainha" +
-      "nd_slot_id\030\023 \001(\005\022\027\n\017offhand_slot_id\030\024 \001(" +
-      "\005\022\025\n\rboots_slot_id\030\025 \001(\005\"N\n\021AnimationSeq" +
-      "uence\022\024\n\014animation_id\030\001 \001(\005\022\r\n\005speed\030\002 \001" +
-      "(\002\022\024\n\014section_name\030\003 \001(\t\"\237\004\n\021PlayerUpdat" +
-      "eBlock\022\024\n\014player_index\030\001 \001(\005\022\r\n\005flags\030\002 " +
-      "\001(\005\0223\n\005model\030\003 \001(\0132$.shattered.protocol." +
-      "PlayerModelBlock\0224\n\010movement\030\004 \001(\0132\".sha" +
+      "\037.shattered.protocol.WorldVector\0222\n\010rota" +
+      "tion\030\004 \001(\0132 .shattered.protocol.WorldRot" +
+      "ator\022\r\n\005speed\030\005 \001(\002\022\014\n\004time\030\006 \001(\003\0221\n\010vel" +
+      "ocity\030\007 \001(\0132\037.shattered.protocol.WorldVe" +
+      "ctor\022\016\n\006forced\030\010 \001(\010\"7\n\tMapMarker\022\n\n\002id\030" +
+      "\001 \001(\005\022\016\n\006clamps\030\002 \001(\010\022\016\n\006global\030\003 \001(\010\"9\n" +
+      "\007HitMark\022\016\n\006amount\030\001 \001(\005\022\014\n\004type\030\002 \001(\005\022\020" +
+      "\n\010critical\030\003 \001(\010\"\336\003\n\020PlayerModelBlock\022\026\n" +
+      "\016character_name\030\001 \001(\t\022\r\n\005title\030\002 \001(\t\022\022\n\n" +
+      "guild_name\030\003 \001(\t\022\017\n\007is_male\030\004 \001(\010\022\014\n\004rac" +
+      "e\030\005 \001(\005\022\022\n\nhair_style\030\006 \001(\005\022\021\n\teye_color" +
+      "\030\007 \001(\005\022\025\n\reyebrow_style\030\010 \001(\005\022\023\n\013beard_s" +
+      "tyle\030\t \001(\005\022\024\n\014head_slot_id\030\n \001(\005\022\030\n\020neck" +
+      "lace_slot_id\030\013 \001(\005\022\031\n\021shoulders_slot_id\030" +
+      "\014 \001(\005\022\024\n\014back_slot_id\030\r \001(\005\022\025\n\rchest_slo" +
+      "t_id\030\016 \001(\005\022\024\n\014belt_slot_id\030\017 \001(\005\022\025\n\rpant" +
+      "s_slot_id\030\020 \001(\005\022\026\n\016wrists_slot_id\030\021 \001(\005\022" +
+      "\026\n\016gloves_slot_id\030\022 \001(\005\022\030\n\020mainhand_slot" +
+      "_id\030\023 \001(\005\022\027\n\017offhand_slot_id\030\024 \001(\005\022\025\n\rbo" +
+      "ots_slot_id\030\025 \001(\005\"N\n\021AnimationSequence\022\024" +
+      "\n\014animation_id\030\001 \001(\005\022\r\n\005speed\030\002 \001(\002\022\024\n\014s" +
+      "ection_name\030\003 \001(\t\"\237\004\n\021PlayerUpdateBlock\022" +
+      "\024\n\014player_index\030\001 \001(\005\022\r\n\005flags\030\002 \001(\005\0223\n\005" +
+      "model\030\003 \001(\0132$.shattered.protocol.PlayerM" +
+      "odelBlock\0224\n\010movement\030\004 \001(\0132\".shattered." +
+      "protocol.MovementUpdate\022-\n\006marker\030\005 \001(\0132" +
+      "\035.shattered.protocol.MapMarker\022.\n\thit_ma" +
+      "rks\030\006 \003(\0132\033.shattered.protocol.HitMark\022\026" +
+      "\n\016interact_flags\030\007 \001(\005\0228\n\tanimation\030\010 \001(" +
+      "\0132%.shattered.protocol.AnimationSequence" +
+      "\022\020\n\010blend_id\030\t \001(\005\022\024\n\014combat_level\030\n \001(\005" +
+      "\022\016\n\006health\030\013 \001(\005\022\022\n\nmax_health\030\014 \001(\005\022\016\n\006" +
+      "energy\030\r \001(\005\022\022\n\nmax_energy\030\016 \001(\005\022\027\n\017host" +
+      "ility_level\030\017 \001(\005\022\024\n\014aim_blocking\030\020 \001(\010\022" +
+      "\023\n\013needs_added\030\021 \001(\010\022\025\n\rneeds_removed\030\022 " +
+      "\001(\010\"X\n\021PlayerSynchronize\022\014\n\004uuid\030\001 \001(\005\0225" +
+      "\n\006player\030\002 \003(\0132%.shattered.protocol.Play" +
+      "erUpdateBlock\"\266\003\n\016NPCUpdateBlock\022\021\n\tnpc_" +
+      "index\030\001 \001(\005\022\016\n\006npc_id\030\002 \001(\005\022\r\n\005flags\030\003 \001" +
+      "(\005\022\020\n\010npc_name\030\004 \001(\t\022\016\n\006health\030\005 \001(\005\022\022\n\n" +
+      "max_health\030\006 \001(\005\0224\n\010movement\030\007 \001(\0132\".sha" +
       "ttered.protocol.MovementUpdate\022-\n\006marker" +
-      "\030\005 \001(\0132\035.shattered.protocol.MapMarker\022.\n" +
-      "\thit_marks\030\006 \003(\0132\033.shattered.protocol.Hi" +
-      "tMark\022\026\n\016interact_flags\030\007 \001(\005\0228\n\tanimati" +
-      "on\030\010 \001(\0132%.shattered.protocol.AnimationS" +
-      "equence\022\020\n\010blend_id\030\t \001(\005\022\024\n\014combat_leve" +
-      "l\030\n \001(\005\022\016\n\006health\030\013 \001(\005\022\022\n\nmax_health\030\014 " +
-      "\001(\005\022\016\n\006energy\030\r \001(\005\022\022\n\nmax_energy\030\016 \001(\005\022" +
-      "\027\n\017hostility_level\030\017 \001(\005\022\024\n\014aim_blocking" +
-      "\030\020 \001(\010\022\023\n\013needs_added\030\021 \001(\010\022\025\n\rneeds_rem" +
-      "oved\030\022 \001(\010\"X\n\021PlayerSynchronize\022\014\n\004uuid\030" +
-      "\001 \001(\005\0225\n\006player\030\002 \003(\0132%.shattered.protoc" +
-      "ol.PlayerUpdateBlock\"\266\003\n\016NPCUpdateBlock\022" +
-      "\021\n\tnpc_index\030\001 \001(\005\022\016\n\006npc_id\030\002 \001(\005\022\r\n\005fl" +
-      "ags\030\003 \001(\005\022\020\n\010npc_name\030\004 \001(\t\022\016\n\006health\030\005 " +
-      "\001(\005\022\022\n\nmax_health\030\006 \001(\005\0224\n\010movement\030\007 \001(" +
-      "\0132\".shattered.protocol.MovementUpdate\022-\n" +
-      "\006marker\030\010 \001(\0132\035.shattered.protocol.MapMa" +
-      "rker\022.\n\thit_marks\030\t \003(\0132\033.shattered.prot" +
-      "ocol.HitMark\0228\n\tanimation\030\n \001(\0132%.shatte" +
-      "red.protocol.AnimationSequence\022\026\n\016intera" +
-      "ct_flags\030\013 \001(\005\022\027\n\017hostility_level\030\014 \001(\005\022" +
-      "\020\n\010blend_id\030\r \001(\005\022\023\n\013needs_added\030\016 \001(\010\022\025" +
-      "\n\rneeds_removed\030\017 \001(\010\"A\n\016NPCSynchronize\022" +
-      "/\n\003npc\030\001 \003(\0132\".shattered.protocol.NPCUpd" +
-      "ateBlock\"\225\002\n\013LocalObject\022\024\n\014object_index" +
-      "\030\001 \001(\005\022\021\n\tobject_id\030\002 \001(\005\022\r\n\005flags\030\003 \001(\005" +
-      "\022\023\n\013object_name\030\004 \001(\t\0225\n\ttransform\030\005 \001(\013" +
-      "2\".shattered.protocol.WorldTransform\022-\n\006" +
-      "marker\030\006 \001(\0132\035.shattered.protocol.MapMar" +
-      "ker\022\026\n\016interact_flags\030\007 \001(\005\022\017\n\007as_item\030\010" +
-      " \001(\005\022\023\n\013needs_added\030\t \001(\010\022\025\n\rneeds_remov" +
-      "ed\030\n \001(\010\"J\n\021ObjectSynchronize\0225\n\014local_o" +
-      "bject\030\001 \003(\0132\037.shattered.protocol.LocalOb" +
-      "ject\"3\n\022ChatRequestMessage\022\014\n\004type\030\001 \001(\005" +
-      "\022\017\n\007message\030\002 \001(\t\",\n\013GameMessage\022\014\n\004type" +
-      "\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"p\n\016ChannelMessag" +
-      "e\022\014\n\004type\030\001 \001(\005\022\022\n\nfrom_index\030\002 \001(\005\022\021\n\tf" +
-      "rom_name\030\003 \001(\t\022\017\n\007message\030\004 \001(\t\022\030\n\020permi" +
-      "ssion_level\030\005 \001(\005\">\n\020ActorInteraction\022\n\n" +
-      "\002id\030\001 \001(\005\022\014\n\004uuid\030\002 \001(\005\022\020\n\010modifier\030\003 \001(" +
-      "\005\"#\n\014StructWidget\022\023\n\013widget_name\030\001 \001(\t\">" +
-      "\n\006Dialog\022\016\n\006npc_id\030\001 \001(\005\022\017\n\007message\030\002 \001(" +
-      "\t\022\023\n\013button_text\030\003 \001(\t\"6\n\014DialogOption\022\021" +
-      "\n\tsprite_id\030\001 \001(\005\022\023\n\013button_text\030\002 \001(\t\"A" +
-      "\n\rDialogOptions\0220\n\006option\030\001 \003(\0132 .shatte" +
-      "red.protocol.DialogOption\"\'\n\022DialogSelec" +
-      "tOption\022\021\n\toption_id\030\001 \001(\005\"!\n\tSetTarget\022" +
-      "\024\n\014client_index\030\001 \001(\005\"#\n\007Ability\022\014\n\004slot" +
-      "\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\"\"\n\004Item\022\n\n\002id\030\001 \001(\005\022\016" +
-      "\n\006amount\030\002 \001(\005\"\205\001\n\013PartyMember\022\n\n\002id\030\001 \001" +
-      "(\005\022\014\n\004name\030\002 \001(\t\022\024\n\014combat_level\030\003 \001(\005\022\016" +
-      "\n\006health\030\004 \001(\005\022\022\n\nmax_health\030\005 \001(\005\022\016\n\006en" +
-      "ergy\030\006 \001(\005\022\022\n\nmax_energy\030\007 \001(\005\"\026\n\006Invite" +
-      "\022\014\n\004from\030\001 \001(\t\"5\n\tQuestList\022(\n\005quest\030\001 \003" +
-      "(\0132\031.shattered.protocol.Quest\"$\n\005Quest\022\014" +
-      "\n\004name\030\001 \001(\t\022\r\n\005state\030\002 \001(\005\"u\n\nQuestEntr" +
-      "y\022\014\n\004name\030\001 \001(\t\022\023\n\013description\030\002 \001(\t\022-\n\013" +
-      "item_reward\030\003 \003(\0132\030.shattered.protocol.I" +
-      "tem\022\025\n\rstring_reward\030\004 \003(\t\"&\n\010QuestLog\022\014" +
-      "\n\004name\030\001 \001(\t\022\014\n\004logs\030\002 \003(\t\"/\n\007JobList\022$\n" +
-      "\003job\030\001 \003(\0132\027.shattered.protocol.Job\"\"\n\003J" +
-      "ob\022\014\n\004name\030\001 \001(\t\022\r\n\005state\030\002 \001(\005\"s\n\010JobEn" +
-      "try\022\014\n\004name\030\001 \001(\t\022\023\n\013description\030\002 \001(\t\022-" +
-      "\n\013item_reward\030\003 \003(\0132\030.shattered.protocol" +
-      ".Item\022\025\n\rstring_reward\030\004 \003(\t\"*\n\031CombatLe" +
-      "velUpNotification\022\r\n\005level\030\001 \001(\005\"%\n\020Area" +
-      "Notification\022\021\n\tzone_name\030\001 \001(\t\"&\n\023Learn" +
-      "edNotification\022\017\n\007item_id\030\001 \001(\005\"\'\n\021Quest" +
-      "Notification\022\022\n\nquest_name\030\001 \001(\t\"<\n\035Repu" +
-      "tationLevelUpNotification\022\014\n\004name\030\001 \001(\t\022" +
-      "\r\n\005state\030\002 \001(\t\"0\n\023MasteryNotification\022\n\n" +
-      "\002id\030\001 \001(\005\022\r\n\005state\030\002 \001(\005\"&\n\nProjectile\022\n" +
-      "\n\002id\030\001 \001(\005\022\014\n\004uuid\030\002 \001(\005\"}\n\027SpawnProject" +
-      "ileForActor\022\r\n\005index\030\001 \001(\005\022\020\n\010to_index\030\002" +
-      " \001(\005\0222\n\nprojectile\030\003 \001(\0132\036.shattered.pro" +
-      "tocol.Projectile\022\r\n\005pitch\030\004 \001(\002\"Y\n\014Spawn" +
-      "Emitter\022\022\n\nemitter_id\030\001 \001(\005\0225\n\ttransform" +
-      "\030\002 \001(\0132\".shattered.protocol.WorldTransfo" +
-      "rm\"2\n\026PlaySoundEffectAtActor\022\n\n\002id\030\001 \001(\005" +
-      "\022\014\n\004uuid\030\002 \001(\005\"^\n\031PlaySoundEffectAtLocat" +
-      "ion\022\n\n\002id\030\001 \001(\005\0225\n\ttransform\030\002 \001(\0132\".sha" +
-      "ttered.protocol.WorldTransform\"\036\n\014PlaySo" +
-      "undCue\022\016\n\006cue_id\030\001 \001(\005\")\n\024RequestRollDir" +
-      "ection\022\021\n\tdirection\030\001 \001(\005\",\n\027ReverseMove" +
-      "mentControls\022\021\n\tbackwards\030\001 \001(\010\"2\n\023Updat" +
-      "eActionBarSlot\022\017\n\007slot_id\030\001 \001(\005\022\n\n\002id\030\002 " +
-      "\001(\005\"\\\n\027UpdateItemContainerFull\022\024\n\014contai" +
-      "ner_id\030\001 \001(\005\022+\n\titem_slot\030\002 \003(\0132\030.shatte" +
-      "red.protocol.Item\"m\n\027UpdateItemContainer" +
-      "Slot\022\024\n\014container_id\030\001 \001(\005\022\017\n\007slot_id\030\002 " +
-      "\001(\005\022+\n\titem_slot\030\003 \001(\0132\030.shattered.proto" +
-      "col.Item\"e\n\022ShiftContainerSlot\022\024\n\014contai" +
-      "ner_id\030\001 \001(\005\022\024\n\014from_slot_id\030\002 \001(\005\022\022\n\nto" +
-      "_slot_id\030\003 \001(\005\022\017\n\007item_id\030\004 \001(\005\"\206\001\n\032Shif" +
-      "tContainerSlotToWidget\022\031\n\021from_container" +
-      "_id\030\001 \001(\005\022\027\n\017to_container_id\030\002 \001(\005\022\024\n\014fr" +
-      "om_slot_id\030\003 \001(\005\022\022\n\nto_slot_id\030\004 \001(\005\022\n\n\002" +
-      "id\030\005 \001(\005\"Z\n\016UseAbilitySlot\022\024\n\014container_" +
-      "id\030\001 \001(\005\022\r\n\005pitch\030\002 \001(\002\022\017\n\007slot_id\030\003 \001(\005" +
-      "\022\022\n\nability_id\030\004 \001(\005\"7\n\017AbilityCooldown\022" +
-      "\022\n\nability_id\030\001 \001(\005\022\020\n\010duration\030\002 \001(\003\"J\n" +
-      "\020UseContainerSlot\022\024\n\014container_id\030\001 \001(\005\022" +
-      "\017\n\007slot_id\030\002 \001(\005\022\017\n\007item_id\030\003 \001(\005B#\n\036com" +
-      ".shattered.networking.proto\370\001\001b\006proto3"
+      "\030\010 \001(\0132\035.shattered.protocol.MapMarker\022.\n" +
+      "\thit_marks\030\t \003(\0132\033.shattered.protocol.Hi" +
+      "tMark\0228\n\tanimation\030\n \001(\0132%.shattered.pro" +
+      "tocol.AnimationSequence\022\026\n\016interact_flag" +
+      "s\030\013 \001(\005\022\027\n\017hostility_level\030\014 \001(\005\022\020\n\010blen" +
+      "d_id\030\r \001(\005\022\023\n\013needs_added\030\016 \001(\010\022\025\n\rneeds" +
+      "_removed\030\017 \001(\010\"A\n\016NPCSynchronize\022/\n\003npc\030" +
+      "\001 \003(\0132\".shattered.protocol.NPCUpdateBloc" +
+      "k\"\225\002\n\013LocalObject\022\024\n\014object_index\030\001 \001(\005\022" +
+      "\021\n\tobject_id\030\002 \001(\005\022\r\n\005flags\030\003 \001(\005\022\023\n\013obj" +
+      "ect_name\030\004 \001(\t\0225\n\ttransform\030\005 \001(\0132\".shat" +
+      "tered.protocol.WorldTransform\022-\n\006marker\030" +
+      "\006 \001(\0132\035.shattered.protocol.MapMarker\022\026\n\016" +
+      "interact_flags\030\007 \001(\005\022\017\n\007as_item\030\010 \001(\005\022\023\n" +
+      "\013needs_added\030\t \001(\010\022\025\n\rneeds_removed\030\n \001(" +
+      "\010\"J\n\021ObjectSynchronize\0225\n\014local_object\030\001" +
+      " \003(\0132\037.shattered.protocol.LocalObject\"3\n" +
+      "\022ChatRequestMessage\022\014\n\004type\030\001 \001(\005\022\017\n\007mes" +
+      "sage\030\002 \001(\t\",\n\013GameMessage\022\014\n\004type\030\001 \001(\005\022" +
+      "\017\n\007message\030\002 \001(\t\"p\n\016ChannelMessage\022\014\n\004ty" +
+      "pe\030\001 \001(\005\022\022\n\nfrom_index\030\002 \001(\005\022\021\n\tfrom_nam" +
+      "e\030\003 \001(\t\022\017\n\007message\030\004 \001(\t\022\030\n\020permission_l" +
+      "evel\030\005 \001(\005\">\n\020ActorInteraction\022\n\n\002id\030\001 \001" +
+      "(\005\022\014\n\004uuid\030\002 \001(\005\022\020\n\010modifier\030\003 \001(\005\"#\n\014St" +
+      "ructWidget\022\023\n\013widget_name\030\001 \001(\t\">\n\006Dialo" +
+      "g\022\016\n\006npc_id\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\022\023\n\013bu" +
+      "tton_text\030\003 \001(\t\"6\n\014DialogOption\022\021\n\tsprit" +
+      "e_id\030\001 \001(\005\022\023\n\013button_text\030\002 \001(\t\"A\n\rDialo" +
+      "gOptions\0220\n\006option\030\001 \003(\0132 .shattered.pro" +
+      "tocol.DialogOption\"\'\n\022DialogSelectOption" +
+      "\022\021\n\toption_id\030\001 \001(\005\"!\n\tSetTarget\022\024\n\014clie" +
+      "nt_index\030\001 \001(\005\"#\n\007Ability\022\014\n\004slot\030\001 \001(\005\022" +
+      "\n\n\002id\030\002 \001(\005\"\"\n\004Item\022\n\n\002id\030\001 \001(\005\022\016\n\006amoun" +
+      "t\030\002 \001(\005\"\205\001\n\013PartyMember\022\n\n\002id\030\001 \001(\005\022\014\n\004n" +
+      "ame\030\002 \001(\t\022\024\n\014combat_level\030\003 \001(\005\022\016\n\006healt" +
+      "h\030\004 \001(\005\022\022\n\nmax_health\030\005 \001(\005\022\016\n\006energy\030\006 " +
+      "\001(\005\022\022\n\nmax_energy\030\007 \001(\005\"\026\n\006Invite\022\014\n\004fro" +
+      "m\030\001 \001(\t\"5\n\tQuestList\022(\n\005quest\030\001 \003(\0132\031.sh" +
+      "attered.protocol.Quest\"$\n\005Quest\022\014\n\004name\030" +
+      "\001 \001(\t\022\r\n\005state\030\002 \001(\005\"u\n\nQuestEntry\022\014\n\004na" +
+      "me\030\001 \001(\t\022\023\n\013description\030\002 \001(\t\022-\n\013item_re" +
+      "ward\030\003 \003(\0132\030.shattered.protocol.Item\022\025\n\r" +
+      "string_reward\030\004 \003(\t\"&\n\010QuestLog\022\014\n\004name\030" +
+      "\001 \001(\t\022\014\n\004logs\030\002 \003(\t\"/\n\007JobList\022$\n\003job\030\001 " +
+      "\003(\0132\027.shattered.protocol.Job\"\"\n\003Job\022\014\n\004n" +
+      "ame\030\001 \001(\t\022\r\n\005state\030\002 \001(\005\"s\n\010JobEntry\022\014\n\004" +
+      "name\030\001 \001(\t\022\023\n\013description\030\002 \001(\t\022-\n\013item_" +
+      "reward\030\003 \003(\0132\030.shattered.protocol.Item\022\025" +
+      "\n\rstring_reward\030\004 \003(\t\"*\n\031CombatLevelUpNo" +
+      "tification\022\r\n\005level\030\001 \001(\005\"%\n\020AreaNotific" +
+      "ation\022\021\n\tzone_name\030\001 \001(\t\"&\n\023LearnedNotif" +
+      "ication\022\017\n\007item_id\030\001 \001(\005\"\'\n\021QuestNotific" +
+      "ation\022\022\n\nquest_name\030\001 \001(\t\"<\n\035ReputationL" +
+      "evelUpNotification\022\014\n\004name\030\001 \001(\t\022\r\n\005stat" +
+      "e\030\002 \001(\t\"0\n\023MasteryNotification\022\n\n\002id\030\001 \001" +
+      "(\005\022\r\n\005state\030\002 \001(\005\"&\n\nProjectile\022\n\n\002id\030\001 " +
+      "\001(\005\022\014\n\004uuid\030\002 \001(\005\"}\n\027SpawnProjectileForA" +
+      "ctor\022\r\n\005index\030\001 \001(\005\022\020\n\010to_index\030\002 \001(\005\0222\n" +
+      "\nprojectile\030\003 \001(\0132\036.shattered.protocol.P" +
+      "rojectile\022\r\n\005pitch\030\004 \001(\002\"Y\n\014SpawnEmitter" +
+      "\022\022\n\nemitter_id\030\001 \001(\005\0225\n\ttransform\030\002 \001(\0132" +
+      "\".shattered.protocol.WorldTransform\"2\n\026P" +
+      "laySoundEffectAtActor\022\n\n\002id\030\001 \001(\005\022\014\n\004uui" +
+      "d\030\002 \001(\005\"^\n\031PlaySoundEffectAtLocation\022\n\n\002" +
+      "id\030\001 \001(\005\0225\n\ttransform\030\002 \001(\0132\".shattered." +
+      "protocol.WorldTransform\"\036\n\014PlaySoundCue\022" +
+      "\016\n\006cue_id\030\001 \001(\005\")\n\024RequestRollDirection\022" +
+      "\021\n\tdirection\030\001 \001(\005\",\n\027ReverseMovementCon" +
+      "trols\022\021\n\tbackwards\030\001 \001(\010\"2\n\023UpdateAction" +
+      "BarSlot\022\017\n\007slot_id\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\"\\\n\027" +
+      "UpdateItemContainerFull\022\024\n\014container_id\030" +
+      "\001 \001(\005\022+\n\titem_slot\030\002 \003(\0132\030.shattered.pro" +
+      "tocol.Item\"m\n\027UpdateItemContainerSlot\022\024\n" +
+      "\014container_id\030\001 \001(\005\022\017\n\007slot_id\030\002 \001(\005\022+\n\t" +
+      "item_slot\030\003 \001(\0132\030.shattered.protocol.Ite" +
+      "m\"e\n\022ShiftContainerSlot\022\024\n\014container_id\030" +
+      "\001 \001(\005\022\024\n\014from_slot_id\030\002 \001(\005\022\022\n\nto_slot_i" +
+      "d\030\003 \001(\005\022\017\n\007item_id\030\004 \001(\005\"\206\001\n\032ShiftContai" +
+      "nerSlotToWidget\022\031\n\021from_container_id\030\001 \001" +
+      "(\005\022\027\n\017to_container_id\030\002 \001(\005\022\024\n\014from_slot" +
+      "_id\030\003 \001(\005\022\022\n\nto_slot_id\030\004 \001(\005\022\n\n\002id\030\005 \001(" +
+      "\005\"Z\n\016UseAbilitySlot\022\024\n\014container_id\030\001 \001(" +
+      "\005\022\r\n\005pitch\030\002 \001(\002\022\017\n\007slot_id\030\003 \001(\005\022\022\n\nabi" +
+      "lity_id\030\004 \001(\005\"7\n\017AbilityCooldown\022\022\n\nabil" +
+      "ity_id\030\001 \001(\005\022\020\n\010duration\030\002 \001(\003\"J\n\020UseCon" +
+      "tainerSlot\022\024\n\014container_id\030\001 \001(\005\022\017\n\007slot" +
+      "_id\030\002 \001(\005\022\017\n\007item_id\030\003 \001(\005B#\n\036com.shatte" +
+      "red.networking.proto\370\001\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -45578,7 +45707,7 @@ public final class World {
     internal_static_shattered_protocol_MovementUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_MovementUpdate_descriptor,
-        new java.lang.String[] { "Flags", "MountId", "Position", "Direction", "Speed", "Time", "Velocity", "Forced", });
+        new java.lang.String[] { "Flags", "MountId", "Position", "Rotation", "Speed", "Time", "Velocity", "Forced", });
     internal_static_shattered_protocol_MapMarker_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_shattered_protocol_MapMarker_fieldAccessorTable = new
