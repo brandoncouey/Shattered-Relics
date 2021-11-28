@@ -29,7 +29,6 @@ message WorldTransform {
     WorldRotator rotation = 2;
 }
 
-
 //+ustruct:BlueprintType
 message MovementUpdate {
     int32 flags = 1;
@@ -55,6 +54,21 @@ message HitMark {
     int32 type = 2;
     bool critical = 3;
 }
+
+//+ustruct:BlueprintType
+message AddBuff {
+    int32 uuid = 1;// << 1 | 0 = npc ; 1 = player
+    int32 id = 2;
+    int32 stacks = 3;
+    float duration = 4;//0 = remove
+}
+
+//+ustruct:BlueprintType
+message RemoveBuff {
+    int32 uuid = 1;//<< 1 | 0 = npc . 1 player
+    int32 id = 2;
+}
+
 
 //+ustruct:BlueprintType
 message PlayerModelBlock {
@@ -166,8 +180,6 @@ message ObjectSynchronize {
     repeated LocalObject local_object = 1;
 }
 
-
-
 //+ustruct:BlueprintType
 message ChatRequestMessage {
     int32 type = 1;
@@ -197,11 +209,16 @@ message ActorInteraction {
 }
 
 //+ustruct:BlueprintType
+message DisorientPlayer {
+    int32 uuid = 1;
+    bool reorient = 2;
+}
+
+//+ustruct:BlueprintType
 message StructWidget {
     //+uproperty:BlueprintReadOnly
     string widget_name = 1;
 }
-
 
 //+ustruct:BlueprintType
 message Dialog {
@@ -347,7 +364,19 @@ message SpawnProjectileForActor {
     int32 index = 1;
     int32 to_index = 2;
     Projectile projectile = 3;
-    float pitch = 4;
+}
+
+message ProjectileHitCharacter {
+    int32 from_uuid = 1;
+    int32 projectile_id = 2;
+    int32 projectile_uuid = 3;
+    int64 time = 4;
+    int32 hit_uuid = 5;// 0 = player, 1 = npc
+}
+
+message MeleeHitBoxHitCharacter {
+    int32 hit_uuid = 1;//0 = player, 1 = npc
+    int64 time = 2;
 }
 
 //+ustruct:BlueprintType
@@ -444,6 +473,16 @@ message UseContainerSlot {
     int32 container_id = 1;
     int32 slot_id = 2;
     int32 item_id = 3;
+}
+
+//+ustruct:BlueprintType
+message CombatStatistics {
+    int32 accuracy = 1;
+    int32 strength = 2;
+    int32 stamina = 3;
+    int32 resilience = 4;
+    int32 focus = 5;
+    int32 intellect = 6;
 }
 
 
