@@ -101,7 +101,8 @@ public class ProxyClientRealmSession extends RealmSession {
                 super.messageReceived(message);
                 return;
             }
-            if (((PacketOuterClass.Packet) message).getOpcode().name().startsWith("SMSG")) {
+            String opcodeName = ((PacketOuterClass.Packet) message).getOpcode().name();
+            if (opcodeName.startsWith("SMSG") || opcodeName.startsWith("U_")) {
                 if (getProxyClientSession().getChannel().isActive()) {
                     getProxyClientSession().getChannel().writeAndFlush(message);
                     SystemLogger.sendSystemMessage("ProxyClientRealmSession -> Writing Proxy Client Message. Opcode=" + ((PacketOuterClass.Packet) message).getOpcode().name());
