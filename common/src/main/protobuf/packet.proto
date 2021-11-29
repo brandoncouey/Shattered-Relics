@@ -22,7 +22,8 @@ enum Opcode {
     U_Messages = 1;
     U_Ping = 2;
     U_ServerPerformance = 3;
-    reserved 4 to 26;
+    U_ClockSync = 4;
+    reserved 5 to 26;
     U_EO_Messages = 27;
 
     //Proxy Packets

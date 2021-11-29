@@ -5,5 +5,9 @@ option cc_enable_arenas = true;
 
 message Ping {
     string cuuid = 1;
+}
 
+//+ustruct:BlueprintType
+message ClockSync {
+    int64 time = 1;
 }
