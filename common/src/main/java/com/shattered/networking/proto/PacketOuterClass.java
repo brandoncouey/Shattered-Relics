@@ -684,9 +684,9 @@ public final class PacketOuterClass {
      */
     SMSG_ITEM_REWARD_NOTIFICATION(369),
     /**
-     * <code>CMSG_AUTO_ATTACK = 370;</code>
+     * <code>CMSG_DEFAULT_ATTACK = 370;</code>
      */
-    CMSG_AUTO_ATTACK(370),
+    CMSG_DEFAULT_ATTACK(370),
     /**
      * <code>CMSG_IS_AIMBLOCKING = 371;</code>
      */
@@ -1391,9 +1391,9 @@ public final class PacketOuterClass {
      */
     public static final int SMSG_ITEM_REWARD_NOTIFICATION_VALUE = 369;
     /**
-     * <code>CMSG_AUTO_ATTACK = 370;</code>
+     * <code>CMSG_DEFAULT_ATTACK = 370;</code>
      */
-    public static final int CMSG_AUTO_ATTACK_VALUE = 370;
+    public static final int CMSG_DEFAULT_ATTACK_VALUE = 370;
     /**
      * <code>CMSG_IS_AIMBLOCKING = 371;</code>
      */
@@ -1607,7 +1607,7 @@ public final class PacketOuterClass {
         case 367: return SMSG_ENTERED_AREA_NOTIFICATION;
         case 368: return SMSG_DISCOVERED_AREA_NOTIFICATION;
         case 369: return SMSG_ITEM_REWARD_NOTIFICATION;
-        case 370: return CMSG_AUTO_ATTACK;
+        case 370: return CMSG_DEFAULT_ATTACK;
         case 371: return CMSG_IS_AIMBLOCKING;
         case 372: return CMSG_NOT_AIMBLOCKING;
         case 373: return CMSG_TOGGLE_SHEATHE;
@@ -3239,7 +3239,7 @@ public final class PacketOuterClass {
       "\n\014packet.proto\022\022shattered.protocol\"E\n\006Pa" +
       "cket\022*\n\006opcode\030\001 \001(\0162\032.shattered.protoco" +
       "l.Opcode\022\017\n\007payload\030\002 \001(\014\"\016\n\014EmptyPayloa" +
-      "d\" \n\rStringPayload\022\017\n\007payload\030\001 \001(\t*\251$\n\006" +
+      "d\" \n\rStringPayload\022\017\n\007payload\030\001 \001(\t*\254$\n\006" +
       "Opcode\022\022\n\016INVALID_OPCODE\020\000\022\016\n\nU_Messages" +
       "\020\001\022\n\n\006U_Ping\020\002\022\027\n\023U_ServerPerformance\020\003\022" +
       "\017\n\013U_ClockSync\020\004\022\021\n\rU_EO_Messages\020\033\022\022\n\016P" +
@@ -3348,16 +3348,16 @@ public final class PacketOuterClass {
       "P_NOTIFICATION\020\356\002\022#\n\036SMSG_ENTERED_AREA_N" +
       "OTIFICATION\020\357\002\022&\n!SMSG_DISCOVERED_AREA_N" +
       "OTIFICATION\020\360\002\022\"\n\035SMSG_ITEM_REWARD_NOTIF" +
-      "ICATION\020\361\002\022\025\n\020CMSG_AUTO_ATTACK\020\362\002\022\030\n\023CMS" +
-      "G_IS_AIMBLOCKING\020\363\002\022\031\n\024CMSG_NOT_AIMBLOCK" +
-      "ING\020\364\002\022\030\n\023CMSG_TOGGLE_SHEATHE\020\365\002\022\026\n\021CMSG" +
-      "_START_SPRINT\020\366\002\022\025\n\020CMSG_STOP_SPRINT\020\367\002\022" +
-      "\026\n\021CMSG_START_CROUCH\020\370\002\022\025\n\020CMSG_STOP_CRO" +
-      "UCH\020\371\002\022\036\n\031SMSG_PLAYER_FIELDS_COMBAT\020\372\002\022 " +
-      "\n\033Shattered_World_EO_Messages\020\221\003\"\004\010\005\020\032\"\004" +
-      "\010)\0202\"\004\010=\020K\"\004\010Y\020d\"\005\010\177\020\226\001\"\006\010\244\001\020\372\001\"\006\010\221\002\020\227\002\"" +
-      "\006\010\255\002\020\314\002B#\n\036com.shattered.networking.prot" +
-      "o\370\001\001b\006proto3"
+      "ICATION\020\361\002\022\030\n\023CMSG_DEFAULT_ATTACK\020\362\002\022\030\n\023" +
+      "CMSG_IS_AIMBLOCKING\020\363\002\022\031\n\024CMSG_NOT_AIMBL" +
+      "OCKING\020\364\002\022\030\n\023CMSG_TOGGLE_SHEATHE\020\365\002\022\026\n\021C" +
+      "MSG_START_SPRINT\020\366\002\022\025\n\020CMSG_STOP_SPRINT\020" +
+      "\367\002\022\026\n\021CMSG_START_CROUCH\020\370\002\022\025\n\020CMSG_STOP_" +
+      "CROUCH\020\371\002\022\036\n\031SMSG_PLAYER_FIELDS_COMBAT\020\372" +
+      "\002\022 \n\033Shattered_World_EO_Messages\020\221\003\"\004\010\005\020" +
+      "\032\"\004\010)\0202\"\004\010=\020K\"\004\010Y\020d\"\005\010\177\020\226\001\"\006\010\244\001\020\372\001\"\006\010\221\002\020" +
+      "\227\002\"\006\010\255\002\020\314\002B#\n\036com.shattered.networking.p" +
+      "roto\370\001\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
