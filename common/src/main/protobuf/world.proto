@@ -490,5 +490,3 @@ message CombatStatistics {
     int32 focus = 5;
     int32 intellect = 6;
 }
-
-

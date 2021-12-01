@@ -700,25 +700,17 @@ public final class PacketOuterClass {
      */
     CMSG_TOGGLE_SHEATHE(373),
     /**
-     * <code>CMSG_START_SPRINT = 374;</code>
+     * <code>CMSG_REQUEST_START_SPRINT = 374;</code>
      */
-    CMSG_START_SPRINT(374),
+    CMSG_REQUEST_START_SPRINT(374),
     /**
-     * <code>CMSG_STOP_SPRINT = 375;</code>
+     * <code>CMSG_STOP_SPRINTING = 375;</code>
      */
-    CMSG_STOP_SPRINT(375),
+    CMSG_STOP_SPRINTING(375),
     /**
-     * <code>CMSG_START_CROUCH = 376;</code>
+     * <code>SMSG_PLAYER_FIELDS_COMBAT = 384;</code>
      */
-    CMSG_START_CROUCH(376),
-    /**
-     * <code>CMSG_STOP_CROUCH = 377;</code>
-     */
-    CMSG_STOP_CROUCH(377),
-    /**
-     * <code>SMSG_PLAYER_FIELDS_COMBAT = 378;</code>
-     */
-    SMSG_PLAYER_FIELDS_COMBAT(378),
+    SMSG_PLAYER_FIELDS_COMBAT(384),
     /**
      * <code>Shattered_World_EO_Messages = 401;</code>
      */
@@ -1407,25 +1399,17 @@ public final class PacketOuterClass {
      */
     public static final int CMSG_TOGGLE_SHEATHE_VALUE = 373;
     /**
-     * <code>CMSG_START_SPRINT = 374;</code>
+     * <code>CMSG_REQUEST_START_SPRINT = 374;</code>
      */
-    public static final int CMSG_START_SPRINT_VALUE = 374;
+    public static final int CMSG_REQUEST_START_SPRINT_VALUE = 374;
     /**
-     * <code>CMSG_STOP_SPRINT = 375;</code>
+     * <code>CMSG_STOP_SPRINTING = 375;</code>
      */
-    public static final int CMSG_STOP_SPRINT_VALUE = 375;
+    public static final int CMSG_STOP_SPRINTING_VALUE = 375;
     /**
-     * <code>CMSG_START_CROUCH = 376;</code>
+     * <code>SMSG_PLAYER_FIELDS_COMBAT = 384;</code>
      */
-    public static final int CMSG_START_CROUCH_VALUE = 376;
-    /**
-     * <code>CMSG_STOP_CROUCH = 377;</code>
-     */
-    public static final int CMSG_STOP_CROUCH_VALUE = 377;
-    /**
-     * <code>SMSG_PLAYER_FIELDS_COMBAT = 378;</code>
-     */
-    public static final int SMSG_PLAYER_FIELDS_COMBAT_VALUE = 378;
+    public static final int SMSG_PLAYER_FIELDS_COMBAT_VALUE = 384;
     /**
      * <code>Shattered_World_EO_Messages = 401;</code>
      */
@@ -1611,11 +1595,9 @@ public final class PacketOuterClass {
         case 371: return CMSG_IS_AIMBLOCKING;
         case 372: return CMSG_NOT_AIMBLOCKING;
         case 373: return CMSG_TOGGLE_SHEATHE;
-        case 374: return CMSG_START_SPRINT;
-        case 375: return CMSG_STOP_SPRINT;
-        case 376: return CMSG_START_CROUCH;
-        case 377: return CMSG_STOP_CROUCH;
-        case 378: return SMSG_PLAYER_FIELDS_COMBAT;
+        case 374: return CMSG_REQUEST_START_SPRINT;
+        case 375: return CMSG_STOP_SPRINTING;
+        case 384: return SMSG_PLAYER_FIELDS_COMBAT;
         case 401: return Shattered_World_EO_Messages;
         default: return null;
       }
@@ -3239,7 +3221,7 @@ public final class PacketOuterClass {
       "\n\014packet.proto\022\022shattered.protocol\"E\n\006Pa" +
       "cket\022*\n\006opcode\030\001 \001(\0162\032.shattered.protoco" +
       "l.Opcode\022\017\n\007payload\030\002 \001(\014\"\016\n\014EmptyPayloa" +
-      "d\" \n\rStringPayload\022\017\n\007payload\030\001 \001(\t*\254$\n\006" +
+      "d\" \n\rStringPayload\022\017\n\007payload\030\001 \001(\t*\210$\n\006" +
       "Opcode\022\022\n\016INVALID_OPCODE\020\000\022\016\n\nU_Messages" +
       "\020\001\022\n\n\006U_Ping\020\002\022\027\n\023U_ServerPerformance\020\003\022" +
       "\017\n\013U_ClockSync\020\004\022\021\n\rU_EO_Messages\020\033\022\022\n\016P" +
@@ -3350,14 +3332,13 @@ public final class PacketOuterClass {
       "OTIFICATION\020\360\002\022\"\n\035SMSG_ITEM_REWARD_NOTIF" +
       "ICATION\020\361\002\022\030\n\023CMSG_DEFAULT_ATTACK\020\362\002\022\030\n\023" +
       "CMSG_IS_AIMBLOCKING\020\363\002\022\031\n\024CMSG_NOT_AIMBL" +
-      "OCKING\020\364\002\022\030\n\023CMSG_TOGGLE_SHEATHE\020\365\002\022\026\n\021C" +
-      "MSG_START_SPRINT\020\366\002\022\025\n\020CMSG_STOP_SPRINT\020" +
-      "\367\002\022\026\n\021CMSG_START_CROUCH\020\370\002\022\025\n\020CMSG_STOP_" +
-      "CROUCH\020\371\002\022\036\n\031SMSG_PLAYER_FIELDS_COMBAT\020\372" +
-      "\002\022 \n\033Shattered_World_EO_Messages\020\221\003\"\004\010\005\020" +
-      "\032\"\004\010)\0202\"\004\010=\020K\"\004\010Y\020d\"\005\010\177\020\226\001\"\006\010\244\001\020\372\001\"\006\010\221\002\020" +
-      "\227\002\"\006\010\255\002\020\314\002B#\n\036com.shattered.networking.p" +
-      "roto\370\001\001b\006proto3"
+      "OCKING\020\364\002\022\030\n\023CMSG_TOGGLE_SHEATHE\020\365\002\022\036\n\031C" +
+      "MSG_REQUEST_START_SPRINT\020\366\002\022\030\n\023CMSG_STOP" +
+      "_SPRINTING\020\367\002\022\036\n\031SMSG_PLAYER_FIELDS_COMB" +
+      "AT\020\200\003\022 \n\033Shattered_World_EO_Messages\020\221\003\"" +
+      "\004\010\005\020\032\"\004\010)\0202\"\004\010=\020K\"\004\010Y\020d\"\005\010\177\020\226\001\"\006\010\244\001\020\372\001\"\006" +
+      "\010\221\002\020\227\002\"\006\010\255\002\020\314\002B#\n\036com.shattered.networki" +
+      "ng.proto\370\001\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
