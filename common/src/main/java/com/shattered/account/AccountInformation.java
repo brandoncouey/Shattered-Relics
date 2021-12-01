@@ -47,11 +47,21 @@ public class AccountInformation implements MySQLEntry {
          */
         public static AccountLevel forId(int level) {
             switch (level) {
-                case 3:
+                case 0:
                     return AccountLevel.NORMAL;
-                case 2:
-                    return AccountLevel.TECH;
                 case 1:
+                    return AccountLevel.TECH;
+                case 2:
+                    return AccountLevel.MASTER;
+            }
+            return AccountLevel.NORMAL;
+        }
+
+        public static AccountLevel forRank(String rank) {
+            switch (rank) {
+                case "moderator":
+                    return AccountLevel.TECH;
+                case "admin":
                     return AccountLevel.MASTER;
             }
             return AccountLevel.NORMAL;

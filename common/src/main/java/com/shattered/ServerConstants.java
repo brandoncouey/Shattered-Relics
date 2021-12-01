@@ -55,4 +55,5 @@ public class ServerConstants {
      * Represents the Server Timeout Duration in seconds.
      */
     public static final int SERVER_TIMEOUT = LIVE ? 60 : 10;//TODO set 60 for actual stimulation (10 for testing)
+
 }

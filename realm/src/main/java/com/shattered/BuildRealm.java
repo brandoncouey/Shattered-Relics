@@ -45,7 +45,6 @@ public class BuildRealm extends Build {
      */
     private ClientRegistering clientRegistry;
 
-
     /**
      *
      * @param args

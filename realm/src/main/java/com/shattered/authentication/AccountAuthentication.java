@@ -1,13 +1,11 @@
 package com.shattered.authentication;
 
+import com.shattered.ServerConstants;
 import com.shattered.account.AccountInformation;
 import com.shattered.database.mysql.MySQLEntry;
 import com.shattered.database.mysql.MySQLFetch;
 import com.shattered.account.responses.AccountResponses;
 import com.shattered.database.mysql.query.options.impl.WhereConditionOption;
-import com.shattered.http.discord.DiscordAPI;
-import com.shattered.http.discord.DiscordUser;
-import com.shattered.utilities.cryptography.BCrypt;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
@@ -101,13 +99,13 @@ public class AccountAuthentication implements MySQLFetch, MySQLEntry {
         try {
 
             //Checks for the # name identifier, and sets the identification type, as well as the conditions to search for
-            if (getAccountRequest().contains("#")) {
-                setIdentificationType(AccountIdentificationType.NAME);
-                setConditions(new WhereConditionOption[] { new WhereConditionOption("username", getAccountRequest()) });
-            } else if (getAccountRequest().contains("@")) {
+            if (getAccountRequest().contains("@")) {
                 setIdentificationType(AccountIdentificationType.EMAIL);
                 setConditions(new WhereConditionOption[] { new WhereConditionOption("email", getAccountRequest()) });
-            } else if (isDiscord) {
+            } else {
+                setIdentificationType(AccountIdentificationType.NAME);
+                setConditions(new WhereConditionOption[] { new WhereConditionOption("username", getAccountRequest()) });
+            } /*else if (isDiscord) {
 
                 try {
                     DiscordUser user = DiscordAPI.fetchUser(getAccountRequest());
@@ -119,7 +117,7 @@ public class AccountAuthentication implements MySQLFetch, MySQLEntry {
                 } catch (Exception e) {
                     setResponseType(AccountResponses.INVALID_ACCESS_TOKEN);
                 }
-            }
+            }*/
 
             //Fetches the Results and checks if they are valid
             ResultSet results = getResults();
@@ -163,12 +161,6 @@ public class AccountAuthentication implements MySQLFetch, MySQLEntry {
                     accountIdentifier = accountEmail;
 
 
-                //Checks to ensure its a valid name and/or email
-                if (!getAccountRequest().contains("#") && !getAccountRequest().contains("@") && !isDiscord) {
-                    setResponseType(AccountResponses.ACCOUNT_INVALID_INFORMATION);
-                    return false;
-                }
-
                 //Checks to ensure the name matches the datatable name
                 /*if (!accountIdentifier.equalsIgnoreCase(getAccountRequest()) && !isDiscord) {
                     setResponseType(AccountResponses.ACCOUNT_INVALID_INFORMATION);
@@ -179,10 +171,11 @@ public class AccountAuthentication implements MySQLFetch, MySQLEntry {
 
                 //Checks the Password
                 String password = results.getString("password");
-                if (!BCrypt.checkpw(getPasswordRequest(), password)) {
-                    //DISABELD FOR TESTING.
-                    //setResponseType(AccountResponses.ACCOUNT_INVALID_INFORMATION);
-                    //return;
+                if (ServerConstants.LIVE_DB) {
+                   /* if (!BCrypt.checkpw(getPasswordRequest(), password)) {
+                        setResponseType(AccountResponses.ACCOUNT_INVALID_INFORMATION);
+                        return false;
+                    }*/
                 }
 
                 /* //////////////////////// Represents Online Status Checking \\\\\\\\\\\\\\\\\\\\\\\\\ */
@@ -194,11 +187,11 @@ public class AccountAuthentication implements MySQLFetch, MySQLEntry {
                 }*/
                 
                 //Represents the Account level
-                //int level = results.getInt("role_id"); TODO enable this again
+                String rank = results.getString("rank");
 
                 /* If the response type is currently null (ok) it will result the object */
                 if (getResponseType() == null) {
-                    setInformationResult(new AccountInformation(accountName, null, accountEmail, password, AccountInformation.AccountLevel.forId(0)));
+                    setInformationResult(new AccountInformation(accountName, null, accountEmail, password, AccountInformation.AccountLevel.forRank(rank)));
 
                     //Ensures the Account gets assigned the Current Id `PRIMARY KEY`
                     getInformationResult().setAccountId(accountId);
