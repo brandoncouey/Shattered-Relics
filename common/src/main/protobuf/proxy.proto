@@ -75,6 +75,7 @@ message WorldCharacterInformation {
     string password = 9;
 }
 
+
 message RequestNewTransferConnection {
     string tccuid = 1;
     string cuuid = 2;
