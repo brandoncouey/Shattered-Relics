@@ -48,12 +48,12 @@ public interface MySQLFetch {
 	 */
 	default ResultSet getResults() {
 		ResultSet result = null;
-		final MySQLManager database = getDefaultDatabase();
 
+		//Checks if connected, if not it will reconnect to the database.
+		final MySQLManager database = getDefaultDatabase();
 		if (!database.isConnected(getDatabaseName())) {
-            SystemLogger.sendDatabaseErr(DatabaseService.MYSQL, "Could not `fetch` MySQL Results from " + getDatabaseName() + ", [Reason=MySQL connection is currently not established.]");
-		    return null;
-        }
+			Build.connectToDatabases();
+		}
 
 		SelectCommand select = new SelectCommand(getTableName());
 		if (getFetchConditions() != null)

@@ -62,13 +62,7 @@ public abstract class Build implements ChannelListener {
                 SystemLogger.sendSystemMessage("Connecting to database services... Set=" + (ServerConstants.LIVE_DB || ServerConstants.LIVE ? "LIVE" : "LOCAL" + " services."));
                 setGrizzlyDatabase(new MySQLManager(DatabaseConfiguration.GRIZZLY_DATABASES));
                 setShatteredDatabase(new MySQLManager(DatabaseConfiguration.SHATTERED_DATABASES));
-                if (ServerConstants.LIVE_DB || ServerConstants.LIVE) {
-                    getGrizzlyDatabase().connect("grizzlyent.cpde7dtfjvvy.us-west-2.rds.amazonaws.com", "admin", "!003786dc");
-                    getShatteredDatabase().connect("shatteredrelics.cpde7dtfjvvy.us-west-2.rds.amazonaws.com", "admin", "!003786dc");
-                } else {
-                    getGrizzlyDatabase().connect("127.0.0.1", "root", "");
-                    getShatteredDatabase().connect("127.0.0.1", "root", "");
-                }
+                connectToDatabases();
             }
 
             ChannelFuture future = getNetwork().bootstrap(host, port);
@@ -77,6 +71,19 @@ public abstract class Build implements ChannelListener {
 
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    /**
+     * Method used for connecting to databases
+     */
+    public static void connectToDatabases() {
+        if (ServerConstants.LIVE_DB || ServerConstants.LIVE) {
+            getGrizzlyDatabase().connect("grizzlyent.cpde7dtfjvvy.us-west-2.rds.amazonaws.com", "admin", "!003786dc");
+            getShatteredDatabase().connect("shatteredrelics.cpde7dtfjvvy.us-west-2.rds.amazonaws.com", "admin", "!003786dc");
+        } else {
+            getGrizzlyDatabase().connect("127.0.0.1", "root", "");
+            getShatteredDatabase().connect("127.0.0.1", "root", "");
         }
     }
 

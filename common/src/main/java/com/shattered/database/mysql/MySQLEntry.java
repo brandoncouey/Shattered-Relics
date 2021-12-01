@@ -1,12 +1,12 @@
 package com.shattered.database.mysql;
 
 import com.shattered.Build;
+import com.shattered.database.mysql.query.command.impl.DeleteCommand;
 import com.shattered.database.mysql.query.command.impl.InsertCommand;
+import com.shattered.database.mysql.query.command.impl.SelectCommand;
 import com.shattered.database.mysql.query.command.impl.UpdateCommand;
 import com.shattered.database.mysql.query.options.impl.TableColumnValueOption;
 import com.shattered.database.mysql.query.options.impl.WhereConditionOption;
-import com.shattered.database.mysql.query.command.impl.DeleteCommand;
-import com.shattered.database.mysql.query.command.impl.SelectCommand;
 import com.shattered.database.mysql.query.result.QueryResult;
 
 import java.sql.ResultSet;
@@ -69,6 +69,12 @@ public interface MySQLEntry {
 	default void entry(String databaseName, String tableName, List<MySQLColumn> values, MySQLCommand commandType) {
 
 		QueryResult statement = null;
+
+		//Checks if connected, if not it will reconnect to the database.
+		final MySQLManager database = getSelectedEntryDatabase(databaseName);
+		if (!database.isConnected(databaseName)) {
+			Build.connectToDatabases();
+		}
 
 		switch (commandType) {
 
@@ -174,6 +180,12 @@ public interface MySQLEntry {
 
 		QueryResult statement = null;
 
+		//Checks if connected, if not it will reconnect to the database.
+		final MySQLManager database = getSelectedEntryDatabase(databaseName);
+		if (!database.isConnected(databaseName)) {
+			Build.connectToDatabases();
+		}
+
 		switch (commandType) {
 
 			case UPDATE: {
@@ -183,7 +195,7 @@ public interface MySQLEntry {
 				 */
 				SelectCommand command = new SelectCommand(tableName);
 				if (conditions != null)
-				command.addOptions(conditions);
+					command.addOptions(conditions);
 
 				/*
 				 * Execute the constructed select command
