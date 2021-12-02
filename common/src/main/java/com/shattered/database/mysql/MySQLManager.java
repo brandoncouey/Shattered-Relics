@@ -4,10 +4,7 @@ import com.shattered.database.DatabaseService;
 import com.shattered.database.mysql.query.command.SQLCommand;
 import com.shattered.database.mysql.query.result.QueryResult;
 import com.shattered.system.SystemLogger;
-import lombok.Getter;
 
-import java.sql.SQLException;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -21,37 +18,56 @@ public class MySQLManager {
 	/**
 	 * A map of {@link MySQLDatabase} based on datatable name
 	 */
-	@Getter
-	private final Map<String, MySQLDatabase> databases = new HashMap<>();
+	private Map<String, MySQLDatabase> DATABASES = new HashMap<>();
 
 	/**
-	 * Creates a new instance of the manager and stores all of the databases
 	 * @param databases
 	 */
 	public MySQLManager(MySQLDatabase[] databases) {
+
+		/*
+		 * Loop through the MySQL databases
+		 */
 		for (MySQLDatabase database : databases) {
-			getDatabases().put(database.getName(), database);
+
+			/*
+			 * Add MySQL datatable to the mapping
+			 */
+			getMySQLDatabases().put(database.getName(), database);
+
 		}
+
 	}
 
 	/**
-	 * Connects to the specified database host with the user and password
-	 * @return the sql manager
+	 * @return
 	 */
-	public MySQLManager connect() {
+	public MySQLManager connect(String host, String username, String password) {
 
 		try {
 
-			for (Entry<String, MySQLDatabase> entry : databases.entrySet()) {
+			/*
+			 * Loop through each MySQL datatable
+			 */
+			for (Entry<String, MySQLDatabase> entry : DATABASES.entrySet()) {
 
 				MySQLDatabase database = entry.getValue();
 
-				if (database.getStatus() == MySQLDatabase.ConnectionStatus.CONNECTED)
+				/**
+				 * Used for re-connections
+				 */
+				if (database.getStatus() == MySQLDatabase.MySQLConnectionStatus.CONNECTED)
 					continue;
 
-				database.connect();
+				/*
+				 * Prepare the MySQL datatable
+				 */
+				database.prepare(host, username, password);
 
-				if (database.getStatus() != MySQLDatabase.ConnectionStatus.CONNECTED) {
+				/*
+				 * Check if there is connectivity with the MySQL Server
+				 */
+				if (database.getStatus() != MySQLDatabase.MySQLConnectionStatus.CONNECTED) {
 					SystemLogger.sendDatabaseInformation(DatabaseService.MYSQL, "Unable to connect with '" + database.getName() + "' queries.");
 				} else {
 					SystemLogger.sendDatabaseInformation(DatabaseService.MYSQL, "Connected to '" + database.getName() + "' datatable.");
@@ -60,38 +76,56 @@ public class MySQLManager {
 			}
 
 		} catch (Exception e) {
-			e.printStackTrace();
 		}
+
 		return this;
 
 	}
 
 	/**
-	 * Executes a sql command to the specified database name
+	 * 
 	 * @param name
 	 * @param command
-	 * @return the query result
+	 * @return
 	 */
 	public QueryResult execute(String name, SQLCommand command) {
-		MySQLDatabase database = getDatabases().get(name);
-		if (database == null) return null;
-		return database.execute(command);
+
+		try {
+
+			/*
+			 * Get the MySQL datatable handler from the datatable manager
+			 */
+			MySQLDatabase database = getMySQLDatabases().get(name);
+
+			/*
+			 * Check if MySQL datatable handler is found
+			 */
+			if (database == null)
+				return null;
+
+			return database.execute(command);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return null;
+
 	}
 
 	/**
-	 * Checks if the database is currently connected
 	 * @param name
-	 * @return database connected
+	 * @return
 	 */
 	public boolean isConnected(String name) {
-		if (!getDatabases().containsKey(name)) return false;
-		if (getDatabases().get(name).getConnection() == null) return false;
-		try {
-			return !getDatabases().get(name).getConnection().isClosed();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return false;
+		return getMySQLDatabases().containsKey(name) && getMySQLDatabases().get(name).getStatus() == MySQLDatabase.MySQLConnectionStatus.CONNECTED;
+	}
+
+	/**
+	 * @return
+	 */
+	public Map<String, MySQLDatabase> getMySQLDatabases() {
+		return this.DATABASES;
 	}
 
 }

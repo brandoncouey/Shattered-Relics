@@ -1,7 +1,6 @@
 package com.shattered;
 
 import com.shattered.client.ClientRegistering;
-import com.shattered.database.mysql.MySQLDatabase;
 import com.shattered.engine.Engine;
 import com.shattered.game.engine.RealmEngine;
 import com.shattered.networking.NetworkBootstrap;
@@ -69,6 +68,7 @@ public class BuildRealm extends Build {
             ServerConstants.LIVE = Boolean.parseBoolean(args[1]);
         }
 
+
         SystemLogger.sendSystemMessage("Building Relic-World on " + (ServerConstants.LIVE ? "LIVE" : "LOCAL") + " network.");
 
         if (ServerConstants.LIVE) {
@@ -88,8 +88,11 @@ public class BuildRealm extends Build {
         //Inits the Client Registry
         getInstance().setClientRegistry(new ClientRegistering());
 
+
         //Connects to Central ServerConnections & Registers this Connection
+
         getInstance().getNetwork().authenticate(ServerType.REALM, getInstance().getNetwork().connect(ServerConstants.CENTRAL_HOST, ServerConstants.CENTRAL_DEFAULT_PORT), RealmSession.REALM_TOKEN);
+
 
     }
 

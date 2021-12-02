@@ -42,6 +42,7 @@ public interface MySQLFetch {
 		return null;
 	}
 
+
 	/**
 	 * Fetches all columns from the datatable.
 	 */
@@ -49,21 +50,17 @@ public interface MySQLFetch {
 		ResultSet result = null;
 
 		//Checks if connected, if not it will reconnect to the database.
-		final MySQLManager dbManager = Build.getDatabaseManager();
+		final MySQLManager database = getDefaultDatabase();
+		if (!database.isConnected(getDatabaseName())) {
+			Build.connectToDatabases();
+		}
 
 		SelectCommand select = new SelectCommand(getTableName());
 		if (getFetchConditions() != null)
 			select.addOptions(getFetchConditions());
 
 
-		result = dbManager.execute(getDatabaseName(), select).getResultSet();
-
-		//Assuming connection is dropped. We will try again.
-		if (result == null) {
-			MySQLDatabase db = Build.getDatabaseManager().getDatabases().get(getDatabaseName()).connect();
-			if (db.getStatus() == MySQLDatabase.ConnectionStatus.CONNECTED)
-				result = dbManager.execute(getDatabaseName(), select).getResultSet();
-		}
+		result = database.execute(getDatabaseName(), select).getResultSet();
 
 		/*try {
 
@@ -78,10 +75,10 @@ public interface MySQLFetch {
 	}
 
 	default ResultSet getResults(String databaseName, String tableName, WhereConditionOption[] conditions) {
-		ResultSet result = null;
-		final MySQLManager dbManager = Build.getDatabaseManager();
+		ResultSet result;
+		final MySQLManager database = getSelectedFetchDatabase(databaseName);
 
-		if (!dbManager.isConnected(databaseName)) {
+		if (!database.isConnected(databaseName)) {
 			SystemLogger.sendDatabaseErr(DatabaseService.MYSQL, "Could not `fetch` MySQL Results from " + getDatabaseName() + ", [Reason=MySQL connection is currently not established.]");
 			return null;
 		}
@@ -90,16 +87,9 @@ public interface MySQLFetch {
 		if (conditions != null)
 			select.addOptions(conditions);
 
-		result = dbManager.execute(databaseName, select).getResultSet();
+		result = database.execute(databaseName, select).getResultSet();
 
-		//Assuming connection is dropped. We will try again.
-		if (result == null) {
-			MySQLDatabase db = Build.getDatabaseManager().getDatabases().get(databaseName).connect();
-			if (db.getStatus() == MySQLDatabase.ConnectionStatus.CONNECTED)
-				result = dbManager.execute(databaseName, select).getResultSet();
-		}
-
-		/*try {
+		try {
 
 			result.last();
 			result.getRow();
@@ -107,7 +97,7 @@ public interface MySQLFetch {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}*/
+		}
 		return result;
 	}
 
@@ -127,6 +117,27 @@ public interface MySQLFetch {
 			e.printStackTrace();
 		}
 		return false;
+	}
+
+	/**
+	 * Gets the Default Database Instance
+	 * @return
+	 */
+	default MySQLManager getDefaultDatabase() {
+		if (getDatabaseName().contains("grizzly"))
+			return Build.getGrizzlyDatabase();
+		return Build.getShatteredDatabase();
+	}
+
+	/**
+	 * Gets the Default Database Instance
+	 * @param databaseName
+	 * @return
+	 */
+	default MySQLManager getSelectedFetchDatabase(String databaseName) {
+		if (databaseName.contains("grizzly"))
+			return Build.getGrizzlyDatabase();
+		return Build.getShatteredDatabase();
 	}
 
 }

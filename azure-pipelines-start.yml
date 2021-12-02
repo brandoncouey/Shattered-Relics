@@ -29,7 +29,7 @@ stages:
         displayName: Build
         pool: Relic Pool
         steps:
-        
+
           - task: Gradle@3
             inputs:
               gradleWrapperFile: 'gradlew'

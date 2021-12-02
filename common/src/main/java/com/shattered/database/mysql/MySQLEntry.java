@@ -71,7 +71,10 @@ public interface MySQLEntry {
 		QueryResult statement = null;
 
 		//Checks if connected, if not it will reconnect to the database.
-		final MySQLManager database = Build.getDatabaseManager();
+		final MySQLManager database = getSelectedEntryDatabase(databaseName);
+		if (!database.isConnected(databaseName)) {
+			Build.connectToDatabases();
+		}
 
 		switch (commandType) {
 
@@ -86,14 +89,7 @@ public interface MySQLEntry {
 				/*
 				 * Execute the constructed select command
 				 */
-				statement = Build.getDatabaseManager().execute(databaseName, command);
-
-				//Assuming connection is dropped. We will try again.
-				if (statement == null) {
-					MySQLDatabase db = Build.getDatabaseManager().getDatabases().get(databaseName).connect();
-					if (db.getStatus() == MySQLDatabase.ConnectionStatus.CONNECTED)
-						statement = Build.getDatabaseManager().execute(databaseName, command);
-				}
+				statement = getSelectedEntryDatabase(databaseName).execute(databaseName, command);
 
 				/*
 				 * Check if a player record is found
@@ -108,14 +104,7 @@ public interface MySQLEntry {
 					if (getUpdateConditions() != null)
 						update.addOptions(getUpdateConditions());
 
-					statement = Build.getDatabaseManager().execute(databaseName, update);
-
-					//Assuming connection is dropped. We will try again.
-					if (statement == null) {
-						MySQLDatabase db = Build.getDatabaseManager().getDatabases().get(databaseName).connect();
-						if (db.getStatus() == MySQLDatabase.ConnectionStatus.CONNECTED)
-							statement = Build.getDatabaseManager().execute(databaseName, update);
-					}
+					statement = getSelectedEntryDatabase(databaseName).execute(databaseName, update);
 
 					if (statement != null)
 						statement.terminate();
@@ -126,14 +115,7 @@ public interface MySQLEntry {
 						insert.addOption(new TableColumnValueOption(values.get(i).getName(), values.get(i).getValue()));
 					}
 
-					statement = Build.getDatabaseManager().execute(databaseName, insert);
-
-					//Assuming connection is dropped. We will try again.
-					if (statement == null) {
-						MySQLDatabase db = Build.getDatabaseManager().getDatabases().get(databaseName).connect();
-						if (db.getStatus() == MySQLDatabase.ConnectionStatus.CONNECTED)
-							statement = Build.getDatabaseManager().execute(databaseName, insert);
-					}
+					statement = getSelectedEntryDatabase(databaseName).execute(databaseName, insert);
 
 					if (statement != null)
 						statement.terminate();
@@ -149,14 +131,7 @@ public interface MySQLEntry {
 					insert.addOption(new TableColumnValueOption(values.get(i).getName(), values.get(i).getValue()));
 				}
 
-				statement = Build.getDatabaseManager().execute(databaseName, insert);
-
-				//Assuming connection is dropped. We will try again.
-				if (statement == null) {
-					MySQLDatabase db = Build.getDatabaseManager().getDatabases().get(databaseName).connect();
-					if (db.getStatus() == MySQLDatabase.ConnectionStatus.CONNECTED)
-						statement = Build.getDatabaseManager().execute(databaseName, insert);
-				}
+				statement = getSelectedEntryDatabase(databaseName).execute(databaseName, insert);
 
 				if (statement != null)
 					statement.terminate();
@@ -175,14 +150,7 @@ public interface MySQLEntry {
 				/*
 				 * Execute the constructed select command
 				 */
-				statement = Build.getDatabaseManager().execute(databaseName, deleteCommand);
-
-				//Assuming connection is dropped. We will try again.
-				if (statement == null) {
-					MySQLDatabase db = Build.getDatabaseManager().getDatabases().get(databaseName).connect();
-					if (db.getStatus() == MySQLDatabase.ConnectionStatus.CONNECTED)
-						statement = Build.getDatabaseManager().execute(databaseName, deleteCommand);
-				}
+				statement = getSelectedEntryDatabase(databaseName).execute(databaseName, deleteCommand);
 
 				/*
 				 * Check if a player record is found
@@ -194,14 +162,7 @@ public interface MySQLEntry {
 					if (getDeleteConditions() != null)
 						delete.addOptions(getDeleteConditions());
 
-					statement = Build.getDatabaseManager().execute(databaseName, delete);
-
-					//Assuming connection is dropped. We will try again.
-					if (statement == null) {
-						MySQLDatabase db = Build.getDatabaseManager().getDatabases().get(databaseName).connect();
-						if (db.getStatus() == MySQLDatabase.ConnectionStatus.CONNECTED)
-							statement = Build.getDatabaseManager().execute(databaseName, delete);
-					}
+					statement = getSelectedEntryDatabase(databaseName).execute(databaseName, delete);
 
 					if (statement != null)
 						statement.terminate();
@@ -219,6 +180,12 @@ public interface MySQLEntry {
 
 		QueryResult statement = null;
 
+		//Checks if connected, if not it will reconnect to the database.
+		final MySQLManager database = getSelectedEntryDatabase(databaseName);
+		if (!database.isConnected(databaseName)) {
+			Build.connectToDatabases();
+		}
+
 		switch (commandType) {
 
 			case UPDATE: {
@@ -233,14 +200,7 @@ public interface MySQLEntry {
 				/*
 				 * Execute the constructed select command
 				 */
-				statement = Build.getDatabaseManager().execute(databaseName, command);
-
-				//Assuming connection is dropped. We will try again.
-				if (statement == null) {
-					MySQLDatabase db = Build.getDatabaseManager().getDatabases().get(databaseName).connect();
-					if (db.getStatus() == MySQLDatabase.ConnectionStatus.CONNECTED)
-						statement = Build.getDatabaseManager().execute(databaseName, command);
-				}
+				statement = getSelectedEntryDatabase(databaseName).execute(databaseName, command);
 
 				/*
 				 * Check if a player record is found
@@ -255,14 +215,7 @@ public interface MySQLEntry {
 					if (conditions != null)
 						update.addOptions(conditions);
 
-					statement = Build.getDatabaseManager().execute(databaseName, update);
-
-					//Assuming connection is dropped. We will try again.
-					if (statement == null) {
-						MySQLDatabase db = Build.getDatabaseManager().getDatabases().get(databaseName).connect();
-						if (db.getStatus() == MySQLDatabase.ConnectionStatus.CONNECTED)
-							statement = Build.getDatabaseManager().execute(databaseName, update);
-					}
+					statement = getSelectedEntryDatabase(databaseName).execute(databaseName, update);
 
 					if (statement != null)
 						statement.terminate();
@@ -273,14 +226,7 @@ public interface MySQLEntry {
 						insert.addOption(new TableColumnValueOption(values.get(i).getName(), values.get(i).getValue()));
 					}
 
-					statement = Build.getDatabaseManager().execute(databaseName, insert);
-
-					//Assuming connection is dropped. We will try again.
-					if (statement == null) {
-						MySQLDatabase db = Build.getDatabaseManager().getDatabases().get(databaseName).connect();
-						if (db.getStatus() == MySQLDatabase.ConnectionStatus.CONNECTED)
-							statement = Build.getDatabaseManager().execute(databaseName, insert);
-					}
+					statement = getSelectedEntryDatabase(databaseName).execute(databaseName, insert);
 
 					if (statement != null)
 						statement.terminate();
@@ -296,14 +242,7 @@ public interface MySQLEntry {
 					insert.addOption(new TableColumnValueOption(values.get(i).getName(), values.get(i).getValue()));
 				}
 
-				statement = Build.getDatabaseManager().execute(databaseName, insert);
-
-				//Assuming connection is dropped. We will try again.
-				if (statement == null) {
-					MySQLDatabase db = Build.getDatabaseManager().getDatabases().get(databaseName).connect();
-					if (db.getStatus() == MySQLDatabase.ConnectionStatus.CONNECTED)
-						statement = Build.getDatabaseManager().execute(databaseName, insert);
-				}
+				statement = getSelectedEntryDatabase(databaseName).execute(databaseName, insert);
 
 				if (statement != null)
 					statement.terminate();
@@ -322,14 +261,7 @@ public interface MySQLEntry {
 				/*
 				 * Execute the constructed select command
 				 */
-				statement = Build.getDatabaseManager().execute(databaseName, deleteCommand);
-
-				//Assuming connection is dropped. We will try again.
-				if (statement == null) {
-					MySQLDatabase db = Build.getDatabaseManager().getDatabases().get(databaseName).connect();
-					if (db.getStatus() == MySQLDatabase.ConnectionStatus.CONNECTED)
-						statement = Build.getDatabaseManager().execute(databaseName, deleteCommand);
-				}
+				statement = getSelectedEntryDatabase(databaseName).execute(databaseName, deleteCommand);
 
 				/*
 				 * Check if a player record is found
@@ -341,14 +273,7 @@ public interface MySQLEntry {
 					if (getDeleteConditions() != null)
 						delete.addOptions(getDeleteConditions());
 
-					statement = Build.getDatabaseManager().execute(databaseName, delete);
-
-					//Assuming connection is dropped. We will try again.
-					if (statement == null) {
-						MySQLDatabase db = Build.getDatabaseManager().getDatabases().get(databaseName).connect();
-						if (db.getStatus() == MySQLDatabase.ConnectionStatus.CONNECTED)
-							statement = Build.getDatabaseManager().execute(databaseName, delete);
-					}
+					statement = getSelectedEntryDatabase(databaseName).execute(databaseName, delete);
 
 					if (statement != null)
 						statement.terminate();
@@ -376,7 +301,7 @@ public interface MySQLEntry {
 
 			case UPDATE:
 
-				if (!Build.getDatabaseManager().isConnected(databaseName)) {
+				if (!getSelectedEntryDatabase(databaseName).isConnected(databaseName)) {
 					System.out.println("Unable to establish connection [" + databaseName + " -> " + tableName + "]");
 					return;
 				}
@@ -385,14 +310,7 @@ public interface MySQLEntry {
 				if (getUpdateConditions() != null)
 					select.addOptions(getUpdateConditions());
 
-				QueryResult statement = Build.getDatabaseManager().execute(databaseName, select);
-
-				//Assuming connection is dropped. We will try again.
-				if (statement == null) {
-					MySQLDatabase db = Build.getDatabaseManager().getDatabases().get(databaseName).connect();
-					if (db.getStatus() == MySQLDatabase.ConnectionStatus.CONNECTED)
-						statement = Build.getDatabaseManager().execute(databaseName, select);
-				}
+				QueryResult statement = getSelectedEntryDatabase(databaseName).execute(databaseName, select);
 
 				if (statement == null || statement.getRowCount() == 0)
 					Logger.getGlobal().info("Unable to gather details from datatable.");
@@ -435,6 +353,16 @@ public interface MySQLEntry {
 			default:
 				break;
 		}
+	}
+
+	/**
+	 * Gets the Default Database Instance
+	 * @return
+	 */
+	default MySQLManager getSelectedEntryDatabase(String database) {
+		if (database.contains("grizzly"))
+			return Build.getGrizzlyDatabase();
+		return Build.getShatteredDatabase();
 	}
 
 }

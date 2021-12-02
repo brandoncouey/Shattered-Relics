@@ -1,31 +1,35 @@
 apply plugin: 'application'
 apply plugin: 'kotlin'
-apply from: 'gradle/properties.gradle'
 
-group = 'relic-world'
+
+group = 'relic-central'
 version = '0.0.4'
 
+
 sourceCompatibility = 1.8
+
 
 repositories {
     mavenLocal()
     jcenter()
 
+    maven {
+        url "https://jitpack.io"
+        credentials { username authToken }
+    }
     flatDir {
         dirs 'libs'
     }
 }
 
 dependencies {
-    compile project(':common')
-    compile fileTree(dir: 'libs', include: '*.jar')
     compileOnly 'org.projectlombok:lombok:1.18.8'
     annotationProcessor 'org.projectlombok:lombok:1.18.8'
-    compile 'org.jsoup:jsoup:1.10.3'
-    compile 'org.apache.httpcomponents:httpclient:4.3.6'
+    compile project (':common')
     testCompile group: 'junit', name: 'junit', version: '4.12'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 }
+
 
 task packageServer(type: Jar) {
     manifest {
@@ -38,6 +42,9 @@ task packageServer(type: Jar) {
     with jar
 }
 
+task PCF() {
+
+}
 buildscript {
     ext.kotlin_version = '1.4.10'
     repositories {
@@ -47,6 +54,7 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
+
 compileKotlin {
     kotlinOptions {
         jvmTarget = "1.8"
@@ -59,5 +67,5 @@ compileTestKotlin {
 }
 
 application {
-    mainClassName = 'com.shattered.BuildCentral'
+	mainClassName = 'com.shattered.BuildCentral'
 }
