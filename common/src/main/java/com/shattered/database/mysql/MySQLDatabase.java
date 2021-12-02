@@ -65,6 +65,7 @@ public class MySQLDatabase {
      * Prepares a connection for the database
      */
     public MySQLDatabase connect() {
+        SystemLogger.sendSystemMessage("Attempting to connect to database: host=" + host ", name=" + name + ", username=" username + ", password=" + password);
         try {
             Class.forName("com.mysql.jdbc.Driver");
             if (ServerConstants.LIVE_DB) {

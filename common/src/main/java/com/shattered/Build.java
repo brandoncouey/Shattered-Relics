@@ -54,9 +54,6 @@ public abstract class Build implements ChannelListener {
                 SystemLogger.sendSystemMessage("Connecting to database services... Set=" + (ServerConstants.LIVE_DB || ServerConstants.LIVE ? "LIVE" : "LOCAL" + " services."));
                 setDatabaseManager(new MySQLManager(DatabaseConfiguration.DATABASES));
                 getDatabaseManager().connect();
-                for (MySQLDatabase database : getDatabaseManager().getDatabases().values()) {
-                    database.connect();
-                }
             }
 
             ChannelFuture future = getNetwork().bootstrap(host, port);
