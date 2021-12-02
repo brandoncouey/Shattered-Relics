@@ -53,7 +53,6 @@ public class BuildCentral extends Build {
 
         if (args.length < 1) {
             ServerConstants.LIVE = true;
-            ServerConstants.LIVE_DB = true;
 
         } else {
             //Sets the Constants to Live.

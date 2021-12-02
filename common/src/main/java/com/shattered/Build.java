@@ -53,8 +53,7 @@ public abstract class Build implements ChannelListener {
             if (!type.equals(ServerType.PROXY)) {
                 //Checks if MySQL Should be Enabled # Development Configuration
                 //Initializes the MySQL Database Connection
-                SystemLogger.sendSystemMessage("Connecting to database services... Set=" + (ServerConstants.LIVE_DB || ServerConstants.LIVE ? "LIVE" : "LOCAL" + " services."));
-                setDatabaseManager(new MySQLManager(ServerConstants.LIVE_DB ? DatabaseConfiguration.LIVE_DATABASES : DatabaseConfiguration.LOCAL_DATABASES));
+                setDatabaseManager(new MySQLManager(ServerConstants.LIVE ? DatabaseConfiguration.LIVE_DATABASES : DatabaseConfiguration.LOCAL_DATABASES));
                 getDatabaseManager().connect();
             }
 
