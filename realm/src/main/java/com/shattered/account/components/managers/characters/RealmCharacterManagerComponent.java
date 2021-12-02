@@ -7,6 +7,7 @@ import com.shattered.account.character.PlayerInformation;
 import com.shattered.database.mysql.MySQLColumn;
 import com.shattered.database.mysql.MySQLCommand;
 import com.shattered.database.mysql.query.options.impl.WhereConditionOption;
+import com.shattered.networking.NetworkBootstrap;
 import com.shattered.networking.listeners.ProtoEventListener;
 import com.shattered.networking.listeners.RealmProtoListener;
 import com.shattered.networking.proto.PacketOuterClass;
@@ -270,6 +271,14 @@ public class  RealmCharacterManagerComponent extends Component {
             entry(getDatabaseName(), "model", insert, MySQLCommand.INSERT);
             //SUCCESS
             getAccount().sendMessage(PacketOuterClass.Opcode.SMSG_CHARACTER_CREATION_RESPONSE, Realm.CharacterCreationResponse.newBuilder().setResponseId(CharacterCreationResponse.SUCCESSFUL.ordinal()).build());
+
+            //Initializes the Player Information to the client
+            getAccount().sendMessage(PacketOuterClass.Opcode.SMSG_ACCOUNT_INFORMATION, Realm.AccountInformation.newBuilder()
+                    .setName(getAccount().getAccountInformation()
+                            .getAccountName()).setLevel(getAccount().getAccountInformation().getAccountLevel().ordinal())
+                    .setWorld("")
+                    .setIndex(0).build());
+
         } catch (Exception e) {
             e.printStackTrace();
         }
