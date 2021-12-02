@@ -11,12 +11,9 @@ public interface DatabaseConfiguration {
     /**
      * MYSQL Database settings.
      */
-    MySQLDatabase[] GRIZZLY_DATABASES = {
-            new MySQLDatabase("grizzly"),
-    };
-
-    MySQLDatabase[] SHATTERED_DATABASES = {
-            new MySQLDatabase("shatteredrelics"),
+    MySQLDatabase[] DATABASES = {
+            new MySQLDatabase("grizzly", "grizzlyent.cpde7dtfjvvy.us-west-2.rds.amazonaws.com", "admin", "!003786dc"),
+            new MySQLDatabase("shatteredrelics", "shatteredrelics.cpde7dtfjvvy.us-west-2.rds.amazonaws.com", "admin", "!003786dc")
     };
 
 

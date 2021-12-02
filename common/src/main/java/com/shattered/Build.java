@@ -1,6 +1,7 @@
 package com.shattered;
 
 import com.shattered.database.DatabaseConfiguration;
+import com.shattered.database.mysql.MySQLDatabase;
 import com.shattered.database.mysql.MySQLManager;
 import com.shattered.networking.NetworkBootstrap;
 import com.shattered.networking.handlers.DefaultNetworkHandler;
@@ -25,14 +26,7 @@ public abstract class Build implements ChannelListener {
      * */
     @Getter
     @Setter
-    private static MySQLManager grizzlyDatabase;
-
-    /**
-     * Represents the Shattered Relics Database
-     */
-    @Getter
-    @Setter
-    private static MySQLManager shatteredDatabase;
+    private static MySQLManager databaseManager;
 
     /**
      * Represents the Network Bootstrap
@@ -60,8 +54,7 @@ public abstract class Build implements ChannelListener {
                 //Checks if MySQL Should be Enabled # Development Configuration
                 //Initializes the MySQL Database Connection
                 SystemLogger.sendSystemMessage("Connecting to database services... Set=" + (ServerConstants.LIVE_DB || ServerConstants.LIVE ? "LIVE" : "LOCAL" + " services."));
-                setGrizzlyDatabase(new MySQLManager(DatabaseConfiguration.GRIZZLY_DATABASES));
-                setShatteredDatabase(new MySQLManager(DatabaseConfiguration.SHATTERED_DATABASES));
+                setDatabaseManager(new MySQLManager(DatabaseConfiguration.DATABASES));
                 connectToDatabases();
             }
 
@@ -78,13 +71,7 @@ public abstract class Build implements ChannelListener {
      * Method used for connecting to databases
      */
     public static void connectToDatabases() {
-        if (ServerConstants.LIVE_DB || ServerConstants.LIVE) {
-            getGrizzlyDatabase().connect("grizzlyent.cpde7dtfjvvy.us-west-2.rds.amazonaws.com", "admin", "!003786dc");
-            getShatteredDatabase().connect("shatteredrelics.cpde7dtfjvvy.us-west-2.rds.amazonaws.com", "admin", "!003786dc");
-        } else {
-            getGrizzlyDatabase().connect("127.0.0.1", "root", "");
-            getShatteredDatabase().connect("127.0.0.1", "root", "");
-        }
+        databaseManager.getDatabases().values().forEach(MySQLDatabase::connect);
     }
 
 }
