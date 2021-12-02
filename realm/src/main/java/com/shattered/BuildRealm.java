@@ -69,14 +69,11 @@ public class BuildRealm extends Build {
             ServerConstants.LIVE = Boolean.parseBoolean(args[1]);
         }
 
-
         SystemLogger.sendSystemMessage("Building Relic-World on " + (ServerConstants.LIVE ? "LIVE" : "LOCAL") + " network.");
 
         if (ServerConstants.LIVE) {
             ServerConstants.CENTRAL_HOST = ServerConstants.LIVE_CENTRAL_HOST;
         }
-
-        ServerConstants.LIVE_DB = true;
 
         //Binds the socket and initializes the server
         getInstance().build(ServerType.REALM, "0.0.0.0", ServerConstants.REALM_DEFAULT_PORT + portIndex);
