@@ -88,7 +88,6 @@ public class BuildRealm extends Build {
         //Inits the Client Registry
         getInstance().setClientRegistry(new ClientRegistering());
 
-
         //Connects to Central ServerConnections & Registers this Connection
         getInstance().getNetwork().authenticate(ServerType.REALM, getInstance().getNetwork().connect(ServerConstants.CENTRAL_HOST, ServerConstants.CENTRAL_DEFAULT_PORT), RealmSession.REALM_TOKEN);
 
