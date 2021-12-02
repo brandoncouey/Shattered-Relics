@@ -163,6 +163,14 @@ public class AccountAuthentication implements MySQLFetch, MySQLEntry {
 
                 //Checks to ensure the name matches the datatable name
                 /*if (!accountIdentifier.equalsIgnoreCase(getAccountRequest()) && !isDiscord) {
+
+Jobs in run #20211202.3
+Start
+CmdLine
+
+View raw log
+
+
                     setResponseType(AccountResponses.ACCOUNT_INVALID_INFORMATION);
                     return false;
                 }*/
