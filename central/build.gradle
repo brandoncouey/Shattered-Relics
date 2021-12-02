@@ -31,7 +31,7 @@ task packageServer(type: Jar) {
     manifest {
         attributes 'Implementation-Title': 'Gradle Jar File Example',
                 'Implementation-Version': version,
-                'Main-Class': 'com.shattered.BuildRealm'
+                'Main-Class': 'com.shattered.BuildCentral'
     }
     baseName = project.name + '-all'
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
