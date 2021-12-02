@@ -179,12 +179,10 @@ View raw log
 
                 //Checks the Password
                 String password = results.getString("password");
-                if (ServerConstants.LIVE_DB) {
                    /* if (!BCrypt.checkpw(getPasswordRequest(), password)) {
                         setResponseType(AccountResponses.ACCOUNT_INVALID_INFORMATION);
                         return false;
                     }*/
-                }
 
                 /* //////////////////////// Represents Online Status Checking \\\\\\\\\\\\\\\\\\\\\\\\\ */
 

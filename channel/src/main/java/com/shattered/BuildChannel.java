@@ -46,7 +46,6 @@ public class BuildChannel extends Build {
 
         if (args.length < 2) {
             ServerConstants.LIVE = true;
-            ServerConstants.LIVE_DB = true;
         } else {
 
             //Represents the Port Index Increment

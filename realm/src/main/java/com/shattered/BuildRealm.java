@@ -57,7 +57,6 @@ public class BuildRealm extends Build {
         if (args.length < 2) {
 
             ServerConstants.LIVE = true;
-            ServerConstants.LIVE_DB = true;
 
         } else {
 
