@@ -7,6 +7,7 @@ import com.shattered.system.SystemLogger;
 import lombok.Getter;
 
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -24,22 +25,13 @@ public class MySQLManager {
 	private final Map<String, MySQLDatabase> databases = new HashMap<>();
 
 	/**
+	 * Creates a new instance of the manager and stores all of the databases
 	 * @param databases
 	 */
 	public MySQLManager(MySQLDatabase[] databases) {
-
-		/*
-		 * Loop through the MySQL databases
-		 */
 		for (MySQLDatabase database : databases) {
-
-			/*
-			 * Add MySQL datatable to the mapping
-			 */
 			getDatabases().put(database.getName(), database);
-
 		}
-
 	}
 
 	/**
@@ -50,27 +42,15 @@ public class MySQLManager {
 
 		try {
 
-			/*
-			 * Loop through each MySQL datatable
-			 */
 			for (Entry<String, MySQLDatabase> entry : databases.entrySet()) {
 
 				MySQLDatabase database = entry.getValue();
 
-				/**
-				 * Used for re-connections
-				 */
 				if (database.getStatus() == MySQLDatabase.ConnectionStatus.CONNECTED)
 					continue;
 
-				/*
-				 * Prepare the MySQL datatable
-				 */
 				database.connect();
 
-				/*
-				 * Check if there is connectivity with the MySQL Server
-				 */
 				if (database.getStatus() != MySQLDatabase.ConnectionStatus.CONNECTED) {
 					SystemLogger.sendDatabaseInformation(DatabaseService.MYSQL, "Unable to connect with '" + database.getName() + "' queries.");
 				} else {
@@ -82,7 +62,6 @@ public class MySQLManager {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		return this;
 
 	}
@@ -94,21 +73,9 @@ public class MySQLManager {
 	 * @return the query result
 	 */
 	public QueryResult execute(String name, SQLCommand command) {
-
-
-		/*
-		 * Get the MySQL datatable handler from the datatable manager
-		 */
 		MySQLDatabase database = getDatabases().get(name);
-
-		/*
-		 * Check if MySQL datatable handler is found
-		 */
-		if (database == null)
-			return null;
-
+		if (database == null) return null;
 		return database.execute(command);
-
 	}
 
 	/**
