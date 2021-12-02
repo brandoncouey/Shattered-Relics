@@ -361,7 +361,7 @@ public interface MySQLEntry {
 	 */
 	default MySQLManager getSelectedEntryDatabase(String database) {
 		if (database.contains("grizzly"))
-			return Build.getGrizzlyDatabase();
+			return Build.getDatabaseManager();
 		return Build.getShatteredDatabase();
 	}
 

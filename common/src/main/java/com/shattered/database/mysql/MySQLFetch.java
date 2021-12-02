@@ -125,7 +125,7 @@ public interface MySQLFetch {
 	 */
 	default MySQLManager getDefaultDatabase() {
 		if (getDatabaseName().contains("grizzly"))
-			return Build.getGrizzlyDatabase();
+			return Build.getDatabaseManager();
 		return Build.getShatteredDatabase();
 	}
 
@@ -136,7 +136,7 @@ public interface MySQLFetch {
 	 */
 	default MySQLManager getSelectedFetchDatabase(String databaseName) {
 		if (databaseName.contains("grizzly"))
-			return Build.getGrizzlyDatabase();
+			return Build.getDatabaseManager();
 		return Build.getShatteredDatabase();
 	}
 

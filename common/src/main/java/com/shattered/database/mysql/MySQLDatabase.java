@@ -6,9 +6,12 @@
 package com.shattered.database.mysql;
 
 
+import com.shattered.ServerConstants;
 import com.shattered.database.mysql.query.command.impl.SelectCommand;
 import com.shattered.database.mysql.query.SQLQuery;
 import com.shattered.database.mysql.query.result.QueryResult;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,20 +20,31 @@ import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
+@RequiredArgsConstructor
 public class MySQLDatabase {
-    private String name;
+
+    @Getter
+    private final String name;
+
+    private final String host;
+
+    private final String username;
+
+    private final String password;
+
     private Connection connection;
-    private MySQLDatabase.MySQLConnectionStatus status;
 
-    public MySQLDatabase(String name) {
-        this.status = MySQLDatabase.MySQLConnectionStatus.NOT_CONNECTED;
-        this.name = name;
-    }
+    @Getter
+    private MySQLDatabase.MySQLConnectionStatus status = MySQLConnectionStatus.NOT_CONNECTED;
 
-    public void prepare(String host, String username, String password) {
+    public void prepare() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            this.connection = DriverManager.getConnection("jdbc:mysql://" + host + "/" + this.getName() + "?zeroDateTimeBehavior=convertToNull", username, password);
+            if (ServerConstants.LIVE_DB) {
+                this.connection = DriverManager.getConnection("jdbc:mysql://" + host + "/" + name + "?zeroDateTimeBehavior=convertToNull", username, password);
+            } else {
+                this.connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1/" + name + "?zeroDateTimeBehavior=convertToNull", "root", "");
+            }
             this.status = MySQLDatabase.MySQLConnectionStatus.CONNECTED;
         } catch (ClassNotFoundException | SQLException var5) {
             this.status = MySQLDatabase.MySQLConnectionStatus.UNABLE_TO_CONNECT;
@@ -40,14 +54,14 @@ public class MySQLDatabase {
 
     public QueryResult execute(SQLQuery query) {
         try {
-            if (this.getStatus() != MySQLDatabase.MySQLConnectionStatus.CONNECTED) {
+            if (status != MySQLDatabase.MySQLConnectionStatus.CONNECTED) {
                 return null;
             } else {
                 String constructed = query.construct();
                 if (constructed == null) {
                     return null;
                 } else {
-                    PreparedStatement statement = this.getConnection().prepareStatement(constructed);
+                    PreparedStatement statement = connection.prepareStatement(constructed);
                     Iterator var5 = query.getParameters().entrySet().iterator();
 
                     Entry entry;
@@ -85,31 +99,19 @@ public class MySQLDatabase {
 
     public void terminate() {
         try {
-            if (this.getStatus() != MySQLDatabase.MySQLConnectionStatus.CONNECTED || this.getConnection() == null || this.getConnection().isClosed()) {
+            if (status != MySQLDatabase.MySQLConnectionStatus.CONNECTED || connection == null || connection.isClosed()) {
                 return;
             }
 
-            this.getConnection().close();
-            this.status = MySQLDatabase.MySQLConnectionStatus.NOT_CONNECTED;
+            connection.close();
+            status = MySQLDatabase.MySQLConnectionStatus.NOT_CONNECTED;
         } catch (SQLException var2) {
             var2.printStackTrace();
         }
 
     }
 
-    public String getName() {
-        return this.name;
-    }
-
-    public Connection getConnection() {
-        return this.connection;
-    }
-
-    public MySQLDatabase.MySQLConnectionStatus getStatus() {
-        return this.status;
-    }
-
-    public static enum MySQLConnectionStatus {
+    public enum MySQLConnectionStatus {
         NOT_CONNECTED,
         CONNECTED,
         UNABLE_TO_CONNECT;
