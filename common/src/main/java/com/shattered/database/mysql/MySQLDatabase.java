@@ -78,16 +78,11 @@ public class MySQLDatabase {
     public void connect() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            if (ServerConstants.LIVE_DB) {
-                this.connection = DriverManager.getConnection("jdbc:mysql://" + host + "/" + name + "?zeroDateTimeBehavior=convertToNull", username, password);
-            } else {
-                this.connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1/" + name + "?zeroDateTimeBehavior=convertToNull", "root", "");
-            }
+            this.connection = DriverManager.getConnection("jdbc:mysql://" + host + "/" + name + "?zeroDateTimeBehavior=convertToNull", username, password);
             this.status = ConnectionStatus.CONNECTED;
         } catch (ClassNotFoundException | SQLException var5) {
             this.status = ConnectionStatus.UNABLE_TO_CONNECT;
         }
-
     }
 
     /**

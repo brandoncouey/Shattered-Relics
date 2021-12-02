@@ -54,7 +54,7 @@ public abstract class Build implements ChannelListener {
                 //Checks if MySQL Should be Enabled # Development Configuration
                 //Initializes the MySQL Database Connection
                 SystemLogger.sendSystemMessage("Connecting to database services... Set=" + (ServerConstants.LIVE_DB || ServerConstants.LIVE ? "LIVE" : "LOCAL" + " services."));
-                setDatabaseManager(new MySQLManager(DatabaseConfiguration.DATABASES));
+                setDatabaseManager(new MySQLManager(ServerConstants.LIVE_DB ? DatabaseConfiguration.LIVE_DATABASES : DatabaseConfiguration.LOCAL_DATABASES));
                 getDatabaseManager().connect();
             }
 
