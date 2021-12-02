@@ -76,6 +76,8 @@ public class BuildRealm extends Build {
             ServerConstants.CENTRAL_HOST = ServerConstants.LIVE_CENTRAL_HOST;
         }
 
+        ServerConstants.LIVE_DB = true;
+
         //Binds the socket and initializes the server
         getInstance().build(ServerType.REALM, "0.0.0.0", ServerConstants.REALM_DEFAULT_PORT + portIndex);
 

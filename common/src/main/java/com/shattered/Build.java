@@ -35,8 +35,6 @@ public abstract class Build implements ChannelListener {
     @Setter
     private NetworkBootstrap network;
 
-
-
     /**
      * Initializes a new Server
      * @param type
