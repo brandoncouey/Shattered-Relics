@@ -11,7 +11,6 @@ import com.shattered.database.mysql.query.command.impl.SelectCommand;
 import com.shattered.database.mysql.query.SQLQuery;
 import com.shattered.database.mysql.query.result.QueryResult;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -22,17 +21,50 @@ import java.util.Map.Entry;
 
 public class MySQLDatabase {
 
+    /**
+     * Represents the Connection Status
+     */
+    public enum ConnectionStatus { NOT_CONNECTED, CONNECTED, UNABLE_TO_CONNECT }
+
+    /**
+     * Represents the name of the database
+     */
     @Getter
     private final String name;
 
+    /**
+     * Represents the host of the database
+     */
     private final String host;
 
+    /**
+     * Represents the username of the database
+     */
     private final String username;
 
+    /**
+     * Represents the password of the database
+     */
     private final String password;
 
+    /**
+     * Represents the connection of the database
+     */
     private Connection connection;
 
+    /**
+     * Represents the connection status of the database
+     */
+    @Getter
+    private ConnectionStatus status = ConnectionStatus.NOT_CONNECTED;
+
+    /**
+     * Creates a new instance of the SQL Database
+     * @param name
+     * @param host
+     * @param username
+     * @param password
+     */
     public MySQLDatabase(String name, String host, String username, String password) {
         this.name = name;
         this.host = host;
@@ -40,28 +72,27 @@ public class MySQLDatabase {
         this.password = password;
     }
 
-    @Getter
-    private MySQLDatabase.MySQLConnectionStatus status = MySQLConnectionStatus.NOT_CONNECTED;
-
-    public void prepare() {
+    /**
+     * Attempts connection of the sql database
+     */
+    public void connect() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            this.connection = DriverManager.getConnection("jdbc:mysql://" + host + "/" + name + "?zeroDateTimeBehavior=convertToNull", username, password);
-            /*if (ServerConstants.LIVE_DB) {
+            if (ServerConstants.LIVE_DB) {
                 this.connection = DriverManager.getConnection("jdbc:mysql://" + host + "/" + name + "?zeroDateTimeBehavior=convertToNull", username, password);
             } else {
                 this.connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1/" + name + "?zeroDateTimeBehavior=convertToNull", "root", "");
-            }*/
-            this.status = MySQLDatabase.MySQLConnectionStatus.CONNECTED;
+            }
+            this.status = ConnectionStatus.CONNECTED;
         } catch (ClassNotFoundException | SQLException var5) {
-            this.status = MySQLDatabase.MySQLConnectionStatus.UNABLE_TO_CONNECT;
+            this.status = ConnectionStatus.UNABLE_TO_CONNECT;
         }
 
     }
 
     public QueryResult execute(SQLQuery query) {
         try {
-            if (status != MySQLDatabase.MySQLConnectionStatus.CONNECTED) {
+            if (status != ConnectionStatus.CONNECTED) {
                 return null;
             } else {
                 String constructed = query.construct();
@@ -104,23 +135,21 @@ public class MySQLDatabase {
         }
     }
 
+    /**
+     * Terminates the current sql database
+     */
     public void terminate() {
         try {
-            if (status != MySQLDatabase.MySQLConnectionStatus.CONNECTED || connection == null || connection.isClosed()) {
+            if (status != ConnectionStatus.CONNECTED || connection == null || connection.isClosed()) {
                 return;
             }
 
             connection.close();
-            status = MySQLDatabase.MySQLConnectionStatus.NOT_CONNECTED;
+            status = ConnectionStatus.NOT_CONNECTED;
         } catch (SQLException var2) {
             var2.printStackTrace();
         }
 
     }
 
-    public enum MySQLConnectionStatus {
-        NOT_CONNECTED,
-        CONNECTED,
-        UNABLE_TO_CONNECT;
-    }
 }

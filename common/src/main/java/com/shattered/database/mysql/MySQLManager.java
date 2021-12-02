@@ -45,12 +45,12 @@ public class MySQLManager {
 
 				MySQLDatabase database = entry.getValue();
 
-				if (database.getStatus() == MySQLDatabase.MySQLConnectionStatus.CONNECTED)
+				if (database.getStatus() == MySQLDatabase.ConnectionStatus.CONNECTED)
 					continue;
 
-				database.prepare();
+				database.connect();
 
-				if (database.getStatus() != MySQLDatabase.MySQLConnectionStatus.CONNECTED) {
+				if (database.getStatus() != MySQLDatabase.ConnectionStatus.CONNECTED) {
 					SystemLogger.sendDatabaseInformation(DatabaseService.MYSQL, "Unable to connect with '" + database.getName() + "' queries.");
 				} else {
 					SystemLogger.sendDatabaseInformation(DatabaseService.MYSQL, "Connected to '" + database.getName() + "' datatable.");
@@ -102,7 +102,7 @@ public class MySQLManager {
 	 * @return connected
 	 */
 	public boolean isConnected(String name) {
-		return getDatabases().containsKey(name) && getDatabases().get(name).getStatus() == MySQLDatabase.MySQLConnectionStatus.CONNECTED;
+		return getDatabases().containsKey(name) && getDatabases().get(name).getStatus() == MySQLDatabase.ConnectionStatus.CONNECTED;
 	}
 
 

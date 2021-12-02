@@ -90,7 +90,7 @@ public interface MySQLEntry {
 
 				//Assuming connection is dropped. We will try again.
 				if (statement == null) {
-					Build.getDatabaseManager().getDatabases().get(databaseName).prepare();
+					Build.getDatabaseManager().getDatabases().get(databaseName).connect();
 						statement = Build.getDatabaseManager().execute(databaseName, command);
 				}
 
@@ -111,7 +111,7 @@ public interface MySQLEntry {
 
 					//Assuming connection is dropped. We will try again.
 					if (statement == null) {
-						Build.getDatabaseManager().getDatabases().get(databaseName).prepare();
+						Build.getDatabaseManager().getDatabases().get(databaseName).connect();
 							statement = Build.getDatabaseManager().execute(databaseName, update);
 					}
 
@@ -128,7 +128,7 @@ public interface MySQLEntry {
 
 					//Assuming connection is dropped. We will try again.
 					if (statement == null) {
-						Build.getDatabaseManager().getDatabases().get(databaseName).prepare();
+						Build.getDatabaseManager().getDatabases().get(databaseName).connect();
 							statement = Build.getDatabaseManager().execute(databaseName, insert);
 					}
 
@@ -150,7 +150,7 @@ public interface MySQLEntry {
 
 				//Assuming connection is dropped. We will try again.
 				if (statement == null) {
-					Build.getDatabaseManager().getDatabases().get(databaseName).prepare();
+					Build.getDatabaseManager().getDatabases().get(databaseName).connect();
 						statement = Build.getDatabaseManager().execute(databaseName, insert);
 				}
 
@@ -175,7 +175,7 @@ public interface MySQLEntry {
 
 				//Assuming connection is dropped. We will try again.
 				if (statement == null) {
-					Build.getDatabaseManager().getDatabases().get(databaseName).prepare();
+					Build.getDatabaseManager().getDatabases().get(databaseName).connect();
 						statement = Build.getDatabaseManager().execute(databaseName, deleteCommand);
 				}
 
@@ -193,7 +193,7 @@ public interface MySQLEntry {
 
 					//Assuming connection is dropped. We will try again.
 					if (statement == null) {
-						Build.getDatabaseManager().getDatabases().get(databaseName).prepare();
+						Build.getDatabaseManager().getDatabases().get(databaseName).connect();
 							statement = Build.getDatabaseManager().execute(databaseName, delete);
 					}
 
@@ -236,7 +236,7 @@ public interface MySQLEntry {
 
 				//Assuming connection is dropped. We will try again.
 				if (statement == null) {
-					Build.getDatabaseManager().getDatabases().get(databaseName).prepare();
+					Build.getDatabaseManager().getDatabases().get(databaseName).connect();
 						statement = Build.getDatabaseManager().execute(databaseName, command);
 				}
 
@@ -257,7 +257,7 @@ public interface MySQLEntry {
 
 					//Assuming connection is dropped. We will try again.
 					if (statement == null) {
-						Build.getDatabaseManager().getDatabases().get(databaseName).prepare();
+						Build.getDatabaseManager().getDatabases().get(databaseName).connect();
 							statement = Build.getDatabaseManager().execute(databaseName, update);
 					}
 
@@ -274,7 +274,7 @@ public interface MySQLEntry {
 
 					//Assuming connection is dropped. We will try again.
 					if (statement == null) {
-						Build.getDatabaseManager().getDatabases().get(databaseName).prepare();
+						Build.getDatabaseManager().getDatabases().get(databaseName).connect();
 							statement = Build.getDatabaseManager().execute(databaseName, insert);
 					}
 
@@ -296,7 +296,7 @@ public interface MySQLEntry {
 
 				//Assuming connection is dropped. We will try again.
 				if (statement == null) {
-					Build.getDatabaseManager().getDatabases().get(databaseName).prepare();
+					Build.getDatabaseManager().getDatabases().get(databaseName).connect();
 						statement = Build.getDatabaseManager().execute(databaseName, insert);
 				}
 
@@ -321,7 +321,7 @@ public interface MySQLEntry {
 
 				//Assuming connection is dropped. We will try again.
 				if (statement == null) {
-					Build.getDatabaseManager().getDatabases().get(databaseName).prepare();
+					Build.getDatabaseManager().getDatabases().get(databaseName).connect();
 					statement = Build.getDatabaseManager().execute(databaseName, deleteCommand);
 				}
 
@@ -339,7 +339,7 @@ public interface MySQLEntry {
 
 					//Assuming connection is dropped. We will try again.
 					if (statement == null) {
-						Build.getDatabaseManager().getDatabases().get(databaseName).prepare();
+						Build.getDatabaseManager().getDatabases().get(databaseName).connect();
 							statement = Build.getDatabaseManager().execute(databaseName, delete);
 					}
 
@@ -382,7 +382,7 @@ public interface MySQLEntry {
 
 				//Assuming connection is dropped. We will try again.
 				if (statement == null) {
-					Build.getDatabaseManager().getDatabases().get(databaseName).prepare();
+					Build.getDatabaseManager().getDatabases().get(databaseName).connect();
 						statement = Build.getDatabaseManager().execute(databaseName, select);
 				}
 

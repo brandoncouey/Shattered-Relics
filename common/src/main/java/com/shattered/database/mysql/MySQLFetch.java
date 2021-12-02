@@ -7,7 +7,6 @@ import com.shattered.database.DatabaseService;
 import com.shattered.system.SystemLogger;
 
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 /**
  * @author JTlr Frost | Mar 13, 2018 : 8:03:47 PM
@@ -63,7 +62,7 @@ public interface MySQLFetch {
 
 		//Assuming connection is dropped. We will try again.
 		if (result == null) {
-			Build.getDatabaseManager().getDatabases().get(getDatabaseName()).prepare();
+			Build.getDatabaseManager().getDatabases().get(getDatabaseName()).connect();
 			result = dbManager.execute(getDatabaseName(), select).getResultSet();
 		}
 
@@ -96,7 +95,7 @@ public interface MySQLFetch {
 
 		//Assuming connection is dropped. We will try again.
 		if (result == null) {
-			Build.getDatabaseManager().getDatabases().get(databaseName).prepare();
+			Build.getDatabaseManager().getDatabases().get(databaseName).connect();
 			result = dbManager.execute(databaseName, select).getResultSet();
 		}
 
