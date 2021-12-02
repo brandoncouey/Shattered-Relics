@@ -72,10 +72,8 @@ public class MySQLDatabase {
             } else {
                 setConnection(DriverManager.getConnection("jdbc:mysql://" + "127.0.0.1" + "/" + name + "?zeroDateTimeBehavior=convertToNull", "root", ""));
             }
-            SystemLogger.sendSystemMessage("Successfully connected to " + name + " database services...");
             setStatus(ConnectionStatus.CONNECTED);
         } catch (ClassNotFoundException | SQLException e) {
-            SystemLogger.sendSystemErrMessage("Unable to connect to " + name + " database services...");
             setStatus(ConnectionStatus.UNABLE_TO_CONNECT);
         }
         return this;
