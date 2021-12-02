@@ -272,13 +272,6 @@ public class  RealmCharacterManagerComponent extends Component {
             //SUCCESS
             getAccount().sendMessage(PacketOuterClass.Opcode.SMSG_CHARACTER_CREATION_RESPONSE, Realm.CharacterCreationResponse.newBuilder().setResponseId(CharacterCreationResponse.SUCCESSFUL.ordinal()).build());
 
-            //Initializes the Player Information to the client
-            getAccount().sendMessage(PacketOuterClass.Opcode.SMSG_ACCOUNT_INFORMATION, Realm.AccountInformation.newBuilder()
-                    .setName(getAccount().getAccountInformation()
-                            .getAccountName()).setLevel(getAccount().getAccountInformation().getAccountLevel().ordinal())
-                    .setWorld("")
-                    .setIndex(0).build());
-
         } catch (Exception e) {
             e.printStackTrace();
         }
