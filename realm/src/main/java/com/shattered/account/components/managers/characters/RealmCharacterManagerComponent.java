@@ -67,7 +67,7 @@ public class  RealmCharacterManagerComponent extends Component {
                 try {
 
                     String characterName = message.getCharacterName();
-                    boolean isMale = message.getMale();
+                    boolean isMale = /*message.getMale();*/ true;//Female disabled due to no model
                     int bodyColor = message.getBodyColor();
                     int hairStyle = message.getHairStyle() >> 5;
                     int hairColor = message.getHairStyle() & 0x1f;
@@ -256,7 +256,7 @@ public class  RealmCharacterManagerComponent extends Component {
             fetch();
 
             insert = new ArrayList<>();
-            insert.add(new MySQLColumn("character_id", getCharacterInformation().getId()));
+            insert.add(new MySQLColumn("character_id", getAccount().getAccountInformation().getAccountId()));
             insert.add(new MySQLColumn("race", 1));
             insert.add(new MySQLColumn("male", isMale ? 1 : 0));
             insert.add(new MySQLColumn("body_color", bodyColor));
