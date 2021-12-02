@@ -20,7 +20,6 @@ import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
-@RequiredArgsConstructor
 public class MySQLDatabase {
 
     @Getter
@@ -34,17 +33,25 @@ public class MySQLDatabase {
 
     private Connection connection;
 
+    public MySQLDatabase(String name, String host, String username, String password) {
+        this.name = name;
+        this.host = host;
+        this.username = username;
+        this.password = password;
+    }
+
     @Getter
     private MySQLDatabase.MySQLConnectionStatus status = MySQLConnectionStatus.NOT_CONNECTED;
 
     public void prepare() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            if (ServerConstants.LIVE_DB) {
+            this.connection = DriverManager.getConnection("jdbc:mysql://" + host + "/" + name + "?zeroDateTimeBehavior=convertToNull", username, password);
+            /*if (ServerConstants.LIVE_DB) {
                 this.connection = DriverManager.getConnection("jdbc:mysql://" + host + "/" + name + "?zeroDateTimeBehavior=convertToNull", username, password);
             } else {
                 this.connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1/" + name + "?zeroDateTimeBehavior=convertToNull", "root", "");
-            }
+            }*/
             this.status = MySQLDatabase.MySQLConnectionStatus.CONNECTED;
         } catch (ClassNotFoundException | SQLException var5) {
             this.status = MySQLDatabase.MySQLConnectionStatus.UNABLE_TO_CONNECT;
@@ -115,8 +122,5 @@ public class MySQLDatabase {
         NOT_CONNECTED,
         CONNECTED,
         UNABLE_TO_CONNECT;
-
-        private MySQLConnectionStatus() {
-        }
     }
 }
