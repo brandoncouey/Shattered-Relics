@@ -65,7 +65,6 @@ public class MySQLDatabase {
      * Prepares a connection for the database
      */
     public MySQLDatabase connect() {
-        setStatus(ConnectionStatus.NOT_CONNECTED);
         try {
             Class.forName("com.mysql.jdbc.Driver");
             if (ServerConstants.LIVE_DB) {

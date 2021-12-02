@@ -53,7 +53,7 @@ public abstract class Build implements ChannelListener {
                 //Initializes the MySQL Database Connection
                 SystemLogger.sendSystemMessage("Connecting to database services... Set=" + (ServerConstants.LIVE_DB || ServerConstants.LIVE ? "LIVE" : "LOCAL" + " services."));
                 setDatabaseManager(new MySQLManager(DatabaseConfiguration.DATABASES));
-                connectToDatabases();
+                getDatabaseManager().getDatabases().values().forEach(MySQLDatabase::connect);
             }
 
             ChannelFuture future = getNetwork().bootstrap(host, port);
@@ -62,15 +62,6 @@ public abstract class Build implements ChannelListener {
 
         } catch (Exception e) {
             e.printStackTrace();
-        }
-    }
-
-    /**
-     * Method used for connecting to databases
-     */
-    public static void connectToDatabases() {
-        for (MySQLDatabase db : getDatabaseManager().getDatabases().values()) {
-            db.connect();
         }
     }
 

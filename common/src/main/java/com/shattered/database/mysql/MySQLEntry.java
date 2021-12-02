@@ -72,9 +72,6 @@ public interface MySQLEntry {
 
 		//Checks if connected, if not it will reconnect to the database.
 		final MySQLManager database = Build.getDatabaseManager();
-		if (!database.isConnected(databaseName)) {
-			Build.connectToDatabases();
-		}
 
 		switch (commandType) {
 
