@@ -23,6 +23,7 @@ public class MySQLManager {
 	private Map<String, MySQLDatabase> databases = new HashMap<>();
 
 	/**
+	 * Creates a new sql manager
 	 * @param databases
 	 */
 	public MySQLManager(MySQLDatabase[] databases) {
@@ -32,7 +33,8 @@ public class MySQLManager {
 	}
 
 	/**
-	 * @return
+	 * Represent the SQL Manager
+	 * @return the manager
 	 */
 	public MySQLManager connect() {
 
@@ -60,16 +62,15 @@ public class MySQLManager {
 
 		} catch (Exception e) {
 		}
-
 		return this;
 
 	}
 
 	/**
-	 * 
+	 * Executes a query result
 	 * @param name
 	 * @param command
-	 * @return
+	 * @return the query result
 	 */
 	public QueryResult execute(String name, SQLCommand command) {
 
@@ -91,9 +92,7 @@ public class MySQLManager {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		return null;
-
 	}
 
 	/**

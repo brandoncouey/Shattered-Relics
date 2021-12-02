@@ -90,6 +90,11 @@ public class MySQLDatabase {
 
     }
 
+    /**
+     * Executes an sql query
+     * @param query
+     * @return the query result
+     */
     public QueryResult execute(SQLQuery query) {
         try {
             if (status != ConnectionStatus.CONNECTED) {
@@ -125,12 +130,11 @@ public class MySQLDatabase {
                     } else {
                         result = new QueryResult(query, statement.executeUpdate());
                     }
-
                     return result;
                 }
             }
-        } catch (SQLException var6) {
-            var6.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -149,7 +153,6 @@ public class MySQLDatabase {
         } catch (SQLException var2) {
             var2.printStackTrace();
         }
-
     }
 
 }

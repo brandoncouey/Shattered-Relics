@@ -67,17 +67,4 @@ public abstract class Build implements ChannelListener {
         }
     }
 
-    /**
-     * Method used for connecting to databases
-     */
-    public static void connectToDatabases() {
-        /*if (ServerConstants.LIVE_DB || ServerConstants.LIVE) {
-            getDatabaseManager().connect("grizzlyent.cpde7dtfjvvy.us-west-2.rds.amazonaws.com", "admin", "!003786dc");
-            getShatteredDatabase().connect("shatteredrelics.cpde7dtfjvvy.us-west-2.rds.amazonaws.com", "admin", "!003786dc");
-        } else {
-            getDatabaseManager().connect("127.0.0.1", "root", "");
-            getShatteredDatabase().connect("127.0.0.1", "root", "");
-        }*/
-    }
-
 }

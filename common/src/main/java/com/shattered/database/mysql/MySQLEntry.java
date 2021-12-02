@@ -213,11 +213,6 @@ public interface MySQLEntry {
 
 		QueryResult statement = null;
 
-		//Checks if connected, if not it will reconnect to the database.
-		if (!Build.getDatabaseManager().isConnected(databaseName)) {
-			Build.connectToDatabases();
-		}
-
 		switch (commandType) {
 
 			case UPDATE: {
