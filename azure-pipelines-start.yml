@@ -83,6 +83,16 @@ stages:
           - task: CmdLine@2
             inputs:
               script: |
+                docker container stop $(docker ps -q)
+
+          - task: CmdLine@2
+            inputs:
+              script: |
+                docker system prune -f
+
+          - task: CmdLine@2
+            inputs:
+              script: |
                 docker run -d --name central -p 18650:18650/tcp -e "live=true" grizzlyentertainment.azurecr.io/central:latest
 
           - task: CmdLine@2

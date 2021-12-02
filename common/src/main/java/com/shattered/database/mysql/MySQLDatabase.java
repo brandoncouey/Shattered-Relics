@@ -65,21 +65,19 @@ public class MySQLDatabase {
      * Prepares a connection for the database
      */
     public MySQLDatabase connect() {
-        status = ConnectionStatus.NOT_CONNECTED;
+        setStatus(ConnectionStatus.NOT_CONNECTED);
         try {
             Class.forName("com.mysql.jdbc.Driver");
             if (ServerConstants.LIVE_DB) {
-                connection = DriverManager.getConnection("jdbc:mysql://" + host + "/" + name + "?zeroDateTimeBehavior=convertToNull", username, password);
+                setConnection(DriverManager.getConnection("jdbc:mysql://" + host + "/" + name + "?zeroDateTimeBehavior=convertToNull", username, password));
             } else {
-                connection = DriverManager.getConnection("jdbc:mysql://" + "127.0.0.1" + "/" + name + "?zeroDateTimeBehavior=convertToNull", "root", "");
+                setConnection(DriverManager.getConnection("jdbc:mysql://" + "127.0.0.1" + "/" + name + "?zeroDateTimeBehavior=convertToNull", "root", ""));
             }
             SystemLogger.sendSystemMessage("Successfully connected to " + name + " database services...");
-            status = ConnectionStatus.CONNECTED;
+            setStatus(ConnectionStatus.CONNECTED);
         } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-            SystemLogger.sendSystemMessage("Connecting to : " + host + ", " + name + ", " + username + ", " + password);
             SystemLogger.sendSystemErrMessage("Unable to connect to " + name + " database services...");
-            status = ConnectionStatus.UNABLE_TO_CONNECT;
+            setStatus(ConnectionStatus.UNABLE_TO_CONNECT);
         }
         return this;
     }
