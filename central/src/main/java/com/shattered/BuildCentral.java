@@ -61,9 +61,7 @@ public class BuildCentral extends Build {
         }
 
         SystemLogger.sendSystemMessage("Network SET " + (ServerConstants.LIVE ? "LIVE" : "LOCAL"));
-
         getInstance().build(ServerType.CENTRAL, "0.0.0.0", ServerConstants.CENTRAL_DEFAULT_PORT);
-
 
         //Starts the Server Responder
         getInstance().getServerTimeoutListener().start();

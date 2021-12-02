@@ -69,7 +69,7 @@ public abstract class Build implements ChannelListener {
      * Method used for connecting to databases
      */
     public static void connectToDatabases() {
-        databaseManager.getDatabases().values().forEach(MySQLDatabase::connect);
+        getDatabaseManager().getDatabases().values().forEach(MySQLDatabase::connect);
     }
 
 }

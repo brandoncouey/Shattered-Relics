@@ -1,22 +1,16 @@
 apply plugin: 'application'
 apply plugin: 'kotlin'
+apply from: 'gradle/properties.gradle'
 
-
-group = 'relic-central'
+group = 'relic-world'
 version = '0.0.4'
 
-
 sourceCompatibility = 1.8
-
 
 repositories {
     mavenLocal()
     jcenter()
 
-    maven {
-        url "https://jitpack.io"
-        credentials { username authToken }
-    }
     flatDir {
         dirs 'libs'
     }
@@ -33,21 +27,17 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 }
 
-
 task packageServer(type: Jar) {
     manifest {
         attributes 'Implementation-Title': 'Gradle Jar File Example',
                 'Implementation-Version': version,
-                'Main-Class': 'com.shattered.BuildCentral'
+                'Main-Class': 'com.shattered.BuildRealm'
     }
     baseName = project.name + '-all'
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
 }
 
-task PCF() {
-
-}
 buildscript {
     ext.kotlin_version = '1.4.10'
     repositories {
@@ -57,7 +47,6 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
-
 compileKotlin {
     kotlinOptions {
         jvmTarget = "1.8"
@@ -70,5 +59,5 @@ compileTestKotlin {
 }
 
 application {
-	mainClassName = 'com.shattered.BuildCentral'
+    mainClassName = 'com.shattered.BuildCentral'
 }
