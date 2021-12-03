@@ -259,7 +259,7 @@ public class  RealmCharacterManagerComponent extends Component {
             fetch();
 
             insert = new ArrayList<>();
-            insert.add(new MySQLColumn("character_id", getAccount().getAccountInformation().getAccountId()));
+            insert.add(new MySQLColumn("character_id", characterInformation.getId()));
             insert.add(new MySQLColumn("race", 1));
             insert.add(new MySQLColumn("male", isMale ? 1 : 0));
             insert.add(new MySQLColumn("body_color", bodyColor));

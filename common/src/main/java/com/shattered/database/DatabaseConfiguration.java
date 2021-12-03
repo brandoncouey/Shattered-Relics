@@ -15,7 +15,7 @@ public interface DatabaseConfiguration {
 
     MySQLDatabase[] LOCAL_DATABASES = {
             new MySQLDatabase("grizzly", "127.0.0.1", "root", ""),
-            new MySQLDatabase("shatteredrelics", "127.0.0.1", "", "")
+            new MySQLDatabase("shatteredrelics", "127.0.0.1", "root", "")
     };
 
 
