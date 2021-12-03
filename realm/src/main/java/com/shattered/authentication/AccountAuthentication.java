@@ -95,7 +95,7 @@ public class AccountAuthentication implements MySQLFetch, MySQLEntry {
      * The Gets the Entries
      */
     @Override
-    public boolean fetch() {
+    public boolean  fetch() {
         try {
 
             //Checks for the # name identifier, and sets the identification type, as well as the conditions to search for

@@ -6,6 +6,7 @@
 package com.shattered.database.mysql;
 
 
+import com.shattered.Build;
 import com.shattered.ServerConstants;
 import com.shattered.database.mysql.query.command.impl.SelectCommand;
 import com.shattered.database.mysql.query.SQLQuery;
@@ -91,6 +92,7 @@ public class MySQLDatabase {
      * @return the query result
      */
     public QueryResult execute(SQLQuery query) {
+        PreparedStatement statement = null;
         try {
             if (status != ConnectionStatus.CONNECTED) {
                 return null;
@@ -99,7 +101,12 @@ public class MySQLDatabase {
                 if (constructed == null) {
                     return null;
                 } else {
-                    PreparedStatement statement = connection.prepareStatement(constructed);
+                    try {
+                        statement = connection.prepareStatement(constructed);
+                    } catch (SQLException e) {
+                        Build.getDatabaseManager().connect();
+                        statement = connection.prepareStatement(constructed);
+                    }
                     Iterator var5 = query.getParameters().entrySet().iterator();
 
                     Entry entry;

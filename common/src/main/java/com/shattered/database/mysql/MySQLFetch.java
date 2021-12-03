@@ -54,7 +54,6 @@ public interface MySQLFetch {
 		if (getFetchConditions() != null)
 			select.addOptions(getFetchConditions());
 
-
 		result = dbManager.execute(getDatabaseName(), select).getResultSet();
 
 		//Assuming connection is dropped. We will try again.

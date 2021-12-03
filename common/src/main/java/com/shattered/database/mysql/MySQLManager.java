@@ -1,5 +1,6 @@
 package com.shattered.database.mysql;
 
+import com.shattered.Build;
 import com.shattered.database.DatabaseService;
 import com.shattered.database.mysql.query.command.SQLCommand;
 import com.shattered.database.mysql.query.result.QueryResult;
@@ -73,26 +74,18 @@ public class MySQLManager {
 	 * @return the query result
 	 */
 	public QueryResult execute(String name, SQLCommand command) {
-
 		try {
-
-			/*
-			 * Get the MySQL datatable handler from the datatable manager
-			 */
 			MySQLDatabase database = getDatabases().get(name);
-
-			/*
-			 * Check if MySQL datatable handler is found
-			 */
 			if (database == null)
 				return null;
-
 			return database.execute(command);
-
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (Exception e) {//Assuming the DB connection is off, we will attempt to reconnect.
+			Build.getDatabaseManager().connect();
+			MySQLDatabase database = getDatabases().get(name);
+			if (database == null)
+				return null;
+			return database.execute(command);
 		}
-		return null;
 	}
 
 	/**
