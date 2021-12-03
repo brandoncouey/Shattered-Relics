@@ -89,5 +89,6 @@ stages:
                 docker run -d --name channel -p 23451:23451/tcp -e "index=1" -e "live=true" grizzlyentertainment.azurecr.io/channel:latest
                 docker run -d --name realm -p 18751:18751/tcp -e "index=1" -e "live=true" grizzlyentertainment.azurecr.io/realm:latest
                 docker run -d --name proxy -p 18550:18550/tcp -e "index=1" -e "live=true" grizzlyentertainment.azurecr.io/proxy:latest
+                docker run -d --name valjar -p 18851:18851/tcp -e "index=1" -e "name=Valjar" -e "location=United-States" -e "type=Normal" -e "live=true" grizzlyentertainment.azurecr.io/world:latest
 
 
