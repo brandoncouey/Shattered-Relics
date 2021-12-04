@@ -7,6 +7,7 @@ import com.shattered.database.mysql.query.result.QueryResult;
 import com.shattered.system.SystemLogger;
 import lombok.Getter;
 
+import java.sql.Connection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -37,34 +38,17 @@ public class MySQLManager {
 	 * Represent the SQL Manager
 	 * @return the manager
 	 */
-	public MySQLManager connect() {
-
-		try {
-
-			/*
-			 * Loop through each MySQL datatable
-			 */
-			for (Entry<String, MySQLDatabase> entry : databases.entrySet()) {
-
-				MySQLDatabase database = entry.getValue();
-
-				if (database.getStatus() == MySQLDatabase.ConnectionStatus.CONNECTED)
-					continue;
-
-				database.connect();
-
-				if (database.getStatus() != MySQLDatabase.ConnectionStatus.CONNECTED) {
-					SystemLogger.sendDatabaseInformation(DatabaseService.MYSQL, "Unable to connect with '" + database.getName() + "' queries.");
-				} else {
-					SystemLogger.sendDatabaseInformation(DatabaseService.MYSQL, "Connected to '" + database.getName() + "' datatable.");
-				}
-
+	public void connect() {
+		for (Entry<String, MySQLDatabase> entry : databases.entrySet()) {
+			MySQLDatabase database = entry.getValue();
+			database.setStatus(MySQLDatabase.ConnectionStatus.NOT_CONNECTED);
+			database.connect();
+			if (database.getStatus() != MySQLDatabase.ConnectionStatus.CONNECTED) {
+				SystemLogger.sendDatabaseInformation(DatabaseService.MYSQL, "Unable to connect with '" + database.getName() + "' queries.");
+			} else {
+				SystemLogger.sendDatabaseInformation(DatabaseService.MYSQL, "Connected to '" + database.getName() + "' datatable.");
 			}
-
-		} catch (Exception e) {
 		}
-		return this;
-
 	}
 
 	/**
@@ -74,18 +58,10 @@ public class MySQLManager {
 	 * @return the query result
 	 */
 	public QueryResult execute(String name, SQLCommand command) {
-		try {
-			MySQLDatabase database = getDatabases().get(name);
-			if (database == null)
-				return null;
-			return database.execute(command);
-		} catch (Exception e) {//Assuming the DB connection is off, we will attempt to reconnect.
-			Build.getDatabaseManager().connect();
-			MySQLDatabase database = getDatabases().get(name);
-			if (database == null)
-				return null;
-			return database.execute(command);
-		}
+		MySQLDatabase database = getDatabases().get(name);
+		if (database == null)
+			return null;
+		return database.execute(command);
 	}
 
 	/**
@@ -96,6 +72,5 @@ public class MySQLManager {
 	public boolean isConnected(String name) {
 		return getDatabases().containsKey(name) && getDatabases().get(name).getStatus() == MySQLDatabase.ConnectionStatus.CONNECTED;
 	}
-
 
 }

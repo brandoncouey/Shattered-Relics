@@ -12,6 +12,7 @@ import com.shattered.database.mysql.query.command.impl.SelectCommand;
 import com.shattered.database.mysql.query.SQLQuery;
 import com.shattered.database.mysql.query.result.QueryResult;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -56,7 +57,7 @@ public class MySQLDatabase {
     /**
      * Represents the connection status of the database
      */
-    @Getter
+    @Getter @Setter
     private ConnectionStatus status = ConnectionStatus.NOT_CONNECTED;
 
     /**
@@ -81,7 +82,7 @@ public class MySQLDatabase {
             Class.forName("com.mysql.jdbc.Driver");
             this.connection = DriverManager.getConnection("jdbc:mysql://" + host + "/" + name + "?zeroDateTimeBehavior=convertToNull", username, password);
             this.status = ConnectionStatus.CONNECTED;
-        } catch (ClassNotFoundException | SQLException var5) {
+        } catch (Exception e) {
             this.status = ConnectionStatus.UNABLE_TO_CONNECT;
         }
     }
@@ -136,7 +137,6 @@ public class MySQLDatabase {
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
             return null;
         }
     }

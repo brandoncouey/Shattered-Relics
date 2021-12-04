@@ -196,8 +196,6 @@ public class  RealmCharacterManagerComponent extends Component {
                 modelInformation.setName(getCharacterInformation().getName());
                 modelInformation.setMale(male);
                 modelInformation.setRace(race << 5 | bodyColor);
-                System.out.println("R" + race);
-                System.out.println("BC" + bodyColor);
                 modelInformation.setHairStyle(hairStyle << 5 | hairColor);
                 modelInformation.setEyebrowStyle(eyebrowStyle << 5 | eyebrowColor);
                 modelInformation.setEyeColor(eyeColor);

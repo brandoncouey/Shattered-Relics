@@ -4,6 +4,8 @@ import com.shattered.Build;
 import com.shattered.database.mysql.query.command.impl.SelectCommand;
 import com.shattered.database.mysql.query.options.impl.WhereConditionOption;
 import com.shattered.database.DatabaseService;
+import com.shattered.database.mysql.query.result.QueryResult;
+import com.shattered.engine.tasks.DelayedTaskTicker;
 import com.shattered.system.SystemLogger;
 
 import java.sql.ResultSet;
@@ -54,56 +56,47 @@ public interface MySQLFetch {
 		if (getFetchConditions() != null)
 			select.addOptions(getFetchConditions());
 
-		result = dbManager.execute(getDatabaseName(), select).getResultSet();
+		QueryResult query = dbManager.execute(getDatabaseName(), select);
+
+		if (query == null) {
+			Build.getDatabaseManager().connect();
+			query = dbManager.execute(getDatabaseName(), select);
+		}
+
+		result = query.getResultSet();
 
 		//Assuming connection is dropped. We will try again.
 		if (result == null) {
 			Build.getDatabaseManager().getDatabases().get(getDatabaseName()).connect();
 			result = dbManager.execute(getDatabaseName(), select).getResultSet();
 		}
-
-		/*try {
-
-			result.last();
-			result.getRow();
-			result.beforeFirst();
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}*/
 		return result;
 	}
 
 	default ResultSet getResults(String databaseName, String tableName, WhereConditionOption[] conditions) {
 		ResultSet result = null;
+
+		//Checks if connected, if not it will reconnect to the database.
 		final MySQLManager dbManager = Build.getDatabaseManager();
 
-		if (!dbManager.isConnected(databaseName)) {
-			SystemLogger.sendDatabaseErr(DatabaseService.MYSQL, "Could not `fetch` MySQL Results from " + getDatabaseName() + ", [Reason=MySQL connection is currently not established.]");
-			return null;
+		SelectCommand select = new SelectCommand(getTableName());
+		if (getFetchConditions() != null)
+			select.addOptions(getFetchConditions());
+
+		QueryResult query = dbManager.execute(databaseName, select);
+
+		if (query == null) {
+			Build.getDatabaseManager().getDatabases().get(databaseName).connect();
+			query = dbManager.execute(databaseName, select);
 		}
 
-		SelectCommand select = new SelectCommand(tableName);
-		if (conditions != null)
-			select.addOptions(conditions);
-
-		result = dbManager.execute(databaseName, select).getResultSet();
+		result = query.getResultSet();
 
 		//Assuming connection is dropped. We will try again.
 		if (result == null) {
 			Build.getDatabaseManager().getDatabases().get(databaseName).connect();
 			result = dbManager.execute(databaseName, select).getResultSet();
 		}
-
-		/*try {
-
-			result.last();
-			result.getRow();
-			result.beforeFirst();
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}*/
 		return result;
 	}
 
