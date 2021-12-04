@@ -73,6 +73,13 @@ public interface MySQLFetch {
 		return result;
 	}
 
+	/**
+	 * Fetches the results with the specified db name, table name and  conditions
+	 * @param databaseName
+	 * @param tableName
+	 * @param conditions
+	 * @return the result set
+	 */
 	default ResultSet getResults(String databaseName, String tableName, WhereConditionOption[] conditions) {
 		ResultSet result = null;
 
