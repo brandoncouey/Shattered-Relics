@@ -75,34 +75,34 @@ public interface MySQLFetch {
 
 	/**
 	 * Fetches the results with the specified db name, table name and  conditions
-	 * @param databaseName
-	 * @param tableName
+	 * @param database
+	 * @param table
 	 * @param conditions
 	 * @return the result set
 	 */
-	default ResultSet getResults(String databaseName, String tableName, WhereConditionOption[] conditions) {
+	default ResultSet getResults(String database, String table, WhereConditionOption[] conditions) {
 		ResultSet result = null;
 
 		//Checks if connected, if not it will reconnect to the database.
 		final MySQLManager dbManager = Build.getDatabaseManager();
 
-		SelectCommand select = new SelectCommand(tableName);
-		if (getFetchConditions() != null)
-			select.addOptions(getFetchConditions());
+		SelectCommand select = new SelectCommand(table);
+		if (conditions != null)
+			select.addOptions(conditions);
 
-		QueryResult query = dbManager.execute(databaseName, select);
+		QueryResult query = dbManager.execute(database, select);
 
 		if (query == null) {
-			Build.getDatabaseManager().getDatabases().get(databaseName).connect();
-			query = dbManager.execute(databaseName, select);
+			Build.getDatabaseManager().getDatabases().get(database).connect();
+			query = dbManager.execute(database, select);
 		}
 
 		result = query.getResultSet();
 
 		//Assuming connection is dropped. We will try again.
 		if (result == null) {
-			Build.getDatabaseManager().getDatabases().get(databaseName).connect();
-			result = dbManager.execute(databaseName, select).getResultSet();
+			Build.getDatabaseManager().getDatabases().get(database).connect();
+			result = dbManager.execute(database, select).getResultSet();
 		}
 		return result;
 	}
