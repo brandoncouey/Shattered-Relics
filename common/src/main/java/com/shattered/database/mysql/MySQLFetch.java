@@ -79,7 +79,7 @@ public interface MySQLFetch {
 		//Checks if connected, if not it will reconnect to the database.
 		final MySQLManager dbManager = Build.getDatabaseManager();
 
-		SelectCommand select = new SelectCommand(getTableName());
+		SelectCommand select = new SelectCommand(tableName);
 		if (getFetchConditions() != null)
 			select.addOptions(getFetchConditions());
 
