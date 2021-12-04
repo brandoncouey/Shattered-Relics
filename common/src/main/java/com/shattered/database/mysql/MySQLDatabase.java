@@ -8,9 +8,11 @@ package com.shattered.database.mysql;
 
 import com.shattered.Build;
 import com.shattered.ServerConstants;
+import com.shattered.database.DatabaseService;
 import com.shattered.database.mysql.query.command.impl.SelectCommand;
 import com.shattered.database.mysql.query.SQLQuery;
 import com.shattered.database.mysql.query.result.QueryResult;
+import com.shattered.system.SystemLogger;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -82,7 +84,9 @@ public class MySQLDatabase {
             Class.forName("com.mysql.jdbc.Driver");
             this.connection = DriverManager.getConnection("jdbc:mysql://" + host + "/" + name + "?zeroDateTimeBehavior=convertToNull", username, password);
             this.status = ConnectionStatus.CONNECTED;
+            SystemLogger.sendDatabaseInformation(DatabaseService.MYSQL, "Connected to '" + name + "' datatable.");
         } catch (Exception e) {
+            SystemLogger.sendDatabaseInformation(DatabaseService.MYSQL, "Unable to connect with '" + name + "' queries.");
             this.status = ConnectionStatus.UNABLE_TO_CONNECT;
         }
     }

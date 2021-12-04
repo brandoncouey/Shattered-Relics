@@ -22,7 +22,7 @@ public class MySQLManager {
 	 * A map of {@link MySQLDatabase} based on datatable name
 	 */
 	@Getter
-	private Map<String, MySQLDatabase> databases = new HashMap<>();
+	private final Map<String, MySQLDatabase> databases = new HashMap<>();
 
 	/**
 	 * Creates a new sql manager
@@ -43,11 +43,6 @@ public class MySQLManager {
 			MySQLDatabase database = entry.getValue();
 			database.setStatus(MySQLDatabase.ConnectionStatus.NOT_CONNECTED);
 			database.connect();
-			if (database.getStatus() != MySQLDatabase.ConnectionStatus.CONNECTED) {
-				SystemLogger.sendDatabaseInformation(DatabaseService.MYSQL, "Unable to connect with '" + database.getName() + "' queries.");
-			} else {
-				SystemLogger.sendDatabaseInformation(DatabaseService.MYSQL, "Connected to '" + database.getName() + "' datatable.");
-			}
 		}
 	}
 
