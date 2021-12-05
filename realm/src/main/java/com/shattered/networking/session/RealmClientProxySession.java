@@ -133,6 +133,8 @@ public class RealmClientProxySession extends ClientSession implements MySQLEntry
                     return;
                 }
 
+                SystemLogger.sendSystemMessage("Incoming RealmClientMessage -> " + ((PacketOuterClass.Packet) object).getOpcode());
+
                 //Attempts to Decode the Message
                 Message message = ProtoEventListener.decode((PacketOuterClass.Packet) object);
                 if (message == null) return;
