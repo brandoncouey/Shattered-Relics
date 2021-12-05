@@ -3,6 +3,7 @@ package com.shattered.threads;
 
 import com.shattered.BuildRealm;
 import com.shattered.realm.GameRealm;
+import lombok.Getter;
 
 import java.util.Objects;
 
@@ -14,7 +15,9 @@ public final class RealmThread extends Thread {
 	/** Represents the Current Cycle */
 	public static long WORLD_CYCLE;
 
-
+	/**
+	 * Represents the time the frame was last updated
+	 */
 	private static long lastFrameUpdate = System.currentTimeMillis();
 
 	/**

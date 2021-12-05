@@ -91,7 +91,7 @@ public class  RealmCharacterManagerComponent extends Component {
                         return;
                     }
 
-                    ResultSet current = getResults(getDatabaseName(), getTableName(), new WhereConditionOption[]{new WhereConditionOption("account_id", getAccount().getAccountInformation().getAccountId())});
+                    ResultSet current = getResults(getDatabaseName(), getTableName(), new WhereConditionOption[]{new WhereConditionOption("account_id", account.getAccountInformation().getAccountId())});
 
                     if (current.next()) {
                         account.sendMessage(PacketOuterClass.Opcode.SMSG_CHARACTER_CREATION_RESPONSE, Realm.CharacterCreationResponse.newBuilder().setResponseId(CharacterCreationResponse.SYSTEM_UNAVAILABLE.ordinal()).build());

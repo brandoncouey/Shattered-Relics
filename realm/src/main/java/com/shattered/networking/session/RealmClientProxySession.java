@@ -1,5 +1,6 @@
 package com.shattered.networking.session;
 
+import com.google.protobuf.GeneratedMessageV3;
 import com.google.protobuf.Message;
 import com.shattered.account.components.RealmAccountComponents;
 import com.shattered.authentication.AccountAuthentication;
@@ -10,6 +11,8 @@ import com.shattered.networking.NetworkBootstrap;
 import com.shattered.networking.listeners.ProtoEventListener;
 import com.shattered.networking.listeners.ProtoListener;
 import com.shattered.networking.listeners.RealmProtoListener;
+import com.shattered.networking.message.ProtoMessageRepository;
+import com.shattered.networking.message.QueuedMessage;
 import com.shattered.networking.proto.PacketOuterClass;
 import com.shattered.networking.proto.Proxy;
 import com.shattered.networking.proto.Realm;
@@ -22,6 +25,10 @@ import io.netty.channel.Channel;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.java.Log;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
  * @author JTlr Frost <brradc@gmail.com> 6/15/2019
@@ -38,6 +45,30 @@ public class RealmClientProxySession extends ClientSession implements MySQLEntry
     @Getter
     @Setter
     private RealmAccount account;
+
+    /**
+     * Represents the registry for this session instance
+     */
+    @Getter
+    private final ProtoMessageRepository registry = new ProtoMessageRepository();
+
+    /**
+     * Represents a List of Decoders
+     */
+    @Getter
+    private final Map<ProtoListener<?>, PacketOuterClass.Opcode> listeners = new HashMap<>();
+
+    /**
+     * Represents a List of Builders
+     */
+    @Getter
+    private final Map<PacketOuterClass.Opcode, GeneratedMessageV3> builders = new HashMap<>();
+
+    /**
+     * The queue of pending {@link Message}s.
+     */
+    @Getter
+    private final ConcurrentLinkedQueue<QueuedMessage> mapQueues = new ConcurrentLinkedQueue<>();
 
     /**
      * Creates a new Channel Line Session for the World ServerConnections
