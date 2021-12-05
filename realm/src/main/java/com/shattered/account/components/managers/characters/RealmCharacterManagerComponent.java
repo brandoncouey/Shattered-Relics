@@ -12,6 +12,7 @@ import com.shattered.networking.listeners.ProtoEventListener;
 import com.shattered.networking.listeners.RealmProtoListener;
 import com.shattered.networking.proto.PacketOuterClass;
 import com.shattered.networking.proto.Realm;
+import com.shattered.system.SystemLogger;
 import com.shattered.utilities.ecs.Component;
 import lombok.Getter;
 import lombok.Setter;
@@ -80,11 +81,13 @@ public class  RealmCharacterManagerComponent extends Component {
 
                     if (characterName.length() < 3) {
                         account.sendMessage(PacketOuterClass.Opcode.SMSG_CHARACTER_CREATION_RESPONSE, Realm.CharacterCreationResponse.newBuilder().setResponseId(CharacterCreationResponse.INSUFFICIENT_CHARACTERS.ordinal()).build());
+                        SystemLogger.sendSystemErrMessage("Character name has < 3 characters: " + characterName);
                         return;
                     }
 
                     if (characterName.length() > 15) {
                         account.sendMessage(PacketOuterClass.Opcode.SMSG_CHARACTER_CREATION_RESPONSE, Realm.CharacterCreationResponse.newBuilder().setResponseId(CharacterCreationResponse.INSUFFICIENT_CHARACTERS.ordinal()).build());
+                        SystemLogger.sendSystemErrMessage("Character name has > 15 characters : " + characterName);
                         return;
                     }
 
@@ -92,6 +95,7 @@ public class  RealmCharacterManagerComponent extends Component {
 
                     if (current.next()) {
                         account.sendMessage(PacketOuterClass.Opcode.SMSG_CHARACTER_CREATION_RESPONSE, Realm.CharacterCreationResponse.newBuilder().setResponseId(CharacterCreationResponse.SYSTEM_UNAVAILABLE.ordinal()).build());
+                        SystemLogger.sendSystemErrMessage("Your account already has a character. Please contact an administrator.");
                         return;
                     }
 
@@ -99,6 +103,7 @@ public class  RealmCharacterManagerComponent extends Component {
 
                     if (name.next()) {
                         account.sendMessage(PacketOuterClass.Opcode.SMSG_CHARACTER_CREATION_RESPONSE, Realm.CharacterCreationResponse.newBuilder().setResponseId(CharacterCreationResponse.NAME_IN_USE.ordinal()).build());
+                        SystemLogger.sendSystemErrMessage("Name is already in use: " + name);
                         return;
                     }
 
