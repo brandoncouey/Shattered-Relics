@@ -16,7 +16,7 @@ message LoginRequest {
     int32 hot_patch = 3;
     bool is_discord = 4;
     string userId = 5;
-    bytes password = 6;
+    string password = 6;
     int32 request_type = 7;
 }
 

@@ -553,9 +553,14 @@ public final class Shared {
         getUserIdBytes();
 
     /**
-     * <code>bytes password = 6;</code>
+     * <code>string password = 6;</code>
      */
-    com.google.protobuf.ByteString getPassword();
+    java.lang.String getPassword();
+    /**
+     * <code>string password = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getPasswordBytes();
 
     /**
      * <code>int32 request_type = 7;</code>
@@ -584,7 +589,7 @@ public final class Shared {
       hotPatch_ = 0;
       isDiscord_ = false;
       userId_ = "";
-      password_ = com.google.protobuf.ByteString.EMPTY;
+      password_ = "";
       requestType_ = 0;
     }
 
@@ -639,8 +644,9 @@ public final class Shared {
               break;
             }
             case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              password_ = input.readBytes();
+              password_ = s;
               break;
             }
             case 56: {
@@ -751,12 +757,37 @@ public final class Shared {
     }
 
     public static final int PASSWORD_FIELD_NUMBER = 6;
-    private com.google.protobuf.ByteString password_;
+    private volatile java.lang.Object password_;
     /**
-     * <code>bytes password = 6;</code>
+     * <code>string password = 6;</code>
      */
-    public com.google.protobuf.ByteString getPassword() {
-      return password_;
+    public java.lang.String getPassword() {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        password_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string password = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPasswordBytes() {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        password_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int REQUEST_TYPE_FIELD_NUMBER = 7;
@@ -797,8 +828,8 @@ public final class Shared {
       if (!getUserIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, userId_);
       }
-      if (!password_.isEmpty()) {
-        output.writeBytes(6, password_);
+      if (!getPasswordBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, password_);
       }
       if (requestType_ != 0) {
         output.writeInt32(7, requestType_);
@@ -831,9 +862,8 @@ public final class Shared {
       if (!getUserIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, userId_);
       }
-      if (!password_.isEmpty()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(6, password_);
+      if (!getPasswordBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, password_);
       }
       if (requestType_ != 0) {
         size += com.google.protobuf.CodedOutputStream
@@ -1042,7 +1072,7 @@ public final class Shared {
 
         userId_ = "";
 
-        password_ = com.google.protobuf.ByteString.EMPTY;
+        password_ = "";
 
         requestType_ = 0;
 
@@ -1143,8 +1173,9 @@ public final class Shared {
           userId_ = other.userId_;
           onChanged();
         }
-        if (other.getPassword() != com.google.protobuf.ByteString.EMPTY) {
-          setPassword(other.getPassword());
+        if (!other.getPassword().isEmpty()) {
+          password_ = other.password_;
+          onChanged();
         }
         if (other.getRequestType() != 0) {
           setRequestType(other.getRequestType());
@@ -1351,17 +1382,43 @@ public final class Shared {
         return this;
       }
 
-      private com.google.protobuf.ByteString password_ = com.google.protobuf.ByteString.EMPTY;
+      private java.lang.Object password_ = "";
       /**
-       * <code>bytes password = 6;</code>
+       * <code>string password = 6;</code>
        */
-      public com.google.protobuf.ByteString getPassword() {
-        return password_;
+      public java.lang.String getPassword() {
+        java.lang.Object ref = password_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          password_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>bytes password = 6;</code>
+       * <code>string password = 6;</code>
        */
-      public Builder setPassword(com.google.protobuf.ByteString value) {
+      public com.google.protobuf.ByteString
+          getPasswordBytes() {
+        java.lang.Object ref = password_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          password_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string password = 6;</code>
+       */
+      public Builder setPassword(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1371,11 +1428,25 @@ public final class Shared {
         return this;
       }
       /**
-       * <code>bytes password = 6;</code>
+       * <code>string password = 6;</code>
        */
       public Builder clearPassword() {
         
         password_ = getDefaultInstance().getPassword();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string password = 6;</code>
+       */
+      public Builder setPasswordBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        password_ = value;
         onChanged();
         return this;
       }
@@ -11138,7 +11209,7 @@ public final class Shared {
       "ginResponse\022\023\n\013response_id\030\001 \001(\005\"\217\001\n\014Log" +
       "inRequest\022\r\n\005build\030\001 \001(\005\022\021\n\tsub_build\030\002 " +
       "\001(\005\022\021\n\thot_patch\030\003 \001(\005\022\022\n\nis_discord\030\004 \001" +
-      "(\010\022\016\n\006userId\030\005 \001(\t\022\020\n\010password\030\006 \001(\014\022\024\n\014" +
+      "(\010\022\016\n\006userId\030\005 \001(\t\022\020\n\010password\030\006 \001(\t\022\024\n\014" +
       "request_type\030\007 \001(\005\"\036\n\rRequestLogout\022\r\n\005r" +
       "ealm\030\001 \001(\010\")\n\022LogoutWithResponse\022\023\n\013resp" +
       "onse_id\030\001 \001(\005\" \n\020RequestLoadLevel\022\014\n\004nam" +
