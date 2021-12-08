@@ -376,6 +376,7 @@ message SpawnProjectileForActor {
 message LoadProjectile {
     int32 uuid = 1;
     int32 projectile_id = 2;
+    bool reload = 3;
 }
 
 message ProjectileHitCharacter {

@@ -38855,6 +38855,11 @@ public final class World {
      * <code>int32 projectile_id = 2;</code>
      */
     int getProjectileId();
+
+    /**
+     * <code>bool reload = 3;</code>
+     */
+    boolean getReload();
   }
   /**
    * <pre>
@@ -38875,6 +38880,7 @@ public final class World {
     private LoadProjectile() {
       uuid_ = 0;
       projectileId_ = 0;
+      reload_ = false;
     }
 
     @java.lang.Override
@@ -38909,6 +38915,11 @@ public final class World {
             case 16: {
 
               projectileId_ = input.readInt32();
+              break;
+            }
+            case 24: {
+
+              reload_ = input.readBool();
               break;
             }
             default: {
@@ -38961,6 +38972,15 @@ public final class World {
       return projectileId_;
     }
 
+    public static final int RELOAD_FIELD_NUMBER = 3;
+    private boolean reload_;
+    /**
+     * <code>bool reload = 3;</code>
+     */
+    public boolean getReload() {
+      return reload_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -38981,6 +39001,9 @@ public final class World {
       if (projectileId_ != 0) {
         output.writeInt32(2, projectileId_);
       }
+      if (reload_ != false) {
+        output.writeBool(3, reload_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -38997,6 +39020,10 @@ public final class World {
       if (projectileId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, projectileId_);
+      }
+      if (reload_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(3, reload_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -39018,6 +39045,8 @@ public final class World {
           == other.getUuid());
       result = result && (getProjectileId()
           == other.getProjectileId());
+      result = result && (getReload()
+          == other.getReload());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -39033,6 +39062,9 @@ public final class World {
       hash = (53 * hash) + getUuid();
       hash = (37 * hash) + PROJECTILE_ID_FIELD_NUMBER;
       hash = (53 * hash) + getProjectileId();
+      hash = (37 * hash) + RELOAD_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getReload());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -39174,6 +39206,8 @@ public final class World {
 
         projectileId_ = 0;
 
+        reload_ = false;
+
         return this;
       }
 
@@ -39202,6 +39236,7 @@ public final class World {
         com.shattered.networking.proto.World.LoadProjectile result = new com.shattered.networking.proto.World.LoadProjectile(this);
         result.uuid_ = uuid_;
         result.projectileId_ = projectileId_;
+        result.reload_ = reload_;
         onBuilt();
         return result;
       }
@@ -39255,6 +39290,9 @@ public final class World {
         }
         if (other.getProjectileId() != 0) {
           setProjectileId(other.getProjectileId());
+        }
+        if (other.getReload() != false) {
+          setReload(other.getReload());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -39333,6 +39371,32 @@ public final class World {
       public Builder clearProjectileId() {
         
         projectileId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private boolean reload_ ;
+      /**
+       * <code>bool reload = 3;</code>
+       */
+      public boolean getReload() {
+        return reload_;
+      }
+      /**
+       * <code>bool reload = 3;</code>
+       */
+      public Builder setReload(boolean value) {
+        
+        reload_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool reload = 3;</code>
+       */
+      public Builder clearReload() {
+        
+        reload_ = false;
         onChanged();
         return this;
       }
@@ -50968,44 +51032,45 @@ public final class World {
       "2 .shattered.protocol.WorldRotator\"n\n\027Sp" +
       "awnProjectileForActor\022\r\n\005index\030\001 \001(\005\022\020\n\010" +
       "to_index\030\002 \001(\005\0222\n\nprojectile\030\003 \001(\0132\036.sha" +
-      "ttered.protocol.Projectile\"5\n\016LoadProjec" +
+      "ttered.protocol.Projectile\"E\n\016LoadProjec" +
       "tile\022\014\n\004uuid\030\001 \001(\005\022\025\n\rprojectile_id\030\002 \001(" +
-      "\005\"{\n\026ProjectileHitCharacter\022\021\n\tfrom_uuid" +
-      "\030\001 \001(\005\022\025\n\rprojectile_id\030\002 \001(\005\022\027\n\017project" +
-      "ile_uuid\030\003 \001(\005\022\014\n\004time\030\004 \001(\003\022\020\n\010hit_uuid" +
-      "\030\005 \001(\005\"9\n\027MeleeHitBoxHitCharacter\022\020\n\010hit" +
-      "_uuid\030\001 \001(\005\022\014\n\004time\030\002 \001(\003\"Y\n\014SpawnEmitte" +
-      "r\022\022\n\nemitter_id\030\001 \001(\005\0225\n\ttransform\030\002 \001(\013" +
-      "2\".shattered.protocol.WorldTransform\"2\n\026" +
-      "PlaySoundEffectAtActor\022\n\n\002id\030\001 \001(\005\022\014\n\004uu" +
-      "id\030\002 \001(\005\"^\n\031PlaySoundEffectAtLocation\022\n\n" +
-      "\002id\030\001 \001(\005\0225\n\ttransform\030\002 \001(\0132\".shattered" +
-      ".protocol.WorldTransform\"\036\n\014PlaySoundCue" +
-      "\022\016\n\006cue_id\030\001 \001(\005\")\n\024RequestRollDirection" +
-      "\022\021\n\tdirection\030\001 \001(\005\",\n\027ReverseMovementCo" +
-      "ntrols\022\021\n\tbackwards\030\001 \001(\010\"2\n\023UpdateActio" +
-      "nBarSlot\022\017\n\007slot_id\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\"\\\n" +
-      "\027UpdateItemContainerFull\022\024\n\014container_id" +
-      "\030\001 \001(\005\022+\n\titem_slot\030\002 \003(\0132\030.shattered.pr" +
-      "otocol.Item\"m\n\027UpdateItemContainerSlot\022\024" +
-      "\n\014container_id\030\001 \001(\005\022\017\n\007slot_id\030\002 \001(\005\022+\n" +
-      "\titem_slot\030\003 \001(\0132\030.shattered.protocol.It" +
-      "em\"e\n\022ShiftContainerSlot\022\024\n\014container_id" +
-      "\030\001 \001(\005\022\024\n\014from_slot_id\030\002 \001(\005\022\022\n\nto_slot_" +
-      "id\030\003 \001(\005\022\017\n\007item_id\030\004 \001(\005\"\206\001\n\032ShiftConta" +
-      "inerSlotToWidget\022\031\n\021from_container_id\030\001 " +
-      "\001(\005\022\027\n\017to_container_id\030\002 \001(\005\022\024\n\014from_slo" +
-      "t_id\030\003 \001(\005\022\022\n\nto_slot_id\030\004 \001(\005\022\n\n\002id\030\005 \001" +
-      "(\005\"Z\n\016UseAbilitySlot\022\024\n\014container_id\030\001 \001" +
-      "(\005\022\r\n\005pitch\030\002 \001(\002\022\017\n\007slot_id\030\003 \001(\005\022\022\n\nab" +
-      "ility_id\030\004 \001(\005\"7\n\017AbilityCooldown\022\022\n\nabi" +
-      "lity_id\030\001 \001(\005\022\020\n\010duration\030\002 \001(\003\"J\n\020UseCo" +
-      "ntainerSlot\022\024\n\014container_id\030\001 \001(\005\022\017\n\007slo" +
-      "t_id\030\002 \001(\005\022\017\n\007item_id\030\003 \001(\005\"}\n\020CombatSta" +
-      "tistics\022\020\n\010accuracy\030\001 \001(\005\022\020\n\010strength\030\002 " +
-      "\001(\005\022\017\n\007stamina\030\003 \001(\005\022\022\n\nresilience\030\004 \001(\005" +
-      "\022\r\n\005focus\030\005 \001(\005\022\021\n\tintellect\030\006 \001(\005B#\n\036co" +
-      "m.shattered.networking.proto\370\001\001b\006proto3"
+      "\005\022\016\n\006reload\030\003 \001(\010\"{\n\026ProjectileHitCharac" +
+      "ter\022\021\n\tfrom_uuid\030\001 \001(\005\022\025\n\rprojectile_id\030" +
+      "\002 \001(\005\022\027\n\017projectile_uuid\030\003 \001(\005\022\014\n\004time\030\004" +
+      " \001(\003\022\020\n\010hit_uuid\030\005 \001(\005\"9\n\027MeleeHitBoxHit" +
+      "Character\022\020\n\010hit_uuid\030\001 \001(\005\022\014\n\004time\030\002 \001(" +
+      "\003\"Y\n\014SpawnEmitter\022\022\n\nemitter_id\030\001 \001(\005\0225\n" +
+      "\ttransform\030\002 \001(\0132\".shattered.protocol.Wo" +
+      "rldTransform\"2\n\026PlaySoundEffectAtActor\022\n" +
+      "\n\002id\030\001 \001(\005\022\014\n\004uuid\030\002 \001(\005\"^\n\031PlaySoundEff" +
+      "ectAtLocation\022\n\n\002id\030\001 \001(\005\0225\n\ttransform\030\002" +
+      " \001(\0132\".shattered.protocol.WorldTransform" +
+      "\"\036\n\014PlaySoundCue\022\016\n\006cue_id\030\001 \001(\005\")\n\024Requ" +
+      "estRollDirection\022\021\n\tdirection\030\001 \001(\005\",\n\027R" +
+      "everseMovementControls\022\021\n\tbackwards\030\001 \001(" +
+      "\010\"2\n\023UpdateActionBarSlot\022\017\n\007slot_id\030\001 \001(" +
+      "\005\022\n\n\002id\030\002 \001(\005\"\\\n\027UpdateItemContainerFull" +
+      "\022\024\n\014container_id\030\001 \001(\005\022+\n\titem_slot\030\002 \003(" +
+      "\0132\030.shattered.protocol.Item\"m\n\027UpdateIte" +
+      "mContainerSlot\022\024\n\014container_id\030\001 \001(\005\022\017\n\007" +
+      "slot_id\030\002 \001(\005\022+\n\titem_slot\030\003 \001(\0132\030.shatt" +
+      "ered.protocol.Item\"e\n\022ShiftContainerSlot" +
+      "\022\024\n\014container_id\030\001 \001(\005\022\024\n\014from_slot_id\030\002" +
+      " \001(\005\022\022\n\nto_slot_id\030\003 \001(\005\022\017\n\007item_id\030\004 \001(" +
+      "\005\"\206\001\n\032ShiftContainerSlotToWidget\022\031\n\021from" +
+      "_container_id\030\001 \001(\005\022\027\n\017to_container_id\030\002" +
+      " \001(\005\022\024\n\014from_slot_id\030\003 \001(\005\022\022\n\nto_slot_id" +
+      "\030\004 \001(\005\022\n\n\002id\030\005 \001(\005\"Z\n\016UseAbilitySlot\022\024\n\014" +
+      "container_id\030\001 \001(\005\022\r\n\005pitch\030\002 \001(\002\022\017\n\007slo" +
+      "t_id\030\003 \001(\005\022\022\n\nability_id\030\004 \001(\005\"7\n\017Abilit" +
+      "yCooldown\022\022\n\nability_id\030\001 \001(\005\022\020\n\010duratio" +
+      "n\030\002 \001(\003\"J\n\020UseContainerSlot\022\024\n\014container" +
+      "_id\030\001 \001(\005\022\017\n\007slot_id\030\002 \001(\005\022\017\n\007item_id\030\003 " +
+      "\001(\005\"}\n\020CombatStatistics\022\020\n\010accuracy\030\001 \001(" +
+      "\005\022\020\n\010strength\030\002 \001(\005\022\017\n\007stamina\030\003 \001(\005\022\022\n\n" +
+      "resilience\030\004 \001(\005\022\r\n\005focus\030\005 \001(\005\022\021\n\tintel" +
+      "lect\030\006 \001(\005B#\n\036com.shattered.networking.p" +
+      "roto\370\001\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -51312,7 +51377,7 @@ public final class World {
     internal_static_shattered_protocol_LoadProjectile_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_LoadProjectile_descriptor,
-        new java.lang.String[] { "Uuid", "ProjectileId", });
+        new java.lang.String[] { "Uuid", "ProjectileId", "Reload", });
     internal_static_shattered_protocol_ProjectileHitCharacter_descriptor =
       getDescriptor().getMessageTypes().get(49);
     internal_static_shattered_protocol_ProjectileHitCharacter_fieldAccessorTable = new
