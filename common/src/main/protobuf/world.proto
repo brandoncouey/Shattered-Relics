@@ -374,7 +374,8 @@ message SpawnProjectileForActor {
 
 //+ustruct:BlueprintType
 message LoadProjectile {
-    int32 projectile_id = 1;
+    int32 uuid = 1;
+    int32 projectile_id = 2;
 }
 
 message ProjectileHitCharacter {
