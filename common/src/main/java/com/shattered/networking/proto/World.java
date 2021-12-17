@@ -50576,6 +50576,2655 @@ public final class World {
 
   }
 
+  public interface CurrentGrimoiresOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:shattered.protocol.CurrentGrimoires)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 main_grimoire_id = 1;</code>
+     */
+    int getMainGrimoireId();
+
+    /**
+     * <code>int32 off_grimoire_id = 2;</code>
+     */
+    int getOffGrimoireId();
+  }
+  /**
+   * <pre>
+   *+ustruct:BlueprintType
+   * </pre>
+   *
+   * Protobuf type {@code shattered.protocol.CurrentGrimoires}
+   */
+  public  static final class CurrentGrimoires extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:shattered.protocol.CurrentGrimoires)
+      CurrentGrimoiresOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use CurrentGrimoires.newBuilder() to construct.
+    private CurrentGrimoires(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private CurrentGrimoires() {
+      mainGrimoireId_ = 0;
+      offGrimoireId_ = 0;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private CurrentGrimoires(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              mainGrimoireId_ = input.readInt32();
+              break;
+            }
+            case 16: {
+
+              offGrimoireId_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.shattered.networking.proto.World.internal_static_shattered_protocol_CurrentGrimoires_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.shattered.networking.proto.World.internal_static_shattered_protocol_CurrentGrimoires_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.shattered.networking.proto.World.CurrentGrimoires.class, com.shattered.networking.proto.World.CurrentGrimoires.Builder.class);
+    }
+
+    public static final int MAIN_GRIMOIRE_ID_FIELD_NUMBER = 1;
+    private int mainGrimoireId_;
+    /**
+     * <code>int32 main_grimoire_id = 1;</code>
+     */
+    public int getMainGrimoireId() {
+      return mainGrimoireId_;
+    }
+
+    public static final int OFF_GRIMOIRE_ID_FIELD_NUMBER = 2;
+    private int offGrimoireId_;
+    /**
+     * <code>int32 off_grimoire_id = 2;</code>
+     */
+    public int getOffGrimoireId() {
+      return offGrimoireId_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (mainGrimoireId_ != 0) {
+        output.writeInt32(1, mainGrimoireId_);
+      }
+      if (offGrimoireId_ != 0) {
+        output.writeInt32(2, offGrimoireId_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (mainGrimoireId_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, mainGrimoireId_);
+      }
+      if (offGrimoireId_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, offGrimoireId_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.shattered.networking.proto.World.CurrentGrimoires)) {
+        return super.equals(obj);
+      }
+      com.shattered.networking.proto.World.CurrentGrimoires other = (com.shattered.networking.proto.World.CurrentGrimoires) obj;
+
+      boolean result = true;
+      result = result && (getMainGrimoireId()
+          == other.getMainGrimoireId());
+      result = result && (getOffGrimoireId()
+          == other.getOffGrimoireId());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + MAIN_GRIMOIRE_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getMainGrimoireId();
+      hash = (37 * hash) + OFF_GRIMOIRE_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getOffGrimoireId();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.shattered.networking.proto.World.CurrentGrimoires parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.shattered.networking.proto.World.CurrentGrimoires parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.World.CurrentGrimoires parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.shattered.networking.proto.World.CurrentGrimoires parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.World.CurrentGrimoires parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.shattered.networking.proto.World.CurrentGrimoires parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.World.CurrentGrimoires parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.shattered.networking.proto.World.CurrentGrimoires parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.World.CurrentGrimoires parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.shattered.networking.proto.World.CurrentGrimoires parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.World.CurrentGrimoires parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.shattered.networking.proto.World.CurrentGrimoires parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.shattered.networking.proto.World.CurrentGrimoires prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *+ustruct:BlueprintType
+     * </pre>
+     *
+     * Protobuf type {@code shattered.protocol.CurrentGrimoires}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:shattered.protocol.CurrentGrimoires)
+        com.shattered.networking.proto.World.CurrentGrimoiresOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.shattered.networking.proto.World.internal_static_shattered_protocol_CurrentGrimoires_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.shattered.networking.proto.World.internal_static_shattered_protocol_CurrentGrimoires_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.shattered.networking.proto.World.CurrentGrimoires.class, com.shattered.networking.proto.World.CurrentGrimoires.Builder.class);
+      }
+
+      // Construct using com.shattered.networking.proto.World.CurrentGrimoires.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        mainGrimoireId_ = 0;
+
+        offGrimoireId_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.shattered.networking.proto.World.internal_static_shattered_protocol_CurrentGrimoires_descriptor;
+      }
+
+      @java.lang.Override
+      public com.shattered.networking.proto.World.CurrentGrimoires getDefaultInstanceForType() {
+        return com.shattered.networking.proto.World.CurrentGrimoires.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.shattered.networking.proto.World.CurrentGrimoires build() {
+        com.shattered.networking.proto.World.CurrentGrimoires result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.shattered.networking.proto.World.CurrentGrimoires buildPartial() {
+        com.shattered.networking.proto.World.CurrentGrimoires result = new com.shattered.networking.proto.World.CurrentGrimoires(this);
+        result.mainGrimoireId_ = mainGrimoireId_;
+        result.offGrimoireId_ = offGrimoireId_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.shattered.networking.proto.World.CurrentGrimoires) {
+          return mergeFrom((com.shattered.networking.proto.World.CurrentGrimoires)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.shattered.networking.proto.World.CurrentGrimoires other) {
+        if (other == com.shattered.networking.proto.World.CurrentGrimoires.getDefaultInstance()) return this;
+        if (other.getMainGrimoireId() != 0) {
+          setMainGrimoireId(other.getMainGrimoireId());
+        }
+        if (other.getOffGrimoireId() != 0) {
+          setOffGrimoireId(other.getOffGrimoireId());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.shattered.networking.proto.World.CurrentGrimoires parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.shattered.networking.proto.World.CurrentGrimoires) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int mainGrimoireId_ ;
+      /**
+       * <code>int32 main_grimoire_id = 1;</code>
+       */
+      public int getMainGrimoireId() {
+        return mainGrimoireId_;
+      }
+      /**
+       * <code>int32 main_grimoire_id = 1;</code>
+       */
+      public Builder setMainGrimoireId(int value) {
+        
+        mainGrimoireId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 main_grimoire_id = 1;</code>
+       */
+      public Builder clearMainGrimoireId() {
+        
+        mainGrimoireId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int offGrimoireId_ ;
+      /**
+       * <code>int32 off_grimoire_id = 2;</code>
+       */
+      public int getOffGrimoireId() {
+        return offGrimoireId_;
+      }
+      /**
+       * <code>int32 off_grimoire_id = 2;</code>
+       */
+      public Builder setOffGrimoireId(int value) {
+        
+        offGrimoireId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 off_grimoire_id = 2;</code>
+       */
+      public Builder clearOffGrimoireId() {
+        
+        offGrimoireId_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:shattered.protocol.CurrentGrimoires)
+    }
+
+    // @@protoc_insertion_point(class_scope:shattered.protocol.CurrentGrimoires)
+    private static final com.shattered.networking.proto.World.CurrentGrimoires DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.shattered.networking.proto.World.CurrentGrimoires();
+    }
+
+    public static com.shattered.networking.proto.World.CurrentGrimoires getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<CurrentGrimoires>
+        PARSER = new com.google.protobuf.AbstractParser<CurrentGrimoires>() {
+      @java.lang.Override
+      public CurrentGrimoires parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new CurrentGrimoires(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<CurrentGrimoires> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CurrentGrimoires> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.shattered.networking.proto.World.CurrentGrimoires getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface GrimoireStatisticsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:shattered.protocol.GrimoireStatistics)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 temper_warrior_experience = 1;</code>
+     */
+    int getTemperWarriorExperience();
+
+    /**
+     * <code>int32 safe_guard_warrior_experience = 2;</code>
+     */
+    int getSafeGuardWarriorExperience();
+
+    /**
+     * <code>int32 assassination_rogue_experience = 3;</code>
+     */
+    int getAssassinationRogueExperience();
+
+    /**
+     * <code>int32 shadow_rogue_experience = 4;</code>
+     */
+    int getShadowRogueExperience();
+
+    /**
+     * <code>int32 deadeye_hunter_experience = 5;</code>
+     */
+    int getDeadeyeHunterExperience();
+
+    /**
+     * <code>int32 beast_master_hunter_experience = 6;</code>
+     */
+    int getBeastMasterHunterExperience();
+
+    /**
+     * <code>int32 fire_mage_experience = 7;</code>
+     */
+    int getFireMageExperience();
+
+    /**
+     * <code>int32 air_mage_experience = 8;</code>
+     */
+    int getAirMageExperience();
+  }
+  /**
+   * <pre>
+   *+ustruct:BlueprintType
+   * </pre>
+   *
+   * Protobuf type {@code shattered.protocol.GrimoireStatistics}
+   */
+  public  static final class GrimoireStatistics extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:shattered.protocol.GrimoireStatistics)
+      GrimoireStatisticsOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use GrimoireStatistics.newBuilder() to construct.
+    private GrimoireStatistics(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GrimoireStatistics() {
+      temperWarriorExperience_ = 0;
+      safeGuardWarriorExperience_ = 0;
+      assassinationRogueExperience_ = 0;
+      shadowRogueExperience_ = 0;
+      deadeyeHunterExperience_ = 0;
+      beastMasterHunterExperience_ = 0;
+      fireMageExperience_ = 0;
+      airMageExperience_ = 0;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GrimoireStatistics(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              temperWarriorExperience_ = input.readInt32();
+              break;
+            }
+            case 16: {
+
+              safeGuardWarriorExperience_ = input.readInt32();
+              break;
+            }
+            case 24: {
+
+              assassinationRogueExperience_ = input.readInt32();
+              break;
+            }
+            case 32: {
+
+              shadowRogueExperience_ = input.readInt32();
+              break;
+            }
+            case 40: {
+
+              deadeyeHunterExperience_ = input.readInt32();
+              break;
+            }
+            case 48: {
+
+              beastMasterHunterExperience_ = input.readInt32();
+              break;
+            }
+            case 56: {
+
+              fireMageExperience_ = input.readInt32();
+              break;
+            }
+            case 64: {
+
+              airMageExperience_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.shattered.networking.proto.World.internal_static_shattered_protocol_GrimoireStatistics_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.shattered.networking.proto.World.internal_static_shattered_protocol_GrimoireStatistics_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.shattered.networking.proto.World.GrimoireStatistics.class, com.shattered.networking.proto.World.GrimoireStatistics.Builder.class);
+    }
+
+    public static final int TEMPER_WARRIOR_EXPERIENCE_FIELD_NUMBER = 1;
+    private int temperWarriorExperience_;
+    /**
+     * <code>int32 temper_warrior_experience = 1;</code>
+     */
+    public int getTemperWarriorExperience() {
+      return temperWarriorExperience_;
+    }
+
+    public static final int SAFE_GUARD_WARRIOR_EXPERIENCE_FIELD_NUMBER = 2;
+    private int safeGuardWarriorExperience_;
+    /**
+     * <code>int32 safe_guard_warrior_experience = 2;</code>
+     */
+    public int getSafeGuardWarriorExperience() {
+      return safeGuardWarriorExperience_;
+    }
+
+    public static final int ASSASSINATION_ROGUE_EXPERIENCE_FIELD_NUMBER = 3;
+    private int assassinationRogueExperience_;
+    /**
+     * <code>int32 assassination_rogue_experience = 3;</code>
+     */
+    public int getAssassinationRogueExperience() {
+      return assassinationRogueExperience_;
+    }
+
+    public static final int SHADOW_ROGUE_EXPERIENCE_FIELD_NUMBER = 4;
+    private int shadowRogueExperience_;
+    /**
+     * <code>int32 shadow_rogue_experience = 4;</code>
+     */
+    public int getShadowRogueExperience() {
+      return shadowRogueExperience_;
+    }
+
+    public static final int DEADEYE_HUNTER_EXPERIENCE_FIELD_NUMBER = 5;
+    private int deadeyeHunterExperience_;
+    /**
+     * <code>int32 deadeye_hunter_experience = 5;</code>
+     */
+    public int getDeadeyeHunterExperience() {
+      return deadeyeHunterExperience_;
+    }
+
+    public static final int BEAST_MASTER_HUNTER_EXPERIENCE_FIELD_NUMBER = 6;
+    private int beastMasterHunterExperience_;
+    /**
+     * <code>int32 beast_master_hunter_experience = 6;</code>
+     */
+    public int getBeastMasterHunterExperience() {
+      return beastMasterHunterExperience_;
+    }
+
+    public static final int FIRE_MAGE_EXPERIENCE_FIELD_NUMBER = 7;
+    private int fireMageExperience_;
+    /**
+     * <code>int32 fire_mage_experience = 7;</code>
+     */
+    public int getFireMageExperience() {
+      return fireMageExperience_;
+    }
+
+    public static final int AIR_MAGE_EXPERIENCE_FIELD_NUMBER = 8;
+    private int airMageExperience_;
+    /**
+     * <code>int32 air_mage_experience = 8;</code>
+     */
+    public int getAirMageExperience() {
+      return airMageExperience_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (temperWarriorExperience_ != 0) {
+        output.writeInt32(1, temperWarriorExperience_);
+      }
+      if (safeGuardWarriorExperience_ != 0) {
+        output.writeInt32(2, safeGuardWarriorExperience_);
+      }
+      if (assassinationRogueExperience_ != 0) {
+        output.writeInt32(3, assassinationRogueExperience_);
+      }
+      if (shadowRogueExperience_ != 0) {
+        output.writeInt32(4, shadowRogueExperience_);
+      }
+      if (deadeyeHunterExperience_ != 0) {
+        output.writeInt32(5, deadeyeHunterExperience_);
+      }
+      if (beastMasterHunterExperience_ != 0) {
+        output.writeInt32(6, beastMasterHunterExperience_);
+      }
+      if (fireMageExperience_ != 0) {
+        output.writeInt32(7, fireMageExperience_);
+      }
+      if (airMageExperience_ != 0) {
+        output.writeInt32(8, airMageExperience_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (temperWarriorExperience_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, temperWarriorExperience_);
+      }
+      if (safeGuardWarriorExperience_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, safeGuardWarriorExperience_);
+      }
+      if (assassinationRogueExperience_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, assassinationRogueExperience_);
+      }
+      if (shadowRogueExperience_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, shadowRogueExperience_);
+      }
+      if (deadeyeHunterExperience_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(5, deadeyeHunterExperience_);
+      }
+      if (beastMasterHunterExperience_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(6, beastMasterHunterExperience_);
+      }
+      if (fireMageExperience_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(7, fireMageExperience_);
+      }
+      if (airMageExperience_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(8, airMageExperience_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.shattered.networking.proto.World.GrimoireStatistics)) {
+        return super.equals(obj);
+      }
+      com.shattered.networking.proto.World.GrimoireStatistics other = (com.shattered.networking.proto.World.GrimoireStatistics) obj;
+
+      boolean result = true;
+      result = result && (getTemperWarriorExperience()
+          == other.getTemperWarriorExperience());
+      result = result && (getSafeGuardWarriorExperience()
+          == other.getSafeGuardWarriorExperience());
+      result = result && (getAssassinationRogueExperience()
+          == other.getAssassinationRogueExperience());
+      result = result && (getShadowRogueExperience()
+          == other.getShadowRogueExperience());
+      result = result && (getDeadeyeHunterExperience()
+          == other.getDeadeyeHunterExperience());
+      result = result && (getBeastMasterHunterExperience()
+          == other.getBeastMasterHunterExperience());
+      result = result && (getFireMageExperience()
+          == other.getFireMageExperience());
+      result = result && (getAirMageExperience()
+          == other.getAirMageExperience());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + TEMPER_WARRIOR_EXPERIENCE_FIELD_NUMBER;
+      hash = (53 * hash) + getTemperWarriorExperience();
+      hash = (37 * hash) + SAFE_GUARD_WARRIOR_EXPERIENCE_FIELD_NUMBER;
+      hash = (53 * hash) + getSafeGuardWarriorExperience();
+      hash = (37 * hash) + ASSASSINATION_ROGUE_EXPERIENCE_FIELD_NUMBER;
+      hash = (53 * hash) + getAssassinationRogueExperience();
+      hash = (37 * hash) + SHADOW_ROGUE_EXPERIENCE_FIELD_NUMBER;
+      hash = (53 * hash) + getShadowRogueExperience();
+      hash = (37 * hash) + DEADEYE_HUNTER_EXPERIENCE_FIELD_NUMBER;
+      hash = (53 * hash) + getDeadeyeHunterExperience();
+      hash = (37 * hash) + BEAST_MASTER_HUNTER_EXPERIENCE_FIELD_NUMBER;
+      hash = (53 * hash) + getBeastMasterHunterExperience();
+      hash = (37 * hash) + FIRE_MAGE_EXPERIENCE_FIELD_NUMBER;
+      hash = (53 * hash) + getFireMageExperience();
+      hash = (37 * hash) + AIR_MAGE_EXPERIENCE_FIELD_NUMBER;
+      hash = (53 * hash) + getAirMageExperience();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.shattered.networking.proto.World.GrimoireStatistics parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.shattered.networking.proto.World.GrimoireStatistics parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.World.GrimoireStatistics parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.shattered.networking.proto.World.GrimoireStatistics parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.World.GrimoireStatistics parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.shattered.networking.proto.World.GrimoireStatistics parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.World.GrimoireStatistics parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.shattered.networking.proto.World.GrimoireStatistics parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.World.GrimoireStatistics parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.shattered.networking.proto.World.GrimoireStatistics parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.World.GrimoireStatistics parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.shattered.networking.proto.World.GrimoireStatistics parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.shattered.networking.proto.World.GrimoireStatistics prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *+ustruct:BlueprintType
+     * </pre>
+     *
+     * Protobuf type {@code shattered.protocol.GrimoireStatistics}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:shattered.protocol.GrimoireStatistics)
+        com.shattered.networking.proto.World.GrimoireStatisticsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.shattered.networking.proto.World.internal_static_shattered_protocol_GrimoireStatistics_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.shattered.networking.proto.World.internal_static_shattered_protocol_GrimoireStatistics_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.shattered.networking.proto.World.GrimoireStatistics.class, com.shattered.networking.proto.World.GrimoireStatistics.Builder.class);
+      }
+
+      // Construct using com.shattered.networking.proto.World.GrimoireStatistics.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        temperWarriorExperience_ = 0;
+
+        safeGuardWarriorExperience_ = 0;
+
+        assassinationRogueExperience_ = 0;
+
+        shadowRogueExperience_ = 0;
+
+        deadeyeHunterExperience_ = 0;
+
+        beastMasterHunterExperience_ = 0;
+
+        fireMageExperience_ = 0;
+
+        airMageExperience_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.shattered.networking.proto.World.internal_static_shattered_protocol_GrimoireStatistics_descriptor;
+      }
+
+      @java.lang.Override
+      public com.shattered.networking.proto.World.GrimoireStatistics getDefaultInstanceForType() {
+        return com.shattered.networking.proto.World.GrimoireStatistics.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.shattered.networking.proto.World.GrimoireStatistics build() {
+        com.shattered.networking.proto.World.GrimoireStatistics result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.shattered.networking.proto.World.GrimoireStatistics buildPartial() {
+        com.shattered.networking.proto.World.GrimoireStatistics result = new com.shattered.networking.proto.World.GrimoireStatistics(this);
+        result.temperWarriorExperience_ = temperWarriorExperience_;
+        result.safeGuardWarriorExperience_ = safeGuardWarriorExperience_;
+        result.assassinationRogueExperience_ = assassinationRogueExperience_;
+        result.shadowRogueExperience_ = shadowRogueExperience_;
+        result.deadeyeHunterExperience_ = deadeyeHunterExperience_;
+        result.beastMasterHunterExperience_ = beastMasterHunterExperience_;
+        result.fireMageExperience_ = fireMageExperience_;
+        result.airMageExperience_ = airMageExperience_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.shattered.networking.proto.World.GrimoireStatistics) {
+          return mergeFrom((com.shattered.networking.proto.World.GrimoireStatistics)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.shattered.networking.proto.World.GrimoireStatistics other) {
+        if (other == com.shattered.networking.proto.World.GrimoireStatistics.getDefaultInstance()) return this;
+        if (other.getTemperWarriorExperience() != 0) {
+          setTemperWarriorExperience(other.getTemperWarriorExperience());
+        }
+        if (other.getSafeGuardWarriorExperience() != 0) {
+          setSafeGuardWarriorExperience(other.getSafeGuardWarriorExperience());
+        }
+        if (other.getAssassinationRogueExperience() != 0) {
+          setAssassinationRogueExperience(other.getAssassinationRogueExperience());
+        }
+        if (other.getShadowRogueExperience() != 0) {
+          setShadowRogueExperience(other.getShadowRogueExperience());
+        }
+        if (other.getDeadeyeHunterExperience() != 0) {
+          setDeadeyeHunterExperience(other.getDeadeyeHunterExperience());
+        }
+        if (other.getBeastMasterHunterExperience() != 0) {
+          setBeastMasterHunterExperience(other.getBeastMasterHunterExperience());
+        }
+        if (other.getFireMageExperience() != 0) {
+          setFireMageExperience(other.getFireMageExperience());
+        }
+        if (other.getAirMageExperience() != 0) {
+          setAirMageExperience(other.getAirMageExperience());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.shattered.networking.proto.World.GrimoireStatistics parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.shattered.networking.proto.World.GrimoireStatistics) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int temperWarriorExperience_ ;
+      /**
+       * <code>int32 temper_warrior_experience = 1;</code>
+       */
+      public int getTemperWarriorExperience() {
+        return temperWarriorExperience_;
+      }
+      /**
+       * <code>int32 temper_warrior_experience = 1;</code>
+       */
+      public Builder setTemperWarriorExperience(int value) {
+        
+        temperWarriorExperience_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 temper_warrior_experience = 1;</code>
+       */
+      public Builder clearTemperWarriorExperience() {
+        
+        temperWarriorExperience_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int safeGuardWarriorExperience_ ;
+      /**
+       * <code>int32 safe_guard_warrior_experience = 2;</code>
+       */
+      public int getSafeGuardWarriorExperience() {
+        return safeGuardWarriorExperience_;
+      }
+      /**
+       * <code>int32 safe_guard_warrior_experience = 2;</code>
+       */
+      public Builder setSafeGuardWarriorExperience(int value) {
+        
+        safeGuardWarriorExperience_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 safe_guard_warrior_experience = 2;</code>
+       */
+      public Builder clearSafeGuardWarriorExperience() {
+        
+        safeGuardWarriorExperience_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int assassinationRogueExperience_ ;
+      /**
+       * <code>int32 assassination_rogue_experience = 3;</code>
+       */
+      public int getAssassinationRogueExperience() {
+        return assassinationRogueExperience_;
+      }
+      /**
+       * <code>int32 assassination_rogue_experience = 3;</code>
+       */
+      public Builder setAssassinationRogueExperience(int value) {
+        
+        assassinationRogueExperience_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 assassination_rogue_experience = 3;</code>
+       */
+      public Builder clearAssassinationRogueExperience() {
+        
+        assassinationRogueExperience_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int shadowRogueExperience_ ;
+      /**
+       * <code>int32 shadow_rogue_experience = 4;</code>
+       */
+      public int getShadowRogueExperience() {
+        return shadowRogueExperience_;
+      }
+      /**
+       * <code>int32 shadow_rogue_experience = 4;</code>
+       */
+      public Builder setShadowRogueExperience(int value) {
+        
+        shadowRogueExperience_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 shadow_rogue_experience = 4;</code>
+       */
+      public Builder clearShadowRogueExperience() {
+        
+        shadowRogueExperience_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int deadeyeHunterExperience_ ;
+      /**
+       * <code>int32 deadeye_hunter_experience = 5;</code>
+       */
+      public int getDeadeyeHunterExperience() {
+        return deadeyeHunterExperience_;
+      }
+      /**
+       * <code>int32 deadeye_hunter_experience = 5;</code>
+       */
+      public Builder setDeadeyeHunterExperience(int value) {
+        
+        deadeyeHunterExperience_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 deadeye_hunter_experience = 5;</code>
+       */
+      public Builder clearDeadeyeHunterExperience() {
+        
+        deadeyeHunterExperience_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int beastMasterHunterExperience_ ;
+      /**
+       * <code>int32 beast_master_hunter_experience = 6;</code>
+       */
+      public int getBeastMasterHunterExperience() {
+        return beastMasterHunterExperience_;
+      }
+      /**
+       * <code>int32 beast_master_hunter_experience = 6;</code>
+       */
+      public Builder setBeastMasterHunterExperience(int value) {
+        
+        beastMasterHunterExperience_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 beast_master_hunter_experience = 6;</code>
+       */
+      public Builder clearBeastMasterHunterExperience() {
+        
+        beastMasterHunterExperience_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int fireMageExperience_ ;
+      /**
+       * <code>int32 fire_mage_experience = 7;</code>
+       */
+      public int getFireMageExperience() {
+        return fireMageExperience_;
+      }
+      /**
+       * <code>int32 fire_mage_experience = 7;</code>
+       */
+      public Builder setFireMageExperience(int value) {
+        
+        fireMageExperience_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 fire_mage_experience = 7;</code>
+       */
+      public Builder clearFireMageExperience() {
+        
+        fireMageExperience_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int airMageExperience_ ;
+      /**
+       * <code>int32 air_mage_experience = 8;</code>
+       */
+      public int getAirMageExperience() {
+        return airMageExperience_;
+      }
+      /**
+       * <code>int32 air_mage_experience = 8;</code>
+       */
+      public Builder setAirMageExperience(int value) {
+        
+        airMageExperience_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 air_mage_experience = 8;</code>
+       */
+      public Builder clearAirMageExperience() {
+        
+        airMageExperience_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:shattered.protocol.GrimoireStatistics)
+    }
+
+    // @@protoc_insertion_point(class_scope:shattered.protocol.GrimoireStatistics)
+    private static final com.shattered.networking.proto.World.GrimoireStatistics DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.shattered.networking.proto.World.GrimoireStatistics();
+    }
+
+    public static com.shattered.networking.proto.World.GrimoireStatistics getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GrimoireStatistics>
+        PARSER = new com.google.protobuf.AbstractParser<GrimoireStatistics>() {
+      @java.lang.Override
+      public GrimoireStatistics parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new GrimoireStatistics(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GrimoireStatistics> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GrimoireStatistics> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.shattered.networking.proto.World.GrimoireStatistics getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface WeaponStatisticsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:shattered.protocol.WeaponStatistics)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 bow_experience = 1;</code>
+     */
+    int getBowExperience();
+
+    /**
+     * <code>int32 crossbow_experience = 2;</code>
+     */
+    int getCrossbowExperience();
+
+    /**
+     * <code>int32 twohand_axe_experience = 3;</code>
+     */
+    int getTwohandAxeExperience();
+
+    /**
+     * <code>int32 twohand_sword_experience = 4;</code>
+     */
+    int getTwohandSwordExperience();
+
+    /**
+     * <code>int32 hatchet_experience = 5;</code>
+     */
+    int getHatchetExperience();
+
+    /**
+     * <code>int32 dagger_experience = 6;</code>
+     */
+    int getDaggerExperience();
+
+    /**
+     * <code>int32 sword_experience = 7;</code>
+     */
+    int getSwordExperience();
+
+    /**
+     * <code>int32 mace_experience = 8;</code>
+     */
+    int getMaceExperience();
+
+    /**
+     * <code>int32 spear_experience = 9;</code>
+     */
+    int getSpearExperience();
+
+    /**
+     * <code>int32 shield_experience = 10;</code>
+     */
+    int getShieldExperience();
+
+    /**
+     * <code>int32 staff_experience = 11;</code>
+     */
+    int getStaffExperience();
+
+    /**
+     * <code>int32 wand_experience = 12;</code>
+     */
+    int getWandExperience();
+  }
+  /**
+   * <pre>
+   *+ustruct:BlueprintType
+   * </pre>
+   *
+   * Protobuf type {@code shattered.protocol.WeaponStatistics}
+   */
+  public  static final class WeaponStatistics extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:shattered.protocol.WeaponStatistics)
+      WeaponStatisticsOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use WeaponStatistics.newBuilder() to construct.
+    private WeaponStatistics(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private WeaponStatistics() {
+      bowExperience_ = 0;
+      crossbowExperience_ = 0;
+      twohandAxeExperience_ = 0;
+      twohandSwordExperience_ = 0;
+      hatchetExperience_ = 0;
+      daggerExperience_ = 0;
+      swordExperience_ = 0;
+      maceExperience_ = 0;
+      spearExperience_ = 0;
+      shieldExperience_ = 0;
+      staffExperience_ = 0;
+      wandExperience_ = 0;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private WeaponStatistics(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              bowExperience_ = input.readInt32();
+              break;
+            }
+            case 16: {
+
+              crossbowExperience_ = input.readInt32();
+              break;
+            }
+            case 24: {
+
+              twohandAxeExperience_ = input.readInt32();
+              break;
+            }
+            case 32: {
+
+              twohandSwordExperience_ = input.readInt32();
+              break;
+            }
+            case 40: {
+
+              hatchetExperience_ = input.readInt32();
+              break;
+            }
+            case 48: {
+
+              daggerExperience_ = input.readInt32();
+              break;
+            }
+            case 56: {
+
+              swordExperience_ = input.readInt32();
+              break;
+            }
+            case 64: {
+
+              maceExperience_ = input.readInt32();
+              break;
+            }
+            case 72: {
+
+              spearExperience_ = input.readInt32();
+              break;
+            }
+            case 80: {
+
+              shieldExperience_ = input.readInt32();
+              break;
+            }
+            case 88: {
+
+              staffExperience_ = input.readInt32();
+              break;
+            }
+            case 96: {
+
+              wandExperience_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.shattered.networking.proto.World.internal_static_shattered_protocol_WeaponStatistics_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.shattered.networking.proto.World.internal_static_shattered_protocol_WeaponStatistics_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.shattered.networking.proto.World.WeaponStatistics.class, com.shattered.networking.proto.World.WeaponStatistics.Builder.class);
+    }
+
+    public static final int BOW_EXPERIENCE_FIELD_NUMBER = 1;
+    private int bowExperience_;
+    /**
+     * <code>int32 bow_experience = 1;</code>
+     */
+    public int getBowExperience() {
+      return bowExperience_;
+    }
+
+    public static final int CROSSBOW_EXPERIENCE_FIELD_NUMBER = 2;
+    private int crossbowExperience_;
+    /**
+     * <code>int32 crossbow_experience = 2;</code>
+     */
+    public int getCrossbowExperience() {
+      return crossbowExperience_;
+    }
+
+    public static final int TWOHAND_AXE_EXPERIENCE_FIELD_NUMBER = 3;
+    private int twohandAxeExperience_;
+    /**
+     * <code>int32 twohand_axe_experience = 3;</code>
+     */
+    public int getTwohandAxeExperience() {
+      return twohandAxeExperience_;
+    }
+
+    public static final int TWOHAND_SWORD_EXPERIENCE_FIELD_NUMBER = 4;
+    private int twohandSwordExperience_;
+    /**
+     * <code>int32 twohand_sword_experience = 4;</code>
+     */
+    public int getTwohandSwordExperience() {
+      return twohandSwordExperience_;
+    }
+
+    public static final int HATCHET_EXPERIENCE_FIELD_NUMBER = 5;
+    private int hatchetExperience_;
+    /**
+     * <code>int32 hatchet_experience = 5;</code>
+     */
+    public int getHatchetExperience() {
+      return hatchetExperience_;
+    }
+
+    public static final int DAGGER_EXPERIENCE_FIELD_NUMBER = 6;
+    private int daggerExperience_;
+    /**
+     * <code>int32 dagger_experience = 6;</code>
+     */
+    public int getDaggerExperience() {
+      return daggerExperience_;
+    }
+
+    public static final int SWORD_EXPERIENCE_FIELD_NUMBER = 7;
+    private int swordExperience_;
+    /**
+     * <code>int32 sword_experience = 7;</code>
+     */
+    public int getSwordExperience() {
+      return swordExperience_;
+    }
+
+    public static final int MACE_EXPERIENCE_FIELD_NUMBER = 8;
+    private int maceExperience_;
+    /**
+     * <code>int32 mace_experience = 8;</code>
+     */
+    public int getMaceExperience() {
+      return maceExperience_;
+    }
+
+    public static final int SPEAR_EXPERIENCE_FIELD_NUMBER = 9;
+    private int spearExperience_;
+    /**
+     * <code>int32 spear_experience = 9;</code>
+     */
+    public int getSpearExperience() {
+      return spearExperience_;
+    }
+
+    public static final int SHIELD_EXPERIENCE_FIELD_NUMBER = 10;
+    private int shieldExperience_;
+    /**
+     * <code>int32 shield_experience = 10;</code>
+     */
+    public int getShieldExperience() {
+      return shieldExperience_;
+    }
+
+    public static final int STAFF_EXPERIENCE_FIELD_NUMBER = 11;
+    private int staffExperience_;
+    /**
+     * <code>int32 staff_experience = 11;</code>
+     */
+    public int getStaffExperience() {
+      return staffExperience_;
+    }
+
+    public static final int WAND_EXPERIENCE_FIELD_NUMBER = 12;
+    private int wandExperience_;
+    /**
+     * <code>int32 wand_experience = 12;</code>
+     */
+    public int getWandExperience() {
+      return wandExperience_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (bowExperience_ != 0) {
+        output.writeInt32(1, bowExperience_);
+      }
+      if (crossbowExperience_ != 0) {
+        output.writeInt32(2, crossbowExperience_);
+      }
+      if (twohandAxeExperience_ != 0) {
+        output.writeInt32(3, twohandAxeExperience_);
+      }
+      if (twohandSwordExperience_ != 0) {
+        output.writeInt32(4, twohandSwordExperience_);
+      }
+      if (hatchetExperience_ != 0) {
+        output.writeInt32(5, hatchetExperience_);
+      }
+      if (daggerExperience_ != 0) {
+        output.writeInt32(6, daggerExperience_);
+      }
+      if (swordExperience_ != 0) {
+        output.writeInt32(7, swordExperience_);
+      }
+      if (maceExperience_ != 0) {
+        output.writeInt32(8, maceExperience_);
+      }
+      if (spearExperience_ != 0) {
+        output.writeInt32(9, spearExperience_);
+      }
+      if (shieldExperience_ != 0) {
+        output.writeInt32(10, shieldExperience_);
+      }
+      if (staffExperience_ != 0) {
+        output.writeInt32(11, staffExperience_);
+      }
+      if (wandExperience_ != 0) {
+        output.writeInt32(12, wandExperience_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (bowExperience_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, bowExperience_);
+      }
+      if (crossbowExperience_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, crossbowExperience_);
+      }
+      if (twohandAxeExperience_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, twohandAxeExperience_);
+      }
+      if (twohandSwordExperience_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, twohandSwordExperience_);
+      }
+      if (hatchetExperience_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(5, hatchetExperience_);
+      }
+      if (daggerExperience_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(6, daggerExperience_);
+      }
+      if (swordExperience_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(7, swordExperience_);
+      }
+      if (maceExperience_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(8, maceExperience_);
+      }
+      if (spearExperience_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(9, spearExperience_);
+      }
+      if (shieldExperience_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(10, shieldExperience_);
+      }
+      if (staffExperience_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(11, staffExperience_);
+      }
+      if (wandExperience_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(12, wandExperience_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.shattered.networking.proto.World.WeaponStatistics)) {
+        return super.equals(obj);
+      }
+      com.shattered.networking.proto.World.WeaponStatistics other = (com.shattered.networking.proto.World.WeaponStatistics) obj;
+
+      boolean result = true;
+      result = result && (getBowExperience()
+          == other.getBowExperience());
+      result = result && (getCrossbowExperience()
+          == other.getCrossbowExperience());
+      result = result && (getTwohandAxeExperience()
+          == other.getTwohandAxeExperience());
+      result = result && (getTwohandSwordExperience()
+          == other.getTwohandSwordExperience());
+      result = result && (getHatchetExperience()
+          == other.getHatchetExperience());
+      result = result && (getDaggerExperience()
+          == other.getDaggerExperience());
+      result = result && (getSwordExperience()
+          == other.getSwordExperience());
+      result = result && (getMaceExperience()
+          == other.getMaceExperience());
+      result = result && (getSpearExperience()
+          == other.getSpearExperience());
+      result = result && (getShieldExperience()
+          == other.getShieldExperience());
+      result = result && (getStaffExperience()
+          == other.getStaffExperience());
+      result = result && (getWandExperience()
+          == other.getWandExperience());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + BOW_EXPERIENCE_FIELD_NUMBER;
+      hash = (53 * hash) + getBowExperience();
+      hash = (37 * hash) + CROSSBOW_EXPERIENCE_FIELD_NUMBER;
+      hash = (53 * hash) + getCrossbowExperience();
+      hash = (37 * hash) + TWOHAND_AXE_EXPERIENCE_FIELD_NUMBER;
+      hash = (53 * hash) + getTwohandAxeExperience();
+      hash = (37 * hash) + TWOHAND_SWORD_EXPERIENCE_FIELD_NUMBER;
+      hash = (53 * hash) + getTwohandSwordExperience();
+      hash = (37 * hash) + HATCHET_EXPERIENCE_FIELD_NUMBER;
+      hash = (53 * hash) + getHatchetExperience();
+      hash = (37 * hash) + DAGGER_EXPERIENCE_FIELD_NUMBER;
+      hash = (53 * hash) + getDaggerExperience();
+      hash = (37 * hash) + SWORD_EXPERIENCE_FIELD_NUMBER;
+      hash = (53 * hash) + getSwordExperience();
+      hash = (37 * hash) + MACE_EXPERIENCE_FIELD_NUMBER;
+      hash = (53 * hash) + getMaceExperience();
+      hash = (37 * hash) + SPEAR_EXPERIENCE_FIELD_NUMBER;
+      hash = (53 * hash) + getSpearExperience();
+      hash = (37 * hash) + SHIELD_EXPERIENCE_FIELD_NUMBER;
+      hash = (53 * hash) + getShieldExperience();
+      hash = (37 * hash) + STAFF_EXPERIENCE_FIELD_NUMBER;
+      hash = (53 * hash) + getStaffExperience();
+      hash = (37 * hash) + WAND_EXPERIENCE_FIELD_NUMBER;
+      hash = (53 * hash) + getWandExperience();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.shattered.networking.proto.World.WeaponStatistics parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.shattered.networking.proto.World.WeaponStatistics parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.World.WeaponStatistics parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.shattered.networking.proto.World.WeaponStatistics parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.World.WeaponStatistics parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.shattered.networking.proto.World.WeaponStatistics parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.World.WeaponStatistics parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.shattered.networking.proto.World.WeaponStatistics parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.World.WeaponStatistics parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.shattered.networking.proto.World.WeaponStatistics parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.World.WeaponStatistics parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.shattered.networking.proto.World.WeaponStatistics parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.shattered.networking.proto.World.WeaponStatistics prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *+ustruct:BlueprintType
+     * </pre>
+     *
+     * Protobuf type {@code shattered.protocol.WeaponStatistics}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:shattered.protocol.WeaponStatistics)
+        com.shattered.networking.proto.World.WeaponStatisticsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.shattered.networking.proto.World.internal_static_shattered_protocol_WeaponStatistics_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.shattered.networking.proto.World.internal_static_shattered_protocol_WeaponStatistics_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.shattered.networking.proto.World.WeaponStatistics.class, com.shattered.networking.proto.World.WeaponStatistics.Builder.class);
+      }
+
+      // Construct using com.shattered.networking.proto.World.WeaponStatistics.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bowExperience_ = 0;
+
+        crossbowExperience_ = 0;
+
+        twohandAxeExperience_ = 0;
+
+        twohandSwordExperience_ = 0;
+
+        hatchetExperience_ = 0;
+
+        daggerExperience_ = 0;
+
+        swordExperience_ = 0;
+
+        maceExperience_ = 0;
+
+        spearExperience_ = 0;
+
+        shieldExperience_ = 0;
+
+        staffExperience_ = 0;
+
+        wandExperience_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.shattered.networking.proto.World.internal_static_shattered_protocol_WeaponStatistics_descriptor;
+      }
+
+      @java.lang.Override
+      public com.shattered.networking.proto.World.WeaponStatistics getDefaultInstanceForType() {
+        return com.shattered.networking.proto.World.WeaponStatistics.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.shattered.networking.proto.World.WeaponStatistics build() {
+        com.shattered.networking.proto.World.WeaponStatistics result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.shattered.networking.proto.World.WeaponStatistics buildPartial() {
+        com.shattered.networking.proto.World.WeaponStatistics result = new com.shattered.networking.proto.World.WeaponStatistics(this);
+        result.bowExperience_ = bowExperience_;
+        result.crossbowExperience_ = crossbowExperience_;
+        result.twohandAxeExperience_ = twohandAxeExperience_;
+        result.twohandSwordExperience_ = twohandSwordExperience_;
+        result.hatchetExperience_ = hatchetExperience_;
+        result.daggerExperience_ = daggerExperience_;
+        result.swordExperience_ = swordExperience_;
+        result.maceExperience_ = maceExperience_;
+        result.spearExperience_ = spearExperience_;
+        result.shieldExperience_ = shieldExperience_;
+        result.staffExperience_ = staffExperience_;
+        result.wandExperience_ = wandExperience_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.shattered.networking.proto.World.WeaponStatistics) {
+          return mergeFrom((com.shattered.networking.proto.World.WeaponStatistics)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.shattered.networking.proto.World.WeaponStatistics other) {
+        if (other == com.shattered.networking.proto.World.WeaponStatistics.getDefaultInstance()) return this;
+        if (other.getBowExperience() != 0) {
+          setBowExperience(other.getBowExperience());
+        }
+        if (other.getCrossbowExperience() != 0) {
+          setCrossbowExperience(other.getCrossbowExperience());
+        }
+        if (other.getTwohandAxeExperience() != 0) {
+          setTwohandAxeExperience(other.getTwohandAxeExperience());
+        }
+        if (other.getTwohandSwordExperience() != 0) {
+          setTwohandSwordExperience(other.getTwohandSwordExperience());
+        }
+        if (other.getHatchetExperience() != 0) {
+          setHatchetExperience(other.getHatchetExperience());
+        }
+        if (other.getDaggerExperience() != 0) {
+          setDaggerExperience(other.getDaggerExperience());
+        }
+        if (other.getSwordExperience() != 0) {
+          setSwordExperience(other.getSwordExperience());
+        }
+        if (other.getMaceExperience() != 0) {
+          setMaceExperience(other.getMaceExperience());
+        }
+        if (other.getSpearExperience() != 0) {
+          setSpearExperience(other.getSpearExperience());
+        }
+        if (other.getShieldExperience() != 0) {
+          setShieldExperience(other.getShieldExperience());
+        }
+        if (other.getStaffExperience() != 0) {
+          setStaffExperience(other.getStaffExperience());
+        }
+        if (other.getWandExperience() != 0) {
+          setWandExperience(other.getWandExperience());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.shattered.networking.proto.World.WeaponStatistics parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.shattered.networking.proto.World.WeaponStatistics) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int bowExperience_ ;
+      /**
+       * <code>int32 bow_experience = 1;</code>
+       */
+      public int getBowExperience() {
+        return bowExperience_;
+      }
+      /**
+       * <code>int32 bow_experience = 1;</code>
+       */
+      public Builder setBowExperience(int value) {
+        
+        bowExperience_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 bow_experience = 1;</code>
+       */
+      public Builder clearBowExperience() {
+        
+        bowExperience_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int crossbowExperience_ ;
+      /**
+       * <code>int32 crossbow_experience = 2;</code>
+       */
+      public int getCrossbowExperience() {
+        return crossbowExperience_;
+      }
+      /**
+       * <code>int32 crossbow_experience = 2;</code>
+       */
+      public Builder setCrossbowExperience(int value) {
+        
+        crossbowExperience_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 crossbow_experience = 2;</code>
+       */
+      public Builder clearCrossbowExperience() {
+        
+        crossbowExperience_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int twohandAxeExperience_ ;
+      /**
+       * <code>int32 twohand_axe_experience = 3;</code>
+       */
+      public int getTwohandAxeExperience() {
+        return twohandAxeExperience_;
+      }
+      /**
+       * <code>int32 twohand_axe_experience = 3;</code>
+       */
+      public Builder setTwohandAxeExperience(int value) {
+        
+        twohandAxeExperience_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 twohand_axe_experience = 3;</code>
+       */
+      public Builder clearTwohandAxeExperience() {
+        
+        twohandAxeExperience_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int twohandSwordExperience_ ;
+      /**
+       * <code>int32 twohand_sword_experience = 4;</code>
+       */
+      public int getTwohandSwordExperience() {
+        return twohandSwordExperience_;
+      }
+      /**
+       * <code>int32 twohand_sword_experience = 4;</code>
+       */
+      public Builder setTwohandSwordExperience(int value) {
+        
+        twohandSwordExperience_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 twohand_sword_experience = 4;</code>
+       */
+      public Builder clearTwohandSwordExperience() {
+        
+        twohandSwordExperience_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int hatchetExperience_ ;
+      /**
+       * <code>int32 hatchet_experience = 5;</code>
+       */
+      public int getHatchetExperience() {
+        return hatchetExperience_;
+      }
+      /**
+       * <code>int32 hatchet_experience = 5;</code>
+       */
+      public Builder setHatchetExperience(int value) {
+        
+        hatchetExperience_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 hatchet_experience = 5;</code>
+       */
+      public Builder clearHatchetExperience() {
+        
+        hatchetExperience_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int daggerExperience_ ;
+      /**
+       * <code>int32 dagger_experience = 6;</code>
+       */
+      public int getDaggerExperience() {
+        return daggerExperience_;
+      }
+      /**
+       * <code>int32 dagger_experience = 6;</code>
+       */
+      public Builder setDaggerExperience(int value) {
+        
+        daggerExperience_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 dagger_experience = 6;</code>
+       */
+      public Builder clearDaggerExperience() {
+        
+        daggerExperience_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int swordExperience_ ;
+      /**
+       * <code>int32 sword_experience = 7;</code>
+       */
+      public int getSwordExperience() {
+        return swordExperience_;
+      }
+      /**
+       * <code>int32 sword_experience = 7;</code>
+       */
+      public Builder setSwordExperience(int value) {
+        
+        swordExperience_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 sword_experience = 7;</code>
+       */
+      public Builder clearSwordExperience() {
+        
+        swordExperience_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int maceExperience_ ;
+      /**
+       * <code>int32 mace_experience = 8;</code>
+       */
+      public int getMaceExperience() {
+        return maceExperience_;
+      }
+      /**
+       * <code>int32 mace_experience = 8;</code>
+       */
+      public Builder setMaceExperience(int value) {
+        
+        maceExperience_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 mace_experience = 8;</code>
+       */
+      public Builder clearMaceExperience() {
+        
+        maceExperience_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int spearExperience_ ;
+      /**
+       * <code>int32 spear_experience = 9;</code>
+       */
+      public int getSpearExperience() {
+        return spearExperience_;
+      }
+      /**
+       * <code>int32 spear_experience = 9;</code>
+       */
+      public Builder setSpearExperience(int value) {
+        
+        spearExperience_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 spear_experience = 9;</code>
+       */
+      public Builder clearSpearExperience() {
+        
+        spearExperience_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int shieldExperience_ ;
+      /**
+       * <code>int32 shield_experience = 10;</code>
+       */
+      public int getShieldExperience() {
+        return shieldExperience_;
+      }
+      /**
+       * <code>int32 shield_experience = 10;</code>
+       */
+      public Builder setShieldExperience(int value) {
+        
+        shieldExperience_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 shield_experience = 10;</code>
+       */
+      public Builder clearShieldExperience() {
+        
+        shieldExperience_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int staffExperience_ ;
+      /**
+       * <code>int32 staff_experience = 11;</code>
+       */
+      public int getStaffExperience() {
+        return staffExperience_;
+      }
+      /**
+       * <code>int32 staff_experience = 11;</code>
+       */
+      public Builder setStaffExperience(int value) {
+        
+        staffExperience_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 staff_experience = 11;</code>
+       */
+      public Builder clearStaffExperience() {
+        
+        staffExperience_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int wandExperience_ ;
+      /**
+       * <code>int32 wand_experience = 12;</code>
+       */
+      public int getWandExperience() {
+        return wandExperience_;
+      }
+      /**
+       * <code>int32 wand_experience = 12;</code>
+       */
+      public Builder setWandExperience(int value) {
+        
+        wandExperience_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 wand_experience = 12;</code>
+       */
+      public Builder clearWandExperience() {
+        
+        wandExperience_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:shattered.protocol.WeaponStatistics)
+    }
+
+    // @@protoc_insertion_point(class_scope:shattered.protocol.WeaponStatistics)
+    private static final com.shattered.networking.proto.World.WeaponStatistics DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.shattered.networking.proto.World.WeaponStatistics();
+    }
+
+    public static com.shattered.networking.proto.World.WeaponStatistics getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<WeaponStatistics>
+        PARSER = new com.google.protobuf.AbstractParser<WeaponStatistics>() {
+      @java.lang.Override
+      public WeaponStatistics parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new WeaponStatistics(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<WeaponStatistics> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<WeaponStatistics> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.shattered.networking.proto.World.WeaponStatistics getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_shattered_protocol_TransferMap_descriptor;
   private static final 
@@ -50906,6 +53555,21 @@ public final class World {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_shattered_protocol_CombatStatistics_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_shattered_protocol_CurrentGrimoires_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_shattered_protocol_CurrentGrimoires_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_shattered_protocol_GrimoireStatistics_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_shattered_protocol_GrimoireStatistics_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_shattered_protocol_WeaponStatistics_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_shattered_protocol_WeaponStatistics_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -51069,8 +53733,26 @@ public final class World {
       "\001(\005\"}\n\020CombatStatistics\022\020\n\010accuracy\030\001 \001(" +
       "\005\022\020\n\010strength\030\002 \001(\005\022\017\n\007stamina\030\003 \001(\005\022\022\n\n" +
       "resilience\030\004 \001(\005\022\r\n\005focus\030\005 \001(\005\022\021\n\tintel" +
-      "lect\030\006 \001(\005B#\n\036com.shattered.networking.p" +
-      "roto\370\001\001b\006proto3"
+      "lect\030\006 \001(\005\"E\n\020CurrentGrimoires\022\030\n\020main_g" +
+      "rimoire_id\030\001 \001(\005\022\027\n\017off_grimoire_id\030\002 \001(" +
+      "\005\"\255\002\n\022GrimoireStatistics\022!\n\031temper_warri" +
+      "or_experience\030\001 \001(\005\022%\n\035safe_guard_warrio" +
+      "r_experience\030\002 \001(\005\022&\n\036assassination_rogu" +
+      "e_experience\030\003 \001(\005\022\037\n\027shadow_rogue_exper" +
+      "ience\030\004 \001(\005\022!\n\031deadeye_hunter_experience" +
+      "\030\005 \001(\005\022&\n\036beast_master_hunter_experience" +
+      "\030\006 \001(\005\022\034\n\024fire_mage_experience\030\007 \001(\005\022\033\n\023" +
+      "air_mage_experience\030\010 \001(\005\"\333\002\n\020WeaponStat" +
+      "istics\022\026\n\016bow_experience\030\001 \001(\005\022\033\n\023crossb" +
+      "ow_experience\030\002 \001(\005\022\036\n\026twohand_axe_exper" +
+      "ience\030\003 \001(\005\022 \n\030twohand_sword_experience\030" +
+      "\004 \001(\005\022\032\n\022hatchet_experience\030\005 \001(\005\022\031\n\021dag" +
+      "ger_experience\030\006 \001(\005\022\030\n\020sword_experience" +
+      "\030\007 \001(\005\022\027\n\017mace_experience\030\010 \001(\005\022\030\n\020spear" +
+      "_experience\030\t \001(\005\022\031\n\021shield_experience\030\n" +
+      " \001(\005\022\030\n\020staff_experience\030\013 \001(\005\022\027\n\017wand_e" +
+      "xperience\030\014 \001(\005B#\n\036com.shattered.network" +
+      "ing.proto\370\001\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -51480,6 +54162,24 @@ public final class World {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_CombatStatistics_descriptor,
         new java.lang.String[] { "Accuracy", "Strength", "Stamina", "Resilience", "Focus", "Intellect", });
+    internal_static_shattered_protocol_CurrentGrimoires_descriptor =
+      getDescriptor().getMessageTypes().get(66);
+    internal_static_shattered_protocol_CurrentGrimoires_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_shattered_protocol_CurrentGrimoires_descriptor,
+        new java.lang.String[] { "MainGrimoireId", "OffGrimoireId", });
+    internal_static_shattered_protocol_GrimoireStatistics_descriptor =
+      getDescriptor().getMessageTypes().get(67);
+    internal_static_shattered_protocol_GrimoireStatistics_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_shattered_protocol_GrimoireStatistics_descriptor,
+        new java.lang.String[] { "TemperWarriorExperience", "SafeGuardWarriorExperience", "AssassinationRogueExperience", "ShadowRogueExperience", "DeadeyeHunterExperience", "BeastMasterHunterExperience", "FireMageExperience", "AirMageExperience", });
+    internal_static_shattered_protocol_WeaponStatistics_descriptor =
+      getDescriptor().getMessageTypes().get(68);
+    internal_static_shattered_protocol_WeaponStatistics_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_shattered_protocol_WeaponStatistics_descriptor,
+        new java.lang.String[] { "BowExperience", "CrossbowExperience", "TwohandAxeExperience", "TwohandSwordExperience", "HatchetExperience", "DaggerExperience", "SwordExperience", "MaceExperience", "SpearExperience", "ShieldExperience", "StaffExperience", "WandExperience", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

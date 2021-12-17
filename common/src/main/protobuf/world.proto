@@ -497,3 +497,37 @@ message CombatStatistics {
     int32 focus = 5;
     int32 intellect = 6;
 }
+
+//+ustruct:BlueprintType
+message CurrentGrimoires {
+    int32 main_grimoire_id = 1;
+    int32 off_grimoire_id = 2;
+}
+
+//+ustruct:BlueprintType
+message GrimoireStatistics {
+    int32 temper_warrior_experience = 1;
+    int32 safe_guard_warrior_experience = 2;
+    int32 assassination_rogue_experience = 3;
+    int32 shadow_rogue_experience = 4;
+    int32 deadeye_hunter_experience = 5;
+    int32 beast_master_hunter_experience = 6;
+    int32 fire_mage_experience = 7;
+    int32 air_mage_experience = 8;
+}
+
+//+ustruct:BlueprintType
+message WeaponStatistics {
+    int32 bow_experience = 1;
+    int32 crossbow_experience = 2;
+    int32 twohand_axe_experience = 3;
+    int32 twohand_sword_experience = 4;
+    int32 hatchet_experience = 5;
+    int32 dagger_experience = 6;
+    int32 sword_experience = 7;
+    int32 mace_experience = 8;
+    int32 spear_experience = 9;
+    int32 shield_experience = 10;
+    int32 staff_experience = 11;
+    int32 wand_experience = 12;
+}

@@ -156,6 +156,7 @@ public class NetworkBootstrap extends ChannelInitializer<SocketChannel> {
 
     /**
      *
+     * @param type
      * @param channel
      * @param token
      */

@@ -712,6 +712,18 @@ public final class PacketOuterClass {
      */
     SMSG_PLAYER_FIELDS_COMBAT(384),
     /**
+     * <code>SMSG_PLAYER_CURRENT_GRIMOIRES = 385;</code>
+     */
+    SMSG_PLAYER_CURRENT_GRIMOIRES(385),
+    /**
+     * <code>SMSG_PLAYER_GRIMOIRE_STATISTICS = 386;</code>
+     */
+    SMSG_PLAYER_GRIMOIRE_STATISTICS(386),
+    /**
+     * <code>SMSG_PLAYER_WEAPON_STATISTICS = 387;</code>
+     */
+    SMSG_PLAYER_WEAPON_STATISTICS(387),
+    /**
      * <code>Shattered_World_EO_Messages = 401;</code>
      */
     Shattered_World_EO_Messages(401),
@@ -1411,6 +1423,18 @@ public final class PacketOuterClass {
      */
     public static final int SMSG_PLAYER_FIELDS_COMBAT_VALUE = 384;
     /**
+     * <code>SMSG_PLAYER_CURRENT_GRIMOIRES = 385;</code>
+     */
+    public static final int SMSG_PLAYER_CURRENT_GRIMOIRES_VALUE = 385;
+    /**
+     * <code>SMSG_PLAYER_GRIMOIRE_STATISTICS = 386;</code>
+     */
+    public static final int SMSG_PLAYER_GRIMOIRE_STATISTICS_VALUE = 386;
+    /**
+     * <code>SMSG_PLAYER_WEAPON_STATISTICS = 387;</code>
+     */
+    public static final int SMSG_PLAYER_WEAPON_STATISTICS_VALUE = 387;
+    /**
      * <code>Shattered_World_EO_Messages = 401;</code>
      */
     public static final int Shattered_World_EO_Messages_VALUE = 401;
@@ -1598,6 +1622,9 @@ public final class PacketOuterClass {
         case 374: return CMSG_REQUEST_START_SPRINT;
         case 375: return CMSG_STOP_SPRINTING;
         case 384: return SMSG_PLAYER_FIELDS_COMBAT;
+        case 385: return SMSG_PLAYER_CURRENT_GRIMOIRES;
+        case 386: return SMSG_PLAYER_GRIMOIRE_STATISTICS;
+        case 387: return SMSG_PLAYER_WEAPON_STATISTICS;
         case 401: return Shattered_World_EO_Messages;
         default: return null;
       }
@@ -3221,7 +3248,7 @@ public final class PacketOuterClass {
       "\n\014packet.proto\022\022shattered.protocol\"E\n\006Pa" +
       "cket\022*\n\006opcode\030\001 \001(\0162\032.shattered.protoco" +
       "l.Opcode\022\017\n\007payload\030\002 \001(\014\"\016\n\014EmptyPayloa" +
-      "d\" \n\rStringPayload\022\017\n\007payload\030\001 \001(\t*\205$\n\006" +
+      "d\" \n\rStringPayload\022\017\n\007payload\030\001 \001(\t*\363$\n\006" +
       "Opcode\022\022\n\016INVALID_OPCODE\020\000\022\016\n\nU_Messages" +
       "\020\001\022\n\n\006U_Ping\020\002\022\027\n\023U_ServerPerformance\020\003\022" +
       "\017\n\013U_ClockSync\020\004\022\021\n\rU_EO_Messages\020\033\022\022\n\016P" +
@@ -3335,10 +3362,13 @@ public final class PacketOuterClass {
       "ING\020\364\002\022\030\n\023CMSG_TOGGLE_SHEATHE\020\365\002\022\036\n\031CMSG" +
       "_REQUEST_START_SPRINT\020\366\002\022\030\n\023CMSG_STOP_SP" +
       "RINTING\020\367\002\022\036\n\031SMSG_PLAYER_FIELDS_COMBAT\020" +
-      "\200\003\022 \n\033Shattered_World_EO_Messages\020\221\003\"\004\010\005" +
-      "\020\032\"\004\010)\0202\"\004\010=\020K\"\004\010Y\020d\"\005\010\177\020\226\001\"\006\010\244\001\020\372\001\"\006\010\221\002" +
-      "\020\227\002\"\006\010\255\002\020\314\002B#\n\036com.shattered.networking." +
-      "proto\370\001\001b\006proto3"
+      "\200\003\022\"\n\035SMSG_PLAYER_CURRENT_GRIMOIRES\020\201\003\022$" +
+      "\n\037SMSG_PLAYER_GRIMOIRE_STATISTICS\020\202\003\022\"\n\035" +
+      "SMSG_PLAYER_WEAPON_STATISTICS\020\203\003\022 \n\033Shat" +
+      "tered_World_EO_Messages\020\221\003\"\004\010\005\020\032\"\004\010)\0202\"\004" +
+      "\010=\020K\"\004\010Y\020d\"\005\010\177\020\226\001\"\006\010\244\001\020\372\001\"\006\010\221\002\020\227\002\"\006\010\255\002\020\314" +
+      "\002B#\n\036com.shattered.networking.proto\370\001\001b\006" +
+      "proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
