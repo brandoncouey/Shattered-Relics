@@ -50,9 +50,6 @@ public abstract class Session {
 
         PacketOuterClass.Opcode opcode = ((PacketOuterClass.Packet) object).getOpcode();
 
-        if (opcode != PacketOuterClass.Opcode.CMSG_TRANSFORM_UPDATE)
-            SystemLogger.sendSystemMessage("Incoming WorldClientMessage -> " + ((PacketOuterClass.Packet) object).getOpcode());
-
         try {
 
             if (ProtoEventRepository.forOpcode(opcode) == null) {
@@ -78,7 +75,7 @@ public abstract class Session {
      * @param opcode
      * @param message
      */
-    public void handle(PacketOuterClass.Opcode opcode, Message message) {
+    private void handle(PacketOuterClass.Opcode opcode, Message message) {
         ProtoListener<?> handler = (ProtoListener<?>) ProtoEventRepository.forOpcode(opcode);
 
         if (handler == null || ProtoEventRepository.forOpcode(opcode) == null) {

@@ -25,7 +25,11 @@ public abstract class RealmProtoListener<T extends Message> implements ProtoList
      * @param account
      */
     public void handleRaw(Message message, RealmAccount account)  {
-        handle((T) message, account);
+        try {
+            handle((T) message, account);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
 }

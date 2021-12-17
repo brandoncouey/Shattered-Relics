@@ -148,6 +148,11 @@ public class RealmClientProxySession extends ClientSession implements MySQLEntry
     public void messageReceived(Object object) {
         if (!(object instanceof PacketOuterClass.Packet)) return;
 
+        if (account == null)  {
+            super.messageReceived(object);
+            return;
+        }
+
         PacketOuterClass.Opcode opcode = ((PacketOuterClass.Packet) object).getOpcode();
 
         try {
@@ -163,11 +168,6 @@ public class RealmClientProxySession extends ClientSession implements MySQLEntry
                 return;
             }
 
-            if (account == null)  {
-                super.messageReceived(object);
-                return;
-            }
-
             handle(opcode, message);
 
         } catch (Exception e) {
@@ -180,10 +180,10 @@ public class RealmClientProxySession extends ClientSession implements MySQLEntry
      * @param opcode
      * @param message
      */
-    public void handle(PacketOuterClass.Opcode opcode, Message message) {
+    private void handle(PacketOuterClass.Opcode opcode, Message message) {
         RealmProtoListener<?> handler = (RealmProtoListener<?>) ProtoEventRepository.forOpcode(opcode);
 
-        if (handler == null || ProtoEventRepository.forOpcode(opcode) == null) {
+        if (handler == null) {
             SystemLogger.sendSystemErrMessage("We have an unidentified packet being dropped! Null Handler and Opcode!");
             return;
         }
