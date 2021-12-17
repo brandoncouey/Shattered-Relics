@@ -163,7 +163,10 @@ public class RealmClientProxySession extends ClientSession implements MySQLEntry
                 return;
             }
 
-            if (account == null) return;
+            if (account == null)  {
+                super.messageReceived(object);
+                return;
+            }
 
             handle(opcode, message);
 
