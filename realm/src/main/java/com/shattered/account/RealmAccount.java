@@ -4,7 +4,7 @@ import com.shattered.account.components.RealmAccountComponents;
 import com.shattered.account.components.friend.FriendChannelComponent;
 import com.shattered.account.components.managers.characters.RealmCharacterManagerComponent;
 import com.shattered.account.components.managers.RealmListManagerComponent;
-import com.shattered.networking.listeners.ProtoEventListener;
+import com.shattered.networking.listeners.ProtoEventRepository;
 import com.shattered.networking.listeners.RealmProtoListener;
 import com.shattered.networking.proto.PacketOuterClass;
 import com.shattered.realm.GameRealm;
@@ -31,7 +31,7 @@ public class RealmAccount extends Account {
         getComponentManager().onFetchData();
 
         //Registers Realm Loaded Listener
-        ProtoEventListener.registerListener(PacketOuterClass.Opcode.CMSG_REALM_LOADED, new RealmProtoListener<PacketOuterClass.EmptyPayload>() {
+        ProtoEventRepository.registerListener(PacketOuterClass.Opcode.CMSG_REALM_LOADED, new RealmProtoListener<PacketOuterClass.EmptyPayload>() {
 
             /**
              * @param message

@@ -2,7 +2,7 @@ package com.shattered;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.shattered.networking.NetworkBootstrap;
-import com.shattered.networking.listeners.ProtoEventListener;
+import com.shattered.networking.listeners.ProtoEventRepository;
 import com.shattered.networking.listeners.ProtoListener;
 import com.shattered.networking.proto.PacketOuterClass;
 import com.shattered.networking.proto.Proxy;
@@ -84,7 +84,7 @@ public class BuildCentral extends Build {
 
 
         /* ------------------------ Registers Server Connections Listeners ------------------------ */
-        ProtoEventListener.registerListener(PacketOuterClass.Opcode.S_Register, new ProtoListener<Sharding.RegisterServer>() {
+        ProtoEventRepository.registerListener(PacketOuterClass.Opcode.S_Register, new ProtoListener<Sharding.RegisterServer>() {
             @Override
             public void handle(Sharding.RegisterServer message, Session session)  {
                 switch (message.getToken()) {
@@ -160,7 +160,7 @@ public class BuildCentral extends Build {
 
 
         //Requests a Realm
-        ProtoEventListener.registerListener(PacketOuterClass.Opcode.P_RequestRealm, new ProtoListener<Proxy.RequestRealm>() {
+        ProtoEventRepository.registerListener(PacketOuterClass.Opcode.P_RequestRealm, new ProtoListener<Proxy.RequestRealm>() {
 
             /**
              * @param message
@@ -194,7 +194,7 @@ public class BuildCentral extends Build {
         /*
          * This Registers the S_Unregister ProtoMessage for the unregistering of ServerServices.
          */
-        ProtoEventListener.registerListener(PacketOuterClass.Opcode.S_Unregister, new ProtoListener<Sharding.UnregisterServer>() {
+        ProtoEventRepository.registerListener(PacketOuterClass.Opcode.S_Unregister, new ProtoListener<Sharding.UnregisterServer>() {
             @Override
             public void handle(Sharding.UnregisterServer message, Session session) {
                 ServiceConnections.unregister(message.getCuuid());
@@ -205,7 +205,7 @@ public class BuildCentral extends Build {
         /*
          * This registers the U_Ping for keeping the servers alive.
          */
-        ProtoEventListener.registerListener(PacketOuterClass.Opcode.U_Ping, new ProtoListener<Universal.Ping>() {
+        ProtoEventRepository.registerListener(PacketOuterClass.Opcode.U_Ping, new ProtoListener<Universal.Ping>() {
 
             @Override
             public void handle(Universal.Ping message, Session session) {
@@ -224,7 +224,7 @@ public class BuildCentral extends Build {
         /*
          * This registers the S_ConnectionInfo which is used for the Server Service to register it's current Host/Port.
          */
-        ProtoEventListener.registerListener(PacketOuterClass.Opcode.S_ConnectionInfo, new ProtoListener<Sharding.ConnectionInfo>() {
+        ProtoEventRepository.registerListener(PacketOuterClass.Opcode.S_ConnectionInfo, new ProtoListener<Sharding.ConnectionInfo>() {
             @Override
             public void handle(Sharding.ConnectionInfo message, Session session)  {
                 ServerService server = ServiceConnections.forUUID(message.getCuuid());
@@ -253,7 +253,7 @@ public class BuildCentral extends Build {
 
 
         //Registers the World Information Listener
-        ProtoEventListener.registerListener(PacketOuterClass.Opcode.S_WorldInformation, new ProtoListener<Sharding.WorldInformation> () {
+        ProtoEventRepository.registerListener(PacketOuterClass.Opcode.S_WorldInformation, new ProtoListener<Sharding.WorldInformation> () {
 
             /**
              * @param message
@@ -271,7 +271,7 @@ public class BuildCentral extends Build {
 
         //Used by the world for requesting channel server information...
         //Todo add others that's being used...
-        ProtoEventListener.registerListener(PacketOuterClass.Opcode.S_RequestConnectionInfo, new ProtoListener<Sharding.RequestConnectionInfo>() {
+        ProtoEventRepository.registerListener(PacketOuterClass.Opcode.S_RequestConnectionInfo, new ProtoListener<Sharding.RequestConnectionInfo>() {
 
             /**
              * @param message

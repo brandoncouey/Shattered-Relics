@@ -5,7 +5,7 @@ import com.shattered.account.RealmAccount;
 import com.shattered.account.components.RealmAccountComponents;
 import com.shattered.account.responses.AccountResponses;
 import com.shattered.account.Account;
-import com.shattered.networking.listeners.ProtoEventListener;
+import com.shattered.networking.listeners.ProtoEventRepository;
 import com.shattered.networking.listeners.RealmProtoListener;
 import com.shattered.networking.proto.PacketOuterClass;
 import com.shattered.networking.proto.Proxy;
@@ -49,7 +49,7 @@ public class RealmListManagerComponent extends Component {
     @Override
     public void onStart() {
         //Registers The Request GameRealm List
-        ProtoEventListener.registerListener(PacketOuterClass.Opcode.CMSG_REQUEST_REALM_LIST, new RealmProtoListener<PacketOuterClass.EmptyPayload>() {
+        ProtoEventRepository.registerListener(PacketOuterClass.Opcode.CMSG_REQUEST_REALM_LIST, new RealmProtoListener<PacketOuterClass.EmptyPayload>() {
 
             /**
              * @param message
@@ -78,7 +78,7 @@ public class RealmListManagerComponent extends Component {
         }, PacketOuterClass.EmptyPayload.getDefaultInstance());
 
         //Registers the World login Request
-        ProtoEventListener.registerListener(PacketOuterClass.Opcode.CMSG_WORLD_LOGIN_REQUEST, new RealmProtoListener<Realm.WorldLoginRequest>() {
+        ProtoEventRepository.registerListener(PacketOuterClass.Opcode.CMSG_WORLD_LOGIN_REQUEST, new RealmProtoListener<Realm.WorldLoginRequest>() {
 
             /**
              * @param message

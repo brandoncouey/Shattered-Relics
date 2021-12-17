@@ -1,8 +1,7 @@
 package com.shattered;
 
-import com.google.protobuf.InvalidProtocolBufferException;
 import com.shattered.engine.Engine;
-import com.shattered.networking.listeners.ProtoEventListener;
+import com.shattered.networking.listeners.ProtoEventRepository;
 import com.shattered.networking.listeners.ProtoListener;
 import com.shattered.networking.proto.PacketOuterClass;
 import com.shattered.networking.proto.Sharding;
@@ -78,7 +77,7 @@ public class BuildChannel extends Build {
     public void invoke(ChannelFuture channelFuture) {
 
 
-        ProtoEventListener.registerListener(PacketOuterClass.Opcode.S_Register, new ProtoListener<Sharding.RegisterServer>() {
+        ProtoEventRepository.registerListener(PacketOuterClass.Opcode.S_Register, new ProtoListener<Sharding.RegisterServer>() {
 
             /**
              * @param message

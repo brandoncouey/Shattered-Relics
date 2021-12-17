@@ -1,12 +1,11 @@
 package com.shattered.sessions.client;
 
-import com.google.protobuf.InvalidProtocolBufferException;
 import com.shattered.client.ClientConstants;
 import com.shattered.account.AccountInformation;
 import com.shattered.account.responses.AccountResponses;
 import com.shattered.networking.NetworkBootstrap;
 import com.shattered.networking.handlers.ClientNetworkHandler;
-import com.shattered.networking.listeners.ProtoEventListener;
+import com.shattered.networking.listeners.ProtoEventRepository;
 import com.shattered.networking.listeners.ProtoListener;
 import com.shattered.networking.listeners.ProtoType;
 import com.shattered.networking.proto.PacketOuterClass;
@@ -109,7 +108,7 @@ public class ProxyClientSession extends ClientSession {
     @Override
     public void invoke() {
 
-        ProtoEventListener.registerListener(PacketOuterClass.Opcode.P_ServerTransferResponse, new ProtoListener<Proxy.ServerTransferResponse>() {
+        ProtoEventRepository.registerListener(PacketOuterClass.Opcode.P_ServerTransferResponse, new ProtoListener<Proxy.ServerTransferResponse>() {
             /**
              * @param message
              * @param session

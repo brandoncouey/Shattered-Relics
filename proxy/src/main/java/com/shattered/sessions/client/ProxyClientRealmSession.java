@@ -2,7 +2,7 @@ package com.shattered.sessions.client;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.shattered.account.AccountInformation;
-import com.shattered.networking.listeners.ProtoEventListener;
+import com.shattered.networking.listeners.ProtoEventRepository;
 import com.shattered.networking.listeners.ProtoListener;
 import com.shattered.networking.proto.PacketOuterClass;
 import com.shattered.networking.proto.Proxy;
@@ -44,7 +44,7 @@ public class ProxyClientRealmSession extends RealmSession {
     public void invoke() {
 
         //Registers the Transmit Account Information
-        ProtoEventListener.registerListener(PacketOuterClass.Opcode.P_TransmitAccount, new ProtoListener<Proxy.TransmitAccount>() {
+        ProtoEventRepository.registerListener(PacketOuterClass.Opcode.P_TransmitAccount, new ProtoListener<Proxy.TransmitAccount>() {
 
             /**
              * @param message
@@ -59,7 +59,7 @@ public class ProxyClientRealmSession extends RealmSession {
         }, Proxy.TransmitAccount.getDefaultInstance());
         
         //Registers the Transfer to world opcode
-        ProtoEventListener.registerListener(PacketOuterClass.Opcode.P_TransferToWorld, new ProtoListener<Proxy.TransferToWorld>() {
+        ProtoEventRepository.registerListener(PacketOuterClass.Opcode.P_TransferToWorld, new ProtoListener<Proxy.TransferToWorld>() {
 
             /**
              * @param message

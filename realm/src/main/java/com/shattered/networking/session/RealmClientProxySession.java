@@ -8,7 +8,7 @@ import com.shattered.account.RealmAccount;
 import com.shattered.account.responses.AccountResponses;
 import com.shattered.database.mysql.MySQLEntry;
 import com.shattered.networking.NetworkBootstrap;
-import com.shattered.networking.listeners.ProtoEventListener;
+import com.shattered.networking.listeners.ProtoEventRepository;
 import com.shattered.networking.listeners.ProtoListener;
 import com.shattered.networking.listeners.RealmProtoListener;
 import com.shattered.networking.message.ProtoMessageRepository;
@@ -84,7 +84,7 @@ public class RealmClientProxySession extends ClientSession implements MySQLEntry
     public void invoke() {
         
         //Registers the Transfer To GameRealm Request
-        ProtoEventListener.registerListener(PacketOuterClass.Opcode.P_TransferToRealm, new ProtoListener<Proxy.TransferToRealm>() {
+        ProtoEventRepository.registerListener(PacketOuterClass.Opcode.P_TransferToRealm, new ProtoListener<Proxy.TransferToRealm>() {
 
             /**
              * @param message
@@ -101,7 +101,7 @@ public class RealmClientProxySession extends ClientSession implements MySQLEntry
         }, Proxy.TransferToRealm.getDefaultInstance());
 
         //Registers the Client Login Request
-        ProtoEventListener.registerListener(PacketOuterClass.Opcode.CMSG_LOGIN_REQUEST, new ProtoListener<Shared.LoginRequest>() {
+        ProtoEventRepository.registerListener(PacketOuterClass.Opcode.CMSG_LOGIN_REQUEST, new ProtoListener<Shared.LoginRequest>() {
 
             @Override
             public void handle(Shared.LoginRequest message, Session session) {
@@ -146,42 +146,50 @@ public class RealmClientProxySession extends ClientSession implements MySQLEntry
     @SuppressWarnings("Duplicates")
     @Override
     public void messageReceived(Object object) {
-        //Attempts to pull the Opcode from the message
-        PacketOuterClass.Opcode opcode = ((PacketOuterClass.Packet) object).getOpcode();
-        if (opcode == null) return;
+        if (!(object instanceof PacketOuterClass.Packet)) return;
 
+        PacketOuterClass.Opcode opcode = ((PacketOuterClass.Packet) object).getOpcode();
+
+        if (opcode != PacketOuterClass.Opcode.CMSG_TRANSFORM_UPDATE)
+            SystemLogger.sendSystemMessage("Incoming WorldClientMessage -> " + ((PacketOuterClass.Packet) object).getOpcode());
 
         try {
-            //Ensures a Valid Opcode
-            if (ProtoEventListener.getBuilders().get(opcode) == null) return;
 
-            //Ensures the Opcode is Registered
-            
+            if (ProtoEventRepository.forOpcode(opcode) == null) {
+                SystemLogger.sendSystemErrMessage("Unhandled incoming packet, Opcode=" + opcode.name() + ".");
+                return;
+            }
+
+            Message message = ProtoEventRepository.decode((PacketOuterClass.Packet) object);
+            if (message == null)  {
+                SystemLogger.sendSystemErrMessage("Dropping packet! Message is error, unknown packet.");
+                return;
+            }
+
             if (account != null) {
-                RealmProtoListener listener = (RealmProtoListener) ProtoEventListener.forOpcode(opcode);
-                if (listener == null) {
-                    SystemLogger.sendSystemErrMessage("Incoming Unhandled Opcode: " + opcode.name());
-                    return;
-                }
-
-                SystemLogger.sendSystemMessage("Incoming RealmClientMessage -> " + ((PacketOuterClass.Packet) object).getOpcode());
-
-                //Attempts to Decode the Message
-                Message message = ProtoEventListener.decode((PacketOuterClass.Packet) object);
-                if (message == null) return;
-
-                if (account != null) {
-                    //Handles the Message
-                    listener.handleRaw(message, account);
-                }
+                handle(opcode, message);
             } else {
                 super.messageReceived(object);
             }
 
         } catch (Exception e) {
-            SystemLogger.sendSystemMessage("Session could not handle opcode: " + opcode.name() + ", Cause: " + e.getCause() + ". (Probably not handled)");
+            e.printStackTrace();
         }
+    }
 
+    /**
+     * Handles the incoming packet
+     * @param opcode
+     * @param message
+     */
+    public void handle(PacketOuterClass.Opcode opcode, Message message) {
+        RealmProtoListener<?> handler = (RealmProtoListener<?>) ProtoEventRepository.forOpcode(opcode);
+
+        if (handler == null || ProtoEventRepository.forOpcode(opcode) == null) {
+            SystemLogger.sendSystemErrMessage("We have an unidentified packet being dropped! Null Handler and Opcode!");
+            return;
+        }
+        handler.handleRaw(message, account);
     }
 
     /**

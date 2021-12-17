@@ -2,7 +2,7 @@ package com.shattered.sessions;
 
 import com.shattered.account.ChannelAccount;
 import com.shattered.connections.AccountConnections;
-import com.shattered.networking.listeners.ProtoEventListener;
+import com.shattered.networking.listeners.ProtoEventRepository;
 import com.shattered.networking.listeners.ProtoListener;
 import com.shattered.networking.proto.PacketOuterClass;
 import com.shattered.networking.session.Session;
@@ -32,7 +32,7 @@ public class ChannelGameServerSession extends WorldSession {
     public void invoke() {
         super.invoke();
 
-        ProtoEventListener.registerListener(PacketOuterClass.Opcode.C_Register_Player, new ProtoListener<com.shattered.networking.proto.Channel.RegisterPlayer>() {
+        ProtoEventRepository.registerListener(PacketOuterClass.Opcode.C_Register_Player, new ProtoListener<com.shattered.networking.proto.Channel.RegisterPlayer>() {
             /**
              * @param message
              * @param session
@@ -57,7 +57,7 @@ public class ChannelGameServerSession extends WorldSession {
         }, com.shattered.networking.proto.Channel.RegisterPlayer.getDefaultInstance());
 
 
-        ProtoEventListener.registerListener(PacketOuterClass.Opcode.C_Unregister_Player, new ProtoListener<com.shattered.networking.proto.Channel.UnregisterPlayer>() {
+        ProtoEventRepository.registerListener(PacketOuterClass.Opcode.C_Unregister_Player, new ProtoListener<com.shattered.networking.proto.Channel.UnregisterPlayer>() {
             /**
              * @param message
              * @param session

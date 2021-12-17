@@ -1,7 +1,5 @@
 package com.shattered.account.component;
 
-import com.shattered.networking.listeners.ProtoEventListener;
-import com.shattered.networking.proto.PacketOuterClass;
 import com.shattered.utilities.ecs.ComponentManager;
 
 /**

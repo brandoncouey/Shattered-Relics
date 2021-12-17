@@ -4,7 +4,7 @@ import com.shattered.client.ClientRegistering;
 import com.shattered.engine.Engine;
 import com.shattered.game.engine.RealmEngine;
 import com.shattered.networking.NetworkBootstrap;
-import com.shattered.networking.listeners.ProtoEventListener;
+import com.shattered.networking.listeners.ProtoEventRepository;
 import com.shattered.networking.listeners.ProtoListener;
 import com.shattered.networking.proto.PacketOuterClass;
 import com.shattered.networking.proto.Proxy;
@@ -103,7 +103,7 @@ public class BuildRealm extends Build {
 
 
         //Registers Open Connection Opcode
-        ProtoEventListener.registerListener(PacketOuterClass.Opcode.P_OpenConnection, new ProtoListener<Proxy.OpenConnection>() {
+        ProtoEventRepository.registerListener(PacketOuterClass.Opcode.P_OpenConnection, new ProtoListener<Proxy.OpenConnection>() {
 
             @Override
             public void handle(Proxy.OpenConnection message, Session session) {
@@ -145,7 +145,7 @@ public class BuildRealm extends Build {
         /*
          * Registers the S_OpenConnection. Which is used for connecting to an internal server for additional services.
          */
-        ProtoEventListener.registerListener(PacketOuterClass.Opcode.S_OpenConnection, new ProtoListener<Sharding.ConnectionInfo>() {
+        ProtoEventRepository.registerListener(PacketOuterClass.Opcode.S_OpenConnection, new ProtoListener<Sharding.ConnectionInfo>() {
             /**
              * @param message
              * @param session
@@ -172,7 +172,7 @@ public class BuildRealm extends Build {
          * Registers the S_UpdateWorldList which is used for the player fetching the world list dynamically.
          * This currently updates the ENTIRE list.
          */
-        ProtoEventListener.registerListener(PacketOuterClass.Opcode.S_UpdateWorldList, new ProtoListener<Sharding.UpdateWorldList>() {
+        ProtoEventRepository.registerListener(PacketOuterClass.Opcode.S_UpdateWorldList, new ProtoListener<Sharding.UpdateWorldList>() {
 
             /**
              * @param message
@@ -192,7 +192,7 @@ public class BuildRealm extends Build {
          * Updates a S_UpdateWorldEntry with the specified World UUID with the updated information.
          * This currently updates a SINGLE Entry.
          */
-        ProtoEventListener.registerListener(PacketOuterClass.Opcode.S_UpdateWorldEntry, new ProtoListener<Sharding.UpdateWorldEntry>() {
+        ProtoEventRepository.registerListener(PacketOuterClass.Opcode.S_UpdateWorldEntry, new ProtoListener<Sharding.UpdateWorldEntry>() {
 
             /**
              * @param message

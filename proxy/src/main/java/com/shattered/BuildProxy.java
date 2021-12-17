@@ -1,8 +1,7 @@
 package com.shattered;
 
-import com.google.protobuf.InvalidProtocolBufferException;
 import com.shattered.networking.NetworkBootstrap;
-import com.shattered.networking.listeners.ProtoEventListener;
+import com.shattered.networking.listeners.ProtoEventRepository;
 import com.shattered.networking.listeners.ProtoListener;
 import com.shattered.networking.proto.PacketOuterClass;
 import com.shattered.networking.proto.Proxy;
@@ -80,7 +79,7 @@ public class BuildProxy extends Build implements ChannelListener {
     public void invoke(ChannelFuture channelFuture) {
 
         /* ------------------ P_OpenConnection Listener  ------------------ */
-        ProtoEventListener.registerListener(PacketOuterClass.Opcode.P_OpenConnection, new ProtoListener<Proxy.OpenConnection>() {
+        ProtoEventRepository.registerListener(PacketOuterClass.Opcode.P_OpenConnection, new ProtoListener<Proxy.OpenConnection>() {
             @Override
             public void handle(Proxy.OpenConnection message, Session session) {
                 switch (message.getToken()) {
@@ -126,7 +125,7 @@ public class BuildProxy extends Build implements ChannelListener {
 
         /* ------------------ P_TransferConnection Listener ------------------ */
 
-        ProtoEventListener.registerListener(PacketOuterClass.Opcode.P_TransferConnection, new ProtoListener<Proxy.TransferConnection>() {
+        ProtoEventRepository.registerListener(PacketOuterClass.Opcode.P_TransferConnection, new ProtoListener<Proxy.TransferConnection>() {
             @Override
             public void handle(Proxy.TransferConnection message, Session session) {
 

@@ -8,7 +8,7 @@ import com.shattered.connections.AccountConnections;
 import com.shattered.database.mysql.MySQLColumn;
 import com.shattered.database.mysql.MySQLCommand;
 import com.shattered.database.mysql.query.options.impl.WhereConditionOption;
-import com.shattered.networking.listeners.ProtoEventListener;
+import com.shattered.networking.listeners.ProtoEventRepository;
 import com.shattered.networking.listeners.ProtoListener;
 import com.shattered.networking.proto.Channel;
 import com.shattered.networking.proto.PacketOuterClass;
@@ -121,7 +121,7 @@ public class ChannelFriendComponent extends ChannelComponent {
          * ========================= BEGIN OF PACKETS ==================================
          */
 
-        ProtoEventListener.registerListener(PacketOuterClass.Opcode.C_OnlineStatus_Player, new ProtoListener<com.shattered.networking.proto.Channel.PlayerOnlineStatus>() {
+        ProtoEventRepository.registerListener(PacketOuterClass.Opcode.C_OnlineStatus_Player, new ProtoListener<com.shattered.networking.proto.Channel.PlayerOnlineStatus>() {
             /**
              * @param message
              * @param session
@@ -147,7 +147,7 @@ public class ChannelFriendComponent extends ChannelComponent {
         }, com.shattered.networking.proto.Channel.PlayerOnlineStatus.getDefaultInstance());
 
         //TODO lets make this one load from the current character....
-        ProtoEventListener.registerListener(PacketOuterClass.Opcode.C_Friends_List, new ProtoListener<Channel.FetchFriendsList>() {
+        ProtoEventRepository.registerListener(PacketOuterClass.Opcode.C_Friends_List, new ProtoListener<Channel.FetchFriendsList>() {
 
             /**
              * @param message
@@ -166,7 +166,7 @@ public class ChannelFriendComponent extends ChannelComponent {
         }, Channel.FetchFriendsList.getDefaultInstance());
 
 
-        ProtoEventListener.registerListener(PacketOuterClass.Opcode.C_AddFriend, new ProtoListener<Channel.AddRemoveFriend>() {
+        ProtoEventRepository.registerListener(PacketOuterClass.Opcode.C_AddFriend, new ProtoListener<Channel.AddRemoveFriend>() {
             /**
              * @param message
              * @param session
@@ -181,7 +181,7 @@ public class ChannelFriendComponent extends ChannelComponent {
         }, Channel.AddRemoveFriend.getDefaultInstance());
 
 
-        ProtoEventListener.registerListener(PacketOuterClass.Opcode.C_PrivateMessage, new ProtoListener<Channel.SendPrivateMessage>() {
+        ProtoEventRepository.registerListener(PacketOuterClass.Opcode.C_PrivateMessage, new ProtoListener<Channel.SendPrivateMessage>() {
             /**
              * @param message
              * @param session

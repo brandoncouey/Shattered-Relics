@@ -2,7 +2,7 @@ package com.shattered.networking.handlers;
 
 import com.google.protobuf.Message;
 import com.shattered.networking.NetworkHandler;
-import com.shattered.networking.listeners.ProtoEventListener;
+import com.shattered.networking.listeners.ProtoEventRepository;
 import com.shattered.networking.listeners.ProtoListener;
 import com.shattered.networking.proto.PacketOuterClass;
 import com.shattered.networking.session.Session;
@@ -12,7 +12,6 @@ import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 
-import java.util.Arrays;
 import java.util.Map;
 
 /**
@@ -39,13 +38,13 @@ public class ClientNetworkHandler extends NetworkHandler {
     protected void channelRead0(ChannelHandlerContext ctx, PacketOuterClass.Packet packet) throws Exception {
         PacketOuterClass.Opcode opcode = packet.getOpcode();
         try {
-            Message message = ProtoEventListener.decode(packet);
+            Message message = ProtoEventRepository.decode(packet);
             if (opcode != null && message != null) {
 
-                if (ProtoEventListener.getBuilders().get(opcode) != null) {
-                    ProtoEventListener.decode(packet);
-                    if (ProtoEventListener.forOpcode(opcode) != null) {
-                        for (Map.Entry<ProtoListener<?>, PacketOuterClass.Opcode> entry : ProtoEventListener.getListeners().entrySet()) {
+                if (ProtoEventRepository.getBuilders().get(opcode) != null) {
+                    ProtoEventRepository.decode(packet);
+                    if (ProtoEventRepository.forOpcode(opcode) != null) {
+                        for (Map.Entry<ProtoListener<?>, PacketOuterClass.Opcode> entry : ProtoEventRepository.getListeners().entrySet()) {
                             if (entry.getValue() == opcode)
                                 entry.getKey().handleRaw(message, ctx.channel().attr(getSessionKey()).get());
                         }

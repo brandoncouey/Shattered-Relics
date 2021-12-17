@@ -2,7 +2,7 @@ package com.shattered.networking.session;
 
 import com.google.protobuf.GeneratedMessageV3;
 import com.google.protobuf.Message;
-import com.shattered.networking.listeners.ProtoEventListener;
+import com.shattered.networking.listeners.ProtoEventRepository;
 import com.shattered.networking.listeners.ProtoListener;
 import com.shattered.networking.proto.PacketOuterClass;
 import com.shattered.system.SystemLogger;
@@ -28,7 +28,7 @@ public abstract class Session {
     @Getter
     @Setter
     protected long lastPingReceived;
-    
+
 
     /**
      *
@@ -48,39 +48,51 @@ public abstract class Session {
     public void messageReceived(Object object) {
         if (!(object instanceof PacketOuterClass.Packet)) return;
 
-        //Attempts to pull the Opcode from the message
         PacketOuterClass.Opcode opcode = ((PacketOuterClass.Packet) object).getOpcode();
-        if (opcode == null) return;
 
+        if (opcode != PacketOuterClass.Opcode.CMSG_TRANSFORM_UPDATE)
+            SystemLogger.sendSystemMessage("Incoming WorldClientMessage -> " + ((PacketOuterClass.Packet) object).getOpcode());
 
         try {
-            //Ensures a Valid Opcode
-            if (ProtoEventListener.getBuilders().get(opcode) == null) return;
 
-            //Ensures the Opcode is Registered
-            ProtoListener listener = ProtoEventListener.forOpcode(opcode);
-            if (listener == null) {
-                SystemLogger.sendSystemErrMessage("Incoming Unhandled Opcode: " + opcode.name());
+            if (ProtoEventRepository.forOpcode(opcode) == null) {
+                SystemLogger.sendSystemErrMessage("Unhandled incoming packet, Opcode=" + opcode.name() + ".");
                 return;
             }
 
-            //Attempts to Decode the Message
-            Message message = ProtoEventListener.decode((PacketOuterClass.Packet) object);
-            if (message == null) return;
+            Message message = ProtoEventRepository.decode((PacketOuterClass.Packet) object);
+            if (message == null)  {
+                SystemLogger.sendSystemErrMessage("Dropping packet! Message is error, unknown packet.");
+                return;
+            }
 
-            //Handles the Message
-            listener.handleRaw(message, this);
+            handle(opcode, message);
 
         } catch (Exception e) {
-            SystemLogger.sendSystemMessage("Session could not handle opcode: " + opcode.name() + ", Cause: " + e.getCause() + ". (Probably not handled)");
+            e.printStackTrace();
         }
+    }
+
+    /**
+     * Handles the incoming packet
+     * @param opcode
+     * @param message
+     */
+    public void handle(PacketOuterClass.Opcode opcode, Message message) {
+        ProtoListener<?> handler = (ProtoListener<?>) ProtoEventRepository.forOpcode(opcode);
+
+        if (handler == null || ProtoEventRepository.forOpcode(opcode) == null) {
+            SystemLogger.sendSystemErrMessage("We have an unidentified packet being dropped! Null Handler and Opcode!");
+            return;
+        }
+        handler.handleRaw(message, this);
     }
 
     /**
      * Called Upon Constructor for Invoking Proto Registers
      */
     public void invoke() {
-        
+
     }
 
     /**

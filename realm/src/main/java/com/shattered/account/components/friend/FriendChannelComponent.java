@@ -5,7 +5,7 @@ import com.shattered.BuildRealm;
 import com.shattered.account.Account;
 import com.shattered.account.RealmAccount;
 import com.shattered.account.components.RealmAccountComponents;
-import com.shattered.networking.listeners.ProtoEventListener;
+import com.shattered.networking.listeners.ProtoEventRepository;
 import com.shattered.networking.listeners.ProtoListener;
 import com.shattered.networking.listeners.RealmProtoListener;
 import com.shattered.networking.proto.Channel;
@@ -94,7 +94,7 @@ public class FriendChannelComponent extends Component {
     @Override
     public void onStart() {
 
-        ProtoEventListener.registerListener(PacketOuterClass.Opcode.CMSG_ADD_FRIEND, new RealmProtoListener<Shared.FriendName>() {
+        ProtoEventRepository.registerListener(PacketOuterClass.Opcode.CMSG_ADD_FRIEND, new RealmProtoListener<Shared.FriendName>() {
             /**
              * @param message
              * @param account
@@ -120,7 +120,7 @@ public class FriendChannelComponent extends Component {
         }, Shared.FriendName.getDefaultInstance());
 
         //Updates the entire friends list...
-        ProtoEventListener.registerListener(PacketOuterClass.Opcode.C_Friends_List, new ProtoListener<Channel.FriendsList>() {
+        ProtoEventRepository.registerListener(PacketOuterClass.Opcode.C_Friends_List, new ProtoListener<Channel.FriendsList>() {
             /**
              * @param message
              * @param session
@@ -151,7 +151,7 @@ public class FriendChannelComponent extends Component {
 
 
 
-        ProtoEventListener.registerListener(PacketOuterClass.Opcode.C_OfflineStatus_Player, new ProtoListener<Channel.PlayerOffline>() {
+        ProtoEventRepository.registerListener(PacketOuterClass.Opcode.C_OfflineStatus_Player, new ProtoListener<Channel.PlayerOffline>() {
             /**
              * @param message
              * @param session
@@ -175,7 +175,7 @@ public class FriendChannelComponent extends Component {
             }
         }, Channel.PlayerOffline.getDefaultInstance());
 
-        ProtoEventListener.registerListener(PacketOuterClass.Opcode.C_AddFriend, new ProtoListener<Channel.Friend>() {
+        ProtoEventRepository.registerListener(PacketOuterClass.Opcode.C_AddFriend, new ProtoListener<Channel.Friend>() {
             /**
              * @param message
              * @param session
@@ -199,7 +199,7 @@ public class FriendChannelComponent extends Component {
         }, Channel.Friend.getDefaultInstance());
 
 
-        ProtoEventListener.registerListener(PacketOuterClass.Opcode.C_OnlineStatus_Player, new ProtoListener<Channel.PlayerOnlineStatus>() {
+        ProtoEventRepository.registerListener(PacketOuterClass.Opcode.C_OnlineStatus_Player, new ProtoListener<Channel.PlayerOnlineStatus>() {
             /**
              * @param message
              * @param session

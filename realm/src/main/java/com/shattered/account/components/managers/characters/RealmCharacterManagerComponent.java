@@ -7,8 +7,7 @@ import com.shattered.account.character.PlayerInformation;
 import com.shattered.database.mysql.MySQLColumn;
 import com.shattered.database.mysql.MySQLCommand;
 import com.shattered.database.mysql.query.options.impl.WhereConditionOption;
-import com.shattered.networking.NetworkBootstrap;
-import com.shattered.networking.listeners.ProtoEventListener;
+import com.shattered.networking.listeners.ProtoEventRepository;
 import com.shattered.networking.listeners.RealmProtoListener;
 import com.shattered.networking.proto.PacketOuterClass;
 import com.shattered.networking.proto.Realm;
@@ -58,7 +57,7 @@ public class  RealmCharacterManagerComponent extends Component {
     public void onStart() {
         //Registers the Request of CharacterInformation List
 
-        ProtoEventListener.registerListener(PacketOuterClass.Opcode.CMSG_CREATE_CHARACTER_REQUEST, new RealmProtoListener<Realm.CreateCharacterRequest>() {
+        ProtoEventRepository.registerListener(PacketOuterClass.Opcode.CMSG_CREATE_CHARACTER_REQUEST, new RealmProtoListener<Realm.CreateCharacterRequest>() {
             /**
              * @param message
              * @param account

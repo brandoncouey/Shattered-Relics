@@ -1,7 +1,7 @@
 package com.shattered.sessions.client;
 
 import com.google.protobuf.InvalidProtocolBufferException;
-import com.shattered.networking.listeners.ProtoEventListener;
+import com.shattered.networking.listeners.ProtoEventRepository;
 import com.shattered.networking.listeners.ProtoListener;
 import com.shattered.networking.proto.PacketOuterClass;
 import com.shattered.networking.proto.Proxy;
@@ -43,7 +43,7 @@ public class ProxyClientWorldSession extends WorldSession {
     public void invoke() {
         super.invoke();
 
-        ProtoEventListener.registerListener(PacketOuterClass.Opcode.P_TransferWorldToRealm, new ProtoListener<Proxy.RequestWorldToRealmTransfer>() {
+        ProtoEventRepository.registerListener(PacketOuterClass.Opcode.P_TransferWorldToRealm, new ProtoListener<Proxy.RequestWorldToRealmTransfer>() {
             /**
              * @param message
              * @param session
@@ -59,7 +59,7 @@ public class ProxyClientWorldSession extends WorldSession {
         }, Proxy.RequestWorldToRealmTransfer.getDefaultInstance());
 
 
-        ProtoEventListener.registerListener(PacketOuterClass.Opcode.P_ServerAvailability, new ProtoListener<Proxy.ServerAvailability>() {
+        ProtoEventRepository.registerListener(PacketOuterClass.Opcode.P_ServerAvailability, new ProtoListener<Proxy.ServerAvailability>() {
             /**
              * @param message
              * @param session

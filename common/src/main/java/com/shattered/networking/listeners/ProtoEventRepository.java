@@ -12,7 +12,7 @@ import java.util.Map;
 /**
  * @author JTlrFrost
  */
-public class ProtoEventListener {
+public class ProtoEventRepository {
 
     /**
      * Represents a List of Decoders
