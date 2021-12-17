@@ -152,12 +152,12 @@ public class RealmClientProxySession extends ClientSession implements MySQLEntry
 
         try {
 
-            if (registry.forOpcode(opcode) == null) {
+            if (ProtoEventRepository.forOpcode(opcode) == null) {
                 SystemLogger.sendSystemErrMessage("Unhandled incoming packet, Opcode=" + opcode.name() + ".");
                 return;
             }
 
-            Message message = registry.decode((PacketOuterClass.Packet) object);
+            Message message = ProtoEventRepository.decode((PacketOuterClass.Packet) object);
             if (message == null)  {
                 SystemLogger.sendSystemErrMessage("Dropping packet! Message is error, unknown packet.");
                 return;
