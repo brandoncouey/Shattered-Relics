@@ -150,27 +150,22 @@ public class RealmClientProxySession extends ClientSession implements MySQLEntry
 
         PacketOuterClass.Opcode opcode = ((PacketOuterClass.Packet) object).getOpcode();
 
-        if (opcode != PacketOuterClass.Opcode.CMSG_TRANSFORM_UPDATE)
-            SystemLogger.sendSystemMessage("Incoming WorldClientMessage -> " + ((PacketOuterClass.Packet) object).getOpcode());
-
         try {
 
-            if (ProtoEventRepository.forOpcode(opcode) == null) {
+            if (registry.forOpcode(opcode) == null) {
                 SystemLogger.sendSystemErrMessage("Unhandled incoming packet, Opcode=" + opcode.name() + ".");
                 return;
             }
 
-            Message message = ProtoEventRepository.decode((PacketOuterClass.Packet) object);
+            Message message = registry.decode((PacketOuterClass.Packet) object);
             if (message == null)  {
                 SystemLogger.sendSystemErrMessage("Dropping packet! Message is error, unknown packet.");
                 return;
             }
 
-            if (account != null) {
-                handle(opcode, message);
-            } else {
-                super.messageReceived(object);
-            }
+            if (account == null) return;
+
+            handle(opcode, message);
 
         } catch (Exception e) {
             e.printStackTrace();
