@@ -506,14 +506,26 @@ message CurrentGrimoires {
 
 //+ustruct:BlueprintType
 message GrimoireStatistics {
-    int32 temper_warrior_experience = 1;
-    int32 safe_guard_warrior_experience = 2;
-    int32 assassination_rogue_experience = 3;
-    int32 shadow_rogue_experience = 4;
-    int32 deadeye_hunter_experience = 5;
-    int32 beast_master_hunter_experience = 6;
-    int32 fire_mage_experience = 7;
-    int32 air_mage_experience = 8;
+    int32 warrior_experience = 1;
+    int32 temper_warrior_experience = 2;
+    int32 safe_guard_warrior_experience = 3;
+    int32 paladin_experience = 4;
+    int32 adept_paladin_experience = 5;
+    int32 rogue_experience = 6;
+    int32 assassination_rogue_experience = 7;
+    int32 shadow_rogue_experience = 8;
+    int32 hunter_experience = 9;
+    int32 deadeye_hunter_experience = 10;
+    int32 beast_master_hunter_experience = 11;
+    int32 priest_experience = 12;
+    int32 shaman_experience = 13;
+    int32 druid_experience = 14;
+    int32 life_druid_experience = 15;
+    int32 mage_experiene = 16;
+    int32 fire_mage_experience = 17;
+    int32 air_mage_experience = 18;
+    int32 warlock_experience = 19;
+    int32 necromancer_experience = 20;
 }
 
 //+ustruct:BlueprintType

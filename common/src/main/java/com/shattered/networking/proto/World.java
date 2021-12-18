@@ -51128,44 +51128,104 @@ public final class World {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 temper_warrior_experience = 1;</code>
+     * <code>int32 warrior_experience = 1;</code>
+     */
+    int getWarriorExperience();
+
+    /**
+     * <code>int32 temper_warrior_experience = 2;</code>
      */
     int getTemperWarriorExperience();
 
     /**
-     * <code>int32 safe_guard_warrior_experience = 2;</code>
+     * <code>int32 safe_guard_warrior_experience = 3;</code>
      */
     int getSafeGuardWarriorExperience();
 
     /**
-     * <code>int32 assassination_rogue_experience = 3;</code>
+     * <code>int32 paladin_experience = 4;</code>
+     */
+    int getPaladinExperience();
+
+    /**
+     * <code>int32 adept_paladin_experience = 5;</code>
+     */
+    int getAdeptPaladinExperience();
+
+    /**
+     * <code>int32 rogue_experience = 6;</code>
+     */
+    int getRogueExperience();
+
+    /**
+     * <code>int32 assassination_rogue_experience = 7;</code>
      */
     int getAssassinationRogueExperience();
 
     /**
-     * <code>int32 shadow_rogue_experience = 4;</code>
+     * <code>int32 shadow_rogue_experience = 8;</code>
      */
     int getShadowRogueExperience();
 
     /**
-     * <code>int32 deadeye_hunter_experience = 5;</code>
+     * <code>int32 hunter_experience = 9;</code>
+     */
+    int getHunterExperience();
+
+    /**
+     * <code>int32 deadeye_hunter_experience = 10;</code>
      */
     int getDeadeyeHunterExperience();
 
     /**
-     * <code>int32 beast_master_hunter_experience = 6;</code>
+     * <code>int32 beast_master_hunter_experience = 11;</code>
      */
     int getBeastMasterHunterExperience();
 
     /**
-     * <code>int32 fire_mage_experience = 7;</code>
+     * <code>int32 priest_experience = 12;</code>
+     */
+    int getPriestExperience();
+
+    /**
+     * <code>int32 shaman_experience = 13;</code>
+     */
+    int getShamanExperience();
+
+    /**
+     * <code>int32 druid_experience = 14;</code>
+     */
+    int getDruidExperience();
+
+    /**
+     * <code>int32 life_druid_experience = 15;</code>
+     */
+    int getLifeDruidExperience();
+
+    /**
+     * <code>int32 mage_experiene = 16;</code>
+     */
+    int getMageExperiene();
+
+    /**
+     * <code>int32 fire_mage_experience = 17;</code>
      */
     int getFireMageExperience();
 
     /**
-     * <code>int32 air_mage_experience = 8;</code>
+     * <code>int32 air_mage_experience = 18;</code>
      */
     int getAirMageExperience();
+
+    /**
+     * <code>int32 warlock_experience = 19;</code>
+     */
+    int getWarlockExperience();
+
+    /**
+     * <code>int32 necromancer_experience = 20;</code>
+     */
+    int getNecromancerExperience();
   }
   /**
    * <pre>
@@ -51184,14 +51244,26 @@ public final class World {
       super(builder);
     }
     private GrimoireStatistics() {
+      warriorExperience_ = 0;
       temperWarriorExperience_ = 0;
       safeGuardWarriorExperience_ = 0;
+      paladinExperience_ = 0;
+      adeptPaladinExperience_ = 0;
+      rogueExperience_ = 0;
       assassinationRogueExperience_ = 0;
       shadowRogueExperience_ = 0;
+      hunterExperience_ = 0;
       deadeyeHunterExperience_ = 0;
       beastMasterHunterExperience_ = 0;
+      priestExperience_ = 0;
+      shamanExperience_ = 0;
+      druidExperience_ = 0;
+      lifeDruidExperience_ = 0;
+      mageExperiene_ = 0;
       fireMageExperience_ = 0;
       airMageExperience_ = 0;
+      warlockExperience_ = 0;
+      necromancerExperience_ = 0;
     }
 
     @java.lang.Override
@@ -51220,42 +51292,102 @@ public final class World {
               break;
             case 8: {
 
-              temperWarriorExperience_ = input.readInt32();
+              warriorExperience_ = input.readInt32();
               break;
             }
             case 16: {
 
-              safeGuardWarriorExperience_ = input.readInt32();
+              temperWarriorExperience_ = input.readInt32();
               break;
             }
             case 24: {
 
-              assassinationRogueExperience_ = input.readInt32();
+              safeGuardWarriorExperience_ = input.readInt32();
               break;
             }
             case 32: {
 
-              shadowRogueExperience_ = input.readInt32();
+              paladinExperience_ = input.readInt32();
               break;
             }
             case 40: {
 
-              deadeyeHunterExperience_ = input.readInt32();
+              adeptPaladinExperience_ = input.readInt32();
               break;
             }
             case 48: {
 
-              beastMasterHunterExperience_ = input.readInt32();
+              rogueExperience_ = input.readInt32();
               break;
             }
             case 56: {
 
-              fireMageExperience_ = input.readInt32();
+              assassinationRogueExperience_ = input.readInt32();
               break;
             }
             case 64: {
 
+              shadowRogueExperience_ = input.readInt32();
+              break;
+            }
+            case 72: {
+
+              hunterExperience_ = input.readInt32();
+              break;
+            }
+            case 80: {
+
+              deadeyeHunterExperience_ = input.readInt32();
+              break;
+            }
+            case 88: {
+
+              beastMasterHunterExperience_ = input.readInt32();
+              break;
+            }
+            case 96: {
+
+              priestExperience_ = input.readInt32();
+              break;
+            }
+            case 104: {
+
+              shamanExperience_ = input.readInt32();
+              break;
+            }
+            case 112: {
+
+              druidExperience_ = input.readInt32();
+              break;
+            }
+            case 120: {
+
+              lifeDruidExperience_ = input.readInt32();
+              break;
+            }
+            case 128: {
+
+              mageExperiene_ = input.readInt32();
+              break;
+            }
+            case 136: {
+
+              fireMageExperience_ = input.readInt32();
+              break;
+            }
+            case 144: {
+
               airMageExperience_ = input.readInt32();
+              break;
+            }
+            case 152: {
+
+              warlockExperience_ = input.readInt32();
+              break;
+            }
+            case 160: {
+
+              necromancerExperience_ = input.readInt32();
               break;
             }
             default: {
@@ -51290,76 +51422,184 @@ public final class World {
               com.shattered.networking.proto.World.GrimoireStatistics.class, com.shattered.networking.proto.World.GrimoireStatistics.Builder.class);
     }
 
-    public static final int TEMPER_WARRIOR_EXPERIENCE_FIELD_NUMBER = 1;
+    public static final int WARRIOR_EXPERIENCE_FIELD_NUMBER = 1;
+    private int warriorExperience_;
+    /**
+     * <code>int32 warrior_experience = 1;</code>
+     */
+    public int getWarriorExperience() {
+      return warriorExperience_;
+    }
+
+    public static final int TEMPER_WARRIOR_EXPERIENCE_FIELD_NUMBER = 2;
     private int temperWarriorExperience_;
     /**
-     * <code>int32 temper_warrior_experience = 1;</code>
+     * <code>int32 temper_warrior_experience = 2;</code>
      */
     public int getTemperWarriorExperience() {
       return temperWarriorExperience_;
     }
 
-    public static final int SAFE_GUARD_WARRIOR_EXPERIENCE_FIELD_NUMBER = 2;
+    public static final int SAFE_GUARD_WARRIOR_EXPERIENCE_FIELD_NUMBER = 3;
     private int safeGuardWarriorExperience_;
     /**
-     * <code>int32 safe_guard_warrior_experience = 2;</code>
+     * <code>int32 safe_guard_warrior_experience = 3;</code>
      */
     public int getSafeGuardWarriorExperience() {
       return safeGuardWarriorExperience_;
     }
 
-    public static final int ASSASSINATION_ROGUE_EXPERIENCE_FIELD_NUMBER = 3;
+    public static final int PALADIN_EXPERIENCE_FIELD_NUMBER = 4;
+    private int paladinExperience_;
+    /**
+     * <code>int32 paladin_experience = 4;</code>
+     */
+    public int getPaladinExperience() {
+      return paladinExperience_;
+    }
+
+    public static final int ADEPT_PALADIN_EXPERIENCE_FIELD_NUMBER = 5;
+    private int adeptPaladinExperience_;
+    /**
+     * <code>int32 adept_paladin_experience = 5;</code>
+     */
+    public int getAdeptPaladinExperience() {
+      return adeptPaladinExperience_;
+    }
+
+    public static final int ROGUE_EXPERIENCE_FIELD_NUMBER = 6;
+    private int rogueExperience_;
+    /**
+     * <code>int32 rogue_experience = 6;</code>
+     */
+    public int getRogueExperience() {
+      return rogueExperience_;
+    }
+
+    public static final int ASSASSINATION_ROGUE_EXPERIENCE_FIELD_NUMBER = 7;
     private int assassinationRogueExperience_;
     /**
-     * <code>int32 assassination_rogue_experience = 3;</code>
+     * <code>int32 assassination_rogue_experience = 7;</code>
      */
     public int getAssassinationRogueExperience() {
       return assassinationRogueExperience_;
     }
 
-    public static final int SHADOW_ROGUE_EXPERIENCE_FIELD_NUMBER = 4;
+    public static final int SHADOW_ROGUE_EXPERIENCE_FIELD_NUMBER = 8;
     private int shadowRogueExperience_;
     /**
-     * <code>int32 shadow_rogue_experience = 4;</code>
+     * <code>int32 shadow_rogue_experience = 8;</code>
      */
     public int getShadowRogueExperience() {
       return shadowRogueExperience_;
     }
 
-    public static final int DEADEYE_HUNTER_EXPERIENCE_FIELD_NUMBER = 5;
+    public static final int HUNTER_EXPERIENCE_FIELD_NUMBER = 9;
+    private int hunterExperience_;
+    /**
+     * <code>int32 hunter_experience = 9;</code>
+     */
+    public int getHunterExperience() {
+      return hunterExperience_;
+    }
+
+    public static final int DEADEYE_HUNTER_EXPERIENCE_FIELD_NUMBER = 10;
     private int deadeyeHunterExperience_;
     /**
-     * <code>int32 deadeye_hunter_experience = 5;</code>
+     * <code>int32 deadeye_hunter_experience = 10;</code>
      */
     public int getDeadeyeHunterExperience() {
       return deadeyeHunterExperience_;
     }
 
-    public static final int BEAST_MASTER_HUNTER_EXPERIENCE_FIELD_NUMBER = 6;
+    public static final int BEAST_MASTER_HUNTER_EXPERIENCE_FIELD_NUMBER = 11;
     private int beastMasterHunterExperience_;
     /**
-     * <code>int32 beast_master_hunter_experience = 6;</code>
+     * <code>int32 beast_master_hunter_experience = 11;</code>
      */
     public int getBeastMasterHunterExperience() {
       return beastMasterHunterExperience_;
     }
 
-    public static final int FIRE_MAGE_EXPERIENCE_FIELD_NUMBER = 7;
+    public static final int PRIEST_EXPERIENCE_FIELD_NUMBER = 12;
+    private int priestExperience_;
+    /**
+     * <code>int32 priest_experience = 12;</code>
+     */
+    public int getPriestExperience() {
+      return priestExperience_;
+    }
+
+    public static final int SHAMAN_EXPERIENCE_FIELD_NUMBER = 13;
+    private int shamanExperience_;
+    /**
+     * <code>int32 shaman_experience = 13;</code>
+     */
+    public int getShamanExperience() {
+      return shamanExperience_;
+    }
+
+    public static final int DRUID_EXPERIENCE_FIELD_NUMBER = 14;
+    private int druidExperience_;
+    /**
+     * <code>int32 druid_experience = 14;</code>
+     */
+    public int getDruidExperience() {
+      return druidExperience_;
+    }
+
+    public static final int LIFE_DRUID_EXPERIENCE_FIELD_NUMBER = 15;
+    private int lifeDruidExperience_;
+    /**
+     * <code>int32 life_druid_experience = 15;</code>
+     */
+    public int getLifeDruidExperience() {
+      return lifeDruidExperience_;
+    }
+
+    public static final int MAGE_EXPERIENE_FIELD_NUMBER = 16;
+    private int mageExperiene_;
+    /**
+     * <code>int32 mage_experiene = 16;</code>
+     */
+    public int getMageExperiene() {
+      return mageExperiene_;
+    }
+
+    public static final int FIRE_MAGE_EXPERIENCE_FIELD_NUMBER = 17;
     private int fireMageExperience_;
     /**
-     * <code>int32 fire_mage_experience = 7;</code>
+     * <code>int32 fire_mage_experience = 17;</code>
      */
     public int getFireMageExperience() {
       return fireMageExperience_;
     }
 
-    public static final int AIR_MAGE_EXPERIENCE_FIELD_NUMBER = 8;
+    public static final int AIR_MAGE_EXPERIENCE_FIELD_NUMBER = 18;
     private int airMageExperience_;
     /**
-     * <code>int32 air_mage_experience = 8;</code>
+     * <code>int32 air_mage_experience = 18;</code>
      */
     public int getAirMageExperience() {
       return airMageExperience_;
+    }
+
+    public static final int WARLOCK_EXPERIENCE_FIELD_NUMBER = 19;
+    private int warlockExperience_;
+    /**
+     * <code>int32 warlock_experience = 19;</code>
+     */
+    public int getWarlockExperience() {
+      return warlockExperience_;
+    }
+
+    public static final int NECROMANCER_EXPERIENCE_FIELD_NUMBER = 20;
+    private int necromancerExperience_;
+    /**
+     * <code>int32 necromancer_experience = 20;</code>
+     */
+    public int getNecromancerExperience() {
+      return necromancerExperience_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -51376,29 +51616,65 @@ public final class World {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (warriorExperience_ != 0) {
+        output.writeInt32(1, warriorExperience_);
+      }
       if (temperWarriorExperience_ != 0) {
-        output.writeInt32(1, temperWarriorExperience_);
+        output.writeInt32(2, temperWarriorExperience_);
       }
       if (safeGuardWarriorExperience_ != 0) {
-        output.writeInt32(2, safeGuardWarriorExperience_);
+        output.writeInt32(3, safeGuardWarriorExperience_);
+      }
+      if (paladinExperience_ != 0) {
+        output.writeInt32(4, paladinExperience_);
+      }
+      if (adeptPaladinExperience_ != 0) {
+        output.writeInt32(5, adeptPaladinExperience_);
+      }
+      if (rogueExperience_ != 0) {
+        output.writeInt32(6, rogueExperience_);
       }
       if (assassinationRogueExperience_ != 0) {
-        output.writeInt32(3, assassinationRogueExperience_);
+        output.writeInt32(7, assassinationRogueExperience_);
       }
       if (shadowRogueExperience_ != 0) {
-        output.writeInt32(4, shadowRogueExperience_);
+        output.writeInt32(8, shadowRogueExperience_);
+      }
+      if (hunterExperience_ != 0) {
+        output.writeInt32(9, hunterExperience_);
       }
       if (deadeyeHunterExperience_ != 0) {
-        output.writeInt32(5, deadeyeHunterExperience_);
+        output.writeInt32(10, deadeyeHunterExperience_);
       }
       if (beastMasterHunterExperience_ != 0) {
-        output.writeInt32(6, beastMasterHunterExperience_);
+        output.writeInt32(11, beastMasterHunterExperience_);
+      }
+      if (priestExperience_ != 0) {
+        output.writeInt32(12, priestExperience_);
+      }
+      if (shamanExperience_ != 0) {
+        output.writeInt32(13, shamanExperience_);
+      }
+      if (druidExperience_ != 0) {
+        output.writeInt32(14, druidExperience_);
+      }
+      if (lifeDruidExperience_ != 0) {
+        output.writeInt32(15, lifeDruidExperience_);
+      }
+      if (mageExperiene_ != 0) {
+        output.writeInt32(16, mageExperiene_);
       }
       if (fireMageExperience_ != 0) {
-        output.writeInt32(7, fireMageExperience_);
+        output.writeInt32(17, fireMageExperience_);
       }
       if (airMageExperience_ != 0) {
-        output.writeInt32(8, airMageExperience_);
+        output.writeInt32(18, airMageExperience_);
+      }
+      if (warlockExperience_ != 0) {
+        output.writeInt32(19, warlockExperience_);
+      }
+      if (necromancerExperience_ != 0) {
+        output.writeInt32(20, necromancerExperience_);
       }
       unknownFields.writeTo(output);
     }
@@ -51409,37 +51685,85 @@ public final class World {
       if (size != -1) return size;
 
       size = 0;
+      if (warriorExperience_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, warriorExperience_);
+      }
       if (temperWarriorExperience_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, temperWarriorExperience_);
+          .computeInt32Size(2, temperWarriorExperience_);
       }
       if (safeGuardWarriorExperience_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, safeGuardWarriorExperience_);
+          .computeInt32Size(3, safeGuardWarriorExperience_);
+      }
+      if (paladinExperience_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, paladinExperience_);
+      }
+      if (adeptPaladinExperience_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(5, adeptPaladinExperience_);
+      }
+      if (rogueExperience_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(6, rogueExperience_);
       }
       if (assassinationRogueExperience_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, assassinationRogueExperience_);
+          .computeInt32Size(7, assassinationRogueExperience_);
       }
       if (shadowRogueExperience_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, shadowRogueExperience_);
+          .computeInt32Size(8, shadowRogueExperience_);
+      }
+      if (hunterExperience_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(9, hunterExperience_);
       }
       if (deadeyeHunterExperience_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(5, deadeyeHunterExperience_);
+          .computeInt32Size(10, deadeyeHunterExperience_);
       }
       if (beastMasterHunterExperience_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(6, beastMasterHunterExperience_);
+          .computeInt32Size(11, beastMasterHunterExperience_);
+      }
+      if (priestExperience_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(12, priestExperience_);
+      }
+      if (shamanExperience_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(13, shamanExperience_);
+      }
+      if (druidExperience_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(14, druidExperience_);
+      }
+      if (lifeDruidExperience_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(15, lifeDruidExperience_);
+      }
+      if (mageExperiene_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(16, mageExperiene_);
       }
       if (fireMageExperience_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(7, fireMageExperience_);
+          .computeInt32Size(17, fireMageExperience_);
       }
       if (airMageExperience_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(8, airMageExperience_);
+          .computeInt32Size(18, airMageExperience_);
+      }
+      if (warlockExperience_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(19, warlockExperience_);
+      }
+      if (necromancerExperience_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(20, necromancerExperience_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -51457,22 +51781,46 @@ public final class World {
       com.shattered.networking.proto.World.GrimoireStatistics other = (com.shattered.networking.proto.World.GrimoireStatistics) obj;
 
       boolean result = true;
+      result = result && (getWarriorExperience()
+          == other.getWarriorExperience());
       result = result && (getTemperWarriorExperience()
           == other.getTemperWarriorExperience());
       result = result && (getSafeGuardWarriorExperience()
           == other.getSafeGuardWarriorExperience());
+      result = result && (getPaladinExperience()
+          == other.getPaladinExperience());
+      result = result && (getAdeptPaladinExperience()
+          == other.getAdeptPaladinExperience());
+      result = result && (getRogueExperience()
+          == other.getRogueExperience());
       result = result && (getAssassinationRogueExperience()
           == other.getAssassinationRogueExperience());
       result = result && (getShadowRogueExperience()
           == other.getShadowRogueExperience());
+      result = result && (getHunterExperience()
+          == other.getHunterExperience());
       result = result && (getDeadeyeHunterExperience()
           == other.getDeadeyeHunterExperience());
       result = result && (getBeastMasterHunterExperience()
           == other.getBeastMasterHunterExperience());
+      result = result && (getPriestExperience()
+          == other.getPriestExperience());
+      result = result && (getShamanExperience()
+          == other.getShamanExperience());
+      result = result && (getDruidExperience()
+          == other.getDruidExperience());
+      result = result && (getLifeDruidExperience()
+          == other.getLifeDruidExperience());
+      result = result && (getMageExperiene()
+          == other.getMageExperiene());
       result = result && (getFireMageExperience()
           == other.getFireMageExperience());
       result = result && (getAirMageExperience()
           == other.getAirMageExperience());
+      result = result && (getWarlockExperience()
+          == other.getWarlockExperience());
+      result = result && (getNecromancerExperience()
+          == other.getNecromancerExperience());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -51484,22 +51832,46 @@ public final class World {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + WARRIOR_EXPERIENCE_FIELD_NUMBER;
+      hash = (53 * hash) + getWarriorExperience();
       hash = (37 * hash) + TEMPER_WARRIOR_EXPERIENCE_FIELD_NUMBER;
       hash = (53 * hash) + getTemperWarriorExperience();
       hash = (37 * hash) + SAFE_GUARD_WARRIOR_EXPERIENCE_FIELD_NUMBER;
       hash = (53 * hash) + getSafeGuardWarriorExperience();
+      hash = (37 * hash) + PALADIN_EXPERIENCE_FIELD_NUMBER;
+      hash = (53 * hash) + getPaladinExperience();
+      hash = (37 * hash) + ADEPT_PALADIN_EXPERIENCE_FIELD_NUMBER;
+      hash = (53 * hash) + getAdeptPaladinExperience();
+      hash = (37 * hash) + ROGUE_EXPERIENCE_FIELD_NUMBER;
+      hash = (53 * hash) + getRogueExperience();
       hash = (37 * hash) + ASSASSINATION_ROGUE_EXPERIENCE_FIELD_NUMBER;
       hash = (53 * hash) + getAssassinationRogueExperience();
       hash = (37 * hash) + SHADOW_ROGUE_EXPERIENCE_FIELD_NUMBER;
       hash = (53 * hash) + getShadowRogueExperience();
+      hash = (37 * hash) + HUNTER_EXPERIENCE_FIELD_NUMBER;
+      hash = (53 * hash) + getHunterExperience();
       hash = (37 * hash) + DEADEYE_HUNTER_EXPERIENCE_FIELD_NUMBER;
       hash = (53 * hash) + getDeadeyeHunterExperience();
       hash = (37 * hash) + BEAST_MASTER_HUNTER_EXPERIENCE_FIELD_NUMBER;
       hash = (53 * hash) + getBeastMasterHunterExperience();
+      hash = (37 * hash) + PRIEST_EXPERIENCE_FIELD_NUMBER;
+      hash = (53 * hash) + getPriestExperience();
+      hash = (37 * hash) + SHAMAN_EXPERIENCE_FIELD_NUMBER;
+      hash = (53 * hash) + getShamanExperience();
+      hash = (37 * hash) + DRUID_EXPERIENCE_FIELD_NUMBER;
+      hash = (53 * hash) + getDruidExperience();
+      hash = (37 * hash) + LIFE_DRUID_EXPERIENCE_FIELD_NUMBER;
+      hash = (53 * hash) + getLifeDruidExperience();
+      hash = (37 * hash) + MAGE_EXPERIENE_FIELD_NUMBER;
+      hash = (53 * hash) + getMageExperiene();
       hash = (37 * hash) + FIRE_MAGE_EXPERIENCE_FIELD_NUMBER;
       hash = (53 * hash) + getFireMageExperience();
       hash = (37 * hash) + AIR_MAGE_EXPERIENCE_FIELD_NUMBER;
       hash = (53 * hash) + getAirMageExperience();
+      hash = (37 * hash) + WARLOCK_EXPERIENCE_FIELD_NUMBER;
+      hash = (53 * hash) + getWarlockExperience();
+      hash = (37 * hash) + NECROMANCER_EXPERIENCE_FIELD_NUMBER;
+      hash = (53 * hash) + getNecromancerExperience();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -51637,21 +52009,45 @@ public final class World {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        warriorExperience_ = 0;
+
         temperWarriorExperience_ = 0;
 
         safeGuardWarriorExperience_ = 0;
+
+        paladinExperience_ = 0;
+
+        adeptPaladinExperience_ = 0;
+
+        rogueExperience_ = 0;
 
         assassinationRogueExperience_ = 0;
 
         shadowRogueExperience_ = 0;
 
+        hunterExperience_ = 0;
+
         deadeyeHunterExperience_ = 0;
 
         beastMasterHunterExperience_ = 0;
 
+        priestExperience_ = 0;
+
+        shamanExperience_ = 0;
+
+        druidExperience_ = 0;
+
+        lifeDruidExperience_ = 0;
+
+        mageExperiene_ = 0;
+
         fireMageExperience_ = 0;
 
         airMageExperience_ = 0;
+
+        warlockExperience_ = 0;
+
+        necromancerExperience_ = 0;
 
         return this;
       }
@@ -51679,14 +52075,26 @@ public final class World {
       @java.lang.Override
       public com.shattered.networking.proto.World.GrimoireStatistics buildPartial() {
         com.shattered.networking.proto.World.GrimoireStatistics result = new com.shattered.networking.proto.World.GrimoireStatistics(this);
+        result.warriorExperience_ = warriorExperience_;
         result.temperWarriorExperience_ = temperWarriorExperience_;
         result.safeGuardWarriorExperience_ = safeGuardWarriorExperience_;
+        result.paladinExperience_ = paladinExperience_;
+        result.adeptPaladinExperience_ = adeptPaladinExperience_;
+        result.rogueExperience_ = rogueExperience_;
         result.assassinationRogueExperience_ = assassinationRogueExperience_;
         result.shadowRogueExperience_ = shadowRogueExperience_;
+        result.hunterExperience_ = hunterExperience_;
         result.deadeyeHunterExperience_ = deadeyeHunterExperience_;
         result.beastMasterHunterExperience_ = beastMasterHunterExperience_;
+        result.priestExperience_ = priestExperience_;
+        result.shamanExperience_ = shamanExperience_;
+        result.druidExperience_ = druidExperience_;
+        result.lifeDruidExperience_ = lifeDruidExperience_;
+        result.mageExperiene_ = mageExperiene_;
         result.fireMageExperience_ = fireMageExperience_;
         result.airMageExperience_ = airMageExperience_;
+        result.warlockExperience_ = warlockExperience_;
+        result.necromancerExperience_ = necromancerExperience_;
         onBuilt();
         return result;
       }
@@ -51735,11 +52143,23 @@ public final class World {
 
       public Builder mergeFrom(com.shattered.networking.proto.World.GrimoireStatistics other) {
         if (other == com.shattered.networking.proto.World.GrimoireStatistics.getDefaultInstance()) return this;
+        if (other.getWarriorExperience() != 0) {
+          setWarriorExperience(other.getWarriorExperience());
+        }
         if (other.getTemperWarriorExperience() != 0) {
           setTemperWarriorExperience(other.getTemperWarriorExperience());
         }
         if (other.getSafeGuardWarriorExperience() != 0) {
           setSafeGuardWarriorExperience(other.getSafeGuardWarriorExperience());
+        }
+        if (other.getPaladinExperience() != 0) {
+          setPaladinExperience(other.getPaladinExperience());
+        }
+        if (other.getAdeptPaladinExperience() != 0) {
+          setAdeptPaladinExperience(other.getAdeptPaladinExperience());
+        }
+        if (other.getRogueExperience() != 0) {
+          setRogueExperience(other.getRogueExperience());
         }
         if (other.getAssassinationRogueExperience() != 0) {
           setAssassinationRogueExperience(other.getAssassinationRogueExperience());
@@ -51747,17 +52167,41 @@ public final class World {
         if (other.getShadowRogueExperience() != 0) {
           setShadowRogueExperience(other.getShadowRogueExperience());
         }
+        if (other.getHunterExperience() != 0) {
+          setHunterExperience(other.getHunterExperience());
+        }
         if (other.getDeadeyeHunterExperience() != 0) {
           setDeadeyeHunterExperience(other.getDeadeyeHunterExperience());
         }
         if (other.getBeastMasterHunterExperience() != 0) {
           setBeastMasterHunterExperience(other.getBeastMasterHunterExperience());
         }
+        if (other.getPriestExperience() != 0) {
+          setPriestExperience(other.getPriestExperience());
+        }
+        if (other.getShamanExperience() != 0) {
+          setShamanExperience(other.getShamanExperience());
+        }
+        if (other.getDruidExperience() != 0) {
+          setDruidExperience(other.getDruidExperience());
+        }
+        if (other.getLifeDruidExperience() != 0) {
+          setLifeDruidExperience(other.getLifeDruidExperience());
+        }
+        if (other.getMageExperiene() != 0) {
+          setMageExperiene(other.getMageExperiene());
+        }
         if (other.getFireMageExperience() != 0) {
           setFireMageExperience(other.getFireMageExperience());
         }
         if (other.getAirMageExperience() != 0) {
           setAirMageExperience(other.getAirMageExperience());
+        }
+        if (other.getWarlockExperience() != 0) {
+          setWarlockExperience(other.getWarlockExperience());
+        }
+        if (other.getNecromancerExperience() != 0) {
+          setNecromancerExperience(other.getNecromancerExperience());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -51788,15 +52232,41 @@ public final class World {
         return this;
       }
 
+      private int warriorExperience_ ;
+      /**
+       * <code>int32 warrior_experience = 1;</code>
+       */
+      public int getWarriorExperience() {
+        return warriorExperience_;
+      }
+      /**
+       * <code>int32 warrior_experience = 1;</code>
+       */
+      public Builder setWarriorExperience(int value) {
+        
+        warriorExperience_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 warrior_experience = 1;</code>
+       */
+      public Builder clearWarriorExperience() {
+        
+        warriorExperience_ = 0;
+        onChanged();
+        return this;
+      }
+
       private int temperWarriorExperience_ ;
       /**
-       * <code>int32 temper_warrior_experience = 1;</code>
+       * <code>int32 temper_warrior_experience = 2;</code>
        */
       public int getTemperWarriorExperience() {
         return temperWarriorExperience_;
       }
       /**
-       * <code>int32 temper_warrior_experience = 1;</code>
+       * <code>int32 temper_warrior_experience = 2;</code>
        */
       public Builder setTemperWarriorExperience(int value) {
         
@@ -51805,7 +52275,7 @@ public final class World {
         return this;
       }
       /**
-       * <code>int32 temper_warrior_experience = 1;</code>
+       * <code>int32 temper_warrior_experience = 2;</code>
        */
       public Builder clearTemperWarriorExperience() {
         
@@ -51816,13 +52286,13 @@ public final class World {
 
       private int safeGuardWarriorExperience_ ;
       /**
-       * <code>int32 safe_guard_warrior_experience = 2;</code>
+       * <code>int32 safe_guard_warrior_experience = 3;</code>
        */
       public int getSafeGuardWarriorExperience() {
         return safeGuardWarriorExperience_;
       }
       /**
-       * <code>int32 safe_guard_warrior_experience = 2;</code>
+       * <code>int32 safe_guard_warrior_experience = 3;</code>
        */
       public Builder setSafeGuardWarriorExperience(int value) {
         
@@ -51831,7 +52301,7 @@ public final class World {
         return this;
       }
       /**
-       * <code>int32 safe_guard_warrior_experience = 2;</code>
+       * <code>int32 safe_guard_warrior_experience = 3;</code>
        */
       public Builder clearSafeGuardWarriorExperience() {
         
@@ -51840,15 +52310,93 @@ public final class World {
         return this;
       }
 
+      private int paladinExperience_ ;
+      /**
+       * <code>int32 paladin_experience = 4;</code>
+       */
+      public int getPaladinExperience() {
+        return paladinExperience_;
+      }
+      /**
+       * <code>int32 paladin_experience = 4;</code>
+       */
+      public Builder setPaladinExperience(int value) {
+        
+        paladinExperience_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 paladin_experience = 4;</code>
+       */
+      public Builder clearPaladinExperience() {
+        
+        paladinExperience_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int adeptPaladinExperience_ ;
+      /**
+       * <code>int32 adept_paladin_experience = 5;</code>
+       */
+      public int getAdeptPaladinExperience() {
+        return adeptPaladinExperience_;
+      }
+      /**
+       * <code>int32 adept_paladin_experience = 5;</code>
+       */
+      public Builder setAdeptPaladinExperience(int value) {
+        
+        adeptPaladinExperience_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 adept_paladin_experience = 5;</code>
+       */
+      public Builder clearAdeptPaladinExperience() {
+        
+        adeptPaladinExperience_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int rogueExperience_ ;
+      /**
+       * <code>int32 rogue_experience = 6;</code>
+       */
+      public int getRogueExperience() {
+        return rogueExperience_;
+      }
+      /**
+       * <code>int32 rogue_experience = 6;</code>
+       */
+      public Builder setRogueExperience(int value) {
+        
+        rogueExperience_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 rogue_experience = 6;</code>
+       */
+      public Builder clearRogueExperience() {
+        
+        rogueExperience_ = 0;
+        onChanged();
+        return this;
+      }
+
       private int assassinationRogueExperience_ ;
       /**
-       * <code>int32 assassination_rogue_experience = 3;</code>
+       * <code>int32 assassination_rogue_experience = 7;</code>
        */
       public int getAssassinationRogueExperience() {
         return assassinationRogueExperience_;
       }
       /**
-       * <code>int32 assassination_rogue_experience = 3;</code>
+       * <code>int32 assassination_rogue_experience = 7;</code>
        */
       public Builder setAssassinationRogueExperience(int value) {
         
@@ -51857,7 +52405,7 @@ public final class World {
         return this;
       }
       /**
-       * <code>int32 assassination_rogue_experience = 3;</code>
+       * <code>int32 assassination_rogue_experience = 7;</code>
        */
       public Builder clearAssassinationRogueExperience() {
         
@@ -51868,13 +52416,13 @@ public final class World {
 
       private int shadowRogueExperience_ ;
       /**
-       * <code>int32 shadow_rogue_experience = 4;</code>
+       * <code>int32 shadow_rogue_experience = 8;</code>
        */
       public int getShadowRogueExperience() {
         return shadowRogueExperience_;
       }
       /**
-       * <code>int32 shadow_rogue_experience = 4;</code>
+       * <code>int32 shadow_rogue_experience = 8;</code>
        */
       public Builder setShadowRogueExperience(int value) {
         
@@ -51883,7 +52431,7 @@ public final class World {
         return this;
       }
       /**
-       * <code>int32 shadow_rogue_experience = 4;</code>
+       * <code>int32 shadow_rogue_experience = 8;</code>
        */
       public Builder clearShadowRogueExperience() {
         
@@ -51892,15 +52440,41 @@ public final class World {
         return this;
       }
 
+      private int hunterExperience_ ;
+      /**
+       * <code>int32 hunter_experience = 9;</code>
+       */
+      public int getHunterExperience() {
+        return hunterExperience_;
+      }
+      /**
+       * <code>int32 hunter_experience = 9;</code>
+       */
+      public Builder setHunterExperience(int value) {
+        
+        hunterExperience_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 hunter_experience = 9;</code>
+       */
+      public Builder clearHunterExperience() {
+        
+        hunterExperience_ = 0;
+        onChanged();
+        return this;
+      }
+
       private int deadeyeHunterExperience_ ;
       /**
-       * <code>int32 deadeye_hunter_experience = 5;</code>
+       * <code>int32 deadeye_hunter_experience = 10;</code>
        */
       public int getDeadeyeHunterExperience() {
         return deadeyeHunterExperience_;
       }
       /**
-       * <code>int32 deadeye_hunter_experience = 5;</code>
+       * <code>int32 deadeye_hunter_experience = 10;</code>
        */
       public Builder setDeadeyeHunterExperience(int value) {
         
@@ -51909,7 +52483,7 @@ public final class World {
         return this;
       }
       /**
-       * <code>int32 deadeye_hunter_experience = 5;</code>
+       * <code>int32 deadeye_hunter_experience = 10;</code>
        */
       public Builder clearDeadeyeHunterExperience() {
         
@@ -51920,13 +52494,13 @@ public final class World {
 
       private int beastMasterHunterExperience_ ;
       /**
-       * <code>int32 beast_master_hunter_experience = 6;</code>
+       * <code>int32 beast_master_hunter_experience = 11;</code>
        */
       public int getBeastMasterHunterExperience() {
         return beastMasterHunterExperience_;
       }
       /**
-       * <code>int32 beast_master_hunter_experience = 6;</code>
+       * <code>int32 beast_master_hunter_experience = 11;</code>
        */
       public Builder setBeastMasterHunterExperience(int value) {
         
@@ -51935,7 +52509,7 @@ public final class World {
         return this;
       }
       /**
-       * <code>int32 beast_master_hunter_experience = 6;</code>
+       * <code>int32 beast_master_hunter_experience = 11;</code>
        */
       public Builder clearBeastMasterHunterExperience() {
         
@@ -51944,15 +52518,145 @@ public final class World {
         return this;
       }
 
+      private int priestExperience_ ;
+      /**
+       * <code>int32 priest_experience = 12;</code>
+       */
+      public int getPriestExperience() {
+        return priestExperience_;
+      }
+      /**
+       * <code>int32 priest_experience = 12;</code>
+       */
+      public Builder setPriestExperience(int value) {
+        
+        priestExperience_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 priest_experience = 12;</code>
+       */
+      public Builder clearPriestExperience() {
+        
+        priestExperience_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int shamanExperience_ ;
+      /**
+       * <code>int32 shaman_experience = 13;</code>
+       */
+      public int getShamanExperience() {
+        return shamanExperience_;
+      }
+      /**
+       * <code>int32 shaman_experience = 13;</code>
+       */
+      public Builder setShamanExperience(int value) {
+        
+        shamanExperience_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 shaman_experience = 13;</code>
+       */
+      public Builder clearShamanExperience() {
+        
+        shamanExperience_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int druidExperience_ ;
+      /**
+       * <code>int32 druid_experience = 14;</code>
+       */
+      public int getDruidExperience() {
+        return druidExperience_;
+      }
+      /**
+       * <code>int32 druid_experience = 14;</code>
+       */
+      public Builder setDruidExperience(int value) {
+        
+        druidExperience_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 druid_experience = 14;</code>
+       */
+      public Builder clearDruidExperience() {
+        
+        druidExperience_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int lifeDruidExperience_ ;
+      /**
+       * <code>int32 life_druid_experience = 15;</code>
+       */
+      public int getLifeDruidExperience() {
+        return lifeDruidExperience_;
+      }
+      /**
+       * <code>int32 life_druid_experience = 15;</code>
+       */
+      public Builder setLifeDruidExperience(int value) {
+        
+        lifeDruidExperience_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 life_druid_experience = 15;</code>
+       */
+      public Builder clearLifeDruidExperience() {
+        
+        lifeDruidExperience_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int mageExperiene_ ;
+      /**
+       * <code>int32 mage_experiene = 16;</code>
+       */
+      public int getMageExperiene() {
+        return mageExperiene_;
+      }
+      /**
+       * <code>int32 mage_experiene = 16;</code>
+       */
+      public Builder setMageExperiene(int value) {
+        
+        mageExperiene_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 mage_experiene = 16;</code>
+       */
+      public Builder clearMageExperiene() {
+        
+        mageExperiene_ = 0;
+        onChanged();
+        return this;
+      }
+
       private int fireMageExperience_ ;
       /**
-       * <code>int32 fire_mage_experience = 7;</code>
+       * <code>int32 fire_mage_experience = 17;</code>
        */
       public int getFireMageExperience() {
         return fireMageExperience_;
       }
       /**
-       * <code>int32 fire_mage_experience = 7;</code>
+       * <code>int32 fire_mage_experience = 17;</code>
        */
       public Builder setFireMageExperience(int value) {
         
@@ -51961,7 +52665,7 @@ public final class World {
         return this;
       }
       /**
-       * <code>int32 fire_mage_experience = 7;</code>
+       * <code>int32 fire_mage_experience = 17;</code>
        */
       public Builder clearFireMageExperience() {
         
@@ -51972,13 +52676,13 @@ public final class World {
 
       private int airMageExperience_ ;
       /**
-       * <code>int32 air_mage_experience = 8;</code>
+       * <code>int32 air_mage_experience = 18;</code>
        */
       public int getAirMageExperience() {
         return airMageExperience_;
       }
       /**
-       * <code>int32 air_mage_experience = 8;</code>
+       * <code>int32 air_mage_experience = 18;</code>
        */
       public Builder setAirMageExperience(int value) {
         
@@ -51987,11 +52691,63 @@ public final class World {
         return this;
       }
       /**
-       * <code>int32 air_mage_experience = 8;</code>
+       * <code>int32 air_mage_experience = 18;</code>
        */
       public Builder clearAirMageExperience() {
         
         airMageExperience_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int warlockExperience_ ;
+      /**
+       * <code>int32 warlock_experience = 19;</code>
+       */
+      public int getWarlockExperience() {
+        return warlockExperience_;
+      }
+      /**
+       * <code>int32 warlock_experience = 19;</code>
+       */
+      public Builder setWarlockExperience(int value) {
+        
+        warlockExperience_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 warlock_experience = 19;</code>
+       */
+      public Builder clearWarlockExperience() {
+        
+        warlockExperience_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int necromancerExperience_ ;
+      /**
+       * <code>int32 necromancer_experience = 20;</code>
+       */
+      public int getNecromancerExperience() {
+        return necromancerExperience_;
+      }
+      /**
+       * <code>int32 necromancer_experience = 20;</code>
+       */
+      public Builder setNecromancerExperience(int value) {
+        
+        necromancerExperience_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 necromancer_experience = 20;</code>
+       */
+      public Builder clearNecromancerExperience() {
+        
+        necromancerExperience_ = 0;
         onChanged();
         return this;
       }
@@ -53735,24 +54491,32 @@ public final class World {
       "resilience\030\004 \001(\005\022\r\n\005focus\030\005 \001(\005\022\021\n\tintel" +
       "lect\030\006 \001(\005\"E\n\020CurrentGrimoires\022\030\n\020main_g" +
       "rimoire_id\030\001 \001(\005\022\027\n\017off_grimoire_id\030\002 \001(" +
-      "\005\"\255\002\n\022GrimoireStatistics\022!\n\031temper_warri" +
-      "or_experience\030\001 \001(\005\022%\n\035safe_guard_warrio" +
-      "r_experience\030\002 \001(\005\022&\n\036assassination_rogu" +
-      "e_experience\030\003 \001(\005\022\037\n\027shadow_rogue_exper" +
-      "ience\030\004 \001(\005\022!\n\031deadeye_hunter_experience" +
-      "\030\005 \001(\005\022&\n\036beast_master_hunter_experience" +
-      "\030\006 \001(\005\022\034\n\024fire_mage_experience\030\007 \001(\005\022\033\n\023" +
-      "air_mage_experience\030\010 \001(\005\"\333\002\n\020WeaponStat" +
-      "istics\022\026\n\016bow_experience\030\001 \001(\005\022\033\n\023crossb" +
-      "ow_experience\030\002 \001(\005\022\036\n\026twohand_axe_exper" +
-      "ience\030\003 \001(\005\022 \n\030twohand_sword_experience\030" +
-      "\004 \001(\005\022\032\n\022hatchet_experience\030\005 \001(\005\022\031\n\021dag" +
-      "ger_experience\030\006 \001(\005\022\030\n\020sword_experience" +
-      "\030\007 \001(\005\022\027\n\017mace_experience\030\010 \001(\005\022\030\n\020spear" +
-      "_experience\030\t \001(\005\022\031\n\021shield_experience\030\n" +
-      " \001(\005\022\030\n\020staff_experience\030\013 \001(\005\022\027\n\017wand_e" +
-      "xperience\030\014 \001(\005B#\n\036com.shattered.network" +
-      "ing.proto\370\001\001b\006proto3"
+      "\005\"\377\004\n\022GrimoireStatistics\022\032\n\022warrior_expe" +
+      "rience\030\001 \001(\005\022!\n\031temper_warrior_experienc" +
+      "e\030\002 \001(\005\022%\n\035safe_guard_warrior_experience" +
+      "\030\003 \001(\005\022\032\n\022paladin_experience\030\004 \001(\005\022 \n\030ad" +
+      "ept_paladin_experience\030\005 \001(\005\022\030\n\020rogue_ex" +
+      "perience\030\006 \001(\005\022&\n\036assassination_rogue_ex" +
+      "perience\030\007 \001(\005\022\037\n\027shadow_rogue_experienc" +
+      "e\030\010 \001(\005\022\031\n\021hunter_experience\030\t \001(\005\022!\n\031de" +
+      "adeye_hunter_experience\030\n \001(\005\022&\n\036beast_m" +
+      "aster_hunter_experience\030\013 \001(\005\022\031\n\021priest_" +
+      "experience\030\014 \001(\005\022\031\n\021shaman_experience\030\r " +
+      "\001(\005\022\030\n\020druid_experience\030\016 \001(\005\022\035\n\025life_dr" +
+      "uid_experience\030\017 \001(\005\022\026\n\016mage_experiene\030\020" +
+      " \001(\005\022\034\n\024fire_mage_experience\030\021 \001(\005\022\033\n\023ai" +
+      "r_mage_experience\030\022 \001(\005\022\032\n\022warlock_exper" +
+      "ience\030\023 \001(\005\022\036\n\026necromancer_experience\030\024 " +
+      "\001(\005\"\333\002\n\020WeaponStatistics\022\026\n\016bow_experien" +
+      "ce\030\001 \001(\005\022\033\n\023crossbow_experience\030\002 \001(\005\022\036\n" +
+      "\026twohand_axe_experience\030\003 \001(\005\022 \n\030twohand" +
+      "_sword_experience\030\004 \001(\005\022\032\n\022hatchet_exper" +
+      "ience\030\005 \001(\005\022\031\n\021dagger_experience\030\006 \001(\005\022\030" +
+      "\n\020sword_experience\030\007 \001(\005\022\027\n\017mace_experie" +
+      "nce\030\010 \001(\005\022\030\n\020spear_experience\030\t \001(\005\022\031\n\021s" +
+      "hield_experience\030\n \001(\005\022\030\n\020staff_experien" +
+      "ce\030\013 \001(\005\022\027\n\017wand_experience\030\014 \001(\005B#\n\036com" +
+      ".shattered.networking.proto\370\001\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -54173,7 +54937,7 @@ public final class World {
     internal_static_shattered_protocol_GrimoireStatistics_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_GrimoireStatistics_descriptor,
-        new java.lang.String[] { "TemperWarriorExperience", "SafeGuardWarriorExperience", "AssassinationRogueExperience", "ShadowRogueExperience", "DeadeyeHunterExperience", "BeastMasterHunterExperience", "FireMageExperience", "AirMageExperience", });
+        new java.lang.String[] { "WarriorExperience", "TemperWarriorExperience", "SafeGuardWarriorExperience", "PaladinExperience", "AdeptPaladinExperience", "RogueExperience", "AssassinationRogueExperience", "ShadowRogueExperience", "HunterExperience", "DeadeyeHunterExperience", "BeastMasterHunterExperience", "PriestExperience", "ShamanExperience", "DruidExperience", "LifeDruidExperience", "MageExperiene", "FireMageExperience", "AirMageExperience", "WarlockExperience", "NecromancerExperience", });
     internal_static_shattered_protocol_WeaponStatistics_descriptor =
       getDescriptor().getMessageTypes().get(68);
     internal_static_shattered_protocol_WeaponStatistics_fieldAccessorTable = new
