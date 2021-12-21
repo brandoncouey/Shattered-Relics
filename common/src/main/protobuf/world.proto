@@ -168,11 +168,12 @@ message LocalObject {
     int32 flags = 3;
     string object_name = 4;
     WorldTransform transform = 5;
-    MapMarker marker = 6;
-    int32 interact_flags = 7;
-    int32 as_item = 8;
-    bool needs_added = 9;
-    bool needs_removed = 10;
+    WorldVector scale = 6;
+    MapMarker marker = 7;
+    int32 interact_flags = 8;
+    int32 as_item = 9;
+    bool needs_added = 10;
+    bool needs_removed = 11;
 }
 
 //+ustruct:BlueprintType
