@@ -34,11 +34,12 @@ message MovementUpdate {
     int32 flags = 1;
     int32 mount_id = 2;
     WorldVector position = 3;
-    WorldRotator rotation = 4;
-    float speed = 5;
-    int64 time = 6;
-    WorldVector velocity = 7;
-    bool forced = 8;
+    float rotation = 4;
+    WorldRotator aiming_rotation = 5;
+    float speed = 6;
+    int64 time = 7;
+    WorldVector velocity = 8;
+    bool forced = 9;
 }
 
 //+ustruct:BlueprintType
