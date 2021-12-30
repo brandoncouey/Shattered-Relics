@@ -117,14 +117,14 @@ message PlayerUpdateBlock {
     repeated HitMark hit_marks = 6;
     int32 interact_flags = 7;
     AnimationSequence animation = 8;
-    int32 blend_id = 9;
+    int32 overlay_state = 9;
     int32 combat_level = 10;
     int32 health = 11;
     int32 max_health = 12;
     int32 energy = 13;
     int32 max_energy = 14;
     int32 hostility_level = 15;
-    bool aim_blocking = 16;
+    int32 states = 16;
     bool needs_added = 17;
     bool needs_removed = 18;
 }
