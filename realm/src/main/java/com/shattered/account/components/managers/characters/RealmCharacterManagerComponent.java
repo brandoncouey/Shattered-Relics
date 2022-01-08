@@ -245,16 +245,18 @@ public class  RealmCharacterManagerComponent extends Component {
             int lastY = 0;
             int lastZ = 0;
 
-            if (zoneResult.next()) {
-                lastMapName = zoneResult.getString("last_default_map");
-                mapName = zoneResult.getString("map");
-                mapUUID = zoneResult.getLong("map_uuid");
-                x = zoneResult.getInt("location_x");
-                y = zoneResult.getInt("location_y");
-                z = zoneResult.getInt("location_z");
-                lastX = zoneResult.getInt("last_default_map_location_x");
-                lastY = zoneResult.getInt("last_default_map_location_y");
-                lastZ = zoneResult.getInt("last_default_map_location_z");
+            if (zoneResult != null) {
+                if (zoneResult.next()) {
+                    lastMapName = zoneResult.getString("last_default_map");
+                    mapName = zoneResult.getString("map");
+                    mapUUID = zoneResult.getLong("map_uuid");
+                    x = zoneResult.getInt("location_x");
+                    y = zoneResult.getInt("location_y");
+                    z = zoneResult.getInt("location_z");
+                    lastX = zoneResult.getInt("last_default_map_location_x");
+                    lastY = zoneResult.getInt("last_default_map_location_y");
+                    lastZ = zoneResult.getInt("last_default_map_location_z");
+                }
             }
             getCharacterInformation().setLastDefaultMap(lastMapName.isEmpty() ? DEFAULT_MAP_NAME : lastMapName);
             getCharacterInformation().setMapName(mapName.isEmpty() ? DEFAULT_MAP_NAME : mapName);
