@@ -2498,6 +2498,625 @@ public final class Shared {
 
   }
 
+  public interface SVectorOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:shattered.protocol.SVector)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>float x = 1;</code>
+     */
+    float getX();
+
+    /**
+     * <code>float y = 2;</code>
+     */
+    float getY();
+
+    /**
+     * <code>float z = 3;</code>
+     */
+    float getZ();
+  }
+  /**
+   * <pre>
+   *+ustruct:BlueprintType
+   * </pre>
+   *
+   * Protobuf type {@code shattered.protocol.SVector}
+   */
+  public  static final class SVector extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:shattered.protocol.SVector)
+      SVectorOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SVector.newBuilder() to construct.
+    private SVector(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SVector() {
+      x_ = 0F;
+      y_ = 0F;
+      z_ = 0F;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SVector(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 13: {
+
+              x_ = input.readFloat();
+              break;
+            }
+            case 21: {
+
+              y_ = input.readFloat();
+              break;
+            }
+            case 29: {
+
+              z_ = input.readFloat();
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.shattered.networking.proto.Shared.internal_static_shattered_protocol_SVector_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.shattered.networking.proto.Shared.internal_static_shattered_protocol_SVector_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.shattered.networking.proto.Shared.SVector.class, com.shattered.networking.proto.Shared.SVector.Builder.class);
+    }
+
+    public static final int X_FIELD_NUMBER = 1;
+    private float x_;
+    /**
+     * <code>float x = 1;</code>
+     */
+    public float getX() {
+      return x_;
+    }
+
+    public static final int Y_FIELD_NUMBER = 2;
+    private float y_;
+    /**
+     * <code>float y = 2;</code>
+     */
+    public float getY() {
+      return y_;
+    }
+
+    public static final int Z_FIELD_NUMBER = 3;
+    private float z_;
+    /**
+     * <code>float z = 3;</code>
+     */
+    public float getZ() {
+      return z_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (x_ != 0F) {
+        output.writeFloat(1, x_);
+      }
+      if (y_ != 0F) {
+        output.writeFloat(2, y_);
+      }
+      if (z_ != 0F) {
+        output.writeFloat(3, z_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (x_ != 0F) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(1, x_);
+      }
+      if (y_ != 0F) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(2, y_);
+      }
+      if (z_ != 0F) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(3, z_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.shattered.networking.proto.Shared.SVector)) {
+        return super.equals(obj);
+      }
+      com.shattered.networking.proto.Shared.SVector other = (com.shattered.networking.proto.Shared.SVector) obj;
+
+      boolean result = true;
+      result = result && (
+          java.lang.Float.floatToIntBits(getX())
+          == java.lang.Float.floatToIntBits(
+              other.getX()));
+      result = result && (
+          java.lang.Float.floatToIntBits(getY())
+          == java.lang.Float.floatToIntBits(
+              other.getY()));
+      result = result && (
+          java.lang.Float.floatToIntBits(getZ())
+          == java.lang.Float.floatToIntBits(
+              other.getZ()));
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + X_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getX());
+      hash = (37 * hash) + Y_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getY());
+      hash = (37 * hash) + Z_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getZ());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.shattered.networking.proto.Shared.SVector parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.shattered.networking.proto.Shared.SVector parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.Shared.SVector parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.shattered.networking.proto.Shared.SVector parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.Shared.SVector parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.shattered.networking.proto.Shared.SVector parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.Shared.SVector parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.shattered.networking.proto.Shared.SVector parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.Shared.SVector parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.shattered.networking.proto.Shared.SVector parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.Shared.SVector parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.shattered.networking.proto.Shared.SVector parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.shattered.networking.proto.Shared.SVector prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *+ustruct:BlueprintType
+     * </pre>
+     *
+     * Protobuf type {@code shattered.protocol.SVector}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:shattered.protocol.SVector)
+        com.shattered.networking.proto.Shared.SVectorOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.shattered.networking.proto.Shared.internal_static_shattered_protocol_SVector_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.shattered.networking.proto.Shared.internal_static_shattered_protocol_SVector_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.shattered.networking.proto.Shared.SVector.class, com.shattered.networking.proto.Shared.SVector.Builder.class);
+      }
+
+      // Construct using com.shattered.networking.proto.Shared.SVector.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        x_ = 0F;
+
+        y_ = 0F;
+
+        z_ = 0F;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.shattered.networking.proto.Shared.internal_static_shattered_protocol_SVector_descriptor;
+      }
+
+      @java.lang.Override
+      public com.shattered.networking.proto.Shared.SVector getDefaultInstanceForType() {
+        return com.shattered.networking.proto.Shared.SVector.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.shattered.networking.proto.Shared.SVector build() {
+        com.shattered.networking.proto.Shared.SVector result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.shattered.networking.proto.Shared.SVector buildPartial() {
+        com.shattered.networking.proto.Shared.SVector result = new com.shattered.networking.proto.Shared.SVector(this);
+        result.x_ = x_;
+        result.y_ = y_;
+        result.z_ = z_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.shattered.networking.proto.Shared.SVector) {
+          return mergeFrom((com.shattered.networking.proto.Shared.SVector)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.shattered.networking.proto.Shared.SVector other) {
+        if (other == com.shattered.networking.proto.Shared.SVector.getDefaultInstance()) return this;
+        if (other.getX() != 0F) {
+          setX(other.getX());
+        }
+        if (other.getY() != 0F) {
+          setY(other.getY());
+        }
+        if (other.getZ() != 0F) {
+          setZ(other.getZ());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.shattered.networking.proto.Shared.SVector parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.shattered.networking.proto.Shared.SVector) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private float x_ ;
+      /**
+       * <code>float x = 1;</code>
+       */
+      public float getX() {
+        return x_;
+      }
+      /**
+       * <code>float x = 1;</code>
+       */
+      public Builder setX(float value) {
+        
+        x_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>float x = 1;</code>
+       */
+      public Builder clearX() {
+        
+        x_ = 0F;
+        onChanged();
+        return this;
+      }
+
+      private float y_ ;
+      /**
+       * <code>float y = 2;</code>
+       */
+      public float getY() {
+        return y_;
+      }
+      /**
+       * <code>float y = 2;</code>
+       */
+      public Builder setY(float value) {
+        
+        y_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>float y = 2;</code>
+       */
+      public Builder clearY() {
+        
+        y_ = 0F;
+        onChanged();
+        return this;
+      }
+
+      private float z_ ;
+      /**
+       * <code>float z = 3;</code>
+       */
+      public float getZ() {
+        return z_;
+      }
+      /**
+       * <code>float z = 3;</code>
+       */
+      public Builder setZ(float value) {
+        
+        z_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>float z = 3;</code>
+       */
+      public Builder clearZ() {
+        
+        z_ = 0F;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:shattered.protocol.SVector)
+    }
+
+    // @@protoc_insertion_point(class_scope:shattered.protocol.SVector)
+    private static final com.shattered.networking.proto.Shared.SVector DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.shattered.networking.proto.Shared.SVector();
+    }
+
+    public static com.shattered.networking.proto.Shared.SVector getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SVector>
+        PARSER = new com.google.protobuf.AbstractParser<SVector>() {
+      @java.lang.Override
+      public SVector parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SVector(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SVector> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SVector> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.shattered.networking.proto.Shared.SVector getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface RequestLoadLevelOrBuilder extends
       // @@protoc_insertion_point(interface_extends:shattered.protocol.RequestLoadLevel)
       com.google.protobuf.MessageOrBuilder {
@@ -2511,10 +3130,23 @@ public final class Shared {
      */
     com.google.protobuf.ByteString
         getNameBytes();
+
+    /**
+     * <code>.shattered.protocol.SVector location = 2;</code>
+     */
+    boolean hasLocation();
+    /**
+     * <code>.shattered.protocol.SVector location = 2;</code>
+     */
+    com.shattered.networking.proto.Shared.SVector getLocation();
+    /**
+     * <code>.shattered.protocol.SVector location = 2;</code>
+     */
+    com.shattered.networking.proto.Shared.SVectorOrBuilder getLocationOrBuilder();
   }
   /**
    * <pre>
-   *+ue:exclude
+   *+ustruct:BlueprintType
    * </pre>
    *
    * Protobuf type {@code shattered.protocol.RequestLoadLevel}
@@ -2560,6 +3192,19 @@ public final class Shared {
               java.lang.String s = input.readStringRequireUtf8();
 
               name_ = s;
+              break;
+            }
+            case 18: {
+              com.shattered.networking.proto.Shared.SVector.Builder subBuilder = null;
+              if (location_ != null) {
+                subBuilder = location_.toBuilder();
+              }
+              location_ = input.readMessage(com.shattered.networking.proto.Shared.SVector.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(location_);
+                location_ = subBuilder.buildPartial();
+              }
+
               break;
             }
             default: {
@@ -2628,6 +3273,27 @@ public final class Shared {
       }
     }
 
+    public static final int LOCATION_FIELD_NUMBER = 2;
+    private com.shattered.networking.proto.Shared.SVector location_;
+    /**
+     * <code>.shattered.protocol.SVector location = 2;</code>
+     */
+    public boolean hasLocation() {
+      return location_ != null;
+    }
+    /**
+     * <code>.shattered.protocol.SVector location = 2;</code>
+     */
+    public com.shattered.networking.proto.Shared.SVector getLocation() {
+      return location_ == null ? com.shattered.networking.proto.Shared.SVector.getDefaultInstance() : location_;
+    }
+    /**
+     * <code>.shattered.protocol.SVector location = 2;</code>
+     */
+    public com.shattered.networking.proto.Shared.SVectorOrBuilder getLocationOrBuilder() {
+      return getLocation();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2645,6 +3311,9 @@ public final class Shared {
       if (!getNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
+      if (location_ != null) {
+        output.writeMessage(2, getLocation());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2656,6 +3325,10 @@ public final class Shared {
       size = 0;
       if (!getNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+      }
+      if (location_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getLocation());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2675,6 +3348,11 @@ public final class Shared {
       boolean result = true;
       result = result && getName()
           .equals(other.getName());
+      result = result && (hasLocation() == other.hasLocation());
+      if (hasLocation()) {
+        result = result && getLocation()
+            .equals(other.getLocation());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -2688,6 +3366,10 @@ public final class Shared {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
+      if (hasLocation()) {
+        hash = (37 * hash) + LOCATION_FIELD_NUMBER;
+        hash = (53 * hash) + getLocation().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2785,7 +3467,7 @@ public final class Shared {
     }
     /**
      * <pre>
-     *+ue:exclude
+     *+ustruct:BlueprintType
      * </pre>
      *
      * Protobuf type {@code shattered.protocol.RequestLoadLevel}
@@ -2827,6 +3509,12 @@ public final class Shared {
         super.clear();
         name_ = "";
 
+        if (locationBuilder_ == null) {
+          location_ = null;
+        } else {
+          location_ = null;
+          locationBuilder_ = null;
+        }
         return this;
       }
 
@@ -2854,6 +3542,11 @@ public final class Shared {
       public com.shattered.networking.proto.Shared.RequestLoadLevel buildPartial() {
         com.shattered.networking.proto.Shared.RequestLoadLevel result = new com.shattered.networking.proto.Shared.RequestLoadLevel(this);
         result.name_ = name_;
+        if (locationBuilder_ == null) {
+          result.location_ = location_;
+        } else {
+          result.location_ = locationBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -2905,6 +3598,9 @@ public final class Shared {
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
           onChanged();
+        }
+        if (other.hasLocation()) {
+          mergeLocation(other.getLocation());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -3002,6 +3698,123 @@ public final class Shared {
         name_ = value;
         onChanged();
         return this;
+      }
+
+      private com.shattered.networking.proto.Shared.SVector location_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.shattered.networking.proto.Shared.SVector, com.shattered.networking.proto.Shared.SVector.Builder, com.shattered.networking.proto.Shared.SVectorOrBuilder> locationBuilder_;
+      /**
+       * <code>.shattered.protocol.SVector location = 2;</code>
+       */
+      public boolean hasLocation() {
+        return locationBuilder_ != null || location_ != null;
+      }
+      /**
+       * <code>.shattered.protocol.SVector location = 2;</code>
+       */
+      public com.shattered.networking.proto.Shared.SVector getLocation() {
+        if (locationBuilder_ == null) {
+          return location_ == null ? com.shattered.networking.proto.Shared.SVector.getDefaultInstance() : location_;
+        } else {
+          return locationBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.shattered.protocol.SVector location = 2;</code>
+       */
+      public Builder setLocation(com.shattered.networking.proto.Shared.SVector value) {
+        if (locationBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          location_ = value;
+          onChanged();
+        } else {
+          locationBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.shattered.protocol.SVector location = 2;</code>
+       */
+      public Builder setLocation(
+          com.shattered.networking.proto.Shared.SVector.Builder builderForValue) {
+        if (locationBuilder_ == null) {
+          location_ = builderForValue.build();
+          onChanged();
+        } else {
+          locationBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.shattered.protocol.SVector location = 2;</code>
+       */
+      public Builder mergeLocation(com.shattered.networking.proto.Shared.SVector value) {
+        if (locationBuilder_ == null) {
+          if (location_ != null) {
+            location_ =
+              com.shattered.networking.proto.Shared.SVector.newBuilder(location_).mergeFrom(value).buildPartial();
+          } else {
+            location_ = value;
+          }
+          onChanged();
+        } else {
+          locationBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.shattered.protocol.SVector location = 2;</code>
+       */
+      public Builder clearLocation() {
+        if (locationBuilder_ == null) {
+          location_ = null;
+          onChanged();
+        } else {
+          location_ = null;
+          locationBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.shattered.protocol.SVector location = 2;</code>
+       */
+      public com.shattered.networking.proto.Shared.SVector.Builder getLocationBuilder() {
+        
+        onChanged();
+        return getLocationFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.shattered.protocol.SVector location = 2;</code>
+       */
+      public com.shattered.networking.proto.Shared.SVectorOrBuilder getLocationOrBuilder() {
+        if (locationBuilder_ != null) {
+          return locationBuilder_.getMessageOrBuilder();
+        } else {
+          return location_ == null ?
+              com.shattered.networking.proto.Shared.SVector.getDefaultInstance() : location_;
+        }
+      }
+      /**
+       * <code>.shattered.protocol.SVector location = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.shattered.networking.proto.Shared.SVector, com.shattered.networking.proto.Shared.SVector.Builder, com.shattered.networking.proto.Shared.SVectorOrBuilder> 
+          getLocationFieldBuilder() {
+        if (locationBuilder_ == null) {
+          locationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.shattered.networking.proto.Shared.SVector, com.shattered.networking.proto.Shared.SVector.Builder, com.shattered.networking.proto.Shared.SVectorOrBuilder>(
+                  getLocation(),
+                  getParentForChildren(),
+                  isClean());
+          location_ = null;
+        }
+        return locationBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -11137,6 +11950,11 @@ public final class Shared {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_shattered_protocol_LogoutWithResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_shattered_protocol_SVector_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_shattered_protocol_SVector_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_shattered_protocol_RequestLoadLevel_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -11212,25 +12030,27 @@ public final class Shared {
       "(\010\022\016\n\006userId\030\005 \001(\t\022\020\n\010password\030\006 \001(\t\022\024\n\014" +
       "request_type\030\007 \001(\005\"\036\n\rRequestLogout\022\r\n\005r" +
       "ealm\030\001 \001(\010\")\n\022LogoutWithResponse\022\023\n\013resp" +
-      "onse_id\030\001 \001(\005\" \n\020RequestLoadLevel\022\014\n\004nam" +
-      "e\030\001 \001(\t\"\032\n\nFriendName\022\014\n\004name\030\001 \001(\t\"\034\n\014F" +
-      "riendIgnore\022\014\n\004name\030\001 \001(\t\"<\n\014SocialStatu" +
-      "s\022\025\n\ronline_status\030\001 \001(\005\022\025\n\rpublic_statu" +
-      "s\030\002 \001(\005\"G\n\006Friend\022\r\n\005index\030\001 \001(\005\022\014\n\004name" +
-      "\030\002 \001(\t\022\020\n\010location\030\003 \001(\t\022\016\n\006server\030\004 \001(\t" +
-      "\"1\n\022SendPrivateMessage\022\n\n\002to\030\001 \001(\t\022\017\n\007me" +
-      "ssage\030\002 \001(\t\"P\n\025ReceivePrivateMessage\022\014\n\004" +
-      "from\030\001 \001(\t\022\017\n\007message\030\002 \001(\t\022\030\n\020permissio" +
-      "n_level\030\003 \001(\005\"8\n\013FriendsList\022)\n\005entry\030\001 " +
-      "\003(\0132\032.shattered.protocol.Friend\"Q\n\023Butto" +
-      "nRequestHandle\022\023\n\013widget_name\030\001 \001(\t\022\021\n\tb" +
-      "utton_id\030\002 \001(\005\022\022\n\nparameters\030\003 \003(\005\"<\n\016Wi" +
-      "dgetParamStr\022\016\n\006widget\030\001 \001(\t\022\013\n\003key\030\002 \001(" +
-      "\t\022\r\n\005value\030\003 \001(\t\"<\n\016WidgetParamInt\022\016\n\006wi" +
-      "dget\030\001 \001(\t\022\013\n\003key\030\002 \001(\t\022\r\n\005value\030\003 \001(\005\"=" +
-      "\n\017WidgetParamBool\022\016\n\006widget\030\001 \001(\t\022\013\n\003key" +
-      "\030\002 \001(\t\022\r\n\005value\030\003 \001(\010B#\n\036com.shattered.n" +
-      "etworking.proto\370\001\001b\006proto3"
+      "onse_id\030\001 \001(\005\"*\n\007SVector\022\t\n\001x\030\001 \001(\002\022\t\n\001y" +
+      "\030\002 \001(\002\022\t\n\001z\030\003 \001(\002\"O\n\020RequestLoadLevel\022\014\n" +
+      "\004name\030\001 \001(\t\022-\n\010location\030\002 \001(\0132\033.shattere" +
+      "d.protocol.SVector\"\032\n\nFriendName\022\014\n\004name" +
+      "\030\001 \001(\t\"\034\n\014FriendIgnore\022\014\n\004name\030\001 \001(\t\"<\n\014" +
+      "SocialStatus\022\025\n\ronline_status\030\001 \001(\005\022\025\n\rp" +
+      "ublic_status\030\002 \001(\005\"G\n\006Friend\022\r\n\005index\030\001 " +
+      "\001(\005\022\014\n\004name\030\002 \001(\t\022\020\n\010location\030\003 \001(\t\022\016\n\006s" +
+      "erver\030\004 \001(\t\"1\n\022SendPrivateMessage\022\n\n\002to\030" +
+      "\001 \001(\t\022\017\n\007message\030\002 \001(\t\"P\n\025ReceivePrivate" +
+      "Message\022\014\n\004from\030\001 \001(\t\022\017\n\007message\030\002 \001(\t\022\030" +
+      "\n\020permission_level\030\003 \001(\005\"8\n\013FriendsList\022" +
+      ")\n\005entry\030\001 \003(\0132\032.shattered.protocol.Frie" +
+      "nd\"Q\n\023ButtonRequestHandle\022\023\n\013widget_name" +
+      "\030\001 \001(\t\022\021\n\tbutton_id\030\002 \001(\005\022\022\n\nparameters\030" +
+      "\003 \003(\005\"<\n\016WidgetParamStr\022\016\n\006widget\030\001 \001(\t\022" +
+      "\013\n\003key\030\002 \001(\t\022\r\n\005value\030\003 \001(\t\"<\n\016WidgetPar" +
+      "amInt\022\016\n\006widget\030\001 \001(\t\022\013\n\003key\030\002 \001(\t\022\r\n\005va" +
+      "lue\030\003 \001(\005\"=\n\017WidgetParamBool\022\016\n\006widget\030\001" +
+      " \001(\t\022\013\n\003key\030\002 \001(\t\022\r\n\005value\030\003 \001(\010B#\n\036com." +
+      "shattered.networking.proto\370\001\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -11268,74 +12088,80 @@ public final class Shared {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_LogoutWithResponse_descriptor,
         new java.lang.String[] { "ResponseId", });
-    internal_static_shattered_protocol_RequestLoadLevel_descriptor =
+    internal_static_shattered_protocol_SVector_descriptor =
       getDescriptor().getMessageTypes().get(4);
+    internal_static_shattered_protocol_SVector_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_shattered_protocol_SVector_descriptor,
+        new java.lang.String[] { "X", "Y", "Z", });
+    internal_static_shattered_protocol_RequestLoadLevel_descriptor =
+      getDescriptor().getMessageTypes().get(5);
     internal_static_shattered_protocol_RequestLoadLevel_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_RequestLoadLevel_descriptor,
-        new java.lang.String[] { "Name", });
+        new java.lang.String[] { "Name", "Location", });
     internal_static_shattered_protocol_FriendName_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_shattered_protocol_FriendName_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_FriendName_descriptor,
         new java.lang.String[] { "Name", });
     internal_static_shattered_protocol_FriendIgnore_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_shattered_protocol_FriendIgnore_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_FriendIgnore_descriptor,
         new java.lang.String[] { "Name", });
     internal_static_shattered_protocol_SocialStatus_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_shattered_protocol_SocialStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_SocialStatus_descriptor,
         new java.lang.String[] { "OnlineStatus", "PublicStatus", });
     internal_static_shattered_protocol_Friend_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_shattered_protocol_Friend_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_Friend_descriptor,
         new java.lang.String[] { "Index", "Name", "Location", "Server", });
     internal_static_shattered_protocol_SendPrivateMessage_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_shattered_protocol_SendPrivateMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_SendPrivateMessage_descriptor,
         new java.lang.String[] { "To", "Message", });
     internal_static_shattered_protocol_ReceivePrivateMessage_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_shattered_protocol_ReceivePrivateMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_ReceivePrivateMessage_descriptor,
         new java.lang.String[] { "From", "Message", "PermissionLevel", });
     internal_static_shattered_protocol_FriendsList_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_shattered_protocol_FriendsList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_FriendsList_descriptor,
         new java.lang.String[] { "Entry", });
     internal_static_shattered_protocol_ButtonRequestHandle_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_shattered_protocol_ButtonRequestHandle_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_ButtonRequestHandle_descriptor,
         new java.lang.String[] { "WidgetName", "ButtonId", "Parameters", });
     internal_static_shattered_protocol_WidgetParamStr_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_shattered_protocol_WidgetParamStr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_WidgetParamStr_descriptor,
         new java.lang.String[] { "Widget", "Key", "Value", });
     internal_static_shattered_protocol_WidgetParamInt_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_shattered_protocol_WidgetParamInt_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_WidgetParamInt_descriptor,
         new java.lang.String[] { "Widget", "Key", "Value", });
     internal_static_shattered_protocol_WidgetParamBool_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_shattered_protocol_WidgetParamBool_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_WidgetParamBool_descriptor,

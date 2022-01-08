@@ -1,5 +1,6 @@
 package com.shattered.account.character;
 
+import com.shattered.networking.proto.Proxy;
 import com.shattered.networking.proto.Realm;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -24,12 +25,27 @@ public class PlayerInformation {
     /**
      * Represents the last location of the Player
      */
-    private String mapName;
+    private String lastDefaultMap = "NetworkingTest";
 
     /**
-     * Represents the location of the Player
+     * Represents the last location of the Player
      */
-    private final String location;
+    private String mapName = "NetworkingTest";
+
+    /**
+     * Represents the Map UUID
+     */
+    private long mapUuid;
+
+    /**
+     * Represents the location of the player
+     */
+    private Proxy.PVector location;
+
+    /**
+     * Represents the location of the player
+     */
+    private Proxy.PVector lastDefaultMapLocation;
 
     /**
      * Represents the Model Information

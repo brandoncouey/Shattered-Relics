@@ -10,22 +10,26 @@ option cc_enable_arenas = true;
 
 message RegisterPlayer {
     int32 uuid = 1;
-    string connectionUuid = 2;
+    string connection_uuid = 2;
     string name = 3;
     string location = 4;
-    string serverName = 5;
+    string server_name = 5;
 }
 
 //Unusued but this will be used for any attribtues that can be seen that can be updated on the regular.
 //idk don't want same name for confusion...
 
+message Response {
+    int32 t_uuid = 1;
+}
+
 message PlayerOnlineStatus {
     int32 tuuid = 1;
     int32 uuid = 2;
-    string connectionUuid = 3;
+    string connection_uuid = 3;
     string name = 4;
     string location = 5;
-    string serverName = 6;
+    string server_name = 6;
 }
 
 message PlayerLocationStatus {
@@ -33,11 +37,16 @@ message PlayerLocationStatus {
     string location = 2;
 }
 
-message SendPrivateMessage {
+message PrivateMessage {
     string from = 1;
     string to = 2;
     string message = 3;
-    int32 permissionLevel = 4;
+    int32 permission_level = 4;
+}
+
+message SendPrivateMessage {
+    int32 tuuid = 1;
+    PrivateMessage message = 2;
 }
 
 message ReceivePrivateMessage {
@@ -60,10 +69,11 @@ message UnregisterPlayer {
 message Friend {
     int32 tuuid = 1;
     int32 uuid = 2;
-    string connectionUuid = 3;
+    string connection_uuid = 3;
     string name = 4;
     string location = 5;
-    string serverName = 6;
+    string server_name = 6;
+    int64 offline_since = 7;
 }
 
 message FetchFriendsList {

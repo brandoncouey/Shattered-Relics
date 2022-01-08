@@ -5131,6 +5131,608 @@ public final class Proxy {
 
   }
 
+  public interface PVectorOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:shattered.protocol.PVector)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 x = 1;</code>
+     */
+    int getX();
+
+    /**
+     * <code>int32 y = 2;</code>
+     */
+    int getY();
+
+    /**
+     * <code>int32 z = 3;</code>
+     */
+    int getZ();
+  }
+  /**
+   * Protobuf type {@code shattered.protocol.PVector}
+   */
+  public  static final class PVector extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:shattered.protocol.PVector)
+      PVectorOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use PVector.newBuilder() to construct.
+    private PVector(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private PVector() {
+      x_ = 0;
+      y_ = 0;
+      z_ = 0;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private PVector(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              x_ = input.readInt32();
+              break;
+            }
+            case 16: {
+
+              y_ = input.readInt32();
+              break;
+            }
+            case 24: {
+
+              z_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.shattered.networking.proto.Proxy.internal_static_shattered_protocol_PVector_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.shattered.networking.proto.Proxy.internal_static_shattered_protocol_PVector_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.shattered.networking.proto.Proxy.PVector.class, com.shattered.networking.proto.Proxy.PVector.Builder.class);
+    }
+
+    public static final int X_FIELD_NUMBER = 1;
+    private int x_;
+    /**
+     * <code>int32 x = 1;</code>
+     */
+    public int getX() {
+      return x_;
+    }
+
+    public static final int Y_FIELD_NUMBER = 2;
+    private int y_;
+    /**
+     * <code>int32 y = 2;</code>
+     */
+    public int getY() {
+      return y_;
+    }
+
+    public static final int Z_FIELD_NUMBER = 3;
+    private int z_;
+    /**
+     * <code>int32 z = 3;</code>
+     */
+    public int getZ() {
+      return z_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (x_ != 0) {
+        output.writeInt32(1, x_);
+      }
+      if (y_ != 0) {
+        output.writeInt32(2, y_);
+      }
+      if (z_ != 0) {
+        output.writeInt32(3, z_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (x_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, x_);
+      }
+      if (y_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, y_);
+      }
+      if (z_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, z_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.shattered.networking.proto.Proxy.PVector)) {
+        return super.equals(obj);
+      }
+      com.shattered.networking.proto.Proxy.PVector other = (com.shattered.networking.proto.Proxy.PVector) obj;
+
+      boolean result = true;
+      result = result && (getX()
+          == other.getX());
+      result = result && (getY()
+          == other.getY());
+      result = result && (getZ()
+          == other.getZ());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + X_FIELD_NUMBER;
+      hash = (53 * hash) + getX();
+      hash = (37 * hash) + Y_FIELD_NUMBER;
+      hash = (53 * hash) + getY();
+      hash = (37 * hash) + Z_FIELD_NUMBER;
+      hash = (53 * hash) + getZ();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.shattered.networking.proto.Proxy.PVector parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.shattered.networking.proto.Proxy.PVector parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.Proxy.PVector parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.shattered.networking.proto.Proxy.PVector parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.Proxy.PVector parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.shattered.networking.proto.Proxy.PVector parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.Proxy.PVector parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.shattered.networking.proto.Proxy.PVector parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.Proxy.PVector parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.shattered.networking.proto.Proxy.PVector parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.Proxy.PVector parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.shattered.networking.proto.Proxy.PVector parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.shattered.networking.proto.Proxy.PVector prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code shattered.protocol.PVector}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:shattered.protocol.PVector)
+        com.shattered.networking.proto.Proxy.PVectorOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.shattered.networking.proto.Proxy.internal_static_shattered_protocol_PVector_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.shattered.networking.proto.Proxy.internal_static_shattered_protocol_PVector_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.shattered.networking.proto.Proxy.PVector.class, com.shattered.networking.proto.Proxy.PVector.Builder.class);
+      }
+
+      // Construct using com.shattered.networking.proto.Proxy.PVector.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        x_ = 0;
+
+        y_ = 0;
+
+        z_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.shattered.networking.proto.Proxy.internal_static_shattered_protocol_PVector_descriptor;
+      }
+
+      @java.lang.Override
+      public com.shattered.networking.proto.Proxy.PVector getDefaultInstanceForType() {
+        return com.shattered.networking.proto.Proxy.PVector.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.shattered.networking.proto.Proxy.PVector build() {
+        com.shattered.networking.proto.Proxy.PVector result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.shattered.networking.proto.Proxy.PVector buildPartial() {
+        com.shattered.networking.proto.Proxy.PVector result = new com.shattered.networking.proto.Proxy.PVector(this);
+        result.x_ = x_;
+        result.y_ = y_;
+        result.z_ = z_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.shattered.networking.proto.Proxy.PVector) {
+          return mergeFrom((com.shattered.networking.proto.Proxy.PVector)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.shattered.networking.proto.Proxy.PVector other) {
+        if (other == com.shattered.networking.proto.Proxy.PVector.getDefaultInstance()) return this;
+        if (other.getX() != 0) {
+          setX(other.getX());
+        }
+        if (other.getY() != 0) {
+          setY(other.getY());
+        }
+        if (other.getZ() != 0) {
+          setZ(other.getZ());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.shattered.networking.proto.Proxy.PVector parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.shattered.networking.proto.Proxy.PVector) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int x_ ;
+      /**
+       * <code>int32 x = 1;</code>
+       */
+      public int getX() {
+        return x_;
+      }
+      /**
+       * <code>int32 x = 1;</code>
+       */
+      public Builder setX(int value) {
+        
+        x_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 x = 1;</code>
+       */
+      public Builder clearX() {
+        
+        x_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int y_ ;
+      /**
+       * <code>int32 y = 2;</code>
+       */
+      public int getY() {
+        return y_;
+      }
+      /**
+       * <code>int32 y = 2;</code>
+       */
+      public Builder setY(int value) {
+        
+        y_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 y = 2;</code>
+       */
+      public Builder clearY() {
+        
+        y_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int z_ ;
+      /**
+       * <code>int32 z = 3;</code>
+       */
+      public int getZ() {
+        return z_;
+      }
+      /**
+       * <code>int32 z = 3;</code>
+       */
+      public Builder setZ(int value) {
+        
+        z_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 z = 3;</code>
+       */
+      public Builder clearZ() {
+        
+        z_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:shattered.protocol.PVector)
+    }
+
+    // @@protoc_insertion_point(class_scope:shattered.protocol.PVector)
+    private static final com.shattered.networking.proto.Proxy.PVector DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.shattered.networking.proto.Proxy.PVector();
+    }
+
+    public static com.shattered.networking.proto.Proxy.PVector getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<PVector>
+        PARSER = new com.google.protobuf.AbstractParser<PVector>() {
+      @java.lang.Override
+      public PVector parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new PVector(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<PVector> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<PVector> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.shattered.networking.proto.Proxy.PVector getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface TransferToWorldOrBuilder extends
       // @@protoc_insertion_point(interface_extends:shattered.protocol.TransferToWorld)
       com.google.protobuf.MessageOrBuilder {
@@ -5171,57 +5773,88 @@ public final class Proxy {
         getCharacterNameBytes();
 
     /**
-     * <code>string map_name = 6;</code>
+     * <code>string last_default_map_name = 6;</code>
      */
-    java.lang.String getMapName();
+    java.lang.String getLastDefaultMapName();
     /**
-     * <code>string map_name = 6;</code>
+     * <code>string last_default_map_name = 6;</code>
      */
     com.google.protobuf.ByteString
-        getMapNameBytes();
+        getLastDefaultMapNameBytes();
 
     /**
-     * <code>string password = 7;</code>
+     * <code>int64 map_uuid = 7;</code>
+     */
+    long getMapUuid();
+
+    /**
+     * <code>.shattered.protocol.PVector location = 8;</code>
+     */
+    boolean hasLocation();
+    /**
+     * <code>.shattered.protocol.PVector location = 8;</code>
+     */
+    com.shattered.networking.proto.Proxy.PVector getLocation();
+    /**
+     * <code>.shattered.protocol.PVector location = 8;</code>
+     */
+    com.shattered.networking.proto.Proxy.PVectorOrBuilder getLocationOrBuilder();
+
+    /**
+     * <code>.shattered.protocol.PVector last_default_location = 9;</code>
+     */
+    boolean hasLastDefaultLocation();
+    /**
+     * <code>.shattered.protocol.PVector last_default_location = 9;</code>
+     */
+    com.shattered.networking.proto.Proxy.PVector getLastDefaultLocation();
+    /**
+     * <code>.shattered.protocol.PVector last_default_location = 9;</code>
+     */
+    com.shattered.networking.proto.Proxy.PVectorOrBuilder getLastDefaultLocationOrBuilder();
+
+    /**
+     * <code>string password = 10;</code>
      */
     java.lang.String getPassword();
     /**
-     * <code>string password = 7;</code>
+     * <code>string password = 10;</code>
      */
     com.google.protobuf.ByteString
         getPasswordBytes();
 
     /**
-     * <code>string cuuid = 8;</code>
+     * <code>string cuuid = 11;</code>
      */
     java.lang.String getCuuid();
     /**
-     * <code>string cuuid = 8;</code>
+     * <code>string cuuid = 11;</code>
      */
     com.google.protobuf.ByteString
         getCuuidBytes();
 
     /**
-     * <code>string token = 9;</code>
+     * <code>string token = 12;</code>
      */
     java.lang.String getToken();
     /**
-     * <code>string token = 9;</code>
+     * <code>string token = 12;</code>
      */
     com.google.protobuf.ByteString
         getTokenBytes();
 
     /**
-     * <code>string host = 10;</code>
+     * <code>string host = 13;</code>
      */
     java.lang.String getHost();
     /**
-     * <code>string host = 10;</code>
+     * <code>string host = 13;</code>
      */
     com.google.protobuf.ByteString
         getHostBytes();
 
     /**
-     * <code>int32 port = 11;</code>
+     * <code>int32 port = 14;</code>
      */
     int getPort();
   }
@@ -5243,7 +5876,8 @@ public final class Proxy {
       accountName_ = "";
       characterId_ = 0;
       characterName_ = "";
-      mapName_ = "";
+      lastDefaultMapName_ = "";
+      mapUuid_ = 0L;
       password_ = "";
       cuuid_ = "";
       token_ = "";
@@ -5305,34 +5939,65 @@ public final class Proxy {
             case 50: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              mapName_ = s;
+              lastDefaultMapName_ = s;
               break;
             }
-            case 58: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 56: {
 
-              password_ = s;
+              mapUuid_ = input.readInt64();
               break;
             }
             case 66: {
-              java.lang.String s = input.readStringRequireUtf8();
+              com.shattered.networking.proto.Proxy.PVector.Builder subBuilder = null;
+              if (location_ != null) {
+                subBuilder = location_.toBuilder();
+              }
+              location_ = input.readMessage(com.shattered.networking.proto.Proxy.PVector.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(location_);
+                location_ = subBuilder.buildPartial();
+              }
 
-              cuuid_ = s;
               break;
             }
             case 74: {
-              java.lang.String s = input.readStringRequireUtf8();
+              com.shattered.networking.proto.Proxy.PVector.Builder subBuilder = null;
+              if (lastDefaultLocation_ != null) {
+                subBuilder = lastDefaultLocation_.toBuilder();
+              }
+              lastDefaultLocation_ = input.readMessage(com.shattered.networking.proto.Proxy.PVector.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(lastDefaultLocation_);
+                lastDefaultLocation_ = subBuilder.buildPartial();
+              }
 
-              token_ = s;
               break;
             }
             case 82: {
               java.lang.String s = input.readStringRequireUtf8();
 
+              password_ = s;
+              break;
+            }
+            case 90: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              cuuid_ = s;
+              break;
+            }
+            case 98: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              token_ = s;
+              break;
+            }
+            case 106: {
+              java.lang.String s = input.readStringRequireUtf8();
+
               host_ = s;
               break;
             }
-            case 88: {
+            case 112: {
 
               port_ = input.readInt32();
               break;
@@ -5464,44 +6129,95 @@ public final class Proxy {
       }
     }
 
-    public static final int MAP_NAME_FIELD_NUMBER = 6;
-    private volatile java.lang.Object mapName_;
+    public static final int LAST_DEFAULT_MAP_NAME_FIELD_NUMBER = 6;
+    private volatile java.lang.Object lastDefaultMapName_;
     /**
-     * <code>string map_name = 6;</code>
+     * <code>string last_default_map_name = 6;</code>
      */
-    public java.lang.String getMapName() {
-      java.lang.Object ref = mapName_;
+    public java.lang.String getLastDefaultMapName() {
+      java.lang.Object ref = lastDefaultMapName_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        mapName_ = s;
+        lastDefaultMapName_ = s;
         return s;
       }
     }
     /**
-     * <code>string map_name = 6;</code>
+     * <code>string last_default_map_name = 6;</code>
      */
     public com.google.protobuf.ByteString
-        getMapNameBytes() {
-      java.lang.Object ref = mapName_;
+        getLastDefaultMapNameBytes() {
+      java.lang.Object ref = lastDefaultMapName_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        mapName_ = b;
+        lastDefaultMapName_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
 
-    public static final int PASSWORD_FIELD_NUMBER = 7;
+    public static final int MAP_UUID_FIELD_NUMBER = 7;
+    private long mapUuid_;
+    /**
+     * <code>int64 map_uuid = 7;</code>
+     */
+    public long getMapUuid() {
+      return mapUuid_;
+    }
+
+    public static final int LOCATION_FIELD_NUMBER = 8;
+    private com.shattered.networking.proto.Proxy.PVector location_;
+    /**
+     * <code>.shattered.protocol.PVector location = 8;</code>
+     */
+    public boolean hasLocation() {
+      return location_ != null;
+    }
+    /**
+     * <code>.shattered.protocol.PVector location = 8;</code>
+     */
+    public com.shattered.networking.proto.Proxy.PVector getLocation() {
+      return location_ == null ? com.shattered.networking.proto.Proxy.PVector.getDefaultInstance() : location_;
+    }
+    /**
+     * <code>.shattered.protocol.PVector location = 8;</code>
+     */
+    public com.shattered.networking.proto.Proxy.PVectorOrBuilder getLocationOrBuilder() {
+      return getLocation();
+    }
+
+    public static final int LAST_DEFAULT_LOCATION_FIELD_NUMBER = 9;
+    private com.shattered.networking.proto.Proxy.PVector lastDefaultLocation_;
+    /**
+     * <code>.shattered.protocol.PVector last_default_location = 9;</code>
+     */
+    public boolean hasLastDefaultLocation() {
+      return lastDefaultLocation_ != null;
+    }
+    /**
+     * <code>.shattered.protocol.PVector last_default_location = 9;</code>
+     */
+    public com.shattered.networking.proto.Proxy.PVector getLastDefaultLocation() {
+      return lastDefaultLocation_ == null ? com.shattered.networking.proto.Proxy.PVector.getDefaultInstance() : lastDefaultLocation_;
+    }
+    /**
+     * <code>.shattered.protocol.PVector last_default_location = 9;</code>
+     */
+    public com.shattered.networking.proto.Proxy.PVectorOrBuilder getLastDefaultLocationOrBuilder() {
+      return getLastDefaultLocation();
+    }
+
+    public static final int PASSWORD_FIELD_NUMBER = 10;
     private volatile java.lang.Object password_;
     /**
-     * <code>string password = 7;</code>
+     * <code>string password = 10;</code>
      */
     public java.lang.String getPassword() {
       java.lang.Object ref = password_;
@@ -5516,7 +6232,7 @@ public final class Proxy {
       }
     }
     /**
-     * <code>string password = 7;</code>
+     * <code>string password = 10;</code>
      */
     public com.google.protobuf.ByteString
         getPasswordBytes() {
@@ -5532,10 +6248,10 @@ public final class Proxy {
       }
     }
 
-    public static final int CUUID_FIELD_NUMBER = 8;
+    public static final int CUUID_FIELD_NUMBER = 11;
     private volatile java.lang.Object cuuid_;
     /**
-     * <code>string cuuid = 8;</code>
+     * <code>string cuuid = 11;</code>
      */
     public java.lang.String getCuuid() {
       java.lang.Object ref = cuuid_;
@@ -5550,7 +6266,7 @@ public final class Proxy {
       }
     }
     /**
-     * <code>string cuuid = 8;</code>
+     * <code>string cuuid = 11;</code>
      */
     public com.google.protobuf.ByteString
         getCuuidBytes() {
@@ -5566,10 +6282,10 @@ public final class Proxy {
       }
     }
 
-    public static final int TOKEN_FIELD_NUMBER = 9;
+    public static final int TOKEN_FIELD_NUMBER = 12;
     private volatile java.lang.Object token_;
     /**
-     * <code>string token = 9;</code>
+     * <code>string token = 12;</code>
      */
     public java.lang.String getToken() {
       java.lang.Object ref = token_;
@@ -5584,7 +6300,7 @@ public final class Proxy {
       }
     }
     /**
-     * <code>string token = 9;</code>
+     * <code>string token = 12;</code>
      */
     public com.google.protobuf.ByteString
         getTokenBytes() {
@@ -5600,10 +6316,10 @@ public final class Proxy {
       }
     }
 
-    public static final int HOST_FIELD_NUMBER = 10;
+    public static final int HOST_FIELD_NUMBER = 13;
     private volatile java.lang.Object host_;
     /**
-     * <code>string host = 10;</code>
+     * <code>string host = 13;</code>
      */
     public java.lang.String getHost() {
       java.lang.Object ref = host_;
@@ -5618,7 +6334,7 @@ public final class Proxy {
       }
     }
     /**
-     * <code>string host = 10;</code>
+     * <code>string host = 13;</code>
      */
     public com.google.protobuf.ByteString
         getHostBytes() {
@@ -5634,10 +6350,10 @@ public final class Proxy {
       }
     }
 
-    public static final int PORT_FIELD_NUMBER = 11;
+    public static final int PORT_FIELD_NUMBER = 14;
     private int port_;
     /**
-     * <code>int32 port = 11;</code>
+     * <code>int32 port = 14;</code>
      */
     public int getPort() {
       return port_;
@@ -5672,23 +6388,32 @@ public final class Proxy {
       if (!getCharacterNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, characterName_);
       }
-      if (!getMapNameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, mapName_);
+      if (!getLastDefaultMapNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, lastDefaultMapName_);
+      }
+      if (mapUuid_ != 0L) {
+        output.writeInt64(7, mapUuid_);
+      }
+      if (location_ != null) {
+        output.writeMessage(8, getLocation());
+      }
+      if (lastDefaultLocation_ != null) {
+        output.writeMessage(9, getLastDefaultLocation());
       }
       if (!getPasswordBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, password_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, password_);
       }
       if (!getCuuidBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, cuuid_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 11, cuuid_);
       }
       if (!getTokenBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, token_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 12, token_);
       }
       if (!getHostBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, host_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 13, host_);
       }
       if (port_ != 0) {
-        output.writeInt32(11, port_);
+        output.writeInt32(14, port_);
       }
       unknownFields.writeTo(output);
     }
@@ -5717,24 +6442,36 @@ public final class Proxy {
       if (!getCharacterNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, characterName_);
       }
-      if (!getMapNameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, mapName_);
+      if (!getLastDefaultMapNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, lastDefaultMapName_);
+      }
+      if (mapUuid_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(7, mapUuid_);
+      }
+      if (location_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, getLocation());
+      }
+      if (lastDefaultLocation_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(9, getLastDefaultLocation());
       }
       if (!getPasswordBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, password_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, password_);
       }
       if (!getCuuidBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, cuuid_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, cuuid_);
       }
       if (!getTokenBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, token_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, token_);
       }
       if (!getHostBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, host_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, host_);
       }
       if (port_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(11, port_);
+          .computeInt32Size(14, port_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5762,8 +6499,20 @@ public final class Proxy {
           == other.getCharacterId());
       result = result && getCharacterName()
           .equals(other.getCharacterName());
-      result = result && getMapName()
-          .equals(other.getMapName());
+      result = result && getLastDefaultMapName()
+          .equals(other.getLastDefaultMapName());
+      result = result && (getMapUuid()
+          == other.getMapUuid());
+      result = result && (hasLocation() == other.hasLocation());
+      if (hasLocation()) {
+        result = result && getLocation()
+            .equals(other.getLocation());
+      }
+      result = result && (hasLastDefaultLocation() == other.hasLastDefaultLocation());
+      if (hasLastDefaultLocation()) {
+        result = result && getLastDefaultLocation()
+            .equals(other.getLastDefaultLocation());
+      }
       result = result && getPassword()
           .equals(other.getPassword());
       result = result && getCuuid()
@@ -5795,8 +6544,19 @@ public final class Proxy {
       hash = (53 * hash) + getCharacterId();
       hash = (37 * hash) + CHARACTER_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getCharacterName().hashCode();
-      hash = (37 * hash) + MAP_NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getMapName().hashCode();
+      hash = (37 * hash) + LAST_DEFAULT_MAP_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getLastDefaultMapName().hashCode();
+      hash = (37 * hash) + MAP_UUID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getMapUuid());
+      if (hasLocation()) {
+        hash = (37 * hash) + LOCATION_FIELD_NUMBER;
+        hash = (53 * hash) + getLocation().hashCode();
+      }
+      if (hasLastDefaultLocation()) {
+        hash = (37 * hash) + LAST_DEFAULT_LOCATION_FIELD_NUMBER;
+        hash = (53 * hash) + getLastDefaultLocation().hashCode();
+      }
       hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
       hash = (53 * hash) + getPassword().hashCode();
       hash = (37 * hash) + CUUID_FIELD_NUMBER;
@@ -5950,8 +6710,22 @@ public final class Proxy {
 
         characterName_ = "";
 
-        mapName_ = "";
+        lastDefaultMapName_ = "";
 
+        mapUuid_ = 0L;
+
+        if (locationBuilder_ == null) {
+          location_ = null;
+        } else {
+          location_ = null;
+          locationBuilder_ = null;
+        }
+        if (lastDefaultLocationBuilder_ == null) {
+          lastDefaultLocation_ = null;
+        } else {
+          lastDefaultLocation_ = null;
+          lastDefaultLocationBuilder_ = null;
+        }
         password_ = "";
 
         cuuid_ = "";
@@ -5993,7 +6767,18 @@ public final class Proxy {
         result.accountName_ = accountName_;
         result.characterId_ = characterId_;
         result.characterName_ = characterName_;
-        result.mapName_ = mapName_;
+        result.lastDefaultMapName_ = lastDefaultMapName_;
+        result.mapUuid_ = mapUuid_;
+        if (locationBuilder_ == null) {
+          result.location_ = location_;
+        } else {
+          result.location_ = locationBuilder_.build();
+        }
+        if (lastDefaultLocationBuilder_ == null) {
+          result.lastDefaultLocation_ = lastDefaultLocation_;
+        } else {
+          result.lastDefaultLocation_ = lastDefaultLocationBuilder_.build();
+        }
         result.password_ = password_;
         result.cuuid_ = cuuid_;
         result.token_ = token_;
@@ -6064,9 +6849,18 @@ public final class Proxy {
           characterName_ = other.characterName_;
           onChanged();
         }
-        if (!other.getMapName().isEmpty()) {
-          mapName_ = other.mapName_;
+        if (!other.getLastDefaultMapName().isEmpty()) {
+          lastDefaultMapName_ = other.lastDefaultMapName_;
           onChanged();
+        }
+        if (other.getMapUuid() != 0L) {
+          setMapUuid(other.getMapUuid());
+        }
+        if (other.hasLocation()) {
+          mergeLocation(other.getLocation());
+        }
+        if (other.hasLastDefaultLocation()) {
+          mergeLastDefaultLocation(other.getLastDefaultLocation());
         }
         if (!other.getPassword().isEmpty()) {
           password_ = other.password_;
@@ -6332,78 +7126,338 @@ public final class Proxy {
         return this;
       }
 
-      private java.lang.Object mapName_ = "";
+      private java.lang.Object lastDefaultMapName_ = "";
       /**
-       * <code>string map_name = 6;</code>
+       * <code>string last_default_map_name = 6;</code>
        */
-      public java.lang.String getMapName() {
-        java.lang.Object ref = mapName_;
+      public java.lang.String getLastDefaultMapName() {
+        java.lang.Object ref = lastDefaultMapName_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          mapName_ = s;
+          lastDefaultMapName_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string map_name = 6;</code>
+       * <code>string last_default_map_name = 6;</code>
        */
       public com.google.protobuf.ByteString
-          getMapNameBytes() {
-        java.lang.Object ref = mapName_;
+          getLastDefaultMapNameBytes() {
+        java.lang.Object ref = lastDefaultMapName_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          mapName_ = b;
+          lastDefaultMapName_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string map_name = 6;</code>
+       * <code>string last_default_map_name = 6;</code>
        */
-      public Builder setMapName(
+      public Builder setLastDefaultMapName(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        mapName_ = value;
+        lastDefaultMapName_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string map_name = 6;</code>
+       * <code>string last_default_map_name = 6;</code>
        */
-      public Builder clearMapName() {
+      public Builder clearLastDefaultMapName() {
         
-        mapName_ = getDefaultInstance().getMapName();
+        lastDefaultMapName_ = getDefaultInstance().getLastDefaultMapName();
         onChanged();
         return this;
       }
       /**
-       * <code>string map_name = 6;</code>
+       * <code>string last_default_map_name = 6;</code>
        */
-      public Builder setMapNameBytes(
+      public Builder setLastDefaultMapNameBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        mapName_ = value;
+        lastDefaultMapName_ = value;
         onChanged();
         return this;
       }
 
+      private long mapUuid_ ;
+      /**
+       * <code>int64 map_uuid = 7;</code>
+       */
+      public long getMapUuid() {
+        return mapUuid_;
+      }
+      /**
+       * <code>int64 map_uuid = 7;</code>
+       */
+      public Builder setMapUuid(long value) {
+        
+        mapUuid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 map_uuid = 7;</code>
+       */
+      public Builder clearMapUuid() {
+        
+        mapUuid_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private com.shattered.networking.proto.Proxy.PVector location_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.shattered.networking.proto.Proxy.PVector, com.shattered.networking.proto.Proxy.PVector.Builder, com.shattered.networking.proto.Proxy.PVectorOrBuilder> locationBuilder_;
+      /**
+       * <code>.shattered.protocol.PVector location = 8;</code>
+       */
+      public boolean hasLocation() {
+        return locationBuilder_ != null || location_ != null;
+      }
+      /**
+       * <code>.shattered.protocol.PVector location = 8;</code>
+       */
+      public com.shattered.networking.proto.Proxy.PVector getLocation() {
+        if (locationBuilder_ == null) {
+          return location_ == null ? com.shattered.networking.proto.Proxy.PVector.getDefaultInstance() : location_;
+        } else {
+          return locationBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.shattered.protocol.PVector location = 8;</code>
+       */
+      public Builder setLocation(com.shattered.networking.proto.Proxy.PVector value) {
+        if (locationBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          location_ = value;
+          onChanged();
+        } else {
+          locationBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.shattered.protocol.PVector location = 8;</code>
+       */
+      public Builder setLocation(
+          com.shattered.networking.proto.Proxy.PVector.Builder builderForValue) {
+        if (locationBuilder_ == null) {
+          location_ = builderForValue.build();
+          onChanged();
+        } else {
+          locationBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.shattered.protocol.PVector location = 8;</code>
+       */
+      public Builder mergeLocation(com.shattered.networking.proto.Proxy.PVector value) {
+        if (locationBuilder_ == null) {
+          if (location_ != null) {
+            location_ =
+              com.shattered.networking.proto.Proxy.PVector.newBuilder(location_).mergeFrom(value).buildPartial();
+          } else {
+            location_ = value;
+          }
+          onChanged();
+        } else {
+          locationBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.shattered.protocol.PVector location = 8;</code>
+       */
+      public Builder clearLocation() {
+        if (locationBuilder_ == null) {
+          location_ = null;
+          onChanged();
+        } else {
+          location_ = null;
+          locationBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.shattered.protocol.PVector location = 8;</code>
+       */
+      public com.shattered.networking.proto.Proxy.PVector.Builder getLocationBuilder() {
+        
+        onChanged();
+        return getLocationFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.shattered.protocol.PVector location = 8;</code>
+       */
+      public com.shattered.networking.proto.Proxy.PVectorOrBuilder getLocationOrBuilder() {
+        if (locationBuilder_ != null) {
+          return locationBuilder_.getMessageOrBuilder();
+        } else {
+          return location_ == null ?
+              com.shattered.networking.proto.Proxy.PVector.getDefaultInstance() : location_;
+        }
+      }
+      /**
+       * <code>.shattered.protocol.PVector location = 8;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.shattered.networking.proto.Proxy.PVector, com.shattered.networking.proto.Proxy.PVector.Builder, com.shattered.networking.proto.Proxy.PVectorOrBuilder> 
+          getLocationFieldBuilder() {
+        if (locationBuilder_ == null) {
+          locationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.shattered.networking.proto.Proxy.PVector, com.shattered.networking.proto.Proxy.PVector.Builder, com.shattered.networking.proto.Proxy.PVectorOrBuilder>(
+                  getLocation(),
+                  getParentForChildren(),
+                  isClean());
+          location_ = null;
+        }
+        return locationBuilder_;
+      }
+
+      private com.shattered.networking.proto.Proxy.PVector lastDefaultLocation_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.shattered.networking.proto.Proxy.PVector, com.shattered.networking.proto.Proxy.PVector.Builder, com.shattered.networking.proto.Proxy.PVectorOrBuilder> lastDefaultLocationBuilder_;
+      /**
+       * <code>.shattered.protocol.PVector last_default_location = 9;</code>
+       */
+      public boolean hasLastDefaultLocation() {
+        return lastDefaultLocationBuilder_ != null || lastDefaultLocation_ != null;
+      }
+      /**
+       * <code>.shattered.protocol.PVector last_default_location = 9;</code>
+       */
+      public com.shattered.networking.proto.Proxy.PVector getLastDefaultLocation() {
+        if (lastDefaultLocationBuilder_ == null) {
+          return lastDefaultLocation_ == null ? com.shattered.networking.proto.Proxy.PVector.getDefaultInstance() : lastDefaultLocation_;
+        } else {
+          return lastDefaultLocationBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.shattered.protocol.PVector last_default_location = 9;</code>
+       */
+      public Builder setLastDefaultLocation(com.shattered.networking.proto.Proxy.PVector value) {
+        if (lastDefaultLocationBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          lastDefaultLocation_ = value;
+          onChanged();
+        } else {
+          lastDefaultLocationBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.shattered.protocol.PVector last_default_location = 9;</code>
+       */
+      public Builder setLastDefaultLocation(
+          com.shattered.networking.proto.Proxy.PVector.Builder builderForValue) {
+        if (lastDefaultLocationBuilder_ == null) {
+          lastDefaultLocation_ = builderForValue.build();
+          onChanged();
+        } else {
+          lastDefaultLocationBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.shattered.protocol.PVector last_default_location = 9;</code>
+       */
+      public Builder mergeLastDefaultLocation(com.shattered.networking.proto.Proxy.PVector value) {
+        if (lastDefaultLocationBuilder_ == null) {
+          if (lastDefaultLocation_ != null) {
+            lastDefaultLocation_ =
+              com.shattered.networking.proto.Proxy.PVector.newBuilder(lastDefaultLocation_).mergeFrom(value).buildPartial();
+          } else {
+            lastDefaultLocation_ = value;
+          }
+          onChanged();
+        } else {
+          lastDefaultLocationBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.shattered.protocol.PVector last_default_location = 9;</code>
+       */
+      public Builder clearLastDefaultLocation() {
+        if (lastDefaultLocationBuilder_ == null) {
+          lastDefaultLocation_ = null;
+          onChanged();
+        } else {
+          lastDefaultLocation_ = null;
+          lastDefaultLocationBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.shattered.protocol.PVector last_default_location = 9;</code>
+       */
+      public com.shattered.networking.proto.Proxy.PVector.Builder getLastDefaultLocationBuilder() {
+        
+        onChanged();
+        return getLastDefaultLocationFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.shattered.protocol.PVector last_default_location = 9;</code>
+       */
+      public com.shattered.networking.proto.Proxy.PVectorOrBuilder getLastDefaultLocationOrBuilder() {
+        if (lastDefaultLocationBuilder_ != null) {
+          return lastDefaultLocationBuilder_.getMessageOrBuilder();
+        } else {
+          return lastDefaultLocation_ == null ?
+              com.shattered.networking.proto.Proxy.PVector.getDefaultInstance() : lastDefaultLocation_;
+        }
+      }
+      /**
+       * <code>.shattered.protocol.PVector last_default_location = 9;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.shattered.networking.proto.Proxy.PVector, com.shattered.networking.proto.Proxy.PVector.Builder, com.shattered.networking.proto.Proxy.PVectorOrBuilder> 
+          getLastDefaultLocationFieldBuilder() {
+        if (lastDefaultLocationBuilder_ == null) {
+          lastDefaultLocationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.shattered.networking.proto.Proxy.PVector, com.shattered.networking.proto.Proxy.PVector.Builder, com.shattered.networking.proto.Proxy.PVectorOrBuilder>(
+                  getLastDefaultLocation(),
+                  getParentForChildren(),
+                  isClean());
+          lastDefaultLocation_ = null;
+        }
+        return lastDefaultLocationBuilder_;
+      }
+
       private java.lang.Object password_ = "";
       /**
-       * <code>string password = 7;</code>
+       * <code>string password = 10;</code>
        */
       public java.lang.String getPassword() {
         java.lang.Object ref = password_;
@@ -6418,7 +7472,7 @@ public final class Proxy {
         }
       }
       /**
-       * <code>string password = 7;</code>
+       * <code>string password = 10;</code>
        */
       public com.google.protobuf.ByteString
           getPasswordBytes() {
@@ -6434,7 +7488,7 @@ public final class Proxy {
         }
       }
       /**
-       * <code>string password = 7;</code>
+       * <code>string password = 10;</code>
        */
       public Builder setPassword(
           java.lang.String value) {
@@ -6447,7 +7501,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>string password = 7;</code>
+       * <code>string password = 10;</code>
        */
       public Builder clearPassword() {
         
@@ -6456,7 +7510,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>string password = 7;</code>
+       * <code>string password = 10;</code>
        */
       public Builder setPasswordBytes(
           com.google.protobuf.ByteString value) {
@@ -6472,7 +7526,7 @@ public final class Proxy {
 
       private java.lang.Object cuuid_ = "";
       /**
-       * <code>string cuuid = 8;</code>
+       * <code>string cuuid = 11;</code>
        */
       public java.lang.String getCuuid() {
         java.lang.Object ref = cuuid_;
@@ -6487,7 +7541,7 @@ public final class Proxy {
         }
       }
       /**
-       * <code>string cuuid = 8;</code>
+       * <code>string cuuid = 11;</code>
        */
       public com.google.protobuf.ByteString
           getCuuidBytes() {
@@ -6503,7 +7557,7 @@ public final class Proxy {
         }
       }
       /**
-       * <code>string cuuid = 8;</code>
+       * <code>string cuuid = 11;</code>
        */
       public Builder setCuuid(
           java.lang.String value) {
@@ -6516,7 +7570,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>string cuuid = 8;</code>
+       * <code>string cuuid = 11;</code>
        */
       public Builder clearCuuid() {
         
@@ -6525,7 +7579,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>string cuuid = 8;</code>
+       * <code>string cuuid = 11;</code>
        */
       public Builder setCuuidBytes(
           com.google.protobuf.ByteString value) {
@@ -6541,7 +7595,7 @@ public final class Proxy {
 
       private java.lang.Object token_ = "";
       /**
-       * <code>string token = 9;</code>
+       * <code>string token = 12;</code>
        */
       public java.lang.String getToken() {
         java.lang.Object ref = token_;
@@ -6556,7 +7610,7 @@ public final class Proxy {
         }
       }
       /**
-       * <code>string token = 9;</code>
+       * <code>string token = 12;</code>
        */
       public com.google.protobuf.ByteString
           getTokenBytes() {
@@ -6572,7 +7626,7 @@ public final class Proxy {
         }
       }
       /**
-       * <code>string token = 9;</code>
+       * <code>string token = 12;</code>
        */
       public Builder setToken(
           java.lang.String value) {
@@ -6585,7 +7639,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>string token = 9;</code>
+       * <code>string token = 12;</code>
        */
       public Builder clearToken() {
         
@@ -6594,7 +7648,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>string token = 9;</code>
+       * <code>string token = 12;</code>
        */
       public Builder setTokenBytes(
           com.google.protobuf.ByteString value) {
@@ -6610,7 +7664,7 @@ public final class Proxy {
 
       private java.lang.Object host_ = "";
       /**
-       * <code>string host = 10;</code>
+       * <code>string host = 13;</code>
        */
       public java.lang.String getHost() {
         java.lang.Object ref = host_;
@@ -6625,7 +7679,7 @@ public final class Proxy {
         }
       }
       /**
-       * <code>string host = 10;</code>
+       * <code>string host = 13;</code>
        */
       public com.google.protobuf.ByteString
           getHostBytes() {
@@ -6641,7 +7695,7 @@ public final class Proxy {
         }
       }
       /**
-       * <code>string host = 10;</code>
+       * <code>string host = 13;</code>
        */
       public Builder setHost(
           java.lang.String value) {
@@ -6654,7 +7708,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>string host = 10;</code>
+       * <code>string host = 13;</code>
        */
       public Builder clearHost() {
         
@@ -6663,7 +7717,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>string host = 10;</code>
+       * <code>string host = 13;</code>
        */
       public Builder setHostBytes(
           com.google.protobuf.ByteString value) {
@@ -6679,13 +7733,13 @@ public final class Proxy {
 
       private int port_ ;
       /**
-       * <code>int32 port = 11;</code>
+       * <code>int32 port = 14;</code>
        */
       public int getPort() {
         return port_;
       }
       /**
-       * <code>int32 port = 11;</code>
+       * <code>int32 port = 14;</code>
        */
       public Builder setPort(int value) {
         
@@ -6694,7 +7748,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>int32 port = 11;</code>
+       * <code>int32 port = 14;</code>
        */
       public Builder clearPort() {
         
@@ -7502,21 +8556,52 @@ public final class Proxy {
         getCharacterNameBytes();
 
     /**
-     * <code>string map_name = 8;</code>
+     * <code>string last_default_map = 8;</code>
      */
-    java.lang.String getMapName();
+    java.lang.String getLastDefaultMap();
     /**
-     * <code>string map_name = 8;</code>
+     * <code>string last_default_map = 8;</code>
      */
     com.google.protobuf.ByteString
-        getMapNameBytes();
+        getLastDefaultMapBytes();
 
     /**
-     * <code>string password = 9;</code>
+     * <code>int64 map_uuid = 9;</code>
+     */
+    long getMapUuid();
+
+    /**
+     * <code>.shattered.protocol.PVector location = 10;</code>
+     */
+    boolean hasLocation();
+    /**
+     * <code>.shattered.protocol.PVector location = 10;</code>
+     */
+    com.shattered.networking.proto.Proxy.PVector getLocation();
+    /**
+     * <code>.shattered.protocol.PVector location = 10;</code>
+     */
+    com.shattered.networking.proto.Proxy.PVectorOrBuilder getLocationOrBuilder();
+
+    /**
+     * <code>.shattered.protocol.PVector last_default_location = 11;</code>
+     */
+    boolean hasLastDefaultLocation();
+    /**
+     * <code>.shattered.protocol.PVector last_default_location = 11;</code>
+     */
+    com.shattered.networking.proto.Proxy.PVector getLastDefaultLocation();
+    /**
+     * <code>.shattered.protocol.PVector last_default_location = 11;</code>
+     */
+    com.shattered.networking.proto.Proxy.PVectorOrBuilder getLastDefaultLocationOrBuilder();
+
+    /**
+     * <code>string password = 12;</code>
      */
     java.lang.String getPassword();
     /**
-     * <code>string password = 9;</code>
+     * <code>string password = 12;</code>
      */
     com.google.protobuf.ByteString
         getPasswordBytes();
@@ -7541,7 +8626,8 @@ public final class Proxy {
       accountName_ = "";
       characterId_ = 0;
       characterName_ = "";
-      mapName_ = "";
+      lastDefaultMap_ = "";
+      mapUuid_ = 0L;
       password_ = "";
     }
 
@@ -7611,10 +8697,41 @@ public final class Proxy {
             case 66: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              mapName_ = s;
+              lastDefaultMap_ = s;
               break;
             }
-            case 74: {
+            case 72: {
+
+              mapUuid_ = input.readInt64();
+              break;
+            }
+            case 82: {
+              com.shattered.networking.proto.Proxy.PVector.Builder subBuilder = null;
+              if (location_ != null) {
+                subBuilder = location_.toBuilder();
+              }
+              location_ = input.readMessage(com.shattered.networking.proto.Proxy.PVector.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(location_);
+                location_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 90: {
+              com.shattered.networking.proto.Proxy.PVector.Builder subBuilder = null;
+              if (lastDefaultLocation_ != null) {
+                subBuilder = lastDefaultLocation_.toBuilder();
+              }
+              lastDefaultLocation_ = input.readMessage(com.shattered.networking.proto.Proxy.PVector.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(lastDefaultLocation_);
+                lastDefaultLocation_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 98: {
               java.lang.String s = input.readStringRequireUtf8();
 
               password_ = s;
@@ -7815,44 +8932,95 @@ public final class Proxy {
       }
     }
 
-    public static final int MAP_NAME_FIELD_NUMBER = 8;
-    private volatile java.lang.Object mapName_;
+    public static final int LAST_DEFAULT_MAP_FIELD_NUMBER = 8;
+    private volatile java.lang.Object lastDefaultMap_;
     /**
-     * <code>string map_name = 8;</code>
+     * <code>string last_default_map = 8;</code>
      */
-    public java.lang.String getMapName() {
-      java.lang.Object ref = mapName_;
+    public java.lang.String getLastDefaultMap() {
+      java.lang.Object ref = lastDefaultMap_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        mapName_ = s;
+        lastDefaultMap_ = s;
         return s;
       }
     }
     /**
-     * <code>string map_name = 8;</code>
+     * <code>string last_default_map = 8;</code>
      */
     public com.google.protobuf.ByteString
-        getMapNameBytes() {
-      java.lang.Object ref = mapName_;
+        getLastDefaultMapBytes() {
+      java.lang.Object ref = lastDefaultMap_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        mapName_ = b;
+        lastDefaultMap_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
 
-    public static final int PASSWORD_FIELD_NUMBER = 9;
+    public static final int MAP_UUID_FIELD_NUMBER = 9;
+    private long mapUuid_;
+    /**
+     * <code>int64 map_uuid = 9;</code>
+     */
+    public long getMapUuid() {
+      return mapUuid_;
+    }
+
+    public static final int LOCATION_FIELD_NUMBER = 10;
+    private com.shattered.networking.proto.Proxy.PVector location_;
+    /**
+     * <code>.shattered.protocol.PVector location = 10;</code>
+     */
+    public boolean hasLocation() {
+      return location_ != null;
+    }
+    /**
+     * <code>.shattered.protocol.PVector location = 10;</code>
+     */
+    public com.shattered.networking.proto.Proxy.PVector getLocation() {
+      return location_ == null ? com.shattered.networking.proto.Proxy.PVector.getDefaultInstance() : location_;
+    }
+    /**
+     * <code>.shattered.protocol.PVector location = 10;</code>
+     */
+    public com.shattered.networking.proto.Proxy.PVectorOrBuilder getLocationOrBuilder() {
+      return getLocation();
+    }
+
+    public static final int LAST_DEFAULT_LOCATION_FIELD_NUMBER = 11;
+    private com.shattered.networking.proto.Proxy.PVector lastDefaultLocation_;
+    /**
+     * <code>.shattered.protocol.PVector last_default_location = 11;</code>
+     */
+    public boolean hasLastDefaultLocation() {
+      return lastDefaultLocation_ != null;
+    }
+    /**
+     * <code>.shattered.protocol.PVector last_default_location = 11;</code>
+     */
+    public com.shattered.networking.proto.Proxy.PVector getLastDefaultLocation() {
+      return lastDefaultLocation_ == null ? com.shattered.networking.proto.Proxy.PVector.getDefaultInstance() : lastDefaultLocation_;
+    }
+    /**
+     * <code>.shattered.protocol.PVector last_default_location = 11;</code>
+     */
+    public com.shattered.networking.proto.Proxy.PVectorOrBuilder getLastDefaultLocationOrBuilder() {
+      return getLastDefaultLocation();
+    }
+
+    public static final int PASSWORD_FIELD_NUMBER = 12;
     private volatile java.lang.Object password_;
     /**
-     * <code>string password = 9;</code>
+     * <code>string password = 12;</code>
      */
     public java.lang.String getPassword() {
       java.lang.Object ref = password_;
@@ -7867,7 +9035,7 @@ public final class Proxy {
       }
     }
     /**
-     * <code>string password = 9;</code>
+     * <code>string password = 12;</code>
      */
     public com.google.protobuf.ByteString
         getPasswordBytes() {
@@ -7918,11 +9086,20 @@ public final class Proxy {
       if (!getCharacterNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 7, characterName_);
       }
-      if (!getMapNameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, mapName_);
+      if (!getLastDefaultMapBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, lastDefaultMap_);
+      }
+      if (mapUuid_ != 0L) {
+        output.writeInt64(9, mapUuid_);
+      }
+      if (location_ != null) {
+        output.writeMessage(10, getLocation());
+      }
+      if (lastDefaultLocation_ != null) {
+        output.writeMessage(11, getLastDefaultLocation());
       }
       if (!getPasswordBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, password_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 12, password_);
       }
       unknownFields.writeTo(output);
     }
@@ -7957,11 +9134,23 @@ public final class Proxy {
       if (!getCharacterNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, characterName_);
       }
-      if (!getMapNameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, mapName_);
+      if (!getLastDefaultMapBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, lastDefaultMap_);
+      }
+      if (mapUuid_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(9, mapUuid_);
+      }
+      if (location_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(10, getLocation());
+      }
+      if (lastDefaultLocation_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(11, getLastDefaultLocation());
       }
       if (!getPasswordBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, password_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, password_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -7993,8 +9182,20 @@ public final class Proxy {
           == other.getCharacterId());
       result = result && getCharacterName()
           .equals(other.getCharacterName());
-      result = result && getMapName()
-          .equals(other.getMapName());
+      result = result && getLastDefaultMap()
+          .equals(other.getLastDefaultMap());
+      result = result && (getMapUuid()
+          == other.getMapUuid());
+      result = result && (hasLocation() == other.hasLocation());
+      if (hasLocation()) {
+        result = result && getLocation()
+            .equals(other.getLocation());
+      }
+      result = result && (hasLastDefaultLocation() == other.hasLastDefaultLocation());
+      if (hasLastDefaultLocation()) {
+        result = result && getLastDefaultLocation()
+            .equals(other.getLastDefaultLocation());
+      }
       result = result && getPassword()
           .equals(other.getPassword());
       result = result && unknownFields.equals(other.unknownFields);
@@ -8022,8 +9223,19 @@ public final class Proxy {
       hash = (53 * hash) + getCharacterId();
       hash = (37 * hash) + CHARACTER_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getCharacterName().hashCode();
-      hash = (37 * hash) + MAP_NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getMapName().hashCode();
+      hash = (37 * hash) + LAST_DEFAULT_MAP_FIELD_NUMBER;
+      hash = (53 * hash) + getLastDefaultMap().hashCode();
+      hash = (37 * hash) + MAP_UUID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getMapUuid());
+      if (hasLocation()) {
+        hash = (37 * hash) + LOCATION_FIELD_NUMBER;
+        hash = (53 * hash) + getLocation().hashCode();
+      }
+      if (hasLastDefaultLocation()) {
+        hash = (37 * hash) + LAST_DEFAULT_LOCATION_FIELD_NUMBER;
+        hash = (53 * hash) + getLastDefaultLocation().hashCode();
+      }
       hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
       hash = (53 * hash) + getPassword().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -8173,8 +9385,22 @@ public final class Proxy {
 
         characterName_ = "";
 
-        mapName_ = "";
+        lastDefaultMap_ = "";
 
+        mapUuid_ = 0L;
+
+        if (locationBuilder_ == null) {
+          location_ = null;
+        } else {
+          location_ = null;
+          locationBuilder_ = null;
+        }
+        if (lastDefaultLocationBuilder_ == null) {
+          lastDefaultLocation_ = null;
+        } else {
+          lastDefaultLocation_ = null;
+          lastDefaultLocationBuilder_ = null;
+        }
         password_ = "";
 
         return this;
@@ -8210,7 +9436,18 @@ public final class Proxy {
         result.accountName_ = accountName_;
         result.characterId_ = characterId_;
         result.characterName_ = characterName_;
-        result.mapName_ = mapName_;
+        result.lastDefaultMap_ = lastDefaultMap_;
+        result.mapUuid_ = mapUuid_;
+        if (locationBuilder_ == null) {
+          result.location_ = location_;
+        } else {
+          result.location_ = locationBuilder_.build();
+        }
+        if (lastDefaultLocationBuilder_ == null) {
+          result.lastDefaultLocation_ = lastDefaultLocation_;
+        } else {
+          result.lastDefaultLocation_ = lastDefaultLocationBuilder_.build();
+        }
         result.password_ = password_;
         onBuilt();
         return result;
@@ -8285,9 +9522,18 @@ public final class Proxy {
           characterName_ = other.characterName_;
           onChanged();
         }
-        if (!other.getMapName().isEmpty()) {
-          mapName_ = other.mapName_;
+        if (!other.getLastDefaultMap().isEmpty()) {
+          lastDefaultMap_ = other.lastDefaultMap_;
           onChanged();
+        }
+        if (other.getMapUuid() != 0L) {
+          setMapUuid(other.getMapUuid());
+        }
+        if (other.hasLocation()) {
+          mergeLocation(other.getLocation());
+        }
+        if (other.hasLastDefaultLocation()) {
+          mergeLastDefaultLocation(other.getLastDefaultLocation());
         }
         if (!other.getPassword().isEmpty()) {
           password_ = other.password_;
@@ -8676,78 +9922,338 @@ public final class Proxy {
         return this;
       }
 
-      private java.lang.Object mapName_ = "";
+      private java.lang.Object lastDefaultMap_ = "";
       /**
-       * <code>string map_name = 8;</code>
+       * <code>string last_default_map = 8;</code>
        */
-      public java.lang.String getMapName() {
-        java.lang.Object ref = mapName_;
+      public java.lang.String getLastDefaultMap() {
+        java.lang.Object ref = lastDefaultMap_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          mapName_ = s;
+          lastDefaultMap_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string map_name = 8;</code>
+       * <code>string last_default_map = 8;</code>
        */
       public com.google.protobuf.ByteString
-          getMapNameBytes() {
-        java.lang.Object ref = mapName_;
+          getLastDefaultMapBytes() {
+        java.lang.Object ref = lastDefaultMap_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          mapName_ = b;
+          lastDefaultMap_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string map_name = 8;</code>
+       * <code>string last_default_map = 8;</code>
        */
-      public Builder setMapName(
+      public Builder setLastDefaultMap(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        mapName_ = value;
+        lastDefaultMap_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string map_name = 8;</code>
+       * <code>string last_default_map = 8;</code>
        */
-      public Builder clearMapName() {
+      public Builder clearLastDefaultMap() {
         
-        mapName_ = getDefaultInstance().getMapName();
+        lastDefaultMap_ = getDefaultInstance().getLastDefaultMap();
         onChanged();
         return this;
       }
       /**
-       * <code>string map_name = 8;</code>
+       * <code>string last_default_map = 8;</code>
        */
-      public Builder setMapNameBytes(
+      public Builder setLastDefaultMapBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        mapName_ = value;
+        lastDefaultMap_ = value;
         onChanged();
         return this;
       }
 
+      private long mapUuid_ ;
+      /**
+       * <code>int64 map_uuid = 9;</code>
+       */
+      public long getMapUuid() {
+        return mapUuid_;
+      }
+      /**
+       * <code>int64 map_uuid = 9;</code>
+       */
+      public Builder setMapUuid(long value) {
+        
+        mapUuid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 map_uuid = 9;</code>
+       */
+      public Builder clearMapUuid() {
+        
+        mapUuid_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private com.shattered.networking.proto.Proxy.PVector location_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.shattered.networking.proto.Proxy.PVector, com.shattered.networking.proto.Proxy.PVector.Builder, com.shattered.networking.proto.Proxy.PVectorOrBuilder> locationBuilder_;
+      /**
+       * <code>.shattered.protocol.PVector location = 10;</code>
+       */
+      public boolean hasLocation() {
+        return locationBuilder_ != null || location_ != null;
+      }
+      /**
+       * <code>.shattered.protocol.PVector location = 10;</code>
+       */
+      public com.shattered.networking.proto.Proxy.PVector getLocation() {
+        if (locationBuilder_ == null) {
+          return location_ == null ? com.shattered.networking.proto.Proxy.PVector.getDefaultInstance() : location_;
+        } else {
+          return locationBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.shattered.protocol.PVector location = 10;</code>
+       */
+      public Builder setLocation(com.shattered.networking.proto.Proxy.PVector value) {
+        if (locationBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          location_ = value;
+          onChanged();
+        } else {
+          locationBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.shattered.protocol.PVector location = 10;</code>
+       */
+      public Builder setLocation(
+          com.shattered.networking.proto.Proxy.PVector.Builder builderForValue) {
+        if (locationBuilder_ == null) {
+          location_ = builderForValue.build();
+          onChanged();
+        } else {
+          locationBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.shattered.protocol.PVector location = 10;</code>
+       */
+      public Builder mergeLocation(com.shattered.networking.proto.Proxy.PVector value) {
+        if (locationBuilder_ == null) {
+          if (location_ != null) {
+            location_ =
+              com.shattered.networking.proto.Proxy.PVector.newBuilder(location_).mergeFrom(value).buildPartial();
+          } else {
+            location_ = value;
+          }
+          onChanged();
+        } else {
+          locationBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.shattered.protocol.PVector location = 10;</code>
+       */
+      public Builder clearLocation() {
+        if (locationBuilder_ == null) {
+          location_ = null;
+          onChanged();
+        } else {
+          location_ = null;
+          locationBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.shattered.protocol.PVector location = 10;</code>
+       */
+      public com.shattered.networking.proto.Proxy.PVector.Builder getLocationBuilder() {
+        
+        onChanged();
+        return getLocationFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.shattered.protocol.PVector location = 10;</code>
+       */
+      public com.shattered.networking.proto.Proxy.PVectorOrBuilder getLocationOrBuilder() {
+        if (locationBuilder_ != null) {
+          return locationBuilder_.getMessageOrBuilder();
+        } else {
+          return location_ == null ?
+              com.shattered.networking.proto.Proxy.PVector.getDefaultInstance() : location_;
+        }
+      }
+      /**
+       * <code>.shattered.protocol.PVector location = 10;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.shattered.networking.proto.Proxy.PVector, com.shattered.networking.proto.Proxy.PVector.Builder, com.shattered.networking.proto.Proxy.PVectorOrBuilder> 
+          getLocationFieldBuilder() {
+        if (locationBuilder_ == null) {
+          locationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.shattered.networking.proto.Proxy.PVector, com.shattered.networking.proto.Proxy.PVector.Builder, com.shattered.networking.proto.Proxy.PVectorOrBuilder>(
+                  getLocation(),
+                  getParentForChildren(),
+                  isClean());
+          location_ = null;
+        }
+        return locationBuilder_;
+      }
+
+      private com.shattered.networking.proto.Proxy.PVector lastDefaultLocation_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.shattered.networking.proto.Proxy.PVector, com.shattered.networking.proto.Proxy.PVector.Builder, com.shattered.networking.proto.Proxy.PVectorOrBuilder> lastDefaultLocationBuilder_;
+      /**
+       * <code>.shattered.protocol.PVector last_default_location = 11;</code>
+       */
+      public boolean hasLastDefaultLocation() {
+        return lastDefaultLocationBuilder_ != null || lastDefaultLocation_ != null;
+      }
+      /**
+       * <code>.shattered.protocol.PVector last_default_location = 11;</code>
+       */
+      public com.shattered.networking.proto.Proxy.PVector getLastDefaultLocation() {
+        if (lastDefaultLocationBuilder_ == null) {
+          return lastDefaultLocation_ == null ? com.shattered.networking.proto.Proxy.PVector.getDefaultInstance() : lastDefaultLocation_;
+        } else {
+          return lastDefaultLocationBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.shattered.protocol.PVector last_default_location = 11;</code>
+       */
+      public Builder setLastDefaultLocation(com.shattered.networking.proto.Proxy.PVector value) {
+        if (lastDefaultLocationBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          lastDefaultLocation_ = value;
+          onChanged();
+        } else {
+          lastDefaultLocationBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.shattered.protocol.PVector last_default_location = 11;</code>
+       */
+      public Builder setLastDefaultLocation(
+          com.shattered.networking.proto.Proxy.PVector.Builder builderForValue) {
+        if (lastDefaultLocationBuilder_ == null) {
+          lastDefaultLocation_ = builderForValue.build();
+          onChanged();
+        } else {
+          lastDefaultLocationBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.shattered.protocol.PVector last_default_location = 11;</code>
+       */
+      public Builder mergeLastDefaultLocation(com.shattered.networking.proto.Proxy.PVector value) {
+        if (lastDefaultLocationBuilder_ == null) {
+          if (lastDefaultLocation_ != null) {
+            lastDefaultLocation_ =
+              com.shattered.networking.proto.Proxy.PVector.newBuilder(lastDefaultLocation_).mergeFrom(value).buildPartial();
+          } else {
+            lastDefaultLocation_ = value;
+          }
+          onChanged();
+        } else {
+          lastDefaultLocationBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.shattered.protocol.PVector last_default_location = 11;</code>
+       */
+      public Builder clearLastDefaultLocation() {
+        if (lastDefaultLocationBuilder_ == null) {
+          lastDefaultLocation_ = null;
+          onChanged();
+        } else {
+          lastDefaultLocation_ = null;
+          lastDefaultLocationBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.shattered.protocol.PVector last_default_location = 11;</code>
+       */
+      public com.shattered.networking.proto.Proxy.PVector.Builder getLastDefaultLocationBuilder() {
+        
+        onChanged();
+        return getLastDefaultLocationFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.shattered.protocol.PVector last_default_location = 11;</code>
+       */
+      public com.shattered.networking.proto.Proxy.PVectorOrBuilder getLastDefaultLocationOrBuilder() {
+        if (lastDefaultLocationBuilder_ != null) {
+          return lastDefaultLocationBuilder_.getMessageOrBuilder();
+        } else {
+          return lastDefaultLocation_ == null ?
+              com.shattered.networking.proto.Proxy.PVector.getDefaultInstance() : lastDefaultLocation_;
+        }
+      }
+      /**
+       * <code>.shattered.protocol.PVector last_default_location = 11;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.shattered.networking.proto.Proxy.PVector, com.shattered.networking.proto.Proxy.PVector.Builder, com.shattered.networking.proto.Proxy.PVectorOrBuilder> 
+          getLastDefaultLocationFieldBuilder() {
+        if (lastDefaultLocationBuilder_ == null) {
+          lastDefaultLocationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.shattered.networking.proto.Proxy.PVector, com.shattered.networking.proto.Proxy.PVector.Builder, com.shattered.networking.proto.Proxy.PVectorOrBuilder>(
+                  getLastDefaultLocation(),
+                  getParentForChildren(),
+                  isClean());
+          lastDefaultLocation_ = null;
+        }
+        return lastDefaultLocationBuilder_;
+      }
+
       private java.lang.Object password_ = "";
       /**
-       * <code>string password = 9;</code>
+       * <code>string password = 12;</code>
        */
       public java.lang.String getPassword() {
         java.lang.Object ref = password_;
@@ -8762,7 +10268,7 @@ public final class Proxy {
         }
       }
       /**
-       * <code>string password = 9;</code>
+       * <code>string password = 12;</code>
        */
       public com.google.protobuf.ByteString
           getPasswordBytes() {
@@ -8778,7 +10284,7 @@ public final class Proxy {
         }
       }
       /**
-       * <code>string password = 9;</code>
+       * <code>string password = 12;</code>
        */
       public Builder setPassword(
           java.lang.String value) {
@@ -8791,7 +10297,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>string password = 9;</code>
+       * <code>string password = 12;</code>
        */
       public Builder clearPassword() {
         
@@ -8800,7 +10306,7 @@ public final class Proxy {
         return this;
       }
       /**
-       * <code>string password = 9;</code>
+       * <code>string password = 12;</code>
        */
       public Builder setPasswordBytes(
           com.google.protobuf.ByteString value) {
@@ -10418,6 +11924,11 @@ public final class Proxy {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_shattered_protocol_TransferConnection_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_shattered_protocol_PVector_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_shattered_protocol_PVector_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_shattered_protocol_TransferToWorld_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -10463,24 +11974,32 @@ public final class Proxy {
       "\tavailable\030\001 \001(\010\"\035\n\014RequestRealm\022\r\n\005cuui" +
       "d\030\001 \001(\t\"N\n\022TransferConnection\022\r\n\005cuuid\030\001" +
       " \001(\t\022\r\n\005token\030\002 \001(\t\022\014\n\004host\030\003 \001(\t\022\014\n\004por" +
-      "t\030\004 \001(\005\"\341\001\n\017TransferToWorld\022\022\n\naccount_i" +
-      "d\030\001 \001(\005\022\030\n\020permission_level\030\002 \001(\005\022\024\n\014acc" +
-      "ount_name\030\003 \001(\t\022\024\n\014character_id\030\004 \001(\005\022\026\n" +
-      "\016character_name\030\005 \001(\t\022\020\n\010map_name\030\006 \001(\t\022" +
-      "\020\n\010password\030\007 \001(\t\022\r\n\005cuuid\030\010 \001(\t\022\r\n\005toke" +
-      "n\030\t \001(\t\022\014\n\004host\030\n \001(\t\022\014\n\004port\030\013 \001(\005\"9\n\017T" +
-      "ransferToRealm\022\024\n\014account_name\030\001 \001(\t\022\020\n\010" +
-      "password\030\002 \001(\t\"\317\001\n\031WorldCharacterInforma" +
-      "tion\022\r\n\005cuuid\030\001 \001(\t\022\r\n\005token\030\002 \001(\t\022\022\n\nac" +
-      "count_id\030\003 \001(\005\022\030\n\020permission_level\030\004 \001(\005" +
-      "\022\024\n\014account_name\030\005 \001(\t\022\024\n\014character_id\030\006" +
-      " \001(\005\022\026\n\016character_name\030\007 \001(\t\022\020\n\010map_name" +
-      "\030\010 \001(\t\022\020\n\010password\030\t \001(\t\"L\n\034RequestNewTr" +
-      "ansferConnection\022\016\n\006tccuid\030\001 \001(\t\022\r\n\005cuui" +
-      "d\030\002 \001(\t\022\r\n\005token\030\003 \001(\t\"M\n\033RequestWorldTo" +
-      "RealmTransfer\022\024\n\014account_name\030\001 \001(\t\022\030\n\020a" +
-      "ccount_password\030\002 \001(\tB#\n\036com.shattered.n" +
-      "etworking.proto\370\001\001b\006proto3"
+      "t\030\004 \001(\005\"*\n\007PVector\022\t\n\001x\030\001 \001(\005\022\t\n\001y\030\002 \001(\005" +
+      "\022\t\n\001z\030\003 \001(\005\"\353\002\n\017TransferToWorld\022\022\n\naccou" +
+      "nt_id\030\001 \001(\005\022\030\n\020permission_level\030\002 \001(\005\022\024\n" +
+      "\014account_name\030\003 \001(\t\022\024\n\014character_id\030\004 \001(" +
+      "\005\022\026\n\016character_name\030\005 \001(\t\022\035\n\025last_defaul" +
+      "t_map_name\030\006 \001(\t\022\020\n\010map_uuid\030\007 \001(\003\022-\n\010lo" +
+      "cation\030\010 \001(\0132\033.shattered.protocol.PVecto" +
+      "r\022:\n\025last_default_location\030\t \001(\0132\033.shatt" +
+      "ered.protocol.PVector\022\020\n\010password\030\n \001(\t\022" +
+      "\r\n\005cuuid\030\013 \001(\t\022\r\n\005token\030\014 \001(\t\022\014\n\004host\030\r " +
+      "\001(\t\022\014\n\004port\030\016 \001(\005\"9\n\017TransferToRealm\022\024\n\014" +
+      "account_name\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"\324\002\n" +
+      "\031WorldCharacterInformation\022\r\n\005cuuid\030\001 \001(" +
+      "\t\022\r\n\005token\030\002 \001(\t\022\022\n\naccount_id\030\003 \001(\005\022\030\n\020" +
+      "permission_level\030\004 \001(\005\022\024\n\014account_name\030\005" +
+      " \001(\t\022\024\n\014character_id\030\006 \001(\005\022\026\n\016character_" +
+      "name\030\007 \001(\t\022\030\n\020last_default_map\030\010 \001(\t\022\020\n\010" +
+      "map_uuid\030\t \001(\003\022-\n\010location\030\n \001(\0132\033.shatt" +
+      "ered.protocol.PVector\022:\n\025last_default_lo" +
+      "cation\030\013 \001(\0132\033.shattered.protocol.PVecto" +
+      "r\022\020\n\010password\030\014 \001(\t\"L\n\034RequestNewTransfe" +
+      "rConnection\022\016\n\006tccuid\030\001 \001(\t\022\r\n\005cuuid\030\002 \001" +
+      "(\t\022\r\n\005token\030\003 \001(\t\"M\n\033RequestWorldToRealm" +
+      "Transfer\022\024\n\014account_name\030\001 \001(\t\022\030\n\020accoun" +
+      "t_password\030\002 \001(\tB#\n\036com.shattered.networ" +
+      "king.proto\370\001\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -10542,32 +12061,38 @@ public final class Proxy {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_TransferConnection_descriptor,
         new java.lang.String[] { "Cuuid", "Token", "Host", "Port", });
-    internal_static_shattered_protocol_TransferToWorld_descriptor =
+    internal_static_shattered_protocol_PVector_descriptor =
       getDescriptor().getMessageTypes().get(8);
+    internal_static_shattered_protocol_PVector_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_shattered_protocol_PVector_descriptor,
+        new java.lang.String[] { "X", "Y", "Z", });
+    internal_static_shattered_protocol_TransferToWorld_descriptor =
+      getDescriptor().getMessageTypes().get(9);
     internal_static_shattered_protocol_TransferToWorld_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_TransferToWorld_descriptor,
-        new java.lang.String[] { "AccountId", "PermissionLevel", "AccountName", "CharacterId", "CharacterName", "MapName", "Password", "Cuuid", "Token", "Host", "Port", });
+        new java.lang.String[] { "AccountId", "PermissionLevel", "AccountName", "CharacterId", "CharacterName", "LastDefaultMapName", "MapUuid", "Location", "LastDefaultLocation", "Password", "Cuuid", "Token", "Host", "Port", });
     internal_static_shattered_protocol_TransferToRealm_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_shattered_protocol_TransferToRealm_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_TransferToRealm_descriptor,
         new java.lang.String[] { "AccountName", "Password", });
     internal_static_shattered_protocol_WorldCharacterInformation_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_shattered_protocol_WorldCharacterInformation_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_WorldCharacterInformation_descriptor,
-        new java.lang.String[] { "Cuuid", "Token", "AccountId", "PermissionLevel", "AccountName", "CharacterId", "CharacterName", "MapName", "Password", });
+        new java.lang.String[] { "Cuuid", "Token", "AccountId", "PermissionLevel", "AccountName", "CharacterId", "CharacterName", "LastDefaultMap", "MapUuid", "Location", "LastDefaultLocation", "Password", });
     internal_static_shattered_protocol_RequestNewTransferConnection_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_shattered_protocol_RequestNewTransferConnection_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_RequestNewTransferConnection_descriptor,
         new java.lang.String[] { "Tccuid", "Cuuid", "Token", });
     internal_static_shattered_protocol_RequestWorldToRealmTransfer_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_shattered_protocol_RequestWorldToRealmTransfer_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_RequestWorldToRealmTransfer_descriptor,

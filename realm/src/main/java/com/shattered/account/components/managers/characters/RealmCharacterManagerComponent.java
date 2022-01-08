@@ -10,6 +10,7 @@ import com.shattered.database.mysql.query.options.impl.WhereConditionOption;
 import com.shattered.networking.listeners.ProtoEventRepository;
 import com.shattered.networking.listeners.RealmProtoListener;
 import com.shattered.networking.proto.PacketOuterClass;
+import com.shattered.networking.proto.Proxy;
 import com.shattered.networking.proto.Realm;
 import com.shattered.system.SystemLogger;
 import com.shattered.utilities.ecs.Component;
@@ -37,7 +38,7 @@ public class  RealmCharacterManagerComponent extends Component {
     /**
      * Represents the Default Map Name
      */
-    private static final String DEFAULT_MAP_NAME = "NetworkingTest";
+    public static final String DEFAULT_MAP_NAME = "NetworkingTest";
 
 
     /**
@@ -106,7 +107,7 @@ public class  RealmCharacterManagerComponent extends Component {
                         return;
                     }
 
-                    account.component(RealmAccountComponents.CHARACTER_MANAGER).createCharacter(new PlayerInformation(-1, characterName, "Unavailable"), isMale, bodyColor, hairStyle, hairColor, eyebrowStyle, eyebrowColor, eyeColor, beardStyle, beardColor);
+                    account.component(RealmAccountComponents.CHARACTER_MANAGER).createCharacter(new PlayerInformation(-1, characterName), isMale, bodyColor, hairStyle, hairColor, eyebrowStyle, eyebrowColor, eyeColor, beardStyle, beardColor);
                 } catch (Exception e) {
                     account.sendMessage(PacketOuterClass.Opcode.SMSG_CHARACTER_CREATION_RESPONSE, Realm.CharacterCreationResponse.newBuilder().setResponseId(CharacterCreationResponse.SYSTEM_UNAVAILABLE.ordinal()).build());
                     e.printStackTrace();
@@ -179,7 +180,7 @@ public class  RealmCharacterManagerComponent extends Component {
             if (results.next()) {
                 int id = results.getInt("id");
                 String name = results.getString("name");
-                setCharacterInformation(new PlayerInformation(id, name, "Unavailable"));
+                setCharacterInformation(new PlayerInformation(id, name));
             }
 
             Realm.CharacterInformation.Builder modelInformation = Realm.CharacterInformation.newBuilder();
@@ -226,7 +227,7 @@ public class  RealmCharacterManagerComponent extends Component {
                 modelInformation.setPantsSlotId(pantsSlot);
                 modelInformation.setWristsSlotId(wristsSlot);
                 modelInformation.setGlovesSlotId(glovesSlot);
-                modelInformation.setBackSlotId(bootsSlot);
+                modelInformation.setBootsSlotId(bootsSlot);
                 modelInformation.setMainhandSlotId(mainHandSlot);
                 modelInformation.setOffhandSlotId(offHandSlot);
             }
@@ -234,12 +235,32 @@ public class  RealmCharacterManagerComponent extends Component {
             getCharacterInformation().setModelInformation(modelInformation);
 
             ResultSet zoneResult = getResults(getDatabaseName(), "zone", new WhereConditionOption[] { new WhereConditionOption("characterId", getCharacterInformation().getId()) });
+            String lastMapName = "";
             String mapName = "";
+            long mapUUID = -1;
+            int x = 0;
+            int y = 0;
+            int z = 0;
+            int lastX = 0;
+            int lastY = 0;
+            int lastZ = 0;
 
             if (zoneResult.next()) {
+                lastMapName = zoneResult.getString("last_default_map");
                 mapName = zoneResult.getString("map");
+                mapUUID = zoneResult.getLong("map_uuid");
+                x = zoneResult.getInt("location_x");
+                y = zoneResult.getInt("location_y");
+                z = zoneResult.getInt("location_z");
+                lastX = zoneResult.getInt("last_default_map_location_x");
+                lastY = zoneResult.getInt("last_default_map_location_y");
+                lastZ = zoneResult.getInt("last_default_map_location_z");
             }
+            getCharacterInformation().setLastDefaultMap(lastMapName.isEmpty() ? DEFAULT_MAP_NAME : lastMapName);
             getCharacterInformation().setMapName(mapName.isEmpty() ? DEFAULT_MAP_NAME : mapName);
+            getCharacterInformation().setMapUuid(mapUUID);
+            getCharacterInformation().setLocation(Proxy.PVector.newBuilder().setX(x).setY(y).setZ(z).build());
+            getCharacterInformation().setLastDefaultMapLocation(Proxy.PVector.newBuilder().setX(lastX).setY(lastY).setZ(lastZ).build());
             return true;
         } catch (Exception e) {
             e.printStackTrace();

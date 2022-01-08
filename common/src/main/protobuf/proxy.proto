@@ -44,18 +44,27 @@ message TransferConnection {
     int32 port = 4;
 }
 
+message PVector {
+    int32 x = 1;
+    int32 y = 2;
+    int32 z = 3;
+}
+
 message TransferToWorld {
     int32 account_id = 1;
     int32 permission_level = 2;
     string account_name = 3;
     int32 character_id = 4;
     string character_name = 5;
-    string map_name = 6;
-    string password  = 7;
-    string cuuid = 8;
-    string token = 9;
-    string host = 10;
-    int32 port = 11;
+    string last_default_map_name = 6;
+    int64 map_uuid = 7;
+    PVector location = 8;
+    PVector last_default_location = 9;
+    string password  = 10;
+    string cuuid = 11;
+    string token = 12;
+    string host = 13;
+    int32 port = 14;
 }
 
 message TransferToRealm {
@@ -71,8 +80,11 @@ message WorldCharacterInformation {
     string account_name = 5;
     int32 character_id = 6;
     string character_name = 7;
-    string map_name = 8;
-    string password = 9;
+    string last_default_map = 8;
+    int64 map_uuid = 9;
+    PVector location = 10;
+    PVector last_default_location = 11;
+    string password = 12;
 }
 
 

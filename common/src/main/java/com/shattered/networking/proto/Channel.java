@@ -24,11 +24,11 @@ public final class Channel {
     int getUuid();
 
     /**
-     * <code>string connectionUuid = 2;</code>
+     * <code>string connection_uuid = 2;</code>
      */
     java.lang.String getConnectionUuid();
     /**
-     * <code>string connectionUuid = 2;</code>
+     * <code>string connection_uuid = 2;</code>
      */
     com.google.protobuf.ByteString
         getConnectionUuidBytes();
@@ -54,11 +54,11 @@ public final class Channel {
         getLocationBytes();
 
     /**
-     * <code>string serverName = 5;</code>
+     * <code>string server_name = 5;</code>
      */
     java.lang.String getServerName();
     /**
-     * <code>string serverName = 5;</code>
+     * <code>string server_name = 5;</code>
      */
     com.google.protobuf.ByteString
         getServerNameBytes();
@@ -177,10 +177,10 @@ public final class Channel {
       return uuid_;
     }
 
-    public static final int CONNECTIONUUID_FIELD_NUMBER = 2;
+    public static final int CONNECTION_UUID_FIELD_NUMBER = 2;
     private volatile java.lang.Object connectionUuid_;
     /**
-     * <code>string connectionUuid = 2;</code>
+     * <code>string connection_uuid = 2;</code>
      */
     public java.lang.String getConnectionUuid() {
       java.lang.Object ref = connectionUuid_;
@@ -195,7 +195,7 @@ public final class Channel {
       }
     }
     /**
-     * <code>string connectionUuid = 2;</code>
+     * <code>string connection_uuid = 2;</code>
      */
     public com.google.protobuf.ByteString
         getConnectionUuidBytes() {
@@ -279,10 +279,10 @@ public final class Channel {
       }
     }
 
-    public static final int SERVERNAME_FIELD_NUMBER = 5;
+    public static final int SERVER_NAME_FIELD_NUMBER = 5;
     private volatile java.lang.Object serverName_;
     /**
-     * <code>string serverName = 5;</code>
+     * <code>string server_name = 5;</code>
      */
     public java.lang.String getServerName() {
       java.lang.Object ref = serverName_;
@@ -297,7 +297,7 @@ public final class Channel {
       }
     }
     /**
-     * <code>string serverName = 5;</code>
+     * <code>string server_name = 5;</code>
      */
     public com.google.protobuf.ByteString
         getServerNameBytes() {
@@ -406,13 +406,13 @@ public final class Channel {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + UUID_FIELD_NUMBER;
       hash = (53 * hash) + getUuid();
-      hash = (37 * hash) + CONNECTIONUUID_FIELD_NUMBER;
+      hash = (37 * hash) + CONNECTION_UUID_FIELD_NUMBER;
       hash = (53 * hash) + getConnectionUuid().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
       hash = (37 * hash) + LOCATION_FIELD_NUMBER;
       hash = (53 * hash) + getLocation().hashCode();
-      hash = (37 * hash) + SERVERNAME_FIELD_NUMBER;
+      hash = (37 * hash) + SERVER_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getServerName().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -712,7 +712,7 @@ public final class Channel {
 
       private java.lang.Object connectionUuid_ = "";
       /**
-       * <code>string connectionUuid = 2;</code>
+       * <code>string connection_uuid = 2;</code>
        */
       public java.lang.String getConnectionUuid() {
         java.lang.Object ref = connectionUuid_;
@@ -727,7 +727,7 @@ public final class Channel {
         }
       }
       /**
-       * <code>string connectionUuid = 2;</code>
+       * <code>string connection_uuid = 2;</code>
        */
       public com.google.protobuf.ByteString
           getConnectionUuidBytes() {
@@ -743,7 +743,7 @@ public final class Channel {
         }
       }
       /**
-       * <code>string connectionUuid = 2;</code>
+       * <code>string connection_uuid = 2;</code>
        */
       public Builder setConnectionUuid(
           java.lang.String value) {
@@ -756,7 +756,7 @@ public final class Channel {
         return this;
       }
       /**
-       * <code>string connectionUuid = 2;</code>
+       * <code>string connection_uuid = 2;</code>
        */
       public Builder clearConnectionUuid() {
         
@@ -765,7 +765,7 @@ public final class Channel {
         return this;
       }
       /**
-       * <code>string connectionUuid = 2;</code>
+       * <code>string connection_uuid = 2;</code>
        */
       public Builder setConnectionUuidBytes(
           com.google.protobuf.ByteString value) {
@@ -919,7 +919,7 @@ public final class Channel {
 
       private java.lang.Object serverName_ = "";
       /**
-       * <code>string serverName = 5;</code>
+       * <code>string server_name = 5;</code>
        */
       public java.lang.String getServerName() {
         java.lang.Object ref = serverName_;
@@ -934,7 +934,7 @@ public final class Channel {
         }
       }
       /**
-       * <code>string serverName = 5;</code>
+       * <code>string server_name = 5;</code>
        */
       public com.google.protobuf.ByteString
           getServerNameBytes() {
@@ -950,7 +950,7 @@ public final class Channel {
         }
       }
       /**
-       * <code>string serverName = 5;</code>
+       * <code>string server_name = 5;</code>
        */
       public Builder setServerName(
           java.lang.String value) {
@@ -963,7 +963,7 @@ public final class Channel {
         return this;
       }
       /**
-       * <code>string serverName = 5;</code>
+       * <code>string server_name = 5;</code>
        */
       public Builder clearServerName() {
         
@@ -972,7 +972,7 @@ public final class Channel {
         return this;
       }
       /**
-       * <code>string serverName = 5;</code>
+       * <code>string server_name = 5;</code>
        */
       public Builder setServerNameBytes(
           com.google.protobuf.ByteString value) {
@@ -1038,6 +1038,482 @@ public final class Channel {
 
   }
 
+  public interface ResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:shattered.protocol.Response)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 t_uuid = 1;</code>
+     */
+    int getTUuid();
+  }
+  /**
+   * Protobuf type {@code shattered.protocol.Response}
+   */
+  public  static final class Response extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:shattered.protocol.Response)
+      ResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Response.newBuilder() to construct.
+    private Response(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Response() {
+      tUuid_ = 0;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Response(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              tUuid_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.shattered.networking.proto.Channel.internal_static_shattered_protocol_Response_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.shattered.networking.proto.Channel.internal_static_shattered_protocol_Response_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.shattered.networking.proto.Channel.Response.class, com.shattered.networking.proto.Channel.Response.Builder.class);
+    }
+
+    public static final int T_UUID_FIELD_NUMBER = 1;
+    private int tUuid_;
+    /**
+     * <code>int32 t_uuid = 1;</code>
+     */
+    public int getTUuid() {
+      return tUuid_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (tUuid_ != 0) {
+        output.writeInt32(1, tUuid_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (tUuid_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, tUuid_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.shattered.networking.proto.Channel.Response)) {
+        return super.equals(obj);
+      }
+      com.shattered.networking.proto.Channel.Response other = (com.shattered.networking.proto.Channel.Response) obj;
+
+      boolean result = true;
+      result = result && (getTUuid()
+          == other.getTUuid());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + T_UUID_FIELD_NUMBER;
+      hash = (53 * hash) + getTUuid();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.shattered.networking.proto.Channel.Response parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.shattered.networking.proto.Channel.Response parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.Channel.Response parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.shattered.networking.proto.Channel.Response parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.Channel.Response parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.shattered.networking.proto.Channel.Response parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.Channel.Response parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.shattered.networking.proto.Channel.Response parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.Channel.Response parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.shattered.networking.proto.Channel.Response parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.Channel.Response parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.shattered.networking.proto.Channel.Response parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.shattered.networking.proto.Channel.Response prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code shattered.protocol.Response}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:shattered.protocol.Response)
+        com.shattered.networking.proto.Channel.ResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.shattered.networking.proto.Channel.internal_static_shattered_protocol_Response_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.shattered.networking.proto.Channel.internal_static_shattered_protocol_Response_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.shattered.networking.proto.Channel.Response.class, com.shattered.networking.proto.Channel.Response.Builder.class);
+      }
+
+      // Construct using com.shattered.networking.proto.Channel.Response.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        tUuid_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.shattered.networking.proto.Channel.internal_static_shattered_protocol_Response_descriptor;
+      }
+
+      @java.lang.Override
+      public com.shattered.networking.proto.Channel.Response getDefaultInstanceForType() {
+        return com.shattered.networking.proto.Channel.Response.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.shattered.networking.proto.Channel.Response build() {
+        com.shattered.networking.proto.Channel.Response result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.shattered.networking.proto.Channel.Response buildPartial() {
+        com.shattered.networking.proto.Channel.Response result = new com.shattered.networking.proto.Channel.Response(this);
+        result.tUuid_ = tUuid_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.shattered.networking.proto.Channel.Response) {
+          return mergeFrom((com.shattered.networking.proto.Channel.Response)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.shattered.networking.proto.Channel.Response other) {
+        if (other == com.shattered.networking.proto.Channel.Response.getDefaultInstance()) return this;
+        if (other.getTUuid() != 0) {
+          setTUuid(other.getTUuid());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.shattered.networking.proto.Channel.Response parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.shattered.networking.proto.Channel.Response) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int tUuid_ ;
+      /**
+       * <code>int32 t_uuid = 1;</code>
+       */
+      public int getTUuid() {
+        return tUuid_;
+      }
+      /**
+       * <code>int32 t_uuid = 1;</code>
+       */
+      public Builder setTUuid(int value) {
+        
+        tUuid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 t_uuid = 1;</code>
+       */
+      public Builder clearTUuid() {
+        
+        tUuid_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:shattered.protocol.Response)
+    }
+
+    // @@protoc_insertion_point(class_scope:shattered.protocol.Response)
+    private static final com.shattered.networking.proto.Channel.Response DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.shattered.networking.proto.Channel.Response();
+    }
+
+    public static com.shattered.networking.proto.Channel.Response getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Response>
+        PARSER = new com.google.protobuf.AbstractParser<Response>() {
+      @java.lang.Override
+      public Response parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Response(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Response> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Response> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.shattered.networking.proto.Channel.Response getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface PlayerOnlineStatusOrBuilder extends
       // @@protoc_insertion_point(interface_extends:shattered.protocol.PlayerOnlineStatus)
       com.google.protobuf.MessageOrBuilder {
@@ -1053,11 +1529,11 @@ public final class Channel {
     int getUuid();
 
     /**
-     * <code>string connectionUuid = 3;</code>
+     * <code>string connection_uuid = 3;</code>
      */
     java.lang.String getConnectionUuid();
     /**
-     * <code>string connectionUuid = 3;</code>
+     * <code>string connection_uuid = 3;</code>
      */
     com.google.protobuf.ByteString
         getConnectionUuidBytes();
@@ -1083,11 +1559,11 @@ public final class Channel {
         getLocationBytes();
 
     /**
-     * <code>string serverName = 6;</code>
+     * <code>string server_name = 6;</code>
      */
     java.lang.String getServerName();
     /**
-     * <code>string serverName = 6;</code>
+     * <code>string server_name = 6;</code>
      */
     com.google.protobuf.ByteString
         getServerNameBytes();
@@ -1221,10 +1697,10 @@ public final class Channel {
       return uuid_;
     }
 
-    public static final int CONNECTIONUUID_FIELD_NUMBER = 3;
+    public static final int CONNECTION_UUID_FIELD_NUMBER = 3;
     private volatile java.lang.Object connectionUuid_;
     /**
-     * <code>string connectionUuid = 3;</code>
+     * <code>string connection_uuid = 3;</code>
      */
     public java.lang.String getConnectionUuid() {
       java.lang.Object ref = connectionUuid_;
@@ -1239,7 +1715,7 @@ public final class Channel {
       }
     }
     /**
-     * <code>string connectionUuid = 3;</code>
+     * <code>string connection_uuid = 3;</code>
      */
     public com.google.protobuf.ByteString
         getConnectionUuidBytes() {
@@ -1323,10 +1799,10 @@ public final class Channel {
       }
     }
 
-    public static final int SERVERNAME_FIELD_NUMBER = 6;
+    public static final int SERVER_NAME_FIELD_NUMBER = 6;
     private volatile java.lang.Object serverName_;
     /**
-     * <code>string serverName = 6;</code>
+     * <code>string server_name = 6;</code>
      */
     public java.lang.String getServerName() {
       java.lang.Object ref = serverName_;
@@ -1341,7 +1817,7 @@ public final class Channel {
       }
     }
     /**
-     * <code>string serverName = 6;</code>
+     * <code>string server_name = 6;</code>
      */
     public com.google.protobuf.ByteString
         getServerNameBytes() {
@@ -1461,13 +1937,13 @@ public final class Channel {
       hash = (53 * hash) + getTuuid();
       hash = (37 * hash) + UUID_FIELD_NUMBER;
       hash = (53 * hash) + getUuid();
-      hash = (37 * hash) + CONNECTIONUUID_FIELD_NUMBER;
+      hash = (37 * hash) + CONNECTION_UUID_FIELD_NUMBER;
       hash = (53 * hash) + getConnectionUuid().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
       hash = (37 * hash) + LOCATION_FIELD_NUMBER;
       hash = (53 * hash) + getLocation().hashCode();
-      hash = (37 * hash) + SERVERNAME_FIELD_NUMBER;
+      hash = (37 * hash) + SERVER_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getServerName().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -1799,7 +2275,7 @@ public final class Channel {
 
       private java.lang.Object connectionUuid_ = "";
       /**
-       * <code>string connectionUuid = 3;</code>
+       * <code>string connection_uuid = 3;</code>
        */
       public java.lang.String getConnectionUuid() {
         java.lang.Object ref = connectionUuid_;
@@ -1814,7 +2290,7 @@ public final class Channel {
         }
       }
       /**
-       * <code>string connectionUuid = 3;</code>
+       * <code>string connection_uuid = 3;</code>
        */
       public com.google.protobuf.ByteString
           getConnectionUuidBytes() {
@@ -1830,7 +2306,7 @@ public final class Channel {
         }
       }
       /**
-       * <code>string connectionUuid = 3;</code>
+       * <code>string connection_uuid = 3;</code>
        */
       public Builder setConnectionUuid(
           java.lang.String value) {
@@ -1843,7 +2319,7 @@ public final class Channel {
         return this;
       }
       /**
-       * <code>string connectionUuid = 3;</code>
+       * <code>string connection_uuid = 3;</code>
        */
       public Builder clearConnectionUuid() {
         
@@ -1852,7 +2328,7 @@ public final class Channel {
         return this;
       }
       /**
-       * <code>string connectionUuid = 3;</code>
+       * <code>string connection_uuid = 3;</code>
        */
       public Builder setConnectionUuidBytes(
           com.google.protobuf.ByteString value) {
@@ -2006,7 +2482,7 @@ public final class Channel {
 
       private java.lang.Object serverName_ = "";
       /**
-       * <code>string serverName = 6;</code>
+       * <code>string server_name = 6;</code>
        */
       public java.lang.String getServerName() {
         java.lang.Object ref = serverName_;
@@ -2021,7 +2497,7 @@ public final class Channel {
         }
       }
       /**
-       * <code>string serverName = 6;</code>
+       * <code>string server_name = 6;</code>
        */
       public com.google.protobuf.ByteString
           getServerNameBytes() {
@@ -2037,7 +2513,7 @@ public final class Channel {
         }
       }
       /**
-       * <code>string serverName = 6;</code>
+       * <code>string server_name = 6;</code>
        */
       public Builder setServerName(
           java.lang.String value) {
@@ -2050,7 +2526,7 @@ public final class Channel {
         return this;
       }
       /**
-       * <code>string serverName = 6;</code>
+       * <code>string server_name = 6;</code>
        */
       public Builder clearServerName() {
         
@@ -2059,7 +2535,7 @@ public final class Channel {
         return this;
       }
       /**
-       * <code>string serverName = 6;</code>
+       * <code>string server_name = 6;</code>
        */
       public Builder setServerNameBytes(
           com.google.protobuf.ByteString value) {
@@ -2738,8 +3214,8 @@ public final class Channel {
 
   }
 
-  public interface SendPrivateMessageOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:shattered.protocol.SendPrivateMessage)
+  public interface PrivateMessageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:shattered.protocol.PrivateMessage)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -2773,23 +3249,23 @@ public final class Channel {
         getMessageBytes();
 
     /**
-     * <code>int32 permissionLevel = 4;</code>
+     * <code>int32 permission_level = 4;</code>
      */
     int getPermissionLevel();
   }
   /**
-   * Protobuf type {@code shattered.protocol.SendPrivateMessage}
+   * Protobuf type {@code shattered.protocol.PrivateMessage}
    */
-  public  static final class SendPrivateMessage extends
+  public  static final class PrivateMessage extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:shattered.protocol.SendPrivateMessage)
-      SendPrivateMessageOrBuilder {
+      // @@protoc_insertion_point(message_implements:shattered.protocol.PrivateMessage)
+      PrivateMessageOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use SendPrivateMessage.newBuilder() to construct.
-    private SendPrivateMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use PrivateMessage.newBuilder() to construct.
+    private PrivateMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private SendPrivateMessage() {
+    private PrivateMessage() {
       from_ = "";
       to_ = "";
       message_ = "";
@@ -2801,7 +3277,7 @@ public final class Channel {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private SendPrivateMessage(
+    private PrivateMessage(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -2864,15 +3340,15 @@ public final class Channel {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.shattered.networking.proto.Channel.internal_static_shattered_protocol_SendPrivateMessage_descriptor;
+      return com.shattered.networking.proto.Channel.internal_static_shattered_protocol_PrivateMessage_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.shattered.networking.proto.Channel.internal_static_shattered_protocol_SendPrivateMessage_fieldAccessorTable
+      return com.shattered.networking.proto.Channel.internal_static_shattered_protocol_PrivateMessage_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.shattered.networking.proto.Channel.SendPrivateMessage.class, com.shattered.networking.proto.Channel.SendPrivateMessage.Builder.class);
+              com.shattered.networking.proto.Channel.PrivateMessage.class, com.shattered.networking.proto.Channel.PrivateMessage.Builder.class);
     }
 
     public static final int FROM_FIELD_NUMBER = 1;
@@ -2977,10 +3453,10 @@ public final class Channel {
       }
     }
 
-    public static final int PERMISSIONLEVEL_FIELD_NUMBER = 4;
+    public static final int PERMISSION_LEVEL_FIELD_NUMBER = 4;
     private int permissionLevel_;
     /**
-     * <code>int32 permissionLevel = 4;</code>
+     * <code>int32 permission_level = 4;</code>
      */
     public int getPermissionLevel() {
       return permissionLevel_;
@@ -3044,10 +3520,10 @@ public final class Channel {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.shattered.networking.proto.Channel.SendPrivateMessage)) {
+      if (!(obj instanceof com.shattered.networking.proto.Channel.PrivateMessage)) {
         return super.equals(obj);
       }
-      com.shattered.networking.proto.Channel.SendPrivateMessage other = (com.shattered.networking.proto.Channel.SendPrivateMessage) obj;
+      com.shattered.networking.proto.Channel.PrivateMessage other = (com.shattered.networking.proto.Channel.PrivateMessage) obj;
 
       boolean result = true;
       result = result && getFrom()
@@ -3075,76 +3551,76 @@ public final class Channel {
       hash = (53 * hash) + getTo().hashCode();
       hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
       hash = (53 * hash) + getMessage().hashCode();
-      hash = (37 * hash) + PERMISSIONLEVEL_FIELD_NUMBER;
+      hash = (37 * hash) + PERMISSION_LEVEL_FIELD_NUMBER;
       hash = (53 * hash) + getPermissionLevel();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static com.shattered.networking.proto.Channel.SendPrivateMessage parseFrom(
+    public static com.shattered.networking.proto.Channel.PrivateMessage parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.shattered.networking.proto.Channel.SendPrivateMessage parseFrom(
+    public static com.shattered.networking.proto.Channel.PrivateMessage parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.shattered.networking.proto.Channel.SendPrivateMessage parseFrom(
+    public static com.shattered.networking.proto.Channel.PrivateMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.shattered.networking.proto.Channel.SendPrivateMessage parseFrom(
+    public static com.shattered.networking.proto.Channel.PrivateMessage parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.shattered.networking.proto.Channel.SendPrivateMessage parseFrom(byte[] data)
+    public static com.shattered.networking.proto.Channel.PrivateMessage parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.shattered.networking.proto.Channel.SendPrivateMessage parseFrom(
+    public static com.shattered.networking.proto.Channel.PrivateMessage parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.shattered.networking.proto.Channel.SendPrivateMessage parseFrom(java.io.InputStream input)
+    public static com.shattered.networking.proto.Channel.PrivateMessage parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.shattered.networking.proto.Channel.SendPrivateMessage parseFrom(
+    public static com.shattered.networking.proto.Channel.PrivateMessage parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.shattered.networking.proto.Channel.SendPrivateMessage parseDelimitedFrom(java.io.InputStream input)
+    public static com.shattered.networking.proto.Channel.PrivateMessage parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.shattered.networking.proto.Channel.SendPrivateMessage parseDelimitedFrom(
+    public static com.shattered.networking.proto.Channel.PrivateMessage parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.shattered.networking.proto.Channel.SendPrivateMessage parseFrom(
+    public static com.shattered.networking.proto.Channel.PrivateMessage parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.shattered.networking.proto.Channel.SendPrivateMessage parseFrom(
+    public static com.shattered.networking.proto.Channel.PrivateMessage parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -3157,7 +3633,7 @@ public final class Channel {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.shattered.networking.proto.Channel.SendPrivateMessage prototype) {
+    public static Builder newBuilder(com.shattered.networking.proto.Channel.PrivateMessage prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -3173,26 +3649,26 @@ public final class Channel {
       return builder;
     }
     /**
-     * Protobuf type {@code shattered.protocol.SendPrivateMessage}
+     * Protobuf type {@code shattered.protocol.PrivateMessage}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:shattered.protocol.SendPrivateMessage)
-        com.shattered.networking.proto.Channel.SendPrivateMessageOrBuilder {
+        // @@protoc_insertion_point(builder_implements:shattered.protocol.PrivateMessage)
+        com.shattered.networking.proto.Channel.PrivateMessageOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.shattered.networking.proto.Channel.internal_static_shattered_protocol_SendPrivateMessage_descriptor;
+        return com.shattered.networking.proto.Channel.internal_static_shattered_protocol_PrivateMessage_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.shattered.networking.proto.Channel.internal_static_shattered_protocol_SendPrivateMessage_fieldAccessorTable
+        return com.shattered.networking.proto.Channel.internal_static_shattered_protocol_PrivateMessage_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.shattered.networking.proto.Channel.SendPrivateMessage.class, com.shattered.networking.proto.Channel.SendPrivateMessage.Builder.class);
+                com.shattered.networking.proto.Channel.PrivateMessage.class, com.shattered.networking.proto.Channel.PrivateMessage.Builder.class);
       }
 
-      // Construct using com.shattered.networking.proto.Channel.SendPrivateMessage.newBuilder()
+      // Construct using com.shattered.networking.proto.Channel.PrivateMessage.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3224,17 +3700,17 @@ public final class Channel {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.shattered.networking.proto.Channel.internal_static_shattered_protocol_SendPrivateMessage_descriptor;
+        return com.shattered.networking.proto.Channel.internal_static_shattered_protocol_PrivateMessage_descriptor;
       }
 
       @java.lang.Override
-      public com.shattered.networking.proto.Channel.SendPrivateMessage getDefaultInstanceForType() {
-        return com.shattered.networking.proto.Channel.SendPrivateMessage.getDefaultInstance();
+      public com.shattered.networking.proto.Channel.PrivateMessage getDefaultInstanceForType() {
+        return com.shattered.networking.proto.Channel.PrivateMessage.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.shattered.networking.proto.Channel.SendPrivateMessage build() {
-        com.shattered.networking.proto.Channel.SendPrivateMessage result = buildPartial();
+      public com.shattered.networking.proto.Channel.PrivateMessage build() {
+        com.shattered.networking.proto.Channel.PrivateMessage result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -3242,8 +3718,8 @@ public final class Channel {
       }
 
       @java.lang.Override
-      public com.shattered.networking.proto.Channel.SendPrivateMessage buildPartial() {
-        com.shattered.networking.proto.Channel.SendPrivateMessage result = new com.shattered.networking.proto.Channel.SendPrivateMessage(this);
+      public com.shattered.networking.proto.Channel.PrivateMessage buildPartial() {
+        com.shattered.networking.proto.Channel.PrivateMessage result = new com.shattered.networking.proto.Channel.PrivateMessage(this);
         result.from_ = from_;
         result.to_ = to_;
         result.message_ = message_;
@@ -3286,16 +3762,16 @@ public final class Channel {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.shattered.networking.proto.Channel.SendPrivateMessage) {
-          return mergeFrom((com.shattered.networking.proto.Channel.SendPrivateMessage)other);
+        if (other instanceof com.shattered.networking.proto.Channel.PrivateMessage) {
+          return mergeFrom((com.shattered.networking.proto.Channel.PrivateMessage)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.shattered.networking.proto.Channel.SendPrivateMessage other) {
-        if (other == com.shattered.networking.proto.Channel.SendPrivateMessage.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.shattered.networking.proto.Channel.PrivateMessage other) {
+        if (other == com.shattered.networking.proto.Channel.PrivateMessage.getDefaultInstance()) return this;
         if (!other.getFrom().isEmpty()) {
           from_ = other.from_;
           onChanged();
@@ -3326,11 +3802,11 @@ public final class Channel {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.shattered.networking.proto.Channel.SendPrivateMessage parsedMessage = null;
+        com.shattered.networking.proto.Channel.PrivateMessage parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.shattered.networking.proto.Channel.SendPrivateMessage) e.getUnfinishedMessage();
+          parsedMessage = (com.shattered.networking.proto.Channel.PrivateMessage) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -3549,13 +4025,13 @@ public final class Channel {
 
       private int permissionLevel_ ;
       /**
-       * <code>int32 permissionLevel = 4;</code>
+       * <code>int32 permission_level = 4;</code>
        */
       public int getPermissionLevel() {
         return permissionLevel_;
       }
       /**
-       * <code>int32 permissionLevel = 4;</code>
+       * <code>int32 permission_level = 4;</code>
        */
       public Builder setPermissionLevel(int value) {
         
@@ -3564,13 +4040,683 @@ public final class Channel {
         return this;
       }
       /**
-       * <code>int32 permissionLevel = 4;</code>
+       * <code>int32 permission_level = 4;</code>
        */
       public Builder clearPermissionLevel() {
         
         permissionLevel_ = 0;
         onChanged();
         return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:shattered.protocol.PrivateMessage)
+    }
+
+    // @@protoc_insertion_point(class_scope:shattered.protocol.PrivateMessage)
+    private static final com.shattered.networking.proto.Channel.PrivateMessage DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.shattered.networking.proto.Channel.PrivateMessage();
+    }
+
+    public static com.shattered.networking.proto.Channel.PrivateMessage getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<PrivateMessage>
+        PARSER = new com.google.protobuf.AbstractParser<PrivateMessage>() {
+      @java.lang.Override
+      public PrivateMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new PrivateMessage(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<PrivateMessage> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<PrivateMessage> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.shattered.networking.proto.Channel.PrivateMessage getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface SendPrivateMessageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:shattered.protocol.SendPrivateMessage)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 tuuid = 1;</code>
+     */
+    int getTuuid();
+
+    /**
+     * <code>.shattered.protocol.PrivateMessage message = 2;</code>
+     */
+    boolean hasMessage();
+    /**
+     * <code>.shattered.protocol.PrivateMessage message = 2;</code>
+     */
+    com.shattered.networking.proto.Channel.PrivateMessage getMessage();
+    /**
+     * <code>.shattered.protocol.PrivateMessage message = 2;</code>
+     */
+    com.shattered.networking.proto.Channel.PrivateMessageOrBuilder getMessageOrBuilder();
+  }
+  /**
+   * Protobuf type {@code shattered.protocol.SendPrivateMessage}
+   */
+  public  static final class SendPrivateMessage extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:shattered.protocol.SendPrivateMessage)
+      SendPrivateMessageOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SendPrivateMessage.newBuilder() to construct.
+    private SendPrivateMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SendPrivateMessage() {
+      tuuid_ = 0;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SendPrivateMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              tuuid_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              com.shattered.networking.proto.Channel.PrivateMessage.Builder subBuilder = null;
+              if (message_ != null) {
+                subBuilder = message_.toBuilder();
+              }
+              message_ = input.readMessage(com.shattered.networking.proto.Channel.PrivateMessage.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(message_);
+                message_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.shattered.networking.proto.Channel.internal_static_shattered_protocol_SendPrivateMessage_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.shattered.networking.proto.Channel.internal_static_shattered_protocol_SendPrivateMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.shattered.networking.proto.Channel.SendPrivateMessage.class, com.shattered.networking.proto.Channel.SendPrivateMessage.Builder.class);
+    }
+
+    public static final int TUUID_FIELD_NUMBER = 1;
+    private int tuuid_;
+    /**
+     * <code>int32 tuuid = 1;</code>
+     */
+    public int getTuuid() {
+      return tuuid_;
+    }
+
+    public static final int MESSAGE_FIELD_NUMBER = 2;
+    private com.shattered.networking.proto.Channel.PrivateMessage message_;
+    /**
+     * <code>.shattered.protocol.PrivateMessage message = 2;</code>
+     */
+    public boolean hasMessage() {
+      return message_ != null;
+    }
+    /**
+     * <code>.shattered.protocol.PrivateMessage message = 2;</code>
+     */
+    public com.shattered.networking.proto.Channel.PrivateMessage getMessage() {
+      return message_ == null ? com.shattered.networking.proto.Channel.PrivateMessage.getDefaultInstance() : message_;
+    }
+    /**
+     * <code>.shattered.protocol.PrivateMessage message = 2;</code>
+     */
+    public com.shattered.networking.proto.Channel.PrivateMessageOrBuilder getMessageOrBuilder() {
+      return getMessage();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (tuuid_ != 0) {
+        output.writeInt32(1, tuuid_);
+      }
+      if (message_ != null) {
+        output.writeMessage(2, getMessage());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (tuuid_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, tuuid_);
+      }
+      if (message_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getMessage());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.shattered.networking.proto.Channel.SendPrivateMessage)) {
+        return super.equals(obj);
+      }
+      com.shattered.networking.proto.Channel.SendPrivateMessage other = (com.shattered.networking.proto.Channel.SendPrivateMessage) obj;
+
+      boolean result = true;
+      result = result && (getTuuid()
+          == other.getTuuid());
+      result = result && (hasMessage() == other.hasMessage());
+      if (hasMessage()) {
+        result = result && getMessage()
+            .equals(other.getMessage());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + TUUID_FIELD_NUMBER;
+      hash = (53 * hash) + getTuuid();
+      if (hasMessage()) {
+        hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
+        hash = (53 * hash) + getMessage().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.shattered.networking.proto.Channel.SendPrivateMessage parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.shattered.networking.proto.Channel.SendPrivateMessage parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.Channel.SendPrivateMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.shattered.networking.proto.Channel.SendPrivateMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.Channel.SendPrivateMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.shattered.networking.proto.Channel.SendPrivateMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.Channel.SendPrivateMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.shattered.networking.proto.Channel.SendPrivateMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.Channel.SendPrivateMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.shattered.networking.proto.Channel.SendPrivateMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.Channel.SendPrivateMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.shattered.networking.proto.Channel.SendPrivateMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.shattered.networking.proto.Channel.SendPrivateMessage prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code shattered.protocol.SendPrivateMessage}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:shattered.protocol.SendPrivateMessage)
+        com.shattered.networking.proto.Channel.SendPrivateMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.shattered.networking.proto.Channel.internal_static_shattered_protocol_SendPrivateMessage_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.shattered.networking.proto.Channel.internal_static_shattered_protocol_SendPrivateMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.shattered.networking.proto.Channel.SendPrivateMessage.class, com.shattered.networking.proto.Channel.SendPrivateMessage.Builder.class);
+      }
+
+      // Construct using com.shattered.networking.proto.Channel.SendPrivateMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        tuuid_ = 0;
+
+        if (messageBuilder_ == null) {
+          message_ = null;
+        } else {
+          message_ = null;
+          messageBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.shattered.networking.proto.Channel.internal_static_shattered_protocol_SendPrivateMessage_descriptor;
+      }
+
+      @java.lang.Override
+      public com.shattered.networking.proto.Channel.SendPrivateMessage getDefaultInstanceForType() {
+        return com.shattered.networking.proto.Channel.SendPrivateMessage.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.shattered.networking.proto.Channel.SendPrivateMessage build() {
+        com.shattered.networking.proto.Channel.SendPrivateMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.shattered.networking.proto.Channel.SendPrivateMessage buildPartial() {
+        com.shattered.networking.proto.Channel.SendPrivateMessage result = new com.shattered.networking.proto.Channel.SendPrivateMessage(this);
+        result.tuuid_ = tuuid_;
+        if (messageBuilder_ == null) {
+          result.message_ = message_;
+        } else {
+          result.message_ = messageBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.shattered.networking.proto.Channel.SendPrivateMessage) {
+          return mergeFrom((com.shattered.networking.proto.Channel.SendPrivateMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.shattered.networking.proto.Channel.SendPrivateMessage other) {
+        if (other == com.shattered.networking.proto.Channel.SendPrivateMessage.getDefaultInstance()) return this;
+        if (other.getTuuid() != 0) {
+          setTuuid(other.getTuuid());
+        }
+        if (other.hasMessage()) {
+          mergeMessage(other.getMessage());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.shattered.networking.proto.Channel.SendPrivateMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.shattered.networking.proto.Channel.SendPrivateMessage) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int tuuid_ ;
+      /**
+       * <code>int32 tuuid = 1;</code>
+       */
+      public int getTuuid() {
+        return tuuid_;
+      }
+      /**
+       * <code>int32 tuuid = 1;</code>
+       */
+      public Builder setTuuid(int value) {
+        
+        tuuid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 tuuid = 1;</code>
+       */
+      public Builder clearTuuid() {
+        
+        tuuid_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private com.shattered.networking.proto.Channel.PrivateMessage message_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.shattered.networking.proto.Channel.PrivateMessage, com.shattered.networking.proto.Channel.PrivateMessage.Builder, com.shattered.networking.proto.Channel.PrivateMessageOrBuilder> messageBuilder_;
+      /**
+       * <code>.shattered.protocol.PrivateMessage message = 2;</code>
+       */
+      public boolean hasMessage() {
+        return messageBuilder_ != null || message_ != null;
+      }
+      /**
+       * <code>.shattered.protocol.PrivateMessage message = 2;</code>
+       */
+      public com.shattered.networking.proto.Channel.PrivateMessage getMessage() {
+        if (messageBuilder_ == null) {
+          return message_ == null ? com.shattered.networking.proto.Channel.PrivateMessage.getDefaultInstance() : message_;
+        } else {
+          return messageBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.shattered.protocol.PrivateMessage message = 2;</code>
+       */
+      public Builder setMessage(com.shattered.networking.proto.Channel.PrivateMessage value) {
+        if (messageBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          message_ = value;
+          onChanged();
+        } else {
+          messageBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.shattered.protocol.PrivateMessage message = 2;</code>
+       */
+      public Builder setMessage(
+          com.shattered.networking.proto.Channel.PrivateMessage.Builder builderForValue) {
+        if (messageBuilder_ == null) {
+          message_ = builderForValue.build();
+          onChanged();
+        } else {
+          messageBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.shattered.protocol.PrivateMessage message = 2;</code>
+       */
+      public Builder mergeMessage(com.shattered.networking.proto.Channel.PrivateMessage value) {
+        if (messageBuilder_ == null) {
+          if (message_ != null) {
+            message_ =
+              com.shattered.networking.proto.Channel.PrivateMessage.newBuilder(message_).mergeFrom(value).buildPartial();
+          } else {
+            message_ = value;
+          }
+          onChanged();
+        } else {
+          messageBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.shattered.protocol.PrivateMessage message = 2;</code>
+       */
+      public Builder clearMessage() {
+        if (messageBuilder_ == null) {
+          message_ = null;
+          onChanged();
+        } else {
+          message_ = null;
+          messageBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.shattered.protocol.PrivateMessage message = 2;</code>
+       */
+      public com.shattered.networking.proto.Channel.PrivateMessage.Builder getMessageBuilder() {
+        
+        onChanged();
+        return getMessageFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.shattered.protocol.PrivateMessage message = 2;</code>
+       */
+      public com.shattered.networking.proto.Channel.PrivateMessageOrBuilder getMessageOrBuilder() {
+        if (messageBuilder_ != null) {
+          return messageBuilder_.getMessageOrBuilder();
+        } else {
+          return message_ == null ?
+              com.shattered.networking.proto.Channel.PrivateMessage.getDefaultInstance() : message_;
+        }
+      }
+      /**
+       * <code>.shattered.protocol.PrivateMessage message = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.shattered.networking.proto.Channel.PrivateMessage, com.shattered.networking.proto.Channel.PrivateMessage.Builder, com.shattered.networking.proto.Channel.PrivateMessageOrBuilder> 
+          getMessageFieldBuilder() {
+        if (messageBuilder_ == null) {
+          messageBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.shattered.networking.proto.Channel.PrivateMessage, com.shattered.networking.proto.Channel.PrivateMessage.Builder, com.shattered.networking.proto.Channel.PrivateMessageOrBuilder>(
+                  getMessage(),
+                  getParentForChildren(),
+                  isClean());
+          message_ = null;
+        }
+        return messageBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -5605,11 +6751,11 @@ public final class Channel {
     int getUuid();
 
     /**
-     * <code>string connectionUuid = 3;</code>
+     * <code>string connection_uuid = 3;</code>
      */
     java.lang.String getConnectionUuid();
     /**
-     * <code>string connectionUuid = 3;</code>
+     * <code>string connection_uuid = 3;</code>
      */
     com.google.protobuf.ByteString
         getConnectionUuidBytes();
@@ -5635,14 +6781,19 @@ public final class Channel {
         getLocationBytes();
 
     /**
-     * <code>string serverName = 6;</code>
+     * <code>string server_name = 6;</code>
      */
     java.lang.String getServerName();
     /**
-     * <code>string serverName = 6;</code>
+     * <code>string server_name = 6;</code>
      */
     com.google.protobuf.ByteString
         getServerNameBytes();
+
+    /**
+     * <code>int64 offline_since = 7;</code>
+     */
+    long getOfflineSince();
   }
   /**
    * Protobuf type {@code shattered.protocol.Friend}
@@ -5663,6 +6814,7 @@ public final class Channel {
       name_ = "";
       location_ = "";
       serverName_ = "";
+      offlineSince_ = 0L;
     }
 
     @java.lang.Override
@@ -5723,6 +6875,11 @@ public final class Channel {
               serverName_ = s;
               break;
             }
+            case 56: {
+
+              offlineSince_ = input.readInt64();
+              break;
+            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -5773,10 +6930,10 @@ public final class Channel {
       return uuid_;
     }
 
-    public static final int CONNECTIONUUID_FIELD_NUMBER = 3;
+    public static final int CONNECTION_UUID_FIELD_NUMBER = 3;
     private volatile java.lang.Object connectionUuid_;
     /**
-     * <code>string connectionUuid = 3;</code>
+     * <code>string connection_uuid = 3;</code>
      */
     public java.lang.String getConnectionUuid() {
       java.lang.Object ref = connectionUuid_;
@@ -5791,7 +6948,7 @@ public final class Channel {
       }
     }
     /**
-     * <code>string connectionUuid = 3;</code>
+     * <code>string connection_uuid = 3;</code>
      */
     public com.google.protobuf.ByteString
         getConnectionUuidBytes() {
@@ -5875,10 +7032,10 @@ public final class Channel {
       }
     }
 
-    public static final int SERVERNAME_FIELD_NUMBER = 6;
+    public static final int SERVER_NAME_FIELD_NUMBER = 6;
     private volatile java.lang.Object serverName_;
     /**
-     * <code>string serverName = 6;</code>
+     * <code>string server_name = 6;</code>
      */
     public java.lang.String getServerName() {
       java.lang.Object ref = serverName_;
@@ -5893,7 +7050,7 @@ public final class Channel {
       }
     }
     /**
-     * <code>string serverName = 6;</code>
+     * <code>string server_name = 6;</code>
      */
     public com.google.protobuf.ByteString
         getServerNameBytes() {
@@ -5907,6 +7064,15 @@ public final class Channel {
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
+    }
+
+    public static final int OFFLINE_SINCE_FIELD_NUMBER = 7;
+    private long offlineSince_;
+    /**
+     * <code>int64 offline_since = 7;</code>
+     */
+    public long getOfflineSince() {
+      return offlineSince_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -5941,6 +7107,9 @@ public final class Channel {
       if (!getServerNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, serverName_);
       }
+      if (offlineSince_ != 0L) {
+        output.writeInt64(7, offlineSince_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -5970,6 +7139,10 @@ public final class Channel {
       if (!getServerNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, serverName_);
       }
+      if (offlineSince_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(7, offlineSince_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -5998,6 +7171,8 @@ public final class Channel {
           .equals(other.getLocation());
       result = result && getServerName()
           .equals(other.getServerName());
+      result = result && (getOfflineSince()
+          == other.getOfflineSince());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -6013,14 +7188,17 @@ public final class Channel {
       hash = (53 * hash) + getTuuid();
       hash = (37 * hash) + UUID_FIELD_NUMBER;
       hash = (53 * hash) + getUuid();
-      hash = (37 * hash) + CONNECTIONUUID_FIELD_NUMBER;
+      hash = (37 * hash) + CONNECTION_UUID_FIELD_NUMBER;
       hash = (53 * hash) + getConnectionUuid().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
       hash = (37 * hash) + LOCATION_FIELD_NUMBER;
       hash = (53 * hash) + getLocation().hashCode();
-      hash = (37 * hash) + SERVERNAME_FIELD_NUMBER;
+      hash = (37 * hash) + SERVER_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getServerName().hashCode();
+      hash = (37 * hash) + OFFLINE_SINCE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getOfflineSince());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -6166,6 +7344,8 @@ public final class Channel {
 
         serverName_ = "";
 
+        offlineSince_ = 0L;
+
         return this;
       }
 
@@ -6198,6 +7378,7 @@ public final class Channel {
         result.name_ = name_;
         result.location_ = location_;
         result.serverName_ = serverName_;
+        result.offlineSince_ = offlineSince_;
         onBuilt();
         return result;
       }
@@ -6267,6 +7448,9 @@ public final class Channel {
         if (!other.getServerName().isEmpty()) {
           serverName_ = other.serverName_;
           onChanged();
+        }
+        if (other.getOfflineSince() != 0L) {
+          setOfflineSince(other.getOfflineSince());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -6351,7 +7535,7 @@ public final class Channel {
 
       private java.lang.Object connectionUuid_ = "";
       /**
-       * <code>string connectionUuid = 3;</code>
+       * <code>string connection_uuid = 3;</code>
        */
       public java.lang.String getConnectionUuid() {
         java.lang.Object ref = connectionUuid_;
@@ -6366,7 +7550,7 @@ public final class Channel {
         }
       }
       /**
-       * <code>string connectionUuid = 3;</code>
+       * <code>string connection_uuid = 3;</code>
        */
       public com.google.protobuf.ByteString
           getConnectionUuidBytes() {
@@ -6382,7 +7566,7 @@ public final class Channel {
         }
       }
       /**
-       * <code>string connectionUuid = 3;</code>
+       * <code>string connection_uuid = 3;</code>
        */
       public Builder setConnectionUuid(
           java.lang.String value) {
@@ -6395,7 +7579,7 @@ public final class Channel {
         return this;
       }
       /**
-       * <code>string connectionUuid = 3;</code>
+       * <code>string connection_uuid = 3;</code>
        */
       public Builder clearConnectionUuid() {
         
@@ -6404,7 +7588,7 @@ public final class Channel {
         return this;
       }
       /**
-       * <code>string connectionUuid = 3;</code>
+       * <code>string connection_uuid = 3;</code>
        */
       public Builder setConnectionUuidBytes(
           com.google.protobuf.ByteString value) {
@@ -6558,7 +7742,7 @@ public final class Channel {
 
       private java.lang.Object serverName_ = "";
       /**
-       * <code>string serverName = 6;</code>
+       * <code>string server_name = 6;</code>
        */
       public java.lang.String getServerName() {
         java.lang.Object ref = serverName_;
@@ -6573,7 +7757,7 @@ public final class Channel {
         }
       }
       /**
-       * <code>string serverName = 6;</code>
+       * <code>string server_name = 6;</code>
        */
       public com.google.protobuf.ByteString
           getServerNameBytes() {
@@ -6589,7 +7773,7 @@ public final class Channel {
         }
       }
       /**
-       * <code>string serverName = 6;</code>
+       * <code>string server_name = 6;</code>
        */
       public Builder setServerName(
           java.lang.String value) {
@@ -6602,7 +7786,7 @@ public final class Channel {
         return this;
       }
       /**
-       * <code>string serverName = 6;</code>
+       * <code>string server_name = 6;</code>
        */
       public Builder clearServerName() {
         
@@ -6611,7 +7795,7 @@ public final class Channel {
         return this;
       }
       /**
-       * <code>string serverName = 6;</code>
+       * <code>string server_name = 6;</code>
        */
       public Builder setServerNameBytes(
           com.google.protobuf.ByteString value) {
@@ -6621,6 +7805,32 @@ public final class Channel {
   checkByteStringIsUtf8(value);
         
         serverName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long offlineSince_ ;
+      /**
+       * <code>int64 offline_since = 7;</code>
+       */
+      public long getOfflineSince() {
+        return offlineSince_;
+      }
+      /**
+       * <code>int64 offline_since = 7;</code>
+       */
+      public Builder setOfflineSince(long value) {
+        
+        offlineSince_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 offline_since = 7;</code>
+       */
+      public Builder clearOfflineSince() {
+        
+        offlineSince_ = 0L;
         onChanged();
         return this;
       }
@@ -8620,6 +9830,11 @@ public final class Channel {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_shattered_protocol_RegisterPlayer_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_shattered_protocol_Response_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_shattered_protocol_Response_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_shattered_protocol_PlayerOnlineStatus_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -8629,6 +9844,11 @@ public final class Channel {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_shattered_protocol_PlayerLocationStatus_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_shattered_protocol_PrivateMessage_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_shattered_protocol_PrivateMessage_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_shattered_protocol_SendPrivateMessage_descriptor;
   private static final 
@@ -8678,29 +9898,33 @@ public final class Channel {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\rchannel.proto\022\022shattered.protocol\"j\n\016R" +
-      "egisterPlayer\022\014\n\004uuid\030\001 \001(\005\022\026\n\016connectio" +
-      "nUuid\030\002 \001(\t\022\014\n\004name\030\003 \001(\t\022\020\n\010location\030\004 " +
-      "\001(\t\022\022\n\nserverName\030\005 \001(\t\"}\n\022PlayerOnlineS" +
-      "tatus\022\r\n\005tuuid\030\001 \001(\005\022\014\n\004uuid\030\002 \001(\005\022\026\n\016co" +
-      "nnectionUuid\030\003 \001(\t\022\014\n\004name\030\004 \001(\t\022\020\n\010loca" +
-      "tion\030\005 \001(\t\022\022\n\nserverName\030\006 \001(\t\"6\n\024Player" +
-      "LocationStatus\022\014\n\004uuid\030\001 \001(\005\022\020\n\010location" +
-      "\030\002 \001(\t\"X\n\022SendPrivateMessage\022\014\n\004from\030\001 \001" +
-      "(\t\022\n\n\002to\030\002 \001(\t\022\017\n\007message\030\003 \001(\t\022\027\n\017permi" +
-      "ssionLevel\030\004 \001(\005\"^\n\025ReceivePrivateMessag" +
-      "e\022\r\n\005tuuid\030\001 \001(\005\022\014\n\004from\030\002 \001(\t\022\017\n\007messag" +
-      "e\030\003 \001(\t\022\027\n\017permissionLevel\030\004 \001(\005\":\n\rPlay" +
-      "erOffline\022\r\n\005tuuid\030\001 \001(\005\022\014\n\004uuid\030\002 \001(\005\022\014" +
-      "\n\004name\030\003 \001(\t\" \n\020UnregisterPlayer\022\014\n\004uuid" +
-      "\030\001 \001(\005\"q\n\006Friend\022\r\n\005tuuid\030\001 \001(\005\022\014\n\004uuid\030" +
-      "\002 \001(\005\022\026\n\016connectionUuid\030\003 \001(\t\022\014\n\004name\030\004 " +
-      "\001(\t\022\020\n\010location\030\005 \001(\t\022\022\n\nserverName\030\006 \001(" +
-      "\t\" \n\020FetchFriendsList\022\014\n\004uuid\030\001 \001(\005\"G\n\013F" +
-      "riendsList\022\014\n\004uuid\030\001 \001(\005\022*\n\006friend\030\002 \003(\013" +
-      "2\032.shattered.protocol.Friend\"-\n\017AddRemov" +
-      "eFriend\022\014\n\004uuid\030\001 \001(\005\022\014\n\004name\030\002 \001(\tB#\n\036c" +
-      "om.shattered.networking.proto\370\001\001b\006proto3"
+      "\n\rchannel.proto\022\022shattered.protocol\"l\n\016R" +
+      "egisterPlayer\022\014\n\004uuid\030\001 \001(\005\022\027\n\017connectio" +
+      "n_uuid\030\002 \001(\t\022\014\n\004name\030\003 \001(\t\022\020\n\010location\030\004" +
+      " \001(\t\022\023\n\013server_name\030\005 \001(\t\"\032\n\010Response\022\016\n" +
+      "\006t_uuid\030\001 \001(\005\"\177\n\022PlayerOnlineStatus\022\r\n\005t" +
+      "uuid\030\001 \001(\005\022\014\n\004uuid\030\002 \001(\005\022\027\n\017connection_u" +
+      "uid\030\003 \001(\t\022\014\n\004name\030\004 \001(\t\022\020\n\010location\030\005 \001(" +
+      "\t\022\023\n\013server_name\030\006 \001(\t\"6\n\024PlayerLocation" +
+      "Status\022\014\n\004uuid\030\001 \001(\005\022\020\n\010location\030\002 \001(\t\"U" +
+      "\n\016PrivateMessage\022\014\n\004from\030\001 \001(\t\022\n\n\002to\030\002 \001" +
+      "(\t\022\017\n\007message\030\003 \001(\t\022\030\n\020permission_level\030" +
+      "\004 \001(\005\"X\n\022SendPrivateMessage\022\r\n\005tuuid\030\001 \001" +
+      "(\005\0223\n\007message\030\002 \001(\0132\".shattered.protocol" +
+      ".PrivateMessage\"^\n\025ReceivePrivateMessage" +
+      "\022\r\n\005tuuid\030\001 \001(\005\022\014\n\004from\030\002 \001(\t\022\017\n\007message" +
+      "\030\003 \001(\t\022\027\n\017permissionLevel\030\004 \001(\005\":\n\rPlaye" +
+      "rOffline\022\r\n\005tuuid\030\001 \001(\005\022\014\n\004uuid\030\002 \001(\005\022\014\n" +
+      "\004name\030\003 \001(\t\" \n\020UnregisterPlayer\022\014\n\004uuid\030" +
+      "\001 \001(\005\"\212\001\n\006Friend\022\r\n\005tuuid\030\001 \001(\005\022\014\n\004uuid\030" +
+      "\002 \001(\005\022\027\n\017connection_uuid\030\003 \001(\t\022\014\n\004name\030\004" +
+      " \001(\t\022\020\n\010location\030\005 \001(\t\022\023\n\013server_name\030\006 " +
+      "\001(\t\022\025\n\roffline_since\030\007 \001(\003\" \n\020FetchFrien" +
+      "dsList\022\014\n\004uuid\030\001 \001(\005\"G\n\013FriendsList\022\014\n\004u" +
+      "uid\030\001 \001(\005\022*\n\006friend\030\002 \003(\0132\032.shattered.pr" +
+      "otocol.Friend\"-\n\017AddRemoveFriend\022\014\n\004uuid" +
+      "\030\001 \001(\005\022\014\n\004name\030\002 \001(\tB#\n\036com.shattered.ne" +
+      "tworking.proto\370\001\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -8720,62 +9944,74 @@ public final class Channel {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_RegisterPlayer_descriptor,
         new java.lang.String[] { "Uuid", "ConnectionUuid", "Name", "Location", "ServerName", });
-    internal_static_shattered_protocol_PlayerOnlineStatus_descriptor =
+    internal_static_shattered_protocol_Response_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_shattered_protocol_Response_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_shattered_protocol_Response_descriptor,
+        new java.lang.String[] { "TUuid", });
+    internal_static_shattered_protocol_PlayerOnlineStatus_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_shattered_protocol_PlayerOnlineStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_PlayerOnlineStatus_descriptor,
         new java.lang.String[] { "Tuuid", "Uuid", "ConnectionUuid", "Name", "Location", "ServerName", });
     internal_static_shattered_protocol_PlayerLocationStatus_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_shattered_protocol_PlayerLocationStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_PlayerLocationStatus_descriptor,
         new java.lang.String[] { "Uuid", "Location", });
+    internal_static_shattered_protocol_PrivateMessage_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_shattered_protocol_PrivateMessage_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_shattered_protocol_PrivateMessage_descriptor,
+        new java.lang.String[] { "From", "To", "Message", "PermissionLevel", });
     internal_static_shattered_protocol_SendPrivateMessage_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_shattered_protocol_SendPrivateMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_SendPrivateMessage_descriptor,
-        new java.lang.String[] { "From", "To", "Message", "PermissionLevel", });
+        new java.lang.String[] { "Tuuid", "Message", });
     internal_static_shattered_protocol_ReceivePrivateMessage_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_shattered_protocol_ReceivePrivateMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_ReceivePrivateMessage_descriptor,
         new java.lang.String[] { "Tuuid", "From", "Message", "PermissionLevel", });
     internal_static_shattered_protocol_PlayerOffline_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_shattered_protocol_PlayerOffline_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_PlayerOffline_descriptor,
         new java.lang.String[] { "Tuuid", "Uuid", "Name", });
     internal_static_shattered_protocol_UnregisterPlayer_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_shattered_protocol_UnregisterPlayer_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_UnregisterPlayer_descriptor,
         new java.lang.String[] { "Uuid", });
     internal_static_shattered_protocol_Friend_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_shattered_protocol_Friend_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_Friend_descriptor,
-        new java.lang.String[] { "Tuuid", "Uuid", "ConnectionUuid", "Name", "Location", "ServerName", });
+        new java.lang.String[] { "Tuuid", "Uuid", "ConnectionUuid", "Name", "Location", "ServerName", "OfflineSince", });
     internal_static_shattered_protocol_FetchFriendsList_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_shattered_protocol_FetchFriendsList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_FetchFriendsList_descriptor,
         new java.lang.String[] { "Uuid", });
     internal_static_shattered_protocol_FriendsList_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_shattered_protocol_FriendsList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_FriendsList_descriptor,
         new java.lang.String[] { "Uuid", "Friend", });
     internal_static_shattered_protocol_AddRemoveFriend_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_shattered_protocol_AddRemoveFriend_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_AddRemoveFriend_descriptor,

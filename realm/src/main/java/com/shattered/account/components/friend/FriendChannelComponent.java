@@ -166,7 +166,7 @@ public class FriendChannelComponent extends Component {
                     getAccount().sendMessage(PacketOuterClass.Opcode.SMSG_UPDATE_FRIEND, Shared.Friend.newBuilder().
                             setIndex(message.getUuid()).
                             setName(message.getName()).
-                            setLocation("Offline for 3 minutes").
+                            setLocation("Offline for less than a minute.").
                             setServer("Offline").
                             build());
                 }

@@ -5,6 +5,7 @@ import com.shattered.account.components.ChannelAccountComponentManager;
 import com.shattered.account.components.ChannelAccountComponents;
 import com.shattered.account.components.friends.ChannelFriendComponent;
 import com.shattered.networking.proto.PacketOuterClass;
+import com.shattered.system.SystemLogger;
 import com.shattered.utilities.ecs.Component;
 import com.shattered.utilities.ecs.Components;
 import com.shattered.utilities.ecs.ProcessInterval;
@@ -55,6 +56,12 @@ public class ChannelAccount {
     private String serverName;
 
     /**
+     * Represents the time of offline. If its -1 it will mean they are online.
+     */
+    private long offlineSince;
+
+
+    /**
      * Represents the Channel Account Component Manager
      */
     @Getter
@@ -63,19 +70,22 @@ public class ChannelAccount {
 
     /**
      *
+     * @param channel
      * @param uuid
      * @param connectionUuid
      * @param name
      * @param location
      * @param serverName
+     * @param offlineSince
      */
-    public ChannelAccount(Channel channel, int uuid, String connectionUuid, String name, String location, String serverName) {
+    public ChannelAccount(Channel channel, int uuid, String connectionUuid, String name, String location, String serverName, long offlineSince) {
         setChannel(channel);
         setUuid(uuid);
         setConnectionUuid(connectionUuid);
         setName(name);
         setLocation(location);
         setServerName(serverName);
+        setOfflineSince(offlineSince);
         setComponentManager(new ChannelAccountComponentManager(this));
         addComponents();
     }
@@ -93,6 +103,8 @@ public class ChannelAccount {
      */
     public void onRegistered() {
         getComponentManager().onStart();
+        component(ChannelAccountComponents.FRIENDS_LIST).sendFriendsList();
+        SystemLogger.sendSystemMessage(getServerName() + ": " + getName() + " has come online.");
     }
 
     /**
@@ -107,6 +119,7 @@ public class ChannelAccount {
      */
     public void onUnregistered() {
         getComponentManager().onFinish();
+        SystemLogger.sendSystemMessage(getServerName() + ": " + getName() + " has went offline.");
     }
 
 

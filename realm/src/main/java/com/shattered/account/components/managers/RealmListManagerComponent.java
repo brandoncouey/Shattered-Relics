@@ -92,7 +92,10 @@ public class RealmListManagerComponent extends Component {
                             .setPermissionLevel(account.getAccountInformation().getAccountLevel().ordinal()).
                             setCharacterId(account.component(RealmAccountComponents.CHARACTER_MANAGER).getCharacterInformation().getId()).
                             setCharacterName(account.component(RealmAccountComponents.CHARACTER_MANAGER).getCharacterInformation().getName()).
-                            setMapName(account.component(RealmAccountComponents.CHARACTER_MANAGER).getCharacterInformation().getMapName()).
+                            setLastDefaultMapName(account.component(RealmAccountComponents.CHARACTER_MANAGER).getCharacterInformation().getLastDefaultMap()).
+                            setMapUuid(account.component(RealmAccountComponents.CHARACTER_MANAGER).getCharacterInformation().getMapUuid()).
+                            setLocation(account.component(RealmAccountComponents.CHARACTER_MANAGER).getCharacterInformation().getLocation()).
+                            setLastDefaultLocation(account.component(RealmAccountComponents.CHARACTER_MANAGER).getCharacterInformation().getLastDefaultMapLocation()).
                             setAccountId(account.getAccountInformation().getAccountId()).setAccountName(account.getAccountInformation().getAccountName()).
                             setPassword(account.getAccountInformation().getPassword()).setHost(world.getSocket().getHostName()).setPort(world.getSocket().getPort()).build());
                     account.component(RealmAccountComponents.REALM_LIST_MANAGER).setLastWorld(world.getName());

@@ -13,6 +13,7 @@ import com.shattered.networking.listeners.ProtoListener;
 import com.shattered.networking.proto.Channel;
 import com.shattered.networking.proto.PacketOuterClass;
 import com.shattered.networking.session.Session;
+import com.shattered.utilities.TimeUtility;
 import lombok.Getter;
 
 import java.sql.ResultSet;
@@ -81,24 +82,30 @@ public class ChannelFriendComponent extends ChannelComponent {
      * @param name
      */
     public void addFriend(String name) {
-        //TODO insert into SQL
         ChannelAccount friend = AccountConnections.getAccountForName(name);
         if (friend != null) {
 
+            if (getFriends().containsKey(friend.getUuid())) {
+                getAccount().sendMessage(PacketOuterClass.Opcode.C_AlreadyAdded, Channel.Response.newBuilder().setTUuid(getAccount().getUuid()).build());
+                return;
+            }
             getFriends().put(friend.getUuid(), friend);
-            addFriendToSQL(friend.getUuid());
+            addFriendToSQL(friend.getUuid(), friend.getName());
 
         } else {
 
             friend = findPlayer(name);
 
             if (friend != null) {
+                if (getFriends().containsKey(friend.getUuid())) {
+                    getAccount().sendMessage(PacketOuterClass.Opcode.C_AlreadyAdded, Channel.Response.newBuilder().setTUuid(getAccount().getUuid()).build());
+                    return;
+                }
                 getFriends().put(friend.getUuid(), friend);
-                addFriendToSQL(friend.getUuid());
+                addFriendToSQL(friend.getUuid(), friend.getName());
 
             } else {
-                //TODO Player is not an actual player!
-                System.out.println("Invalid Player!");
+                getAccount().sendMessage(PacketOuterClass.Opcode.C_InvalidPlayer, Channel.Response.newBuilder().setTUuid(getAccount().getUuid()).build());
                 return;
             }
         }
@@ -188,14 +195,20 @@ public class ChannelFriendComponent extends ChannelComponent {
              */
             @Override
             public void handle(Channel.SendPrivateMessage message, Session session) {
-                ChannelAccount to = AccountConnections.getAccountForName(message.getTo());
+                ChannelAccount to = AccountConnections.getAccountForName(message.getMessage().getTo());
+                ChannelAccount account = AccountConnections.getAccountForId(message.getTuuid());
                 if (to != null) {
+                    if (account != null)
+                        account.sendMessage(PacketOuterClass.Opcode.C_PrivateMessageSuccessful, Channel.SendPrivateMessage.newBuilder().setTuuid(account.getUuid()).setMessage(message.getMessage()).build());
                     to.sendMessage(PacketOuterClass.Opcode.C_PrivateMessage, Channel.ReceivePrivateMessage.newBuilder().
                             setTuuid(to.getUuid()).
-                            setFrom(message.getFrom()).
-                            setMessage(message.getMessage()).
-                            setPermissionLevel(message.getPermissionLevel()).
+                            setFrom(message.getMessage().getFrom()).
+                            setMessage(message.getMessage().getMessage()).
+                            setPermissionLevel(message.getMessage().getPermissionLevel()).
                             build());
+                } else {
+                    if (account != null)
+                        session.sendMessage(PacketOuterClass.Opcode.C_PlayerOffline, Channel.Response.newBuilder().setTUuid(account.getUuid()).build());
                 }
             }
         }, Channel.SendPrivateMessage.getDefaultInstance());
@@ -274,7 +287,9 @@ public class ChannelFriendComponent extends ChannelComponent {
                     setConnectionUuid(friend.getConnectionUuid()).
                     setName(friend.getName()).
                     setLocation(friend.getLocation()).
-                    setServerName(friend.getServerName()).build());
+                    setServerName(friend.getServerName()).
+                    setOfflineSince(friend.getOfflineSince()).build());
+            System.out.println(getAccount().getName() + " added player to flist: " + friend.getName() + " : " + friend.getServerName() + " : " + friend.getLocation());
         }
         getAccount().sendMessage(PacketOuterClass.Opcode.C_Friends_List, builder.build());
     }
@@ -350,19 +365,15 @@ public class ChannelFriendComponent extends ChannelComponent {
         ChannelAccount channelAccount = null;
 
         if (AccountConnections.isOnline(name) && ((channelAccount = AccountConnections.getAccountForName(name)) != null)) {
-            return new ChannelAccount(channelAccount.getChannel(), channelAccount.getUuid(), channelAccount.getConnectionUuid(), channelAccount.getName(), channelAccount.getLocation(), channelAccount.getServerName());
+            return new ChannelAccount(channelAccount.getChannel(), channelAccount.getUuid(), channelAccount.getConnectionUuid(), channelAccount.getName(), channelAccount.getLocation(), channelAccount.getServerName(), -1);
         }
 
         ResultSet results = getResults(getDatabaseName(), "information", new WhereConditionOption[]{ new WhereConditionOption("name", name) });
 
-        if (!hasResults())
-            return null;
-
         try {
 
-
             if (results.next())
-                return new ChannelAccount(null, results.getInt("accountId"), "", results.getString("name"), "Unavailable", "Offline");
+                return new ChannelAccount(null, results.getInt("account_id"), "", results.getString("name"), "Offline for " + TimeUtility.getHighestTimeOnly(results.getLong("offlineSince")) + ".", "Offline", results.getLong("offlineSince"));
 
             return null;
 
@@ -383,7 +394,7 @@ public class ChannelFriendComponent extends ChannelComponent {
         ChannelAccount channelAccount = null;
 
         if (AccountConnections.isOnline(uuid) && ((channelAccount = AccountConnections.getAccountForId(uuid)) != null)) {
-            return new ChannelAccount(channelAccount.getChannel(), uuid, channelAccount.getConnectionUuid(), channelAccount.getName(), channelAccount.getLocation(), channelAccount.getServerName());
+            return new ChannelAccount(channelAccount.getChannel(), uuid, channelAccount.getConnectionUuid(), channelAccount.getName(), channelAccount.getLocation(), channelAccount.getServerName(), -1);
         }
 
 
@@ -397,7 +408,7 @@ public class ChannelFriendComponent extends ChannelComponent {
 
 
             if (results.next()) {
-                return new ChannelAccount(null, uuid, "", results.getString("name"), "Unavailable", "Offline");
+                return new ChannelAccount(null, uuid, "", results.getString("name"), "Offline for " + TimeUtility.getHighestTimeOnly(results.getLong("offlineSince")) + ".", "Offline", results.getLong("offlineSince"));
             }
 
             return null;
@@ -412,11 +423,12 @@ public class ChannelFriendComponent extends ChannelComponent {
     /**
      * Adds a Friend to SQL
      */
-    private void addFriendToSQL(int uuid) {
+    private void addFriendToSQL(int uuid, String name) {
         try {
             List<MySQLColumn> columns = new ArrayList<>();
             columns.add(new MySQLColumn("accountId", getAccount().getUuid()));
             columns.add(new MySQLColumn("friend_id", uuid));
+            columns.add(new MySQLColumn("name", name));
             entry(getDatabaseName(), "friends_list", columns, MySQLCommand.INSERT);
         } catch (Exception e) {
             e.printStackTrace();

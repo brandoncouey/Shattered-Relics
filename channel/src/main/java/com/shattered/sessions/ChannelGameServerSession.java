@@ -48,7 +48,7 @@ public class ChannelGameServerSession extends WorldSession {
                 String serverName = message.getServerName();
 
                 //Registers and sets the player online...
-                ChannelAccount account = new ChannelAccount(session.getChannel(), uuid, connUuid, name, location, serverName);
+                ChannelAccount account = new ChannelAccount(session.getChannel(), uuid, connUuid, name, location, serverName, -1);
                 account.getComponentManager().onFetchData();
                 AccountConnections.registerAccount(account);
                 account.onRegistered();

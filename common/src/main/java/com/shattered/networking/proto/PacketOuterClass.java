@@ -208,6 +208,22 @@ public final class PacketOuterClass {
      */
     C_PrivateMessage(88),
     /**
+     * <code>C_PrivateMessageSuccessful = 90;</code>
+     */
+    C_PrivateMessageSuccessful(90),
+    /**
+     * <code>C_InvalidPlayer = 91;</code>
+     */
+    C_InvalidPlayer(91),
+    /**
+     * <code>C_AlreadyAdded = 92;</code>
+     */
+    C_AlreadyAdded(92),
+    /**
+     * <code>C_PlayerOffline = 93;</code>
+     */
+    C_PlayerOffline(93),
+    /**
      * <code>Channel_EO_Messages = 101;</code>
      */
     Channel_EO_Messages(101),
@@ -416,57 +432,61 @@ public final class PacketOuterClass {
      */
     SMSG_TRANSFER_WORLDS(260),
     /**
-     * <code>CMSG_CHAT_MESSAGE = 261;</code>
+     * <code>SMSG_TRANSFER_MAP = 261;</code>
      */
-    CMSG_CHAT_MESSAGE(261),
+    SMSG_TRANSFER_MAP(261),
     /**
-     * <code>SMSG_CHAT_MESSAGE = 262;</code>
+     * <code>CMSG_CHAT_MESSAGE = 262;</code>
      */
-    SMSG_CHAT_MESSAGE(262),
+    CMSG_CHAT_MESSAGE(262),
     /**
-     * <code>SMSG_GAME_MESSAGE = 263;</code>
+     * <code>SMSG_CHAT_MESSAGE = 263;</code>
      */
-    SMSG_GAME_MESSAGE(263),
+    SMSG_CHAT_MESSAGE(263),
     /**
-     * <code>CMSG_NPC_INTERACTION = 264;</code>
+     * <code>SMSG_GAME_MESSAGE = 264;</code>
      */
-    CMSG_NPC_INTERACTION(264),
+    SMSG_GAME_MESSAGE(264),
     /**
-     * <code>CMSG_OBJECT_INTERACTION = 265;</code>
+     * <code>CMSG_NPC_INTERACTION = 265;</code>
      */
-    CMSG_OBJECT_INTERACTION(265),
+    CMSG_NPC_INTERACTION(265),
     /**
-     * <code>CMSG_CHARACTER_INTERACTION = 266;</code>
+     * <code>CMSG_OBJECT_INTERACTION = 266;</code>
      */
-    CMSG_CHARACTER_INTERACTION(266),
+    CMSG_OBJECT_INTERACTION(266),
+    /**
+     * <code>CMSG_CHARACTER_INTERACTION = 267;</code>
+     */
+    CMSG_CHARACTER_INTERACTION(267),
     /**
      * <pre>
      *Containers
      * </pre>
      *
-     * <code>CMSG_SHIFT_CONTAINER_SLOT = 267;</code>
+     * <code>CMSG_SHIFT_CONTAINER_SLOT = 268;</code>
      */
-    CMSG_SHIFT_CONTAINER_SLOT(267),
+    CMSG_SHIFT_CONTAINER_SLOT(268),
     /**
-     * <code>CMSG_SHIFT_CONTAINER_SLOT_TO_WIDGET = 268;</code>
+     * <code>CMSG_SHIFT_CONTAINER_SLOT_TO_WIDGET = 269;</code>
      */
-    CMSG_SHIFT_CONTAINER_SLOT_TO_WIDGET(268),
+    CMSG_SHIFT_CONTAINER_SLOT_TO_WIDGET(269),
     /**
-     * <code>SMSG_UPDATE_ITEM_CONTAINER_FULL = 269;</code>
+     * <code>SMSG_UPDATE_ITEM_CONTAINER_FULL = 270;</code>
      */
-    SMSG_UPDATE_ITEM_CONTAINER_FULL(269),
+    SMSG_UPDATE_ITEM_CONTAINER_FULL(270),
     /**
-     * <code>SMSG_UPDATE_ITEM_CONTAINER_SLOT = 270;</code>
+     * <code>SMSG_UPDATE_ITEM_CONTAINER_SLOT = 271;</code>
      */
-    SMSG_UPDATE_ITEM_CONTAINER_SLOT(270),
+    SMSG_UPDATE_ITEM_CONTAINER_SLOT(271),
     /**
-     * <code>CMSG_USE_ITEM_CONTAINER_SLOT = 271;</code>
+     * <code>CMSG_USE_ITEM_CONTAINER_SLOT = 272;</code>
      */
-    CMSG_USE_ITEM_CONTAINER_SLOT(271),
+    CMSG_USE_ITEM_CONTAINER_SLOT(272),
     /**
-     * <code>CMSG_USE_ABILITY_CONTAINER_SLOT = 272;</code>
+     * <code>CMSG_USE_ABILITY_CONTAINER_SLOT = 273;</code>
      */
-    CMSG_USE_ABILITY_CONTAINER_SLOT(272),
+    CMSG_USE_ABILITY_CONTAINER_SLOT(273),
     /**
      * <code>SMSG_PLAY_SOUND_EFFECT = 280;</code>
      */
@@ -624,105 +644,121 @@ public final class PacketOuterClass {
      */
     SMSG_QUEST_LOG(354),
     /**
-     * <code>SMSG_SEND_ACCEPT_JOB = 355;</code>
+     * <code>SMSG_FULL_TASK_LIST = 355;</code>
      */
-    SMSG_SEND_ACCEPT_JOB(355),
+    SMSG_FULL_TASK_LIST(355),
     /**
-     * <code>SMSG_SEND_JOB_INFO = 356;</code>
+     * <code>SMSG_ADD_TASK_LIST = 356;</code>
      */
-    SMSG_SEND_JOB_INFO(356),
+    SMSG_ADD_TASK_LIST(356),
     /**
-     * <code>SMSG_COMBAT_LEVEL_NOTIFICATION = 357;</code>
+     * <code>SMSG_REMOVE_TASK_LIST = 357;</code>
      */
-    SMSG_COMBAT_LEVEL_NOTIFICATION(357),
+    SMSG_REMOVE_TASK_LIST(357),
     /**
-     * <code>SMSG_LEARNED_NOTIFICATION = 358;</code>
+     * <code>SMSG_TASK_ENTRY = 358;</code>
      */
-    SMSG_LEARNED_NOTIFICATION(358),
+    SMSG_TASK_ENTRY(358),
     /**
-     * <code>SMSG_QUEST_COMPLETED_NOTIFICATION = 359;</code>
+     * <code>SMSG_TRACK_TASK = 359;</code>
      */
-    SMSG_QUEST_COMPLETED_NOTIFICATION(359),
+    SMSG_TRACK_TASK(359),
     /**
-     * <code>SMSG_QUEST_DISCOVERED_NOTIFICATION = 360;</code>
+     * <code>SMSG_UNTRACK_TASK = 360;</code>
      */
-    SMSG_QUEST_DISCOVERED_NOTIFICATION(360),
+    SMSG_UNTRACK_TASK(360),
     /**
-     * <code>SMSG_REPUTATION_GAINED_NOTIFICATION = 361;</code>
+     * <code>SMSG_COMBAT_LEVEL_NOTIFICATION = 361;</code>
      */
-    SMSG_REPUTATION_GAINED_NOTIFICATION(361),
+    SMSG_COMBAT_LEVEL_NOTIFICATION(361),
     /**
-     * <code>SMSG_REPUTATION_LEVELUP_NOTIFICATION = 362;</code>
+     * <code>SMSG_LEARNED_NOTIFICATION = 362;</code>
      */
-    SMSG_REPUTATION_LEVELUP_NOTIFICATION(362),
+    SMSG_LEARNED_NOTIFICATION(362),
     /**
-     * <code>SMSG_STAT_MASTERY_NOTIFICATION = 363;</code>
+     * <code>SMSG_QUEST_COMPLETED_NOTIFICATION = 363;</code>
      */
-    SMSG_STAT_MASTERY_NOTIFICATION(363),
+    SMSG_QUEST_COMPLETED_NOTIFICATION(363),
     /**
-     * <code>SMSG_TRADE_MASTERY_NOTIFICATION = 364;</code>
+     * <code>SMSG_QUEST_DISCOVERED_NOTIFICATION = 364;</code>
      */
-    SMSG_TRADE_MASTERY_NOTIFICATION(364),
+    SMSG_QUEST_DISCOVERED_NOTIFICATION(364),
     /**
-     * <code>SMSG_STAT_XP_NOTIFICATION = 365;</code>
+     * <code>SMSG_REPUTATION_GAINED_NOTIFICATION = 365;</code>
      */
-    SMSG_STAT_XP_NOTIFICATION(365),
+    SMSG_REPUTATION_GAINED_NOTIFICATION(365),
     /**
-     * <code>SMSG_TRADE_XP_NOTIFICATION = 366;</code>
+     * <code>SMSG_REPUTATION_LEVELUP_NOTIFICATION = 366;</code>
      */
-    SMSG_TRADE_XP_NOTIFICATION(366),
+    SMSG_REPUTATION_LEVELUP_NOTIFICATION(366),
     /**
-     * <code>SMSG_ENTERED_AREA_NOTIFICATION = 367;</code>
+     * <code>SMSG_STAT_MASTERY_NOTIFICATION = 367;</code>
      */
-    SMSG_ENTERED_AREA_NOTIFICATION(367),
+    SMSG_STAT_MASTERY_NOTIFICATION(367),
     /**
-     * <code>SMSG_DISCOVERED_AREA_NOTIFICATION = 368;</code>
+     * <code>SMSG_TRADE_MASTERY_NOTIFICATION = 368;</code>
      */
-    SMSG_DISCOVERED_AREA_NOTIFICATION(368),
+    SMSG_TRADE_MASTERY_NOTIFICATION(368),
     /**
-     * <code>SMSG_ITEM_REWARD_NOTIFICATION = 369;</code>
+     * <code>SMSG_STAT_XP_NOTIFICATION = 369;</code>
      */
-    SMSG_ITEM_REWARD_NOTIFICATION(369),
+    SMSG_STAT_XP_NOTIFICATION(369),
     /**
-     * <code>CMSG_DEFAULT_ATTACK = 370;</code>
+     * <code>SMSG_TRADE_XP_NOTIFICATION = 370;</code>
      */
-    CMSG_DEFAULT_ATTACK(370),
+    SMSG_TRADE_XP_NOTIFICATION(370),
     /**
-     * <code>CMSG_IS_AIMBLOCKING = 371;</code>
+     * <code>SMSG_ENTERED_AREA_NOTIFICATION = 371;</code>
      */
-    CMSG_IS_AIMBLOCKING(371),
+    SMSG_ENTERED_AREA_NOTIFICATION(371),
     /**
-     * <code>CMSG_NOT_AIMBLOCKING = 372;</code>
+     * <code>SMSG_DISCOVERED_AREA_NOTIFICATION = 372;</code>
      */
-    CMSG_NOT_AIMBLOCKING(372),
+    SMSG_DISCOVERED_AREA_NOTIFICATION(372),
     /**
-     * <code>CMSG_TOGGLE_SHEATHE = 373;</code>
+     * <code>SMSG_ITEM_REWARD_NOTIFICATION = 373;</code>
      */
-    CMSG_TOGGLE_SHEATHE(373),
+    SMSG_ITEM_REWARD_NOTIFICATION(373),
     /**
-     * <code>CMSG_REQUEST_START_SPRINT = 374;</code>
+     * <code>CMSG_DEFAULT_ATTACK = 374;</code>
      */
-    CMSG_REQUEST_START_SPRINT(374),
+    CMSG_DEFAULT_ATTACK(374),
     /**
-     * <code>CMSG_STOP_SPRINTING = 375;</code>
+     * <code>CMSG_IS_AIMBLOCKING = 375;</code>
      */
-    CMSG_STOP_SPRINTING(375),
+    CMSG_IS_AIMBLOCKING(375),
     /**
-     * <code>SMSG_PLAYER_FIELDS_COMBAT = 384;</code>
+     * <code>CMSG_NOT_AIMBLOCKING = 376;</code>
      */
-    SMSG_PLAYER_FIELDS_COMBAT(384),
+    CMSG_NOT_AIMBLOCKING(376),
     /**
-     * <code>SMSG_PLAYER_CURRENT_GRIMOIRES = 385;</code>
+     * <code>CMSG_TOGGLE_SHEATHE = 377;</code>
      */
-    SMSG_PLAYER_CURRENT_GRIMOIRES(385),
+    CMSG_TOGGLE_SHEATHE(377),
     /**
-     * <code>SMSG_PLAYER_GRIMOIRE_STATISTICS = 386;</code>
+     * <code>CMSG_REQUEST_START_SPRINT = 378;</code>
      */
-    SMSG_PLAYER_GRIMOIRE_STATISTICS(386),
+    CMSG_REQUEST_START_SPRINT(378),
     /**
-     * <code>SMSG_PLAYER_WEAPON_STATISTICS = 387;</code>
+     * <code>CMSG_STOP_SPRINTING = 379;</code>
      */
-    SMSG_PLAYER_WEAPON_STATISTICS(387),
+    CMSG_STOP_SPRINTING(379),
+    /**
+     * <code>SMSG_PLAYER_FIELDS_COMBAT = 388;</code>
+     */
+    SMSG_PLAYER_FIELDS_COMBAT(388),
+    /**
+     * <code>SMSG_PLAYER_CURRENT_GRIMOIRES = 389;</code>
+     */
+    SMSG_PLAYER_CURRENT_GRIMOIRES(389),
+    /**
+     * <code>SMSG_PLAYER_GRIMOIRE_STATISTICS = 390;</code>
+     */
+    SMSG_PLAYER_GRIMOIRE_STATISTICS(390),
+    /**
+     * <code>SMSG_PLAYER_WEAPON_STATISTICS = 391;</code>
+     */
+    SMSG_PLAYER_WEAPON_STATISTICS(391),
     /**
      * <code>Shattered_World_EO_Messages = 401;</code>
      */
@@ -918,6 +954,22 @@ public final class PacketOuterClass {
      * <code>C_PrivateMessage = 88;</code>
      */
     public static final int C_PrivateMessage_VALUE = 88;
+    /**
+     * <code>C_PrivateMessageSuccessful = 90;</code>
+     */
+    public static final int C_PrivateMessageSuccessful_VALUE = 90;
+    /**
+     * <code>C_InvalidPlayer = 91;</code>
+     */
+    public static final int C_InvalidPlayer_VALUE = 91;
+    /**
+     * <code>C_AlreadyAdded = 92;</code>
+     */
+    public static final int C_AlreadyAdded_VALUE = 92;
+    /**
+     * <code>C_PlayerOffline = 93;</code>
+     */
+    public static final int C_PlayerOffline_VALUE = 93;
     /**
      * <code>Channel_EO_Messages = 101;</code>
      */
@@ -1127,57 +1179,61 @@ public final class PacketOuterClass {
      */
     public static final int SMSG_TRANSFER_WORLDS_VALUE = 260;
     /**
-     * <code>CMSG_CHAT_MESSAGE = 261;</code>
+     * <code>SMSG_TRANSFER_MAP = 261;</code>
      */
-    public static final int CMSG_CHAT_MESSAGE_VALUE = 261;
+    public static final int SMSG_TRANSFER_MAP_VALUE = 261;
     /**
-     * <code>SMSG_CHAT_MESSAGE = 262;</code>
+     * <code>CMSG_CHAT_MESSAGE = 262;</code>
      */
-    public static final int SMSG_CHAT_MESSAGE_VALUE = 262;
+    public static final int CMSG_CHAT_MESSAGE_VALUE = 262;
     /**
-     * <code>SMSG_GAME_MESSAGE = 263;</code>
+     * <code>SMSG_CHAT_MESSAGE = 263;</code>
      */
-    public static final int SMSG_GAME_MESSAGE_VALUE = 263;
+    public static final int SMSG_CHAT_MESSAGE_VALUE = 263;
     /**
-     * <code>CMSG_NPC_INTERACTION = 264;</code>
+     * <code>SMSG_GAME_MESSAGE = 264;</code>
      */
-    public static final int CMSG_NPC_INTERACTION_VALUE = 264;
+    public static final int SMSG_GAME_MESSAGE_VALUE = 264;
     /**
-     * <code>CMSG_OBJECT_INTERACTION = 265;</code>
+     * <code>CMSG_NPC_INTERACTION = 265;</code>
      */
-    public static final int CMSG_OBJECT_INTERACTION_VALUE = 265;
+    public static final int CMSG_NPC_INTERACTION_VALUE = 265;
     /**
-     * <code>CMSG_CHARACTER_INTERACTION = 266;</code>
+     * <code>CMSG_OBJECT_INTERACTION = 266;</code>
      */
-    public static final int CMSG_CHARACTER_INTERACTION_VALUE = 266;
+    public static final int CMSG_OBJECT_INTERACTION_VALUE = 266;
+    /**
+     * <code>CMSG_CHARACTER_INTERACTION = 267;</code>
+     */
+    public static final int CMSG_CHARACTER_INTERACTION_VALUE = 267;
     /**
      * <pre>
      *Containers
      * </pre>
      *
-     * <code>CMSG_SHIFT_CONTAINER_SLOT = 267;</code>
+     * <code>CMSG_SHIFT_CONTAINER_SLOT = 268;</code>
      */
-    public static final int CMSG_SHIFT_CONTAINER_SLOT_VALUE = 267;
+    public static final int CMSG_SHIFT_CONTAINER_SLOT_VALUE = 268;
     /**
-     * <code>CMSG_SHIFT_CONTAINER_SLOT_TO_WIDGET = 268;</code>
+     * <code>CMSG_SHIFT_CONTAINER_SLOT_TO_WIDGET = 269;</code>
      */
-    public static final int CMSG_SHIFT_CONTAINER_SLOT_TO_WIDGET_VALUE = 268;
+    public static final int CMSG_SHIFT_CONTAINER_SLOT_TO_WIDGET_VALUE = 269;
     /**
-     * <code>SMSG_UPDATE_ITEM_CONTAINER_FULL = 269;</code>
+     * <code>SMSG_UPDATE_ITEM_CONTAINER_FULL = 270;</code>
      */
-    public static final int SMSG_UPDATE_ITEM_CONTAINER_FULL_VALUE = 269;
+    public static final int SMSG_UPDATE_ITEM_CONTAINER_FULL_VALUE = 270;
     /**
-     * <code>SMSG_UPDATE_ITEM_CONTAINER_SLOT = 270;</code>
+     * <code>SMSG_UPDATE_ITEM_CONTAINER_SLOT = 271;</code>
      */
-    public static final int SMSG_UPDATE_ITEM_CONTAINER_SLOT_VALUE = 270;
+    public static final int SMSG_UPDATE_ITEM_CONTAINER_SLOT_VALUE = 271;
     /**
-     * <code>CMSG_USE_ITEM_CONTAINER_SLOT = 271;</code>
+     * <code>CMSG_USE_ITEM_CONTAINER_SLOT = 272;</code>
      */
-    public static final int CMSG_USE_ITEM_CONTAINER_SLOT_VALUE = 271;
+    public static final int CMSG_USE_ITEM_CONTAINER_SLOT_VALUE = 272;
     /**
-     * <code>CMSG_USE_ABILITY_CONTAINER_SLOT = 272;</code>
+     * <code>CMSG_USE_ABILITY_CONTAINER_SLOT = 273;</code>
      */
-    public static final int CMSG_USE_ABILITY_CONTAINER_SLOT_VALUE = 272;
+    public static final int CMSG_USE_ABILITY_CONTAINER_SLOT_VALUE = 273;
     /**
      * <code>SMSG_PLAY_SOUND_EFFECT = 280;</code>
      */
@@ -1335,105 +1391,121 @@ public final class PacketOuterClass {
      */
     public static final int SMSG_QUEST_LOG_VALUE = 354;
     /**
-     * <code>SMSG_SEND_ACCEPT_JOB = 355;</code>
+     * <code>SMSG_FULL_TASK_LIST = 355;</code>
      */
-    public static final int SMSG_SEND_ACCEPT_JOB_VALUE = 355;
+    public static final int SMSG_FULL_TASK_LIST_VALUE = 355;
     /**
-     * <code>SMSG_SEND_JOB_INFO = 356;</code>
+     * <code>SMSG_ADD_TASK_LIST = 356;</code>
      */
-    public static final int SMSG_SEND_JOB_INFO_VALUE = 356;
+    public static final int SMSG_ADD_TASK_LIST_VALUE = 356;
     /**
-     * <code>SMSG_COMBAT_LEVEL_NOTIFICATION = 357;</code>
+     * <code>SMSG_REMOVE_TASK_LIST = 357;</code>
      */
-    public static final int SMSG_COMBAT_LEVEL_NOTIFICATION_VALUE = 357;
+    public static final int SMSG_REMOVE_TASK_LIST_VALUE = 357;
     /**
-     * <code>SMSG_LEARNED_NOTIFICATION = 358;</code>
+     * <code>SMSG_TASK_ENTRY = 358;</code>
      */
-    public static final int SMSG_LEARNED_NOTIFICATION_VALUE = 358;
+    public static final int SMSG_TASK_ENTRY_VALUE = 358;
     /**
-     * <code>SMSG_QUEST_COMPLETED_NOTIFICATION = 359;</code>
+     * <code>SMSG_TRACK_TASK = 359;</code>
      */
-    public static final int SMSG_QUEST_COMPLETED_NOTIFICATION_VALUE = 359;
+    public static final int SMSG_TRACK_TASK_VALUE = 359;
     /**
-     * <code>SMSG_QUEST_DISCOVERED_NOTIFICATION = 360;</code>
+     * <code>SMSG_UNTRACK_TASK = 360;</code>
      */
-    public static final int SMSG_QUEST_DISCOVERED_NOTIFICATION_VALUE = 360;
+    public static final int SMSG_UNTRACK_TASK_VALUE = 360;
     /**
-     * <code>SMSG_REPUTATION_GAINED_NOTIFICATION = 361;</code>
+     * <code>SMSG_COMBAT_LEVEL_NOTIFICATION = 361;</code>
      */
-    public static final int SMSG_REPUTATION_GAINED_NOTIFICATION_VALUE = 361;
+    public static final int SMSG_COMBAT_LEVEL_NOTIFICATION_VALUE = 361;
     /**
-     * <code>SMSG_REPUTATION_LEVELUP_NOTIFICATION = 362;</code>
+     * <code>SMSG_LEARNED_NOTIFICATION = 362;</code>
      */
-    public static final int SMSG_REPUTATION_LEVELUP_NOTIFICATION_VALUE = 362;
+    public static final int SMSG_LEARNED_NOTIFICATION_VALUE = 362;
     /**
-     * <code>SMSG_STAT_MASTERY_NOTIFICATION = 363;</code>
+     * <code>SMSG_QUEST_COMPLETED_NOTIFICATION = 363;</code>
      */
-    public static final int SMSG_STAT_MASTERY_NOTIFICATION_VALUE = 363;
+    public static final int SMSG_QUEST_COMPLETED_NOTIFICATION_VALUE = 363;
     /**
-     * <code>SMSG_TRADE_MASTERY_NOTIFICATION = 364;</code>
+     * <code>SMSG_QUEST_DISCOVERED_NOTIFICATION = 364;</code>
      */
-    public static final int SMSG_TRADE_MASTERY_NOTIFICATION_VALUE = 364;
+    public static final int SMSG_QUEST_DISCOVERED_NOTIFICATION_VALUE = 364;
     /**
-     * <code>SMSG_STAT_XP_NOTIFICATION = 365;</code>
+     * <code>SMSG_REPUTATION_GAINED_NOTIFICATION = 365;</code>
      */
-    public static final int SMSG_STAT_XP_NOTIFICATION_VALUE = 365;
+    public static final int SMSG_REPUTATION_GAINED_NOTIFICATION_VALUE = 365;
     /**
-     * <code>SMSG_TRADE_XP_NOTIFICATION = 366;</code>
+     * <code>SMSG_REPUTATION_LEVELUP_NOTIFICATION = 366;</code>
      */
-    public static final int SMSG_TRADE_XP_NOTIFICATION_VALUE = 366;
+    public static final int SMSG_REPUTATION_LEVELUP_NOTIFICATION_VALUE = 366;
     /**
-     * <code>SMSG_ENTERED_AREA_NOTIFICATION = 367;</code>
+     * <code>SMSG_STAT_MASTERY_NOTIFICATION = 367;</code>
      */
-    public static final int SMSG_ENTERED_AREA_NOTIFICATION_VALUE = 367;
+    public static final int SMSG_STAT_MASTERY_NOTIFICATION_VALUE = 367;
     /**
-     * <code>SMSG_DISCOVERED_AREA_NOTIFICATION = 368;</code>
+     * <code>SMSG_TRADE_MASTERY_NOTIFICATION = 368;</code>
      */
-    public static final int SMSG_DISCOVERED_AREA_NOTIFICATION_VALUE = 368;
+    public static final int SMSG_TRADE_MASTERY_NOTIFICATION_VALUE = 368;
     /**
-     * <code>SMSG_ITEM_REWARD_NOTIFICATION = 369;</code>
+     * <code>SMSG_STAT_XP_NOTIFICATION = 369;</code>
      */
-    public static final int SMSG_ITEM_REWARD_NOTIFICATION_VALUE = 369;
+    public static final int SMSG_STAT_XP_NOTIFICATION_VALUE = 369;
     /**
-     * <code>CMSG_DEFAULT_ATTACK = 370;</code>
+     * <code>SMSG_TRADE_XP_NOTIFICATION = 370;</code>
      */
-    public static final int CMSG_DEFAULT_ATTACK_VALUE = 370;
+    public static final int SMSG_TRADE_XP_NOTIFICATION_VALUE = 370;
     /**
-     * <code>CMSG_IS_AIMBLOCKING = 371;</code>
+     * <code>SMSG_ENTERED_AREA_NOTIFICATION = 371;</code>
      */
-    public static final int CMSG_IS_AIMBLOCKING_VALUE = 371;
+    public static final int SMSG_ENTERED_AREA_NOTIFICATION_VALUE = 371;
     /**
-     * <code>CMSG_NOT_AIMBLOCKING = 372;</code>
+     * <code>SMSG_DISCOVERED_AREA_NOTIFICATION = 372;</code>
      */
-    public static final int CMSG_NOT_AIMBLOCKING_VALUE = 372;
+    public static final int SMSG_DISCOVERED_AREA_NOTIFICATION_VALUE = 372;
     /**
-     * <code>CMSG_TOGGLE_SHEATHE = 373;</code>
+     * <code>SMSG_ITEM_REWARD_NOTIFICATION = 373;</code>
      */
-    public static final int CMSG_TOGGLE_SHEATHE_VALUE = 373;
+    public static final int SMSG_ITEM_REWARD_NOTIFICATION_VALUE = 373;
     /**
-     * <code>CMSG_REQUEST_START_SPRINT = 374;</code>
+     * <code>CMSG_DEFAULT_ATTACK = 374;</code>
      */
-    public static final int CMSG_REQUEST_START_SPRINT_VALUE = 374;
+    public static final int CMSG_DEFAULT_ATTACK_VALUE = 374;
     /**
-     * <code>CMSG_STOP_SPRINTING = 375;</code>
+     * <code>CMSG_IS_AIMBLOCKING = 375;</code>
      */
-    public static final int CMSG_STOP_SPRINTING_VALUE = 375;
+    public static final int CMSG_IS_AIMBLOCKING_VALUE = 375;
     /**
-     * <code>SMSG_PLAYER_FIELDS_COMBAT = 384;</code>
+     * <code>CMSG_NOT_AIMBLOCKING = 376;</code>
      */
-    public static final int SMSG_PLAYER_FIELDS_COMBAT_VALUE = 384;
+    public static final int CMSG_NOT_AIMBLOCKING_VALUE = 376;
     /**
-     * <code>SMSG_PLAYER_CURRENT_GRIMOIRES = 385;</code>
+     * <code>CMSG_TOGGLE_SHEATHE = 377;</code>
      */
-    public static final int SMSG_PLAYER_CURRENT_GRIMOIRES_VALUE = 385;
+    public static final int CMSG_TOGGLE_SHEATHE_VALUE = 377;
     /**
-     * <code>SMSG_PLAYER_GRIMOIRE_STATISTICS = 386;</code>
+     * <code>CMSG_REQUEST_START_SPRINT = 378;</code>
      */
-    public static final int SMSG_PLAYER_GRIMOIRE_STATISTICS_VALUE = 386;
+    public static final int CMSG_REQUEST_START_SPRINT_VALUE = 378;
     /**
-     * <code>SMSG_PLAYER_WEAPON_STATISTICS = 387;</code>
+     * <code>CMSG_STOP_SPRINTING = 379;</code>
      */
-    public static final int SMSG_PLAYER_WEAPON_STATISTICS_VALUE = 387;
+    public static final int CMSG_STOP_SPRINTING_VALUE = 379;
+    /**
+     * <code>SMSG_PLAYER_FIELDS_COMBAT = 388;</code>
+     */
+    public static final int SMSG_PLAYER_FIELDS_COMBAT_VALUE = 388;
+    /**
+     * <code>SMSG_PLAYER_CURRENT_GRIMOIRES = 389;</code>
+     */
+    public static final int SMSG_PLAYER_CURRENT_GRIMOIRES_VALUE = 389;
+    /**
+     * <code>SMSG_PLAYER_GRIMOIRE_STATISTICS = 390;</code>
+     */
+    public static final int SMSG_PLAYER_GRIMOIRE_STATISTICS_VALUE = 390;
+    /**
+     * <code>SMSG_PLAYER_WEAPON_STATISTICS = 391;</code>
+     */
+    public static final int SMSG_PLAYER_WEAPON_STATISTICS_VALUE = 391;
     /**
      * <code>Shattered_World_EO_Messages = 401;</code>
      */
@@ -1500,6 +1572,10 @@ public final class PacketOuterClass {
         case 86: return C_AddIgnore;
         case 87: return C_RemoveIgnore;
         case 88: return C_PrivateMessage;
+        case 90: return C_PrivateMessageSuccessful;
+        case 91: return C_InvalidPlayer;
+        case 92: return C_AlreadyAdded;
+        case 93: return C_PlayerOffline;
         case 101: return Channel_EO_Messages;
         case 102: return Shared_Messages;
         case 103: return SMSG_CONNECTED;
@@ -1549,18 +1625,19 @@ public final class PacketOuterClass {
         case 258: return SMSG_NPC_SYNCHRONIZE;
         case 259: return SMSG_OBJECT_SYNCHRONIZE;
         case 260: return SMSG_TRANSFER_WORLDS;
-        case 261: return CMSG_CHAT_MESSAGE;
-        case 262: return SMSG_CHAT_MESSAGE;
-        case 263: return SMSG_GAME_MESSAGE;
-        case 264: return CMSG_NPC_INTERACTION;
-        case 265: return CMSG_OBJECT_INTERACTION;
-        case 266: return CMSG_CHARACTER_INTERACTION;
-        case 267: return CMSG_SHIFT_CONTAINER_SLOT;
-        case 268: return CMSG_SHIFT_CONTAINER_SLOT_TO_WIDGET;
-        case 269: return SMSG_UPDATE_ITEM_CONTAINER_FULL;
-        case 270: return SMSG_UPDATE_ITEM_CONTAINER_SLOT;
-        case 271: return CMSG_USE_ITEM_CONTAINER_SLOT;
-        case 272: return CMSG_USE_ABILITY_CONTAINER_SLOT;
+        case 261: return SMSG_TRANSFER_MAP;
+        case 262: return CMSG_CHAT_MESSAGE;
+        case 263: return SMSG_CHAT_MESSAGE;
+        case 264: return SMSG_GAME_MESSAGE;
+        case 265: return CMSG_NPC_INTERACTION;
+        case 266: return CMSG_OBJECT_INTERACTION;
+        case 267: return CMSG_CHARACTER_INTERACTION;
+        case 268: return CMSG_SHIFT_CONTAINER_SLOT;
+        case 269: return CMSG_SHIFT_CONTAINER_SLOT_TO_WIDGET;
+        case 270: return SMSG_UPDATE_ITEM_CONTAINER_FULL;
+        case 271: return SMSG_UPDATE_ITEM_CONTAINER_SLOT;
+        case 272: return CMSG_USE_ITEM_CONTAINER_SLOT;
+        case 273: return CMSG_USE_ABILITY_CONTAINER_SLOT;
         case 280: return SMSG_PLAY_SOUND_EFFECT;
         case 281: return SMSG_PLAY_SOUND_EFFECT_AT_LOC;
         case 282: return SMSG_PLAY_SOUND_TRACK;
@@ -1600,31 +1677,35 @@ public final class PacketOuterClass {
         case 351: return SMSG_ACCEPT_QUEST;
         case 352: return SMSG_QUEST_ENTRY;
         case 354: return SMSG_QUEST_LOG;
-        case 355: return SMSG_SEND_ACCEPT_JOB;
-        case 356: return SMSG_SEND_JOB_INFO;
-        case 357: return SMSG_COMBAT_LEVEL_NOTIFICATION;
-        case 358: return SMSG_LEARNED_NOTIFICATION;
-        case 359: return SMSG_QUEST_COMPLETED_NOTIFICATION;
-        case 360: return SMSG_QUEST_DISCOVERED_NOTIFICATION;
-        case 361: return SMSG_REPUTATION_GAINED_NOTIFICATION;
-        case 362: return SMSG_REPUTATION_LEVELUP_NOTIFICATION;
-        case 363: return SMSG_STAT_MASTERY_NOTIFICATION;
-        case 364: return SMSG_TRADE_MASTERY_NOTIFICATION;
-        case 365: return SMSG_STAT_XP_NOTIFICATION;
-        case 366: return SMSG_TRADE_XP_NOTIFICATION;
-        case 367: return SMSG_ENTERED_AREA_NOTIFICATION;
-        case 368: return SMSG_DISCOVERED_AREA_NOTIFICATION;
-        case 369: return SMSG_ITEM_REWARD_NOTIFICATION;
-        case 370: return CMSG_DEFAULT_ATTACK;
-        case 371: return CMSG_IS_AIMBLOCKING;
-        case 372: return CMSG_NOT_AIMBLOCKING;
-        case 373: return CMSG_TOGGLE_SHEATHE;
-        case 374: return CMSG_REQUEST_START_SPRINT;
-        case 375: return CMSG_STOP_SPRINTING;
-        case 384: return SMSG_PLAYER_FIELDS_COMBAT;
-        case 385: return SMSG_PLAYER_CURRENT_GRIMOIRES;
-        case 386: return SMSG_PLAYER_GRIMOIRE_STATISTICS;
-        case 387: return SMSG_PLAYER_WEAPON_STATISTICS;
+        case 355: return SMSG_FULL_TASK_LIST;
+        case 356: return SMSG_ADD_TASK_LIST;
+        case 357: return SMSG_REMOVE_TASK_LIST;
+        case 358: return SMSG_TASK_ENTRY;
+        case 359: return SMSG_TRACK_TASK;
+        case 360: return SMSG_UNTRACK_TASK;
+        case 361: return SMSG_COMBAT_LEVEL_NOTIFICATION;
+        case 362: return SMSG_LEARNED_NOTIFICATION;
+        case 363: return SMSG_QUEST_COMPLETED_NOTIFICATION;
+        case 364: return SMSG_QUEST_DISCOVERED_NOTIFICATION;
+        case 365: return SMSG_REPUTATION_GAINED_NOTIFICATION;
+        case 366: return SMSG_REPUTATION_LEVELUP_NOTIFICATION;
+        case 367: return SMSG_STAT_MASTERY_NOTIFICATION;
+        case 368: return SMSG_TRADE_MASTERY_NOTIFICATION;
+        case 369: return SMSG_STAT_XP_NOTIFICATION;
+        case 370: return SMSG_TRADE_XP_NOTIFICATION;
+        case 371: return SMSG_ENTERED_AREA_NOTIFICATION;
+        case 372: return SMSG_DISCOVERED_AREA_NOTIFICATION;
+        case 373: return SMSG_ITEM_REWARD_NOTIFICATION;
+        case 374: return CMSG_DEFAULT_ATTACK;
+        case 375: return CMSG_IS_AIMBLOCKING;
+        case 376: return CMSG_NOT_AIMBLOCKING;
+        case 377: return CMSG_TOGGLE_SHEATHE;
+        case 378: return CMSG_REQUEST_START_SPRINT;
+        case 379: return CMSG_STOP_SPRINTING;
+        case 388: return SMSG_PLAYER_FIELDS_COMBAT;
+        case 389: return SMSG_PLAYER_CURRENT_GRIMOIRES;
+        case 390: return SMSG_PLAYER_GRIMOIRE_STATISTICS;
+        case 391: return SMSG_PLAYER_WEAPON_STATISTICS;
         case 401: return Shattered_World_EO_Messages;
         default: return null;
       }
@@ -3248,7 +3329,7 @@ public final class PacketOuterClass {
       "\n\014packet.proto\022\022shattered.protocol\"E\n\006Pa" +
       "cket\022*\n\006opcode\030\001 \001(\0162\032.shattered.protoco" +
       "l.Opcode\022\017\n\007payload\030\002 \001(\014\"\016\n\014EmptyPayloa" +
-      "d\" \n\rStringPayload\022\017\n\007payload\030\001 \001(\t*\363$\n\006" +
+      "d\" \n\rStringPayload\022\017\n\007payload\030\001 \001(\t*\320&\n\006" +
       "Opcode\022\022\n\016INVALID_OPCODE\020\000\022\016\n\nU_Messages" +
       "\020\001\022\n\n\006U_Ping\020\002\022\027\n\023U_ServerPerformance\020\003\022" +
       "\017\n\013U_ClockSync\020\004\022\021\n\rU_EO_Messages\020\033\022\022\n\016P" +
@@ -3273,102 +3354,107 @@ public final class PacketOuterClass {
       "tus\020R\022\022\n\016C_Friends_List\020S\022\017\n\013C_AddFriend" +
       "\020T\022\022\n\016C_RemoveFriend\020U\022\017\n\013C_AddIgnore\020V\022" +
       "\022\n\016C_RemoveIgnore\020W\022\024\n\020C_PrivateMessage\020" +
-      "X\022\027\n\023Channel_EO_Messages\020e\022\023\n\017Shared_Mes" +
-      "sages\020f\022\022\n\016SMSG_CONNECTED\020g\022\025\n\021SMSG_DISC" +
-      "ONNECTED\020h\022\034\n\030SMSG_ACCOUNT_INFORMATION\020i" +
-      "\022\026\n\022CMSG_LOGIN_REQUEST\020j\022\027\n\023SMSG_LOGIN_R" +
-      "ESPONSE\020k\022\027\n\023CMSG_REQUEST_LOGOUT\020l\022\017\n\013SM" +
-      "SG_LOGOUT\020m\022\035\n\031SMSG_LOGOUT_WITH_RESPONSE" +
-      "\020n\022\030\n\024CMSG_REQUEST_FRIENDS\020o\022\025\n\021CMSG_FRI" +
-      "ENDS_LIST\020p\022\030\n\024CMSG_PRIVATE_MESSAGE\020q\022\030\n" +
-      "\024SMSG_PRIVATE_MESSAGE\020r\022\025\n\021SMSG_FRIENDS_" +
-      "LIST\020s\022\026\n\022SMSG_UPDATE_FRIEND\020t\022\023\n\017CMSG_A" +
-      "DD_FRIEND\020u\022\026\n\022CMSG_REMOVE_FRIEND\020v\022\031\n\025C" +
-      "MSG_IGNORE_CHARACTER\020w\022\032\n\026CMSG_SET_ONLIN" +
-      "E_STATUS\020x\022\032\n\026CMSG_SET_PUBLIC_STATUS\020y\022\032" +
-      "\n\026SMSG_SET_SOCIAL_STATUS\020z\022\036\n\032CMSG_REQUE" +
-      "ST_BUTTON_HANDLE\020{\022\035\n\031SMSG_SET_WIDGET_PA" +
-      "RAM_STR\020|\022\035\n\031SMSG_SET_WIDGET_PARAM_INT\020}" +
-      "\022\036\n\032SMSG_SET_WIDGET_PARAM_BOOL\020~\022\027\n\022Shar" +
-      "ed_EO_Messages\020\227\001\022\035\n\030Shattered_Realm_Mes" +
-      "sages\020\230\001\022\026\n\021CMSG_REALM_LOADED\020\231\001\022\034\n\027CMSG" +
-      "_REQUEST_REALM_LIST\020\232\001\022\033\n\026SMSG_UPDATE_RE" +
-      "ALM_LIST\020\233\001\022\'\n\"CMSG_REQUEST_CHARACTER_IN" +
-      "FORMATION\020\234\001\022\037\n\032SMSG_CHARACTER_INFORMATI" +
-      "ON\020\235\001\022\032\n\025SMSG_CREATE_CHARACTER\020\236\001\022\"\n\035CMS" +
-      "G_CREATE_CHARACTER_REQUEST\020\237\001\022%\n SMSG_CH" +
-      "ARACTER_CREATION_RESPONSE\020\240\001\022\035\n\030CMSG_WOR" +
-      "LD_LOGIN_REQUEST\020\241\001\022\036\n\031SMSG_WORLD_LOGIN_" +
-      "TRANSFER\020\242\001\022\026\n\021SMSG_MAP_TRANSFER\020\243\001\022 \n\033S" +
-      "hattered_Realm_EO_Messages\020\373\001\022\035\n\030Shatter" +
-      "ed_World_Messages\020\374\001\022\026\n\021CMSG_WORLD_LOADE" +
-      "D\020\375\001\022\031\n\024CMSG_CHARACTER_READY\020\376\001\022\025\n\020SMSG_" +
-      "WORLD_READY\020\377\001\022\032\n\025CMSG_TRANSFORM_UPDATE\020" +
-      "\200\002\022\037\n\032SMSG_CHARACTER_SYNCHRONIZE\020\201\002\022\031\n\024S" +
-      "MSG_NPC_SYNCHRONIZE\020\202\002\022\034\n\027SMSG_OBJECT_SY" +
-      "NCHRONIZE\020\203\002\022\031\n\024SMSG_TRANSFER_WORLDS\020\204\002\022" +
-      "\026\n\021CMSG_CHAT_MESSAGE\020\205\002\022\026\n\021SMSG_CHAT_MES" +
-      "SAGE\020\206\002\022\026\n\021SMSG_GAME_MESSAGE\020\207\002\022\031\n\024CMSG_" +
-      "NPC_INTERACTION\020\210\002\022\034\n\027CMSG_OBJECT_INTERA" +
-      "CTION\020\211\002\022\037\n\032CMSG_CHARACTER_INTERACTION\020\212" +
-      "\002\022\036\n\031CMSG_SHIFT_CONTAINER_SLOT\020\213\002\022(\n#CMS" +
-      "G_SHIFT_CONTAINER_SLOT_TO_WIDGET\020\214\002\022$\n\037S" +
-      "MSG_UPDATE_ITEM_CONTAINER_FULL\020\215\002\022$\n\037SMS" +
-      "G_UPDATE_ITEM_CONTAINER_SLOT\020\216\002\022!\n\034CMSG_" +
-      "USE_ITEM_CONTAINER_SLOT\020\217\002\022$\n\037CMSG_USE_A" +
-      "BILITY_CONTAINER_SLOT\020\220\002\022\033\n\026SMSG_PLAY_SO" +
-      "UND_EFFECT\020\230\002\022\"\n\035SMSG_PLAY_SOUND_EFFECT_" +
-      "AT_LOC\020\231\002\022\032\n\025SMSG_PLAY_SOUND_TRACK\020\232\002\022\032\n" +
-      "\025SMSG_SPAWN_PROJECTILE\020\233\002\022\027\n\022SMSG_SPAWN_" +
-      "EMITTER\020\234\002\022\020\n\013SMSG_DIALOG\020\235\002\022\027\n\022SMSG_OPT" +
-      "ION_DIALOG\020\236\002\022\027\n\022CMSG_DIALOG_OPTION\020\237\002\022\027" +
-      "\n\022SMSG_CREATE_WIDGET\020\240\002\022\031\n\024SMSG_DESTRUCT" +
-      "_WIDGET\020\241\002\022\025\n\020SMSG_SHOW_WIDGET\020\242\002\022\025\n\020SMS" +
-      "G_HIDE_WIDGET\020\243\002\022%\n SMSG_DISPLAY_ACTION_" +
-      "PROGRESS_BAR\020\244\002\022 \n\033SMSG_DISPLAY_COOLDOWN" +
-      "_TIMER\020\245\002\022\023\n\016SMSG_ADUP_BUFF\020\246\002\022\025\n\020SMSG_R" +
-      "EMOVE_BUFF\020\247\002\022\033\n\026SMSG_DISPLAY_CAST_TIME\020" +
-      "\250\002\022\025\n\020SMSG_CANCEL_CAST\020\251\002\022\"\n\035CMSG_PROJEC" +
-      "TILE_HIT_CHARACTER\020\252\002\022$\n\037CMSG_MELEE_HITB" +
-      "OX_HIT_CHARACTER\020\253\002\022\032\n\025SMSG_DISORIENT_PL" +
-      "AYER\020\254\002\022#\n\036SMSG_REVERSE_MOVEMENT_CONTROL" +
-      "S\020\315\002\022\035\n\030CMSG_REQUEST_WEAPON_SWAP\020\316\002\022\035\n\030C" +
-      "MSG_REQUEST_STOP_ACTION\020\320\002\022\026\n\021CMSG_REQUE" +
-      "ST_ROLL\020\321\002\022\031\n\024CMSG_REQUEST_ABILITY\020\322\002\022\037\n" +
-      "\032CMSG_SELECT_AREA_TELEGRAPH\020\323\002\022$\n\037SMSG_S" +
-      "PAWN_PROJECTILE_FOR_ACTOR\020\324\002\022\031\n\024SMSG_LOA" +
-      "D_PROJECTILE\020\325\002\022\026\n\021SMSG_PLAY_MONTAGE\020\326\002\022" +
-      "\024\n\017CMSG_SET_TARGET\020\327\002\022\026\n\021SMSG_CLEAR_TARG" +
-      "ET\020\330\002\022\032\n\025SMSG_ADD_PARTY_MEMBER\020\331\002\022\035\n\030SMS" +
-      "G_REMOVE_PARTY_MEMBER\020\332\002\022\035\n\030SMSG_UPDATE_" +
-      "PARTY_MEMBER\020\333\002\022\026\n\021SMSG_PARTY_INVITE\020\334\002\022" +
-      "\026\n\021SMSG_ACCEPT_QUEST\020\337\002\022\025\n\020SMSG_QUEST_EN" +
-      "TRY\020\340\002\022\023\n\016SMSG_QUEST_LOG\020\342\002\022\031\n\024SMSG_SEND" +
-      "_ACCEPT_JOB\020\343\002\022\027\n\022SMSG_SEND_JOB_INFO\020\344\002\022" +
-      "#\n\036SMSG_COMBAT_LEVEL_NOTIFICATION\020\345\002\022\036\n\031" +
-      "SMSG_LEARNED_NOTIFICATION\020\346\002\022&\n!SMSG_QUE" +
-      "ST_COMPLETED_NOTIFICATION\020\347\002\022\'\n\"SMSG_QUE" +
-      "ST_DISCOVERED_NOTIFICATION\020\350\002\022(\n#SMSG_RE" +
-      "PUTATION_GAINED_NOTIFICATION\020\351\002\022)\n$SMSG_" +
-      "REPUTATION_LEVELUP_NOTIFICATION\020\352\002\022#\n\036SM" +
-      "SG_STAT_MASTERY_NOTIFICATION\020\353\002\022$\n\037SMSG_" +
-      "TRADE_MASTERY_NOTIFICATION\020\354\002\022\036\n\031SMSG_ST" +
-      "AT_XP_NOTIFICATION\020\355\002\022\037\n\032SMSG_TRADE_XP_N" +
-      "OTIFICATION\020\356\002\022#\n\036SMSG_ENTERED_AREA_NOTI" +
-      "FICATION\020\357\002\022&\n!SMSG_DISCOVERED_AREA_NOTI" +
-      "FICATION\020\360\002\022\"\n\035SMSG_ITEM_REWARD_NOTIFICA" +
-      "TION\020\361\002\022\030\n\023CMSG_DEFAULT_ATTACK\020\362\002\022\030\n\023CMS" +
-      "G_IS_AIMBLOCKING\020\363\002\022\031\n\024CMSG_NOT_AIMBLOCK" +
-      "ING\020\364\002\022\030\n\023CMSG_TOGGLE_SHEATHE\020\365\002\022\036\n\031CMSG" +
-      "_REQUEST_START_SPRINT\020\366\002\022\030\n\023CMSG_STOP_SP" +
-      "RINTING\020\367\002\022\036\n\031SMSG_PLAYER_FIELDS_COMBAT\020" +
-      "\200\003\022\"\n\035SMSG_PLAYER_CURRENT_GRIMOIRES\020\201\003\022$" +
-      "\n\037SMSG_PLAYER_GRIMOIRE_STATISTICS\020\202\003\022\"\n\035" +
-      "SMSG_PLAYER_WEAPON_STATISTICS\020\203\003\022 \n\033Shat" +
-      "tered_World_EO_Messages\020\221\003\"\004\010\005\020\032\"\004\010)\0202\"\004" +
-      "\010=\020K\"\004\010Y\020d\"\005\010\177\020\226\001\"\006\010\244\001\020\372\001\"\006\010\221\002\020\227\002\"\006\010\255\002\020\314" +
-      "\002B#\n\036com.shattered.networking.proto\370\001\001b\006" +
-      "proto3"
+      "X\022\036\n\032C_PrivateMessageSuccessful\020Z\022\023\n\017C_I" +
+      "nvalidPlayer\020[\022\022\n\016C_AlreadyAdded\020\\\022\023\n\017C_" +
+      "PlayerOffline\020]\022\027\n\023Channel_EO_Messages\020e" +
+      "\022\023\n\017Shared_Messages\020f\022\022\n\016SMSG_CONNECTED\020" +
+      "g\022\025\n\021SMSG_DISCONNECTED\020h\022\034\n\030SMSG_ACCOUNT" +
+      "_INFORMATION\020i\022\026\n\022CMSG_LOGIN_REQUEST\020j\022\027" +
+      "\n\023SMSG_LOGIN_RESPONSE\020k\022\027\n\023CMSG_REQUEST_" +
+      "LOGOUT\020l\022\017\n\013SMSG_LOGOUT\020m\022\035\n\031SMSG_LOGOUT" +
+      "_WITH_RESPONSE\020n\022\030\n\024CMSG_REQUEST_FRIENDS" +
+      "\020o\022\025\n\021CMSG_FRIENDS_LIST\020p\022\030\n\024CMSG_PRIVAT" +
+      "E_MESSAGE\020q\022\030\n\024SMSG_PRIVATE_MESSAGE\020r\022\025\n" +
+      "\021SMSG_FRIENDS_LIST\020s\022\026\n\022SMSG_UPDATE_FRIE" +
+      "ND\020t\022\023\n\017CMSG_ADD_FRIEND\020u\022\026\n\022CMSG_REMOVE" +
+      "_FRIEND\020v\022\031\n\025CMSG_IGNORE_CHARACTER\020w\022\032\n\026" +
+      "CMSG_SET_ONLINE_STATUS\020x\022\032\n\026CMSG_SET_PUB" +
+      "LIC_STATUS\020y\022\032\n\026SMSG_SET_SOCIAL_STATUS\020z" +
+      "\022\036\n\032CMSG_REQUEST_BUTTON_HANDLE\020{\022\035\n\031SMSG" +
+      "_SET_WIDGET_PARAM_STR\020|\022\035\n\031SMSG_SET_WIDG" +
+      "ET_PARAM_INT\020}\022\036\n\032SMSG_SET_WIDGET_PARAM_" +
+      "BOOL\020~\022\027\n\022Shared_EO_Messages\020\227\001\022\035\n\030Shatt" +
+      "ered_Realm_Messages\020\230\001\022\026\n\021CMSG_REALM_LOA" +
+      "DED\020\231\001\022\034\n\027CMSG_REQUEST_REALM_LIST\020\232\001\022\033\n\026" +
+      "SMSG_UPDATE_REALM_LIST\020\233\001\022\'\n\"CMSG_REQUES" +
+      "T_CHARACTER_INFORMATION\020\234\001\022\037\n\032SMSG_CHARA" +
+      "CTER_INFORMATION\020\235\001\022\032\n\025SMSG_CREATE_CHARA" +
+      "CTER\020\236\001\022\"\n\035CMSG_CREATE_CHARACTER_REQUEST" +
+      "\020\237\001\022%\n SMSG_CHARACTER_CREATION_RESPONSE\020" +
+      "\240\001\022\035\n\030CMSG_WORLD_LOGIN_REQUEST\020\241\001\022\036\n\031SMS" +
+      "G_WORLD_LOGIN_TRANSFER\020\242\001\022\026\n\021SMSG_MAP_TR" +
+      "ANSFER\020\243\001\022 \n\033Shattered_Realm_EO_Messages" +
+      "\020\373\001\022\035\n\030Shattered_World_Messages\020\374\001\022\026\n\021CM" +
+      "SG_WORLD_LOADED\020\375\001\022\031\n\024CMSG_CHARACTER_REA" +
+      "DY\020\376\001\022\025\n\020SMSG_WORLD_READY\020\377\001\022\032\n\025CMSG_TRA" +
+      "NSFORM_UPDATE\020\200\002\022\037\n\032SMSG_CHARACTER_SYNCH" +
+      "RONIZE\020\201\002\022\031\n\024SMSG_NPC_SYNCHRONIZE\020\202\002\022\034\n\027" +
+      "SMSG_OBJECT_SYNCHRONIZE\020\203\002\022\031\n\024SMSG_TRANS" +
+      "FER_WORLDS\020\204\002\022\026\n\021SMSG_TRANSFER_MAP\020\205\002\022\026\n" +
+      "\021CMSG_CHAT_MESSAGE\020\206\002\022\026\n\021SMSG_CHAT_MESSA" +
+      "GE\020\207\002\022\026\n\021SMSG_GAME_MESSAGE\020\210\002\022\031\n\024CMSG_NP" +
+      "C_INTERACTION\020\211\002\022\034\n\027CMSG_OBJECT_INTERACT" +
+      "ION\020\212\002\022\037\n\032CMSG_CHARACTER_INTERACTION\020\213\002\022" +
+      "\036\n\031CMSG_SHIFT_CONTAINER_SLOT\020\214\002\022(\n#CMSG_" +
+      "SHIFT_CONTAINER_SLOT_TO_WIDGET\020\215\002\022$\n\037SMS" +
+      "G_UPDATE_ITEM_CONTAINER_FULL\020\216\002\022$\n\037SMSG_" +
+      "UPDATE_ITEM_CONTAINER_SLOT\020\217\002\022!\n\034CMSG_US" +
+      "E_ITEM_CONTAINER_SLOT\020\220\002\022$\n\037CMSG_USE_ABI" +
+      "LITY_CONTAINER_SLOT\020\221\002\022\033\n\026SMSG_PLAY_SOUN" +
+      "D_EFFECT\020\230\002\022\"\n\035SMSG_PLAY_SOUND_EFFECT_AT" +
+      "_LOC\020\231\002\022\032\n\025SMSG_PLAY_SOUND_TRACK\020\232\002\022\032\n\025S" +
+      "MSG_SPAWN_PROJECTILE\020\233\002\022\027\n\022SMSG_SPAWN_EM" +
+      "ITTER\020\234\002\022\020\n\013SMSG_DIALOG\020\235\002\022\027\n\022SMSG_OPTIO" +
+      "N_DIALOG\020\236\002\022\027\n\022CMSG_DIALOG_OPTION\020\237\002\022\027\n\022" +
+      "SMSG_CREATE_WIDGET\020\240\002\022\031\n\024SMSG_DESTRUCT_W" +
+      "IDGET\020\241\002\022\025\n\020SMSG_SHOW_WIDGET\020\242\002\022\025\n\020SMSG_" +
+      "HIDE_WIDGET\020\243\002\022%\n SMSG_DISPLAY_ACTION_PR" +
+      "OGRESS_BAR\020\244\002\022 \n\033SMSG_DISPLAY_COOLDOWN_T" +
+      "IMER\020\245\002\022\023\n\016SMSG_ADUP_BUFF\020\246\002\022\025\n\020SMSG_REM" +
+      "OVE_BUFF\020\247\002\022\033\n\026SMSG_DISPLAY_CAST_TIME\020\250\002" +
+      "\022\025\n\020SMSG_CANCEL_CAST\020\251\002\022\"\n\035CMSG_PROJECTI" +
+      "LE_HIT_CHARACTER\020\252\002\022$\n\037CMSG_MELEE_HITBOX" +
+      "_HIT_CHARACTER\020\253\002\022\032\n\025SMSG_DISORIENT_PLAY" +
+      "ER\020\254\002\022#\n\036SMSG_REVERSE_MOVEMENT_CONTROLS\020" +
+      "\315\002\022\035\n\030CMSG_REQUEST_WEAPON_SWAP\020\316\002\022\035\n\030CMS" +
+      "G_REQUEST_STOP_ACTION\020\320\002\022\026\n\021CMSG_REQUEST" +
+      "_ROLL\020\321\002\022\031\n\024CMSG_REQUEST_ABILITY\020\322\002\022\037\n\032C" +
+      "MSG_SELECT_AREA_TELEGRAPH\020\323\002\022$\n\037SMSG_SPA" +
+      "WN_PROJECTILE_FOR_ACTOR\020\324\002\022\031\n\024SMSG_LOAD_" +
+      "PROJECTILE\020\325\002\022\026\n\021SMSG_PLAY_MONTAGE\020\326\002\022\024\n" +
+      "\017CMSG_SET_TARGET\020\327\002\022\026\n\021SMSG_CLEAR_TARGET" +
+      "\020\330\002\022\032\n\025SMSG_ADD_PARTY_MEMBER\020\331\002\022\035\n\030SMSG_" +
+      "REMOVE_PARTY_MEMBER\020\332\002\022\035\n\030SMSG_UPDATE_PA" +
+      "RTY_MEMBER\020\333\002\022\026\n\021SMSG_PARTY_INVITE\020\334\002\022\026\n" +
+      "\021SMSG_ACCEPT_QUEST\020\337\002\022\025\n\020SMSG_QUEST_ENTR" +
+      "Y\020\340\002\022\023\n\016SMSG_QUEST_LOG\020\342\002\022\030\n\023SMSG_FULL_T" +
+      "ASK_LIST\020\343\002\022\027\n\022SMSG_ADD_TASK_LIST\020\344\002\022\032\n\025" +
+      "SMSG_REMOVE_TASK_LIST\020\345\002\022\024\n\017SMSG_TASK_EN" +
+      "TRY\020\346\002\022\024\n\017SMSG_TRACK_TASK\020\347\002\022\026\n\021SMSG_UNT" +
+      "RACK_TASK\020\350\002\022#\n\036SMSG_COMBAT_LEVEL_NOTIFI" +
+      "CATION\020\351\002\022\036\n\031SMSG_LEARNED_NOTIFICATION\020\352" +
+      "\002\022&\n!SMSG_QUEST_COMPLETED_NOTIFICATION\020\353" +
+      "\002\022\'\n\"SMSG_QUEST_DISCOVERED_NOTIFICATION\020" +
+      "\354\002\022(\n#SMSG_REPUTATION_GAINED_NOTIFICATIO" +
+      "N\020\355\002\022)\n$SMSG_REPUTATION_LEVELUP_NOTIFICA" +
+      "TION\020\356\002\022#\n\036SMSG_STAT_MASTERY_NOTIFICATIO" +
+      "N\020\357\002\022$\n\037SMSG_TRADE_MASTERY_NOTIFICATION\020" +
+      "\360\002\022\036\n\031SMSG_STAT_XP_NOTIFICATION\020\361\002\022\037\n\032SM" +
+      "SG_TRADE_XP_NOTIFICATION\020\362\002\022#\n\036SMSG_ENTE" +
+      "RED_AREA_NOTIFICATION\020\363\002\022&\n!SMSG_DISCOVE" +
+      "RED_AREA_NOTIFICATION\020\364\002\022\"\n\035SMSG_ITEM_RE" +
+      "WARD_NOTIFICATION\020\365\002\022\030\n\023CMSG_DEFAULT_ATT" +
+      "ACK\020\366\002\022\030\n\023CMSG_IS_AIMBLOCKING\020\367\002\022\031\n\024CMSG" +
+      "_NOT_AIMBLOCKING\020\370\002\022\030\n\023CMSG_TOGGLE_SHEAT" +
+      "HE\020\371\002\022\036\n\031CMSG_REQUEST_START_SPRINT\020\372\002\022\030\n" +
+      "\023CMSG_STOP_SPRINTING\020\373\002\022\036\n\031SMSG_PLAYER_F" +
+      "IELDS_COMBAT\020\204\003\022\"\n\035SMSG_PLAYER_CURRENT_G" +
+      "RIMOIRES\020\205\003\022$\n\037SMSG_PLAYER_GRIMOIRE_STAT" +
+      "ISTICS\020\206\003\022\"\n\035SMSG_PLAYER_WEAPON_STATISTI" +
+      "CS\020\207\003\022 \n\033Shattered_World_EO_Messages\020\221\003\"" +
+      "\004\010\005\020\032\"\004\010)\0202\"\004\010=\020K\"\004\010^\020d\"\005\010\177\020\226\001\"\006\010\244\001\020\372\001\"\006" +
+      "\010\222\002\020\227\002\"\006\010\255\002\020\314\002\"\006\010\374\002\020\203\003B#\n\036com.shattered." +
+      "networking.proto\370\001\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

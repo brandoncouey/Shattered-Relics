@@ -5,11 +5,6 @@ option cc_enable_arenas = true;
 
 
 //+ustruct:BlueprintType
-message TransferMap {
-    string name = 1;
-}
-
-//+ustruct:BlueprintType
 message WorldVector {
     float x = 1;
     float y = 2;
@@ -119,14 +114,17 @@ message PlayerUpdateBlock {
     AnimationSequence animation = 8;
     int32 overlay_state = 9;
     int32 combat_level = 10;
-    int32 health = 11;
-    int32 max_health = 12;
-    int32 energy = 13;
-    int32 max_energy = 14;
-    int32 hostility_level = 15;
-    int32 states = 16;
-    bool needs_added = 17;
-    bool needs_removed = 18;
+    bool sheathed = 11;
+    int32 health = 12;
+    int32 max_health = 13;
+    int32 energy = 14;
+    int32 max_energy = 15;
+    int32 hostility_level = 16;
+    bool is_friend = 17;
+    bool is_party_member = 18;
+    int32 states = 19;
+    bool needs_added = 20;
+    bool needs_removed = 21;
 }
 
 //+ustruct:BlueprintType
@@ -305,22 +303,40 @@ message QuestLog {
 }
 
 //+ustruct:BlueprintType
-message JobList {
-    repeated Job job = 1;
+message TaskListIdentifier {
+    int32 uuid = 2;
+}
+
+
+//+ustruct:BlueprintType
+message TaskList {
+    int32 uuid = 1;
+    string name = 2;
+    string zone = 3;
+    repeated Task tasks = 4;
 }
 
 //+ustruct:BlueprintType
-message Job {
-    string name = 1;
-    int32 state = 2;
+message TaskEntry {
+    int32 uuid = 1;
+    Task task = 2;
+}
+
+
+
+//+ustruct:BlueprintType
+message Task {
+    int32 index = 1;
+    bool completed = 2;
+    string description = 3;
+    TaskRewards rewards = 4;
 }
 
 //+ustruct:BlueprintType
-message JobEntry {
-    string name = 1;
-    string description = 2;
-    repeated Item item_reward = 3;
-    repeated string string_reward = 4;
+message TaskRewards {
+    int32 coins = 1;
+    repeated Item items = 2;
+    repeated string text_based = 3;
 }
 
 //+ustruct:BlueprintType

@@ -288,10 +288,11 @@ public class ProxyClientSession extends ClientSession {
      * @param characterName
      * @param connectionUuid
      */
-    public void transferToWorld(int permissionLevel, int characterId, String characterName, String mapName, String connectionUuid, int accountId, String accountName, String password) {
+    public void transferToWorld(int permissionLevel, int characterId, String characterName, String lastDefaultMap, long mapUUID, Proxy.PVector location, Proxy.PVector lastDefaultLocation, String connectionUuid, int accountId, String accountName, String password) {
+        SystemLogger.sendSystemMessage("Transfering... lastDefaultMap=" + lastDefaultMap + ", mapUUID=" + mapUUID + ", location=" + location.toString() + ", lastDefaultLocation=" + lastDefaultLocation.toString() + ".");
         if (getProxyClientWorldSession() != null) {
             NetworkBootstrap.sendPacket(getProxyClientWorldSession().getChannel(), PacketOuterClass.Opcode.P_WorldCharacterInformation, Proxy.WorldCharacterInformation.newBuilder().setCuuid(connectionUuid).setToken(CLIENT_TOKEN).
-                    setPermissionLevel(permissionLevel).setCharacterId(characterId).setCharacterName(characterName).setMapName(mapName).setAccountId(accountId).setAccountName(accountName).setPassword(password).build());
+                    setPermissionLevel(permissionLevel).setCharacterId(characterId).setCharacterName(characterName).setLastDefaultMap(lastDefaultMap).setMapUuid(mapUUID).setLocation(location).setLastDefaultLocation(lastDefaultLocation).setAccountId(accountId).setAccountName(accountName).setPassword(password).build());
 
         }
     }

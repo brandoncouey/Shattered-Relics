@@ -30,10 +30,19 @@ message LogoutWithResponse {
     int32 response_id = 1;
 }
 
-//+ue:exclude
+//+ustruct:BlueprintType
+message SVector {
+    float x = 1;
+    float y = 2;
+    float z = 3;
+}
+
+//+ustruct:BlueprintType
 message RequestLoadLevel {
     string name = 1;
+    SVector location = 2;
 }
+
 
 //+ue:exclude
 message FriendName {

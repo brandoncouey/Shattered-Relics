@@ -266,7 +266,7 @@ public class RealmClientProxySession extends ClientSession implements MySQLEntry
                 Realm.CharacterInformation.Builder modelInfo = account.component(RealmAccountComponents.CHARACTER_MANAGER).getCharacterInformation().getModelInformation();
                 account.sendMessage(PacketOuterClass.Opcode.SMSG_CHARACTER_INFORMATION, Realm.CharacterInformation.newBuilder()
                         .setName(account.component(RealmAccountComponents.CHARACTER_MANAGER).getCharacterInformation().getName())
-                        .setLocation(account.component(RealmAccountComponents.CHARACTER_MANAGER).getCharacterInformation().getLocation())
+                        .setLocation(account.component(RealmAccountComponents.CHARACTER_MANAGER).getCharacterInformation().getMapName())
                         .setMale(modelInfo.getMale())
                         .setRace(modelInfo.getRace())
                         .setHairStyle(modelInfo.getHairStyle())
@@ -279,7 +279,8 @@ public class RealmClientProxySession extends ClientSession implements MySQLEntry
                         .setPantsSlotId(modelInfo.getPantsSlotId())
                         .setWristsSlotId(modelInfo.getWristsSlotId())
                         .setGlovesSlotId(modelInfo.getGlovesSlotId())
-                        .setBackSlotId(modelInfo.getBootsSlotId())
+                        .setBootsSlotId(modelInfo.getBootsSlotId())
+                        .setBackSlotId(modelInfo.getBackSlotId())
                         .setMainhandSlotId(modelInfo.getMainhandSlotId())
                         .setOffhandSlotId(modelInfo.getOffhandSlotId())
                         .build());
