@@ -50071,9 +50071,9 @@ public final class World {
     int getAbilityId();
 
     /**
-     * <code>int64 duration = 2;</code>
+     * <code>float duration = 2;</code>
      */
-    long getDuration();
+    float getDuration();
   }
   /**
    * <pre>
@@ -50093,7 +50093,7 @@ public final class World {
     }
     private AbilityCooldown() {
       abilityId_ = 0;
-      duration_ = 0L;
+      duration_ = 0F;
     }
 
     @java.lang.Override
@@ -50125,9 +50125,9 @@ public final class World {
               abilityId_ = input.readInt32();
               break;
             }
-            case 16: {
+            case 21: {
 
-              duration_ = input.readInt64();
+              duration_ = input.readFloat();
               break;
             }
             default: {
@@ -50172,11 +50172,11 @@ public final class World {
     }
 
     public static final int DURATION_FIELD_NUMBER = 2;
-    private long duration_;
+    private float duration_;
     /**
-     * <code>int64 duration = 2;</code>
+     * <code>float duration = 2;</code>
      */
-    public long getDuration() {
+    public float getDuration() {
       return duration_;
     }
 
@@ -50197,8 +50197,8 @@ public final class World {
       if (abilityId_ != 0) {
         output.writeInt32(1, abilityId_);
       }
-      if (duration_ != 0L) {
-        output.writeInt64(2, duration_);
+      if (duration_ != 0F) {
+        output.writeFloat(2, duration_);
       }
       unknownFields.writeTo(output);
     }
@@ -50213,9 +50213,9 @@ public final class World {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, abilityId_);
       }
-      if (duration_ != 0L) {
+      if (duration_ != 0F) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(2, duration_);
+          .computeFloatSize(2, duration_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -50235,8 +50235,10 @@ public final class World {
       boolean result = true;
       result = result && (getAbilityId()
           == other.getAbilityId());
-      result = result && (getDuration()
-          == other.getDuration());
+      result = result && (
+          java.lang.Float.floatToIntBits(getDuration())
+          == java.lang.Float.floatToIntBits(
+              other.getDuration()));
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -50251,7 +50253,7 @@ public final class World {
       hash = (37 * hash) + ABILITY_ID_FIELD_NUMBER;
       hash = (53 * hash) + getAbilityId();
       hash = (37 * hash) + DURATION_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
           getDuration());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -50392,7 +50394,7 @@ public final class World {
         super.clear();
         abilityId_ = 0;
 
-        duration_ = 0L;
+        duration_ = 0F;
 
         return this;
       }
@@ -50473,7 +50475,7 @@ public final class World {
         if (other.getAbilityId() != 0) {
           setAbilityId(other.getAbilityId());
         }
-        if (other.getDuration() != 0L) {
+        if (other.getDuration() != 0F) {
           setDuration(other.getDuration());
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -50531,28 +50533,28 @@ public final class World {
         return this;
       }
 
-      private long duration_ ;
+      private float duration_ ;
       /**
-       * <code>int64 duration = 2;</code>
+       * <code>float duration = 2;</code>
        */
-      public long getDuration() {
+      public float getDuration() {
         return duration_;
       }
       /**
-       * <code>int64 duration = 2;</code>
+       * <code>float duration = 2;</code>
        */
-      public Builder setDuration(long value) {
+      public Builder setDuration(float value) {
         
         duration_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int64 duration = 2;</code>
+       * <code>float duration = 2;</code>
        */
       public Builder clearDuration() {
         
-        duration_ = 0L;
+        duration_ = 0F;
         onChanged();
         return this;
       }
@@ -55938,7 +55940,7 @@ public final class World {
       "\001(\005\"Z\n\016UseAbilitySlot\022\024\n\014container_id\030\001 " +
       "\001(\005\022\r\n\005pitch\030\002 \001(\002\022\017\n\007slot_id\030\003 \001(\005\022\022\n\na" +
       "bility_id\030\004 \001(\005\"7\n\017AbilityCooldown\022\022\n\nab" +
-      "ility_id\030\001 \001(\005\022\020\n\010duration\030\002 \001(\003\"J\n\020UseC" +
+      "ility_id\030\001 \001(\005\022\020\n\010duration\030\002 \001(\002\"J\n\020UseC" +
       "ontainerSlot\022\024\n\014container_id\030\001 \001(\005\022\017\n\007sl" +
       "ot_id\030\002 \001(\005\022\017\n\007item_id\030\003 \001(\005\"}\n\020CombatSt" +
       "atistics\022\020\n\010accuracy\030\001 \001(\005\022\020\n\010strength\030\002" +

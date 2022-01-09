@@ -496,7 +496,7 @@ message UseAbilitySlot {
 //+ustruct:BlueprintType
 message AbilityCooldown {
     int32 ability_id = 1;
-    int64 duration = 2;
+    float duration = 2;
 }
 
 //+ue:exclude
