@@ -18804,27 +18804,32 @@ public final class World {
     int getFromIndex();
 
     /**
-     * <code>string from_name = 3;</code>
+     * <code>int32 from_class_id = 3;</code>
+     */
+    int getFromClassId();
+
+    /**
+     * <code>string from_name = 4;</code>
      */
     java.lang.String getFromName();
     /**
-     * <code>string from_name = 3;</code>
+     * <code>string from_name = 4;</code>
      */
     com.google.protobuf.ByteString
         getFromNameBytes();
 
     /**
-     * <code>string message = 4;</code>
+     * <code>string message = 5;</code>
      */
     java.lang.String getMessage();
     /**
-     * <code>string message = 4;</code>
+     * <code>string message = 5;</code>
      */
     com.google.protobuf.ByteString
         getMessageBytes();
 
     /**
-     * <code>int32 permission_level = 5;</code>
+     * <code>int32 permission_level = 6;</code>
      */
     int getPermissionLevel();
   }
@@ -18847,6 +18852,7 @@ public final class World {
     private ChannelMessage() {
       type_ = 0;
       fromIndex_ = 0;
+      fromClassId_ = 0;
       fromName_ = "";
       message_ = "";
       permissionLevel_ = 0;
@@ -18886,19 +18892,24 @@ public final class World {
               fromIndex_ = input.readInt32();
               break;
             }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 24: {
 
-              fromName_ = s;
+              fromClassId_ = input.readInt32();
               break;
             }
             case 34: {
               java.lang.String s = input.readStringRequireUtf8();
 
+              fromName_ = s;
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
               message_ = s;
               break;
             }
-            case 40: {
+            case 48: {
 
               permissionLevel_ = input.readInt32();
               break;
@@ -18953,10 +18964,19 @@ public final class World {
       return fromIndex_;
     }
 
-    public static final int FROM_NAME_FIELD_NUMBER = 3;
+    public static final int FROM_CLASS_ID_FIELD_NUMBER = 3;
+    private int fromClassId_;
+    /**
+     * <code>int32 from_class_id = 3;</code>
+     */
+    public int getFromClassId() {
+      return fromClassId_;
+    }
+
+    public static final int FROM_NAME_FIELD_NUMBER = 4;
     private volatile java.lang.Object fromName_;
     /**
-     * <code>string from_name = 3;</code>
+     * <code>string from_name = 4;</code>
      */
     public java.lang.String getFromName() {
       java.lang.Object ref = fromName_;
@@ -18971,7 +18991,7 @@ public final class World {
       }
     }
     /**
-     * <code>string from_name = 3;</code>
+     * <code>string from_name = 4;</code>
      */
     public com.google.protobuf.ByteString
         getFromNameBytes() {
@@ -18987,10 +19007,10 @@ public final class World {
       }
     }
 
-    public static final int MESSAGE_FIELD_NUMBER = 4;
+    public static final int MESSAGE_FIELD_NUMBER = 5;
     private volatile java.lang.Object message_;
     /**
-     * <code>string message = 4;</code>
+     * <code>string message = 5;</code>
      */
     public java.lang.String getMessage() {
       java.lang.Object ref = message_;
@@ -19005,7 +19025,7 @@ public final class World {
       }
     }
     /**
-     * <code>string message = 4;</code>
+     * <code>string message = 5;</code>
      */
     public com.google.protobuf.ByteString
         getMessageBytes() {
@@ -19021,10 +19041,10 @@ public final class World {
       }
     }
 
-    public static final int PERMISSION_LEVEL_FIELD_NUMBER = 5;
+    public static final int PERMISSION_LEVEL_FIELD_NUMBER = 6;
     private int permissionLevel_;
     /**
-     * <code>int32 permission_level = 5;</code>
+     * <code>int32 permission_level = 6;</code>
      */
     public int getPermissionLevel() {
       return permissionLevel_;
@@ -19050,14 +19070,17 @@ public final class World {
       if (fromIndex_ != 0) {
         output.writeInt32(2, fromIndex_);
       }
+      if (fromClassId_ != 0) {
+        output.writeInt32(3, fromClassId_);
+      }
       if (!getFromNameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, fromName_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, fromName_);
       }
       if (!getMessageBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, message_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, message_);
       }
       if (permissionLevel_ != 0) {
-        output.writeInt32(5, permissionLevel_);
+        output.writeInt32(6, permissionLevel_);
       }
       unknownFields.writeTo(output);
     }
@@ -19076,15 +19099,19 @@ public final class World {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, fromIndex_);
       }
+      if (fromClassId_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, fromClassId_);
+      }
       if (!getFromNameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, fromName_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, fromName_);
       }
       if (!getMessageBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, message_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, message_);
       }
       if (permissionLevel_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(5, permissionLevel_);
+          .computeInt32Size(6, permissionLevel_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -19106,6 +19133,8 @@ public final class World {
           == other.getType());
       result = result && (getFromIndex()
           == other.getFromIndex());
+      result = result && (getFromClassId()
+          == other.getFromClassId());
       result = result && getFromName()
           .equals(other.getFromName());
       result = result && getMessage()
@@ -19127,6 +19156,8 @@ public final class World {
       hash = (53 * hash) + getType();
       hash = (37 * hash) + FROM_INDEX_FIELD_NUMBER;
       hash = (53 * hash) + getFromIndex();
+      hash = (37 * hash) + FROM_CLASS_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getFromClassId();
       hash = (37 * hash) + FROM_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getFromName().hashCode();
       hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
@@ -19274,6 +19305,8 @@ public final class World {
 
         fromIndex_ = 0;
 
+        fromClassId_ = 0;
+
         fromName_ = "";
 
         message_ = "";
@@ -19308,6 +19341,7 @@ public final class World {
         com.shattered.networking.proto.World.ChannelMessage result = new com.shattered.networking.proto.World.ChannelMessage(this);
         result.type_ = type_;
         result.fromIndex_ = fromIndex_;
+        result.fromClassId_ = fromClassId_;
         result.fromName_ = fromName_;
         result.message_ = message_;
         result.permissionLevel_ = permissionLevel_;
@@ -19364,6 +19398,9 @@ public final class World {
         }
         if (other.getFromIndex() != 0) {
           setFromIndex(other.getFromIndex());
+        }
+        if (other.getFromClassId() != 0) {
+          setFromClassId(other.getFromClassId());
         }
         if (!other.getFromName().isEmpty()) {
           fromName_ = other.fromName_;
@@ -19457,9 +19494,35 @@ public final class World {
         return this;
       }
 
+      private int fromClassId_ ;
+      /**
+       * <code>int32 from_class_id = 3;</code>
+       */
+      public int getFromClassId() {
+        return fromClassId_;
+      }
+      /**
+       * <code>int32 from_class_id = 3;</code>
+       */
+      public Builder setFromClassId(int value) {
+        
+        fromClassId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 from_class_id = 3;</code>
+       */
+      public Builder clearFromClassId() {
+        
+        fromClassId_ = 0;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object fromName_ = "";
       /**
-       * <code>string from_name = 3;</code>
+       * <code>string from_name = 4;</code>
        */
       public java.lang.String getFromName() {
         java.lang.Object ref = fromName_;
@@ -19474,7 +19537,7 @@ public final class World {
         }
       }
       /**
-       * <code>string from_name = 3;</code>
+       * <code>string from_name = 4;</code>
        */
       public com.google.protobuf.ByteString
           getFromNameBytes() {
@@ -19490,7 +19553,7 @@ public final class World {
         }
       }
       /**
-       * <code>string from_name = 3;</code>
+       * <code>string from_name = 4;</code>
        */
       public Builder setFromName(
           java.lang.String value) {
@@ -19503,7 +19566,7 @@ public final class World {
         return this;
       }
       /**
-       * <code>string from_name = 3;</code>
+       * <code>string from_name = 4;</code>
        */
       public Builder clearFromName() {
         
@@ -19512,7 +19575,7 @@ public final class World {
         return this;
       }
       /**
-       * <code>string from_name = 3;</code>
+       * <code>string from_name = 4;</code>
        */
       public Builder setFromNameBytes(
           com.google.protobuf.ByteString value) {
@@ -19528,7 +19591,7 @@ public final class World {
 
       private java.lang.Object message_ = "";
       /**
-       * <code>string message = 4;</code>
+       * <code>string message = 5;</code>
        */
       public java.lang.String getMessage() {
         java.lang.Object ref = message_;
@@ -19543,7 +19606,7 @@ public final class World {
         }
       }
       /**
-       * <code>string message = 4;</code>
+       * <code>string message = 5;</code>
        */
       public com.google.protobuf.ByteString
           getMessageBytes() {
@@ -19559,7 +19622,7 @@ public final class World {
         }
       }
       /**
-       * <code>string message = 4;</code>
+       * <code>string message = 5;</code>
        */
       public Builder setMessage(
           java.lang.String value) {
@@ -19572,7 +19635,7 @@ public final class World {
         return this;
       }
       /**
-       * <code>string message = 4;</code>
+       * <code>string message = 5;</code>
        */
       public Builder clearMessage() {
         
@@ -19581,7 +19644,7 @@ public final class World {
         return this;
       }
       /**
-       * <code>string message = 4;</code>
+       * <code>string message = 5;</code>
        */
       public Builder setMessageBytes(
           com.google.protobuf.ByteString value) {
@@ -19597,13 +19660,13 @@ public final class World {
 
       private int permissionLevel_ ;
       /**
-       * <code>int32 permission_level = 5;</code>
+       * <code>int32 permission_level = 6;</code>
        */
       public int getPermissionLevel() {
         return permissionLevel_;
       }
       /**
-       * <code>int32 permission_level = 5;</code>
+       * <code>int32 permission_level = 6;</code>
        */
       public Builder setPermissionLevel(int value) {
         
@@ -19612,7 +19675,7 @@ public final class World {
         return this;
       }
       /**
-       * <code>int32 permission_level = 5;</code>
+       * <code>int32 permission_level = 6;</code>
        */
       public Builder clearPermissionLevel() {
         
@@ -31073,2693 +31136,6 @@ public final class World {
 
   }
 
-  public interface TaskListOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:shattered.protocol.TaskList)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>int32 uuid = 1;</code>
-     */
-    int getUuid();
-
-    /**
-     * <code>string name = 2;</code>
-     */
-    java.lang.String getName();
-    /**
-     * <code>string name = 2;</code>
-     */
-    com.google.protobuf.ByteString
-        getNameBytes();
-
-    /**
-     * <code>string zone = 3;</code>
-     */
-    java.lang.String getZone();
-    /**
-     * <code>string zone = 3;</code>
-     */
-    com.google.protobuf.ByteString
-        getZoneBytes();
-
-    /**
-     * <code>repeated .shattered.protocol.Task tasks = 4;</code>
-     */
-    java.util.List<com.shattered.networking.proto.World.Task> 
-        getTasksList();
-    /**
-     * <code>repeated .shattered.protocol.Task tasks = 4;</code>
-     */
-    com.shattered.networking.proto.World.Task getTasks(int index);
-    /**
-     * <code>repeated .shattered.protocol.Task tasks = 4;</code>
-     */
-    int getTasksCount();
-    /**
-     * <code>repeated .shattered.protocol.Task tasks = 4;</code>
-     */
-    java.util.List<? extends com.shattered.networking.proto.World.TaskOrBuilder> 
-        getTasksOrBuilderList();
-    /**
-     * <code>repeated .shattered.protocol.Task tasks = 4;</code>
-     */
-    com.shattered.networking.proto.World.TaskOrBuilder getTasksOrBuilder(
-        int index);
-  }
-  /**
-   * <pre>
-   *+ustruct:BlueprintType
-   * </pre>
-   *
-   * Protobuf type {@code shattered.protocol.TaskList}
-   */
-  public  static final class TaskList extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:shattered.protocol.TaskList)
-      TaskListOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use TaskList.newBuilder() to construct.
-    private TaskList(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private TaskList() {
-      uuid_ = 0;
-      name_ = "";
-      zone_ = "";
-      tasks_ = java.util.Collections.emptyList();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private TaskList(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              uuid_ = input.readInt32();
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              zone_ = s;
-              break;
-            }
-            case 34: {
-              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-                tasks_ = new java.util.ArrayList<com.shattered.networking.proto.World.Task>();
-                mutable_bitField0_ |= 0x00000008;
-              }
-              tasks_.add(
-                  input.readMessage(com.shattered.networking.proto.World.Task.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-          tasks_ = java.util.Collections.unmodifiableList(tasks_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.shattered.networking.proto.World.internal_static_shattered_protocol_TaskList_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.shattered.networking.proto.World.internal_static_shattered_protocol_TaskList_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.shattered.networking.proto.World.TaskList.class, com.shattered.networking.proto.World.TaskList.Builder.class);
-    }
-
-    private int bitField0_;
-    public static final int UUID_FIELD_NUMBER = 1;
-    private int uuid_;
-    /**
-     * <code>int32 uuid = 1;</code>
-     */
-    public int getUuid() {
-      return uuid_;
-    }
-
-    public static final int NAME_FIELD_NUMBER = 2;
-    private volatile java.lang.Object name_;
-    /**
-     * <code>string name = 2;</code>
-     */
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        name_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string name = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getNameBytes() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        name_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int ZONE_FIELD_NUMBER = 3;
-    private volatile java.lang.Object zone_;
-    /**
-     * <code>string zone = 3;</code>
-     */
-    public java.lang.String getZone() {
-      java.lang.Object ref = zone_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        zone_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string zone = 3;</code>
-     */
-    public com.google.protobuf.ByteString
-        getZoneBytes() {
-      java.lang.Object ref = zone_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        zone_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int TASKS_FIELD_NUMBER = 4;
-    private java.util.List<com.shattered.networking.proto.World.Task> tasks_;
-    /**
-     * <code>repeated .shattered.protocol.Task tasks = 4;</code>
-     */
-    public java.util.List<com.shattered.networking.proto.World.Task> getTasksList() {
-      return tasks_;
-    }
-    /**
-     * <code>repeated .shattered.protocol.Task tasks = 4;</code>
-     */
-    public java.util.List<? extends com.shattered.networking.proto.World.TaskOrBuilder> 
-        getTasksOrBuilderList() {
-      return tasks_;
-    }
-    /**
-     * <code>repeated .shattered.protocol.Task tasks = 4;</code>
-     */
-    public int getTasksCount() {
-      return tasks_.size();
-    }
-    /**
-     * <code>repeated .shattered.protocol.Task tasks = 4;</code>
-     */
-    public com.shattered.networking.proto.World.Task getTasks(int index) {
-      return tasks_.get(index);
-    }
-    /**
-     * <code>repeated .shattered.protocol.Task tasks = 4;</code>
-     */
-    public com.shattered.networking.proto.World.TaskOrBuilder getTasksOrBuilder(
-        int index) {
-      return tasks_.get(index);
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (uuid_ != 0) {
-        output.writeInt32(1, uuid_);
-      }
-      if (!getNameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
-      }
-      if (!getZoneBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, zone_);
-      }
-      for (int i = 0; i < tasks_.size(); i++) {
-        output.writeMessage(4, tasks_.get(i));
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (uuid_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, uuid_);
-      }
-      if (!getNameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
-      }
-      if (!getZoneBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, zone_);
-      }
-      for (int i = 0; i < tasks_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, tasks_.get(i));
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.shattered.networking.proto.World.TaskList)) {
-        return super.equals(obj);
-      }
-      com.shattered.networking.proto.World.TaskList other = (com.shattered.networking.proto.World.TaskList) obj;
-
-      boolean result = true;
-      result = result && (getUuid()
-          == other.getUuid());
-      result = result && getName()
-          .equals(other.getName());
-      result = result && getZone()
-          .equals(other.getZone());
-      result = result && getTasksList()
-          .equals(other.getTasksList());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + UUID_FIELD_NUMBER;
-      hash = (53 * hash) + getUuid();
-      hash = (37 * hash) + NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getName().hashCode();
-      hash = (37 * hash) + ZONE_FIELD_NUMBER;
-      hash = (53 * hash) + getZone().hashCode();
-      if (getTasksCount() > 0) {
-        hash = (37 * hash) + TASKS_FIELD_NUMBER;
-        hash = (53 * hash) + getTasksList().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static com.shattered.networking.proto.World.TaskList parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.shattered.networking.proto.World.TaskList parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.shattered.networking.proto.World.TaskList parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.shattered.networking.proto.World.TaskList parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.shattered.networking.proto.World.TaskList parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.shattered.networking.proto.World.TaskList parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.shattered.networking.proto.World.TaskList parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.shattered.networking.proto.World.TaskList parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.shattered.networking.proto.World.TaskList parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static com.shattered.networking.proto.World.TaskList parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.shattered.networking.proto.World.TaskList parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.shattered.networking.proto.World.TaskList parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(com.shattered.networking.proto.World.TaskList prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     *+ustruct:BlueprintType
-     * </pre>
-     *
-     * Protobuf type {@code shattered.protocol.TaskList}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:shattered.protocol.TaskList)
-        com.shattered.networking.proto.World.TaskListOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.shattered.networking.proto.World.internal_static_shattered_protocol_TaskList_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.shattered.networking.proto.World.internal_static_shattered_protocol_TaskList_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.shattered.networking.proto.World.TaskList.class, com.shattered.networking.proto.World.TaskList.Builder.class);
-      }
-
-      // Construct using com.shattered.networking.proto.World.TaskList.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getTasksFieldBuilder();
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        uuid_ = 0;
-
-        name_ = "";
-
-        zone_ = "";
-
-        if (tasksBuilder_ == null) {
-          tasks_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
-        } else {
-          tasksBuilder_.clear();
-        }
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.shattered.networking.proto.World.internal_static_shattered_protocol_TaskList_descriptor;
-      }
-
-      @java.lang.Override
-      public com.shattered.networking.proto.World.TaskList getDefaultInstanceForType() {
-        return com.shattered.networking.proto.World.TaskList.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public com.shattered.networking.proto.World.TaskList build() {
-        com.shattered.networking.proto.World.TaskList result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public com.shattered.networking.proto.World.TaskList buildPartial() {
-        com.shattered.networking.proto.World.TaskList result = new com.shattered.networking.proto.World.TaskList(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        result.uuid_ = uuid_;
-        result.name_ = name_;
-        result.zone_ = zone_;
-        if (tasksBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) == 0x00000008)) {
-            tasks_ = java.util.Collections.unmodifiableList(tasks_);
-            bitField0_ = (bitField0_ & ~0x00000008);
-          }
-          result.tasks_ = tasks_;
-        } else {
-          result.tasks_ = tasksBuilder_.build();
-        }
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.shattered.networking.proto.World.TaskList) {
-          return mergeFrom((com.shattered.networking.proto.World.TaskList)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.shattered.networking.proto.World.TaskList other) {
-        if (other == com.shattered.networking.proto.World.TaskList.getDefaultInstance()) return this;
-        if (other.getUuid() != 0) {
-          setUuid(other.getUuid());
-        }
-        if (!other.getName().isEmpty()) {
-          name_ = other.name_;
-          onChanged();
-        }
-        if (!other.getZone().isEmpty()) {
-          zone_ = other.zone_;
-          onChanged();
-        }
-        if (tasksBuilder_ == null) {
-          if (!other.tasks_.isEmpty()) {
-            if (tasks_.isEmpty()) {
-              tasks_ = other.tasks_;
-              bitField0_ = (bitField0_ & ~0x00000008);
-            } else {
-              ensureTasksIsMutable();
-              tasks_.addAll(other.tasks_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.tasks_.isEmpty()) {
-            if (tasksBuilder_.isEmpty()) {
-              tasksBuilder_.dispose();
-              tasksBuilder_ = null;
-              tasks_ = other.tasks_;
-              bitField0_ = (bitField0_ & ~0x00000008);
-              tasksBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getTasksFieldBuilder() : null;
-            } else {
-              tasksBuilder_.addAllMessages(other.tasks_);
-            }
-          }
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.shattered.networking.proto.World.TaskList parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.shattered.networking.proto.World.TaskList) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      private int uuid_ ;
-      /**
-       * <code>int32 uuid = 1;</code>
-       */
-      public int getUuid() {
-        return uuid_;
-      }
-      /**
-       * <code>int32 uuid = 1;</code>
-       */
-      public Builder setUuid(int value) {
-        
-        uuid_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int32 uuid = 1;</code>
-       */
-      public Builder clearUuid() {
-        
-        uuid_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object name_ = "";
-      /**
-       * <code>string name = 2;</code>
-       */
-      public java.lang.String getName() {
-        java.lang.Object ref = name_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          name_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string name = 2;</code>
-       */
-      public com.google.protobuf.ByteString
-          getNameBytes() {
-        java.lang.Object ref = name_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          name_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string name = 2;</code>
-       */
-      public Builder setName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        name_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string name = 2;</code>
-       */
-      public Builder clearName() {
-        
-        name_ = getDefaultInstance().getName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string name = 2;</code>
-       */
-      public Builder setNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        name_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object zone_ = "";
-      /**
-       * <code>string zone = 3;</code>
-       */
-      public java.lang.String getZone() {
-        java.lang.Object ref = zone_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          zone_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string zone = 3;</code>
-       */
-      public com.google.protobuf.ByteString
-          getZoneBytes() {
-        java.lang.Object ref = zone_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          zone_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string zone = 3;</code>
-       */
-      public Builder setZone(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        zone_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string zone = 3;</code>
-       */
-      public Builder clearZone() {
-        
-        zone_ = getDefaultInstance().getZone();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string zone = 3;</code>
-       */
-      public Builder setZoneBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        zone_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.util.List<com.shattered.networking.proto.World.Task> tasks_ =
-        java.util.Collections.emptyList();
-      private void ensureTasksIsMutable() {
-        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
-          tasks_ = new java.util.ArrayList<com.shattered.networking.proto.World.Task>(tasks_);
-          bitField0_ |= 0x00000008;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.shattered.networking.proto.World.Task, com.shattered.networking.proto.World.Task.Builder, com.shattered.networking.proto.World.TaskOrBuilder> tasksBuilder_;
-
-      /**
-       * <code>repeated .shattered.protocol.Task tasks = 4;</code>
-       */
-      public java.util.List<com.shattered.networking.proto.World.Task> getTasksList() {
-        if (tasksBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(tasks_);
-        } else {
-          return tasksBuilder_.getMessageList();
-        }
-      }
-      /**
-       * <code>repeated .shattered.protocol.Task tasks = 4;</code>
-       */
-      public int getTasksCount() {
-        if (tasksBuilder_ == null) {
-          return tasks_.size();
-        } else {
-          return tasksBuilder_.getCount();
-        }
-      }
-      /**
-       * <code>repeated .shattered.protocol.Task tasks = 4;</code>
-       */
-      public com.shattered.networking.proto.World.Task getTasks(int index) {
-        if (tasksBuilder_ == null) {
-          return tasks_.get(index);
-        } else {
-          return tasksBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <code>repeated .shattered.protocol.Task tasks = 4;</code>
-       */
-      public Builder setTasks(
-          int index, com.shattered.networking.proto.World.Task value) {
-        if (tasksBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureTasksIsMutable();
-          tasks_.set(index, value);
-          onChanged();
-        } else {
-          tasksBuilder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .shattered.protocol.Task tasks = 4;</code>
-       */
-      public Builder setTasks(
-          int index, com.shattered.networking.proto.World.Task.Builder builderForValue) {
-        if (tasksBuilder_ == null) {
-          ensureTasksIsMutable();
-          tasks_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          tasksBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .shattered.protocol.Task tasks = 4;</code>
-       */
-      public Builder addTasks(com.shattered.networking.proto.World.Task value) {
-        if (tasksBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureTasksIsMutable();
-          tasks_.add(value);
-          onChanged();
-        } else {
-          tasksBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .shattered.protocol.Task tasks = 4;</code>
-       */
-      public Builder addTasks(
-          int index, com.shattered.networking.proto.World.Task value) {
-        if (tasksBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureTasksIsMutable();
-          tasks_.add(index, value);
-          onChanged();
-        } else {
-          tasksBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .shattered.protocol.Task tasks = 4;</code>
-       */
-      public Builder addTasks(
-          com.shattered.networking.proto.World.Task.Builder builderForValue) {
-        if (tasksBuilder_ == null) {
-          ensureTasksIsMutable();
-          tasks_.add(builderForValue.build());
-          onChanged();
-        } else {
-          tasksBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .shattered.protocol.Task tasks = 4;</code>
-       */
-      public Builder addTasks(
-          int index, com.shattered.networking.proto.World.Task.Builder builderForValue) {
-        if (tasksBuilder_ == null) {
-          ensureTasksIsMutable();
-          tasks_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          tasksBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .shattered.protocol.Task tasks = 4;</code>
-       */
-      public Builder addAllTasks(
-          java.lang.Iterable<? extends com.shattered.networking.proto.World.Task> values) {
-        if (tasksBuilder_ == null) {
-          ensureTasksIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, tasks_);
-          onChanged();
-        } else {
-          tasksBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .shattered.protocol.Task tasks = 4;</code>
-       */
-      public Builder clearTasks() {
-        if (tasksBuilder_ == null) {
-          tasks_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
-          onChanged();
-        } else {
-          tasksBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .shattered.protocol.Task tasks = 4;</code>
-       */
-      public Builder removeTasks(int index) {
-        if (tasksBuilder_ == null) {
-          ensureTasksIsMutable();
-          tasks_.remove(index);
-          onChanged();
-        } else {
-          tasksBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .shattered.protocol.Task tasks = 4;</code>
-       */
-      public com.shattered.networking.proto.World.Task.Builder getTasksBuilder(
-          int index) {
-        return getTasksFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .shattered.protocol.Task tasks = 4;</code>
-       */
-      public com.shattered.networking.proto.World.TaskOrBuilder getTasksOrBuilder(
-          int index) {
-        if (tasksBuilder_ == null) {
-          return tasks_.get(index);  } else {
-          return tasksBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <code>repeated .shattered.protocol.Task tasks = 4;</code>
-       */
-      public java.util.List<? extends com.shattered.networking.proto.World.TaskOrBuilder> 
-           getTasksOrBuilderList() {
-        if (tasksBuilder_ != null) {
-          return tasksBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(tasks_);
-        }
-      }
-      /**
-       * <code>repeated .shattered.protocol.Task tasks = 4;</code>
-       */
-      public com.shattered.networking.proto.World.Task.Builder addTasksBuilder() {
-        return getTasksFieldBuilder().addBuilder(
-            com.shattered.networking.proto.World.Task.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .shattered.protocol.Task tasks = 4;</code>
-       */
-      public com.shattered.networking.proto.World.Task.Builder addTasksBuilder(
-          int index) {
-        return getTasksFieldBuilder().addBuilder(
-            index, com.shattered.networking.proto.World.Task.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .shattered.protocol.Task tasks = 4;</code>
-       */
-      public java.util.List<com.shattered.networking.proto.World.Task.Builder> 
-           getTasksBuilderList() {
-        return getTasksFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.shattered.networking.proto.World.Task, com.shattered.networking.proto.World.Task.Builder, com.shattered.networking.proto.World.TaskOrBuilder> 
-          getTasksFieldBuilder() {
-        if (tasksBuilder_ == null) {
-          tasksBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              com.shattered.networking.proto.World.Task, com.shattered.networking.proto.World.Task.Builder, com.shattered.networking.proto.World.TaskOrBuilder>(
-                  tasks_,
-                  ((bitField0_ & 0x00000008) == 0x00000008),
-                  getParentForChildren(),
-                  isClean());
-          tasks_ = null;
-        }
-        return tasksBuilder_;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:shattered.protocol.TaskList)
-    }
-
-    // @@protoc_insertion_point(class_scope:shattered.protocol.TaskList)
-    private static final com.shattered.networking.proto.World.TaskList DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.shattered.networking.proto.World.TaskList();
-    }
-
-    public static com.shattered.networking.proto.World.TaskList getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<TaskList>
-        PARSER = new com.google.protobuf.AbstractParser<TaskList>() {
-      @java.lang.Override
-      public TaskList parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TaskList(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<TaskList> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<TaskList> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.shattered.networking.proto.World.TaskList getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface TaskEntryOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:shattered.protocol.TaskEntry)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>int32 uuid = 1;</code>
-     */
-    int getUuid();
-
-    /**
-     * <code>.shattered.protocol.Task task = 2;</code>
-     */
-    boolean hasTask();
-    /**
-     * <code>.shattered.protocol.Task task = 2;</code>
-     */
-    com.shattered.networking.proto.World.Task getTask();
-    /**
-     * <code>.shattered.protocol.Task task = 2;</code>
-     */
-    com.shattered.networking.proto.World.TaskOrBuilder getTaskOrBuilder();
-  }
-  /**
-   * <pre>
-   *+ustruct:BlueprintType
-   * </pre>
-   *
-   * Protobuf type {@code shattered.protocol.TaskEntry}
-   */
-  public  static final class TaskEntry extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:shattered.protocol.TaskEntry)
-      TaskEntryOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use TaskEntry.newBuilder() to construct.
-    private TaskEntry(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private TaskEntry() {
-      uuid_ = 0;
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private TaskEntry(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              uuid_ = input.readInt32();
-              break;
-            }
-            case 18: {
-              com.shattered.networking.proto.World.Task.Builder subBuilder = null;
-              if (task_ != null) {
-                subBuilder = task_.toBuilder();
-              }
-              task_ = input.readMessage(com.shattered.networking.proto.World.Task.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(task_);
-                task_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.shattered.networking.proto.World.internal_static_shattered_protocol_TaskEntry_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.shattered.networking.proto.World.internal_static_shattered_protocol_TaskEntry_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.shattered.networking.proto.World.TaskEntry.class, com.shattered.networking.proto.World.TaskEntry.Builder.class);
-    }
-
-    public static final int UUID_FIELD_NUMBER = 1;
-    private int uuid_;
-    /**
-     * <code>int32 uuid = 1;</code>
-     */
-    public int getUuid() {
-      return uuid_;
-    }
-
-    public static final int TASK_FIELD_NUMBER = 2;
-    private com.shattered.networking.proto.World.Task task_;
-    /**
-     * <code>.shattered.protocol.Task task = 2;</code>
-     */
-    public boolean hasTask() {
-      return task_ != null;
-    }
-    /**
-     * <code>.shattered.protocol.Task task = 2;</code>
-     */
-    public com.shattered.networking.proto.World.Task getTask() {
-      return task_ == null ? com.shattered.networking.proto.World.Task.getDefaultInstance() : task_;
-    }
-    /**
-     * <code>.shattered.protocol.Task task = 2;</code>
-     */
-    public com.shattered.networking.proto.World.TaskOrBuilder getTaskOrBuilder() {
-      return getTask();
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (uuid_ != 0) {
-        output.writeInt32(1, uuid_);
-      }
-      if (task_ != null) {
-        output.writeMessage(2, getTask());
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (uuid_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, uuid_);
-      }
-      if (task_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, getTask());
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.shattered.networking.proto.World.TaskEntry)) {
-        return super.equals(obj);
-      }
-      com.shattered.networking.proto.World.TaskEntry other = (com.shattered.networking.proto.World.TaskEntry) obj;
-
-      boolean result = true;
-      result = result && (getUuid()
-          == other.getUuid());
-      result = result && (hasTask() == other.hasTask());
-      if (hasTask()) {
-        result = result && getTask()
-            .equals(other.getTask());
-      }
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + UUID_FIELD_NUMBER;
-      hash = (53 * hash) + getUuid();
-      if (hasTask()) {
-        hash = (37 * hash) + TASK_FIELD_NUMBER;
-        hash = (53 * hash) + getTask().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static com.shattered.networking.proto.World.TaskEntry parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.shattered.networking.proto.World.TaskEntry parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.shattered.networking.proto.World.TaskEntry parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.shattered.networking.proto.World.TaskEntry parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.shattered.networking.proto.World.TaskEntry parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.shattered.networking.proto.World.TaskEntry parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.shattered.networking.proto.World.TaskEntry parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.shattered.networking.proto.World.TaskEntry parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.shattered.networking.proto.World.TaskEntry parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static com.shattered.networking.proto.World.TaskEntry parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.shattered.networking.proto.World.TaskEntry parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.shattered.networking.proto.World.TaskEntry parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(com.shattered.networking.proto.World.TaskEntry prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     *+ustruct:BlueprintType
-     * </pre>
-     *
-     * Protobuf type {@code shattered.protocol.TaskEntry}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:shattered.protocol.TaskEntry)
-        com.shattered.networking.proto.World.TaskEntryOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.shattered.networking.proto.World.internal_static_shattered_protocol_TaskEntry_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.shattered.networking.proto.World.internal_static_shattered_protocol_TaskEntry_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.shattered.networking.proto.World.TaskEntry.class, com.shattered.networking.proto.World.TaskEntry.Builder.class);
-      }
-
-      // Construct using com.shattered.networking.proto.World.TaskEntry.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        uuid_ = 0;
-
-        if (taskBuilder_ == null) {
-          task_ = null;
-        } else {
-          task_ = null;
-          taskBuilder_ = null;
-        }
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.shattered.networking.proto.World.internal_static_shattered_protocol_TaskEntry_descriptor;
-      }
-
-      @java.lang.Override
-      public com.shattered.networking.proto.World.TaskEntry getDefaultInstanceForType() {
-        return com.shattered.networking.proto.World.TaskEntry.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public com.shattered.networking.proto.World.TaskEntry build() {
-        com.shattered.networking.proto.World.TaskEntry result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public com.shattered.networking.proto.World.TaskEntry buildPartial() {
-        com.shattered.networking.proto.World.TaskEntry result = new com.shattered.networking.proto.World.TaskEntry(this);
-        result.uuid_ = uuid_;
-        if (taskBuilder_ == null) {
-          result.task_ = task_;
-        } else {
-          result.task_ = taskBuilder_.build();
-        }
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.shattered.networking.proto.World.TaskEntry) {
-          return mergeFrom((com.shattered.networking.proto.World.TaskEntry)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.shattered.networking.proto.World.TaskEntry other) {
-        if (other == com.shattered.networking.proto.World.TaskEntry.getDefaultInstance()) return this;
-        if (other.getUuid() != 0) {
-          setUuid(other.getUuid());
-        }
-        if (other.hasTask()) {
-          mergeTask(other.getTask());
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.shattered.networking.proto.World.TaskEntry parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.shattered.networking.proto.World.TaskEntry) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private int uuid_ ;
-      /**
-       * <code>int32 uuid = 1;</code>
-       */
-      public int getUuid() {
-        return uuid_;
-      }
-      /**
-       * <code>int32 uuid = 1;</code>
-       */
-      public Builder setUuid(int value) {
-        
-        uuid_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int32 uuid = 1;</code>
-       */
-      public Builder clearUuid() {
-        
-        uuid_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private com.shattered.networking.proto.World.Task task_ = null;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.shattered.networking.proto.World.Task, com.shattered.networking.proto.World.Task.Builder, com.shattered.networking.proto.World.TaskOrBuilder> taskBuilder_;
-      /**
-       * <code>.shattered.protocol.Task task = 2;</code>
-       */
-      public boolean hasTask() {
-        return taskBuilder_ != null || task_ != null;
-      }
-      /**
-       * <code>.shattered.protocol.Task task = 2;</code>
-       */
-      public com.shattered.networking.proto.World.Task getTask() {
-        if (taskBuilder_ == null) {
-          return task_ == null ? com.shattered.networking.proto.World.Task.getDefaultInstance() : task_;
-        } else {
-          return taskBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.shattered.protocol.Task task = 2;</code>
-       */
-      public Builder setTask(com.shattered.networking.proto.World.Task value) {
-        if (taskBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          task_ = value;
-          onChanged();
-        } else {
-          taskBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.shattered.protocol.Task task = 2;</code>
-       */
-      public Builder setTask(
-          com.shattered.networking.proto.World.Task.Builder builderForValue) {
-        if (taskBuilder_ == null) {
-          task_ = builderForValue.build();
-          onChanged();
-        } else {
-          taskBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.shattered.protocol.Task task = 2;</code>
-       */
-      public Builder mergeTask(com.shattered.networking.proto.World.Task value) {
-        if (taskBuilder_ == null) {
-          if (task_ != null) {
-            task_ =
-              com.shattered.networking.proto.World.Task.newBuilder(task_).mergeFrom(value).buildPartial();
-          } else {
-            task_ = value;
-          }
-          onChanged();
-        } else {
-          taskBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.shattered.protocol.Task task = 2;</code>
-       */
-      public Builder clearTask() {
-        if (taskBuilder_ == null) {
-          task_ = null;
-          onChanged();
-        } else {
-          task_ = null;
-          taskBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.shattered.protocol.Task task = 2;</code>
-       */
-      public com.shattered.networking.proto.World.Task.Builder getTaskBuilder() {
-        
-        onChanged();
-        return getTaskFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.shattered.protocol.Task task = 2;</code>
-       */
-      public com.shattered.networking.proto.World.TaskOrBuilder getTaskOrBuilder() {
-        if (taskBuilder_ != null) {
-          return taskBuilder_.getMessageOrBuilder();
-        } else {
-          return task_ == null ?
-              com.shattered.networking.proto.World.Task.getDefaultInstance() : task_;
-        }
-      }
-      /**
-       * <code>.shattered.protocol.Task task = 2;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.shattered.networking.proto.World.Task, com.shattered.networking.proto.World.Task.Builder, com.shattered.networking.proto.World.TaskOrBuilder> 
-          getTaskFieldBuilder() {
-        if (taskBuilder_ == null) {
-          taskBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.shattered.networking.proto.World.Task, com.shattered.networking.proto.World.Task.Builder, com.shattered.networking.proto.World.TaskOrBuilder>(
-                  getTask(),
-                  getParentForChildren(),
-                  isClean());
-          task_ = null;
-        }
-        return taskBuilder_;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:shattered.protocol.TaskEntry)
-    }
-
-    // @@protoc_insertion_point(class_scope:shattered.protocol.TaskEntry)
-    private static final com.shattered.networking.proto.World.TaskEntry DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.shattered.networking.proto.World.TaskEntry();
-    }
-
-    public static com.shattered.networking.proto.World.TaskEntry getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<TaskEntry>
-        PARSER = new com.google.protobuf.AbstractParser<TaskEntry>() {
-      @java.lang.Override
-      public TaskEntry parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TaskEntry(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<TaskEntry> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<TaskEntry> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.shattered.networking.proto.World.TaskEntry getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface TaskOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:shattered.protocol.Task)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>int32 index = 1;</code>
-     */
-    int getIndex();
-
-    /**
-     * <code>bool completed = 2;</code>
-     */
-    boolean getCompleted();
-
-    /**
-     * <code>string description = 3;</code>
-     */
-    java.lang.String getDescription();
-    /**
-     * <code>string description = 3;</code>
-     */
-    com.google.protobuf.ByteString
-        getDescriptionBytes();
-
-    /**
-     * <code>.shattered.protocol.TaskRewards rewards = 4;</code>
-     */
-    boolean hasRewards();
-    /**
-     * <code>.shattered.protocol.TaskRewards rewards = 4;</code>
-     */
-    com.shattered.networking.proto.World.TaskRewards getRewards();
-    /**
-     * <code>.shattered.protocol.TaskRewards rewards = 4;</code>
-     */
-    com.shattered.networking.proto.World.TaskRewardsOrBuilder getRewardsOrBuilder();
-  }
-  /**
-   * <pre>
-   *+ustruct:BlueprintType
-   * </pre>
-   *
-   * Protobuf type {@code shattered.protocol.Task}
-   */
-  public  static final class Task extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:shattered.protocol.Task)
-      TaskOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use Task.newBuilder() to construct.
-    private Task(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private Task() {
-      index_ = 0;
-      completed_ = false;
-      description_ = "";
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private Task(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              index_ = input.readInt32();
-              break;
-            }
-            case 16: {
-
-              completed_ = input.readBool();
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              description_ = s;
-              break;
-            }
-            case 34: {
-              com.shattered.networking.proto.World.TaskRewards.Builder subBuilder = null;
-              if (rewards_ != null) {
-                subBuilder = rewards_.toBuilder();
-              }
-              rewards_ = input.readMessage(com.shattered.networking.proto.World.TaskRewards.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(rewards_);
-                rewards_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.shattered.networking.proto.World.internal_static_shattered_protocol_Task_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.shattered.networking.proto.World.internal_static_shattered_protocol_Task_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.shattered.networking.proto.World.Task.class, com.shattered.networking.proto.World.Task.Builder.class);
-    }
-
-    public static final int INDEX_FIELD_NUMBER = 1;
-    private int index_;
-    /**
-     * <code>int32 index = 1;</code>
-     */
-    public int getIndex() {
-      return index_;
-    }
-
-    public static final int COMPLETED_FIELD_NUMBER = 2;
-    private boolean completed_;
-    /**
-     * <code>bool completed = 2;</code>
-     */
-    public boolean getCompleted() {
-      return completed_;
-    }
-
-    public static final int DESCRIPTION_FIELD_NUMBER = 3;
-    private volatile java.lang.Object description_;
-    /**
-     * <code>string description = 3;</code>
-     */
-    public java.lang.String getDescription() {
-      java.lang.Object ref = description_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        description_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string description = 3;</code>
-     */
-    public com.google.protobuf.ByteString
-        getDescriptionBytes() {
-      java.lang.Object ref = description_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        description_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int REWARDS_FIELD_NUMBER = 4;
-    private com.shattered.networking.proto.World.TaskRewards rewards_;
-    /**
-     * <code>.shattered.protocol.TaskRewards rewards = 4;</code>
-     */
-    public boolean hasRewards() {
-      return rewards_ != null;
-    }
-    /**
-     * <code>.shattered.protocol.TaskRewards rewards = 4;</code>
-     */
-    public com.shattered.networking.proto.World.TaskRewards getRewards() {
-      return rewards_ == null ? com.shattered.networking.proto.World.TaskRewards.getDefaultInstance() : rewards_;
-    }
-    /**
-     * <code>.shattered.protocol.TaskRewards rewards = 4;</code>
-     */
-    public com.shattered.networking.proto.World.TaskRewardsOrBuilder getRewardsOrBuilder() {
-      return getRewards();
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (index_ != 0) {
-        output.writeInt32(1, index_);
-      }
-      if (completed_ != false) {
-        output.writeBool(2, completed_);
-      }
-      if (!getDescriptionBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, description_);
-      }
-      if (rewards_ != null) {
-        output.writeMessage(4, getRewards());
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (index_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, index_);
-      }
-      if (completed_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(2, completed_);
-      }
-      if (!getDescriptionBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, description_);
-      }
-      if (rewards_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, getRewards());
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.shattered.networking.proto.World.Task)) {
-        return super.equals(obj);
-      }
-      com.shattered.networking.proto.World.Task other = (com.shattered.networking.proto.World.Task) obj;
-
-      boolean result = true;
-      result = result && (getIndex()
-          == other.getIndex());
-      result = result && (getCompleted()
-          == other.getCompleted());
-      result = result && getDescription()
-          .equals(other.getDescription());
-      result = result && (hasRewards() == other.hasRewards());
-      if (hasRewards()) {
-        result = result && getRewards()
-            .equals(other.getRewards());
-      }
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + INDEX_FIELD_NUMBER;
-      hash = (53 * hash) + getIndex();
-      hash = (37 * hash) + COMPLETED_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getCompleted());
-      hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
-      hash = (53 * hash) + getDescription().hashCode();
-      if (hasRewards()) {
-        hash = (37 * hash) + REWARDS_FIELD_NUMBER;
-        hash = (53 * hash) + getRewards().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static com.shattered.networking.proto.World.Task parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.shattered.networking.proto.World.Task parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.shattered.networking.proto.World.Task parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.shattered.networking.proto.World.Task parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.shattered.networking.proto.World.Task parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.shattered.networking.proto.World.Task parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.shattered.networking.proto.World.Task parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.shattered.networking.proto.World.Task parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.shattered.networking.proto.World.Task parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static com.shattered.networking.proto.World.Task parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.shattered.networking.proto.World.Task parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.shattered.networking.proto.World.Task parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(com.shattered.networking.proto.World.Task prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     *+ustruct:BlueprintType
-     * </pre>
-     *
-     * Protobuf type {@code shattered.protocol.Task}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:shattered.protocol.Task)
-        com.shattered.networking.proto.World.TaskOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.shattered.networking.proto.World.internal_static_shattered_protocol_Task_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.shattered.networking.proto.World.internal_static_shattered_protocol_Task_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.shattered.networking.proto.World.Task.class, com.shattered.networking.proto.World.Task.Builder.class);
-      }
-
-      // Construct using com.shattered.networking.proto.World.Task.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        index_ = 0;
-
-        completed_ = false;
-
-        description_ = "";
-
-        if (rewardsBuilder_ == null) {
-          rewards_ = null;
-        } else {
-          rewards_ = null;
-          rewardsBuilder_ = null;
-        }
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.shattered.networking.proto.World.internal_static_shattered_protocol_Task_descriptor;
-      }
-
-      @java.lang.Override
-      public com.shattered.networking.proto.World.Task getDefaultInstanceForType() {
-        return com.shattered.networking.proto.World.Task.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public com.shattered.networking.proto.World.Task build() {
-        com.shattered.networking.proto.World.Task result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public com.shattered.networking.proto.World.Task buildPartial() {
-        com.shattered.networking.proto.World.Task result = new com.shattered.networking.proto.World.Task(this);
-        result.index_ = index_;
-        result.completed_ = completed_;
-        result.description_ = description_;
-        if (rewardsBuilder_ == null) {
-          result.rewards_ = rewards_;
-        } else {
-          result.rewards_ = rewardsBuilder_.build();
-        }
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.shattered.networking.proto.World.Task) {
-          return mergeFrom((com.shattered.networking.proto.World.Task)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.shattered.networking.proto.World.Task other) {
-        if (other == com.shattered.networking.proto.World.Task.getDefaultInstance()) return this;
-        if (other.getIndex() != 0) {
-          setIndex(other.getIndex());
-        }
-        if (other.getCompleted() != false) {
-          setCompleted(other.getCompleted());
-        }
-        if (!other.getDescription().isEmpty()) {
-          description_ = other.description_;
-          onChanged();
-        }
-        if (other.hasRewards()) {
-          mergeRewards(other.getRewards());
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.shattered.networking.proto.World.Task parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.shattered.networking.proto.World.Task) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private int index_ ;
-      /**
-       * <code>int32 index = 1;</code>
-       */
-      public int getIndex() {
-        return index_;
-      }
-      /**
-       * <code>int32 index = 1;</code>
-       */
-      public Builder setIndex(int value) {
-        
-        index_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int32 index = 1;</code>
-       */
-      public Builder clearIndex() {
-        
-        index_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private boolean completed_ ;
-      /**
-       * <code>bool completed = 2;</code>
-       */
-      public boolean getCompleted() {
-        return completed_;
-      }
-      /**
-       * <code>bool completed = 2;</code>
-       */
-      public Builder setCompleted(boolean value) {
-        
-        completed_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>bool completed = 2;</code>
-       */
-      public Builder clearCompleted() {
-        
-        completed_ = false;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object description_ = "";
-      /**
-       * <code>string description = 3;</code>
-       */
-      public java.lang.String getDescription() {
-        java.lang.Object ref = description_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          description_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string description = 3;</code>
-       */
-      public com.google.protobuf.ByteString
-          getDescriptionBytes() {
-        java.lang.Object ref = description_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          description_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string description = 3;</code>
-       */
-      public Builder setDescription(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        description_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string description = 3;</code>
-       */
-      public Builder clearDescription() {
-        
-        description_ = getDefaultInstance().getDescription();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string description = 3;</code>
-       */
-      public Builder setDescriptionBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        description_ = value;
-        onChanged();
-        return this;
-      }
-
-      private com.shattered.networking.proto.World.TaskRewards rewards_ = null;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.shattered.networking.proto.World.TaskRewards, com.shattered.networking.proto.World.TaskRewards.Builder, com.shattered.networking.proto.World.TaskRewardsOrBuilder> rewardsBuilder_;
-      /**
-       * <code>.shattered.protocol.TaskRewards rewards = 4;</code>
-       */
-      public boolean hasRewards() {
-        return rewardsBuilder_ != null || rewards_ != null;
-      }
-      /**
-       * <code>.shattered.protocol.TaskRewards rewards = 4;</code>
-       */
-      public com.shattered.networking.proto.World.TaskRewards getRewards() {
-        if (rewardsBuilder_ == null) {
-          return rewards_ == null ? com.shattered.networking.proto.World.TaskRewards.getDefaultInstance() : rewards_;
-        } else {
-          return rewardsBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.shattered.protocol.TaskRewards rewards = 4;</code>
-       */
-      public Builder setRewards(com.shattered.networking.proto.World.TaskRewards value) {
-        if (rewardsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          rewards_ = value;
-          onChanged();
-        } else {
-          rewardsBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.shattered.protocol.TaskRewards rewards = 4;</code>
-       */
-      public Builder setRewards(
-          com.shattered.networking.proto.World.TaskRewards.Builder builderForValue) {
-        if (rewardsBuilder_ == null) {
-          rewards_ = builderForValue.build();
-          onChanged();
-        } else {
-          rewardsBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.shattered.protocol.TaskRewards rewards = 4;</code>
-       */
-      public Builder mergeRewards(com.shattered.networking.proto.World.TaskRewards value) {
-        if (rewardsBuilder_ == null) {
-          if (rewards_ != null) {
-            rewards_ =
-              com.shattered.networking.proto.World.TaskRewards.newBuilder(rewards_).mergeFrom(value).buildPartial();
-          } else {
-            rewards_ = value;
-          }
-          onChanged();
-        } else {
-          rewardsBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.shattered.protocol.TaskRewards rewards = 4;</code>
-       */
-      public Builder clearRewards() {
-        if (rewardsBuilder_ == null) {
-          rewards_ = null;
-          onChanged();
-        } else {
-          rewards_ = null;
-          rewardsBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.shattered.protocol.TaskRewards rewards = 4;</code>
-       */
-      public com.shattered.networking.proto.World.TaskRewards.Builder getRewardsBuilder() {
-        
-        onChanged();
-        return getRewardsFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.shattered.protocol.TaskRewards rewards = 4;</code>
-       */
-      public com.shattered.networking.proto.World.TaskRewardsOrBuilder getRewardsOrBuilder() {
-        if (rewardsBuilder_ != null) {
-          return rewardsBuilder_.getMessageOrBuilder();
-        } else {
-          return rewards_ == null ?
-              com.shattered.networking.proto.World.TaskRewards.getDefaultInstance() : rewards_;
-        }
-      }
-      /**
-       * <code>.shattered.protocol.TaskRewards rewards = 4;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.shattered.networking.proto.World.TaskRewards, com.shattered.networking.proto.World.TaskRewards.Builder, com.shattered.networking.proto.World.TaskRewardsOrBuilder> 
-          getRewardsFieldBuilder() {
-        if (rewardsBuilder_ == null) {
-          rewardsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.shattered.networking.proto.World.TaskRewards, com.shattered.networking.proto.World.TaskRewards.Builder, com.shattered.networking.proto.World.TaskRewardsOrBuilder>(
-                  getRewards(),
-                  getParentForChildren(),
-                  isClean());
-          rewards_ = null;
-        }
-        return rewardsBuilder_;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:shattered.protocol.Task)
-    }
-
-    // @@protoc_insertion_point(class_scope:shattered.protocol.Task)
-    private static final com.shattered.networking.proto.World.Task DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.shattered.networking.proto.World.Task();
-    }
-
-    public static com.shattered.networking.proto.World.Task getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<Task>
-        PARSER = new com.google.protobuf.AbstractParser<Task>() {
-      @java.lang.Override
-      public Task parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Task(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<Task> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<Task> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.shattered.networking.proto.World.Task getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
   public interface TaskRewardsOrBuilder extends
       // @@protoc_insertion_point(interface_extends:shattered.protocol.TaskRewards)
       com.google.protobuf.MessageOrBuilder {
@@ -34800,6 +32176,2693 @@ public final class World {
 
     @java.lang.Override
     public com.shattered.networking.proto.World.TaskRewards getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface TaskListOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:shattered.protocol.TaskList)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 uuid = 1;</code>
+     */
+    int getUuid();
+
+    /**
+     * <code>string name = 2;</code>
+     */
+    java.lang.String getName();
+    /**
+     * <code>string name = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <code>string zone = 3;</code>
+     */
+    java.lang.String getZone();
+    /**
+     * <code>string zone = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getZoneBytes();
+
+    /**
+     * <code>repeated .shattered.protocol.Task tasks = 4;</code>
+     */
+    java.util.List<com.shattered.networking.proto.World.Task> 
+        getTasksList();
+    /**
+     * <code>repeated .shattered.protocol.Task tasks = 4;</code>
+     */
+    com.shattered.networking.proto.World.Task getTasks(int index);
+    /**
+     * <code>repeated .shattered.protocol.Task tasks = 4;</code>
+     */
+    int getTasksCount();
+    /**
+     * <code>repeated .shattered.protocol.Task tasks = 4;</code>
+     */
+    java.util.List<? extends com.shattered.networking.proto.World.TaskOrBuilder> 
+        getTasksOrBuilderList();
+    /**
+     * <code>repeated .shattered.protocol.Task tasks = 4;</code>
+     */
+    com.shattered.networking.proto.World.TaskOrBuilder getTasksOrBuilder(
+        int index);
+
+    /**
+     * <code>.shattered.protocol.TaskRewards rewards = 5;</code>
+     */
+    boolean hasRewards();
+    /**
+     * <code>.shattered.protocol.TaskRewards rewards = 5;</code>
+     */
+    com.shattered.networking.proto.World.TaskRewards getRewards();
+    /**
+     * <code>.shattered.protocol.TaskRewards rewards = 5;</code>
+     */
+    com.shattered.networking.proto.World.TaskRewardsOrBuilder getRewardsOrBuilder();
+  }
+  /**
+   * <pre>
+   *+ustruct:BlueprintType
+   * </pre>
+   *
+   * Protobuf type {@code shattered.protocol.TaskList}
+   */
+  public  static final class TaskList extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:shattered.protocol.TaskList)
+      TaskListOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use TaskList.newBuilder() to construct.
+    private TaskList(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private TaskList() {
+      uuid_ = 0;
+      name_ = "";
+      zone_ = "";
+      tasks_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TaskList(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              uuid_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              name_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              zone_ = s;
+              break;
+            }
+            case 34: {
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+                tasks_ = new java.util.ArrayList<com.shattered.networking.proto.World.Task>();
+                mutable_bitField0_ |= 0x00000008;
+              }
+              tasks_.add(
+                  input.readMessage(com.shattered.networking.proto.World.Task.parser(), extensionRegistry));
+              break;
+            }
+            case 42: {
+              com.shattered.networking.proto.World.TaskRewards.Builder subBuilder = null;
+              if (rewards_ != null) {
+                subBuilder = rewards_.toBuilder();
+              }
+              rewards_ = input.readMessage(com.shattered.networking.proto.World.TaskRewards.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(rewards_);
+                rewards_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+          tasks_ = java.util.Collections.unmodifiableList(tasks_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.shattered.networking.proto.World.internal_static_shattered_protocol_TaskList_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.shattered.networking.proto.World.internal_static_shattered_protocol_TaskList_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.shattered.networking.proto.World.TaskList.class, com.shattered.networking.proto.World.TaskList.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int UUID_FIELD_NUMBER = 1;
+    private int uuid_;
+    /**
+     * <code>int32 uuid = 1;</code>
+     */
+    public int getUuid() {
+      return uuid_;
+    }
+
+    public static final int NAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object name_;
+    /**
+     * <code>string name = 2;</code>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string name = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ZONE_FIELD_NUMBER = 3;
+    private volatile java.lang.Object zone_;
+    /**
+     * <code>string zone = 3;</code>
+     */
+    public java.lang.String getZone() {
+      java.lang.Object ref = zone_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        zone_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string zone = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getZoneBytes() {
+      java.lang.Object ref = zone_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        zone_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TASKS_FIELD_NUMBER = 4;
+    private java.util.List<com.shattered.networking.proto.World.Task> tasks_;
+    /**
+     * <code>repeated .shattered.protocol.Task tasks = 4;</code>
+     */
+    public java.util.List<com.shattered.networking.proto.World.Task> getTasksList() {
+      return tasks_;
+    }
+    /**
+     * <code>repeated .shattered.protocol.Task tasks = 4;</code>
+     */
+    public java.util.List<? extends com.shattered.networking.proto.World.TaskOrBuilder> 
+        getTasksOrBuilderList() {
+      return tasks_;
+    }
+    /**
+     * <code>repeated .shattered.protocol.Task tasks = 4;</code>
+     */
+    public int getTasksCount() {
+      return tasks_.size();
+    }
+    /**
+     * <code>repeated .shattered.protocol.Task tasks = 4;</code>
+     */
+    public com.shattered.networking.proto.World.Task getTasks(int index) {
+      return tasks_.get(index);
+    }
+    /**
+     * <code>repeated .shattered.protocol.Task tasks = 4;</code>
+     */
+    public com.shattered.networking.proto.World.TaskOrBuilder getTasksOrBuilder(
+        int index) {
+      return tasks_.get(index);
+    }
+
+    public static final int REWARDS_FIELD_NUMBER = 5;
+    private com.shattered.networking.proto.World.TaskRewards rewards_;
+    /**
+     * <code>.shattered.protocol.TaskRewards rewards = 5;</code>
+     */
+    public boolean hasRewards() {
+      return rewards_ != null;
+    }
+    /**
+     * <code>.shattered.protocol.TaskRewards rewards = 5;</code>
+     */
+    public com.shattered.networking.proto.World.TaskRewards getRewards() {
+      return rewards_ == null ? com.shattered.networking.proto.World.TaskRewards.getDefaultInstance() : rewards_;
+    }
+    /**
+     * <code>.shattered.protocol.TaskRewards rewards = 5;</code>
+     */
+    public com.shattered.networking.proto.World.TaskRewardsOrBuilder getRewardsOrBuilder() {
+      return getRewards();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (uuid_ != 0) {
+        output.writeInt32(1, uuid_);
+      }
+      if (!getNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
+      }
+      if (!getZoneBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, zone_);
+      }
+      for (int i = 0; i < tasks_.size(); i++) {
+        output.writeMessage(4, tasks_.get(i));
+      }
+      if (rewards_ != null) {
+        output.writeMessage(5, getRewards());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (uuid_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, uuid_);
+      }
+      if (!getNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
+      }
+      if (!getZoneBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, zone_);
+      }
+      for (int i = 0; i < tasks_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, tasks_.get(i));
+      }
+      if (rewards_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, getRewards());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.shattered.networking.proto.World.TaskList)) {
+        return super.equals(obj);
+      }
+      com.shattered.networking.proto.World.TaskList other = (com.shattered.networking.proto.World.TaskList) obj;
+
+      boolean result = true;
+      result = result && (getUuid()
+          == other.getUuid());
+      result = result && getName()
+          .equals(other.getName());
+      result = result && getZone()
+          .equals(other.getZone());
+      result = result && getTasksList()
+          .equals(other.getTasksList());
+      result = result && (hasRewards() == other.hasRewards());
+      if (hasRewards()) {
+        result = result && getRewards()
+            .equals(other.getRewards());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + UUID_FIELD_NUMBER;
+      hash = (53 * hash) + getUuid();
+      hash = (37 * hash) + NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getName().hashCode();
+      hash = (37 * hash) + ZONE_FIELD_NUMBER;
+      hash = (53 * hash) + getZone().hashCode();
+      if (getTasksCount() > 0) {
+        hash = (37 * hash) + TASKS_FIELD_NUMBER;
+        hash = (53 * hash) + getTasksList().hashCode();
+      }
+      if (hasRewards()) {
+        hash = (37 * hash) + REWARDS_FIELD_NUMBER;
+        hash = (53 * hash) + getRewards().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.shattered.networking.proto.World.TaskList parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.shattered.networking.proto.World.TaskList parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.World.TaskList parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.shattered.networking.proto.World.TaskList parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.World.TaskList parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.shattered.networking.proto.World.TaskList parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.World.TaskList parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.shattered.networking.proto.World.TaskList parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.World.TaskList parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.shattered.networking.proto.World.TaskList parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.World.TaskList parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.shattered.networking.proto.World.TaskList parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.shattered.networking.proto.World.TaskList prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *+ustruct:BlueprintType
+     * </pre>
+     *
+     * Protobuf type {@code shattered.protocol.TaskList}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:shattered.protocol.TaskList)
+        com.shattered.networking.proto.World.TaskListOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.shattered.networking.proto.World.internal_static_shattered_protocol_TaskList_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.shattered.networking.proto.World.internal_static_shattered_protocol_TaskList_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.shattered.networking.proto.World.TaskList.class, com.shattered.networking.proto.World.TaskList.Builder.class);
+      }
+
+      // Construct using com.shattered.networking.proto.World.TaskList.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getTasksFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        uuid_ = 0;
+
+        name_ = "";
+
+        zone_ = "";
+
+        if (tasksBuilder_ == null) {
+          tasks_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        } else {
+          tasksBuilder_.clear();
+        }
+        if (rewardsBuilder_ == null) {
+          rewards_ = null;
+        } else {
+          rewards_ = null;
+          rewardsBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.shattered.networking.proto.World.internal_static_shattered_protocol_TaskList_descriptor;
+      }
+
+      @java.lang.Override
+      public com.shattered.networking.proto.World.TaskList getDefaultInstanceForType() {
+        return com.shattered.networking.proto.World.TaskList.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.shattered.networking.proto.World.TaskList build() {
+        com.shattered.networking.proto.World.TaskList result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.shattered.networking.proto.World.TaskList buildPartial() {
+        com.shattered.networking.proto.World.TaskList result = new com.shattered.networking.proto.World.TaskList(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        result.uuid_ = uuid_;
+        result.name_ = name_;
+        result.zone_ = zone_;
+        if (tasksBuilder_ == null) {
+          if (((bitField0_ & 0x00000008) == 0x00000008)) {
+            tasks_ = java.util.Collections.unmodifiableList(tasks_);
+            bitField0_ = (bitField0_ & ~0x00000008);
+          }
+          result.tasks_ = tasks_;
+        } else {
+          result.tasks_ = tasksBuilder_.build();
+        }
+        if (rewardsBuilder_ == null) {
+          result.rewards_ = rewards_;
+        } else {
+          result.rewards_ = rewardsBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.shattered.networking.proto.World.TaskList) {
+          return mergeFrom((com.shattered.networking.proto.World.TaskList)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.shattered.networking.proto.World.TaskList other) {
+        if (other == com.shattered.networking.proto.World.TaskList.getDefaultInstance()) return this;
+        if (other.getUuid() != 0) {
+          setUuid(other.getUuid());
+        }
+        if (!other.getName().isEmpty()) {
+          name_ = other.name_;
+          onChanged();
+        }
+        if (!other.getZone().isEmpty()) {
+          zone_ = other.zone_;
+          onChanged();
+        }
+        if (tasksBuilder_ == null) {
+          if (!other.tasks_.isEmpty()) {
+            if (tasks_.isEmpty()) {
+              tasks_ = other.tasks_;
+              bitField0_ = (bitField0_ & ~0x00000008);
+            } else {
+              ensureTasksIsMutable();
+              tasks_.addAll(other.tasks_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.tasks_.isEmpty()) {
+            if (tasksBuilder_.isEmpty()) {
+              tasksBuilder_.dispose();
+              tasksBuilder_ = null;
+              tasks_ = other.tasks_;
+              bitField0_ = (bitField0_ & ~0x00000008);
+              tasksBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getTasksFieldBuilder() : null;
+            } else {
+              tasksBuilder_.addAllMessages(other.tasks_);
+            }
+          }
+        }
+        if (other.hasRewards()) {
+          mergeRewards(other.getRewards());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.shattered.networking.proto.World.TaskList parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.shattered.networking.proto.World.TaskList) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int uuid_ ;
+      /**
+       * <code>int32 uuid = 1;</code>
+       */
+      public int getUuid() {
+        return uuid_;
+      }
+      /**
+       * <code>int32 uuid = 1;</code>
+       */
+      public Builder setUuid(int value) {
+        
+        uuid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 uuid = 1;</code>
+       */
+      public Builder clearUuid() {
+        
+        uuid_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object name_ = "";
+      /**
+       * <code>string name = 2;</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          name_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string name = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string name = 2;</code>
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string name = 2;</code>
+       */
+      public Builder clearName() {
+        
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string name = 2;</code>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object zone_ = "";
+      /**
+       * <code>string zone = 3;</code>
+       */
+      public java.lang.String getZone() {
+        java.lang.Object ref = zone_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          zone_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string zone = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getZoneBytes() {
+        java.lang.Object ref = zone_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          zone_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string zone = 3;</code>
+       */
+      public Builder setZone(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        zone_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string zone = 3;</code>
+       */
+      public Builder clearZone() {
+        
+        zone_ = getDefaultInstance().getZone();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string zone = 3;</code>
+       */
+      public Builder setZoneBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        zone_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<com.shattered.networking.proto.World.Task> tasks_ =
+        java.util.Collections.emptyList();
+      private void ensureTasksIsMutable() {
+        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+          tasks_ = new java.util.ArrayList<com.shattered.networking.proto.World.Task>(tasks_);
+          bitField0_ |= 0x00000008;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.shattered.networking.proto.World.Task, com.shattered.networking.proto.World.Task.Builder, com.shattered.networking.proto.World.TaskOrBuilder> tasksBuilder_;
+
+      /**
+       * <code>repeated .shattered.protocol.Task tasks = 4;</code>
+       */
+      public java.util.List<com.shattered.networking.proto.World.Task> getTasksList() {
+        if (tasksBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(tasks_);
+        } else {
+          return tasksBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .shattered.protocol.Task tasks = 4;</code>
+       */
+      public int getTasksCount() {
+        if (tasksBuilder_ == null) {
+          return tasks_.size();
+        } else {
+          return tasksBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .shattered.protocol.Task tasks = 4;</code>
+       */
+      public com.shattered.networking.proto.World.Task getTasks(int index) {
+        if (tasksBuilder_ == null) {
+          return tasks_.get(index);
+        } else {
+          return tasksBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .shattered.protocol.Task tasks = 4;</code>
+       */
+      public Builder setTasks(
+          int index, com.shattered.networking.proto.World.Task value) {
+        if (tasksBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTasksIsMutable();
+          tasks_.set(index, value);
+          onChanged();
+        } else {
+          tasksBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .shattered.protocol.Task tasks = 4;</code>
+       */
+      public Builder setTasks(
+          int index, com.shattered.networking.proto.World.Task.Builder builderForValue) {
+        if (tasksBuilder_ == null) {
+          ensureTasksIsMutable();
+          tasks_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          tasksBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .shattered.protocol.Task tasks = 4;</code>
+       */
+      public Builder addTasks(com.shattered.networking.proto.World.Task value) {
+        if (tasksBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTasksIsMutable();
+          tasks_.add(value);
+          onChanged();
+        } else {
+          tasksBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .shattered.protocol.Task tasks = 4;</code>
+       */
+      public Builder addTasks(
+          int index, com.shattered.networking.proto.World.Task value) {
+        if (tasksBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTasksIsMutable();
+          tasks_.add(index, value);
+          onChanged();
+        } else {
+          tasksBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .shattered.protocol.Task tasks = 4;</code>
+       */
+      public Builder addTasks(
+          com.shattered.networking.proto.World.Task.Builder builderForValue) {
+        if (tasksBuilder_ == null) {
+          ensureTasksIsMutable();
+          tasks_.add(builderForValue.build());
+          onChanged();
+        } else {
+          tasksBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .shattered.protocol.Task tasks = 4;</code>
+       */
+      public Builder addTasks(
+          int index, com.shattered.networking.proto.World.Task.Builder builderForValue) {
+        if (tasksBuilder_ == null) {
+          ensureTasksIsMutable();
+          tasks_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          tasksBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .shattered.protocol.Task tasks = 4;</code>
+       */
+      public Builder addAllTasks(
+          java.lang.Iterable<? extends com.shattered.networking.proto.World.Task> values) {
+        if (tasksBuilder_ == null) {
+          ensureTasksIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, tasks_);
+          onChanged();
+        } else {
+          tasksBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .shattered.protocol.Task tasks = 4;</code>
+       */
+      public Builder clearTasks() {
+        if (tasksBuilder_ == null) {
+          tasks_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000008);
+          onChanged();
+        } else {
+          tasksBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .shattered.protocol.Task tasks = 4;</code>
+       */
+      public Builder removeTasks(int index) {
+        if (tasksBuilder_ == null) {
+          ensureTasksIsMutable();
+          tasks_.remove(index);
+          onChanged();
+        } else {
+          tasksBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .shattered.protocol.Task tasks = 4;</code>
+       */
+      public com.shattered.networking.proto.World.Task.Builder getTasksBuilder(
+          int index) {
+        return getTasksFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .shattered.protocol.Task tasks = 4;</code>
+       */
+      public com.shattered.networking.proto.World.TaskOrBuilder getTasksOrBuilder(
+          int index) {
+        if (tasksBuilder_ == null) {
+          return tasks_.get(index);  } else {
+          return tasksBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .shattered.protocol.Task tasks = 4;</code>
+       */
+      public java.util.List<? extends com.shattered.networking.proto.World.TaskOrBuilder> 
+           getTasksOrBuilderList() {
+        if (tasksBuilder_ != null) {
+          return tasksBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(tasks_);
+        }
+      }
+      /**
+       * <code>repeated .shattered.protocol.Task tasks = 4;</code>
+       */
+      public com.shattered.networking.proto.World.Task.Builder addTasksBuilder() {
+        return getTasksFieldBuilder().addBuilder(
+            com.shattered.networking.proto.World.Task.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .shattered.protocol.Task tasks = 4;</code>
+       */
+      public com.shattered.networking.proto.World.Task.Builder addTasksBuilder(
+          int index) {
+        return getTasksFieldBuilder().addBuilder(
+            index, com.shattered.networking.proto.World.Task.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .shattered.protocol.Task tasks = 4;</code>
+       */
+      public java.util.List<com.shattered.networking.proto.World.Task.Builder> 
+           getTasksBuilderList() {
+        return getTasksFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.shattered.networking.proto.World.Task, com.shattered.networking.proto.World.Task.Builder, com.shattered.networking.proto.World.TaskOrBuilder> 
+          getTasksFieldBuilder() {
+        if (tasksBuilder_ == null) {
+          tasksBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.shattered.networking.proto.World.Task, com.shattered.networking.proto.World.Task.Builder, com.shattered.networking.proto.World.TaskOrBuilder>(
+                  tasks_,
+                  ((bitField0_ & 0x00000008) == 0x00000008),
+                  getParentForChildren(),
+                  isClean());
+          tasks_ = null;
+        }
+        return tasksBuilder_;
+      }
+
+      private com.shattered.networking.proto.World.TaskRewards rewards_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.shattered.networking.proto.World.TaskRewards, com.shattered.networking.proto.World.TaskRewards.Builder, com.shattered.networking.proto.World.TaskRewardsOrBuilder> rewardsBuilder_;
+      /**
+       * <code>.shattered.protocol.TaskRewards rewards = 5;</code>
+       */
+      public boolean hasRewards() {
+        return rewardsBuilder_ != null || rewards_ != null;
+      }
+      /**
+       * <code>.shattered.protocol.TaskRewards rewards = 5;</code>
+       */
+      public com.shattered.networking.proto.World.TaskRewards getRewards() {
+        if (rewardsBuilder_ == null) {
+          return rewards_ == null ? com.shattered.networking.proto.World.TaskRewards.getDefaultInstance() : rewards_;
+        } else {
+          return rewardsBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.shattered.protocol.TaskRewards rewards = 5;</code>
+       */
+      public Builder setRewards(com.shattered.networking.proto.World.TaskRewards value) {
+        if (rewardsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          rewards_ = value;
+          onChanged();
+        } else {
+          rewardsBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.shattered.protocol.TaskRewards rewards = 5;</code>
+       */
+      public Builder setRewards(
+          com.shattered.networking.proto.World.TaskRewards.Builder builderForValue) {
+        if (rewardsBuilder_ == null) {
+          rewards_ = builderForValue.build();
+          onChanged();
+        } else {
+          rewardsBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.shattered.protocol.TaskRewards rewards = 5;</code>
+       */
+      public Builder mergeRewards(com.shattered.networking.proto.World.TaskRewards value) {
+        if (rewardsBuilder_ == null) {
+          if (rewards_ != null) {
+            rewards_ =
+              com.shattered.networking.proto.World.TaskRewards.newBuilder(rewards_).mergeFrom(value).buildPartial();
+          } else {
+            rewards_ = value;
+          }
+          onChanged();
+        } else {
+          rewardsBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.shattered.protocol.TaskRewards rewards = 5;</code>
+       */
+      public Builder clearRewards() {
+        if (rewardsBuilder_ == null) {
+          rewards_ = null;
+          onChanged();
+        } else {
+          rewards_ = null;
+          rewardsBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.shattered.protocol.TaskRewards rewards = 5;</code>
+       */
+      public com.shattered.networking.proto.World.TaskRewards.Builder getRewardsBuilder() {
+        
+        onChanged();
+        return getRewardsFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.shattered.protocol.TaskRewards rewards = 5;</code>
+       */
+      public com.shattered.networking.proto.World.TaskRewardsOrBuilder getRewardsOrBuilder() {
+        if (rewardsBuilder_ != null) {
+          return rewardsBuilder_.getMessageOrBuilder();
+        } else {
+          return rewards_ == null ?
+              com.shattered.networking.proto.World.TaskRewards.getDefaultInstance() : rewards_;
+        }
+      }
+      /**
+       * <code>.shattered.protocol.TaskRewards rewards = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.shattered.networking.proto.World.TaskRewards, com.shattered.networking.proto.World.TaskRewards.Builder, com.shattered.networking.proto.World.TaskRewardsOrBuilder> 
+          getRewardsFieldBuilder() {
+        if (rewardsBuilder_ == null) {
+          rewardsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.shattered.networking.proto.World.TaskRewards, com.shattered.networking.proto.World.TaskRewards.Builder, com.shattered.networking.proto.World.TaskRewardsOrBuilder>(
+                  getRewards(),
+                  getParentForChildren(),
+                  isClean());
+          rewards_ = null;
+        }
+        return rewardsBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:shattered.protocol.TaskList)
+    }
+
+    // @@protoc_insertion_point(class_scope:shattered.protocol.TaskList)
+    private static final com.shattered.networking.proto.World.TaskList DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.shattered.networking.proto.World.TaskList();
+    }
+
+    public static com.shattered.networking.proto.World.TaskList getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<TaskList>
+        PARSER = new com.google.protobuf.AbstractParser<TaskList>() {
+      @java.lang.Override
+      public TaskList parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TaskList(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<TaskList> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TaskList> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.shattered.networking.proto.World.TaskList getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface TaskEntryOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:shattered.protocol.TaskEntry)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 uuid = 1;</code>
+     */
+    int getUuid();
+
+    /**
+     * <code>.shattered.protocol.Task task = 2;</code>
+     */
+    boolean hasTask();
+    /**
+     * <code>.shattered.protocol.Task task = 2;</code>
+     */
+    com.shattered.networking.proto.World.Task getTask();
+    /**
+     * <code>.shattered.protocol.Task task = 2;</code>
+     */
+    com.shattered.networking.proto.World.TaskOrBuilder getTaskOrBuilder();
+  }
+  /**
+   * <pre>
+   *+ustruct:BlueprintType
+   * </pre>
+   *
+   * Protobuf type {@code shattered.protocol.TaskEntry}
+   */
+  public  static final class TaskEntry extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:shattered.protocol.TaskEntry)
+      TaskEntryOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use TaskEntry.newBuilder() to construct.
+    private TaskEntry(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private TaskEntry() {
+      uuid_ = 0;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TaskEntry(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              uuid_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              com.shattered.networking.proto.World.Task.Builder subBuilder = null;
+              if (task_ != null) {
+                subBuilder = task_.toBuilder();
+              }
+              task_ = input.readMessage(com.shattered.networking.proto.World.Task.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(task_);
+                task_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.shattered.networking.proto.World.internal_static_shattered_protocol_TaskEntry_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.shattered.networking.proto.World.internal_static_shattered_protocol_TaskEntry_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.shattered.networking.proto.World.TaskEntry.class, com.shattered.networking.proto.World.TaskEntry.Builder.class);
+    }
+
+    public static final int UUID_FIELD_NUMBER = 1;
+    private int uuid_;
+    /**
+     * <code>int32 uuid = 1;</code>
+     */
+    public int getUuid() {
+      return uuid_;
+    }
+
+    public static final int TASK_FIELD_NUMBER = 2;
+    private com.shattered.networking.proto.World.Task task_;
+    /**
+     * <code>.shattered.protocol.Task task = 2;</code>
+     */
+    public boolean hasTask() {
+      return task_ != null;
+    }
+    /**
+     * <code>.shattered.protocol.Task task = 2;</code>
+     */
+    public com.shattered.networking.proto.World.Task getTask() {
+      return task_ == null ? com.shattered.networking.proto.World.Task.getDefaultInstance() : task_;
+    }
+    /**
+     * <code>.shattered.protocol.Task task = 2;</code>
+     */
+    public com.shattered.networking.proto.World.TaskOrBuilder getTaskOrBuilder() {
+      return getTask();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (uuid_ != 0) {
+        output.writeInt32(1, uuid_);
+      }
+      if (task_ != null) {
+        output.writeMessage(2, getTask());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (uuid_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, uuid_);
+      }
+      if (task_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getTask());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.shattered.networking.proto.World.TaskEntry)) {
+        return super.equals(obj);
+      }
+      com.shattered.networking.proto.World.TaskEntry other = (com.shattered.networking.proto.World.TaskEntry) obj;
+
+      boolean result = true;
+      result = result && (getUuid()
+          == other.getUuid());
+      result = result && (hasTask() == other.hasTask());
+      if (hasTask()) {
+        result = result && getTask()
+            .equals(other.getTask());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + UUID_FIELD_NUMBER;
+      hash = (53 * hash) + getUuid();
+      if (hasTask()) {
+        hash = (37 * hash) + TASK_FIELD_NUMBER;
+        hash = (53 * hash) + getTask().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.shattered.networking.proto.World.TaskEntry parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.shattered.networking.proto.World.TaskEntry parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.World.TaskEntry parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.shattered.networking.proto.World.TaskEntry parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.World.TaskEntry parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.shattered.networking.proto.World.TaskEntry parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.World.TaskEntry parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.shattered.networking.proto.World.TaskEntry parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.World.TaskEntry parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.shattered.networking.proto.World.TaskEntry parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.World.TaskEntry parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.shattered.networking.proto.World.TaskEntry parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.shattered.networking.proto.World.TaskEntry prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *+ustruct:BlueprintType
+     * </pre>
+     *
+     * Protobuf type {@code shattered.protocol.TaskEntry}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:shattered.protocol.TaskEntry)
+        com.shattered.networking.proto.World.TaskEntryOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.shattered.networking.proto.World.internal_static_shattered_protocol_TaskEntry_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.shattered.networking.proto.World.internal_static_shattered_protocol_TaskEntry_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.shattered.networking.proto.World.TaskEntry.class, com.shattered.networking.proto.World.TaskEntry.Builder.class);
+      }
+
+      // Construct using com.shattered.networking.proto.World.TaskEntry.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        uuid_ = 0;
+
+        if (taskBuilder_ == null) {
+          task_ = null;
+        } else {
+          task_ = null;
+          taskBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.shattered.networking.proto.World.internal_static_shattered_protocol_TaskEntry_descriptor;
+      }
+
+      @java.lang.Override
+      public com.shattered.networking.proto.World.TaskEntry getDefaultInstanceForType() {
+        return com.shattered.networking.proto.World.TaskEntry.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.shattered.networking.proto.World.TaskEntry build() {
+        com.shattered.networking.proto.World.TaskEntry result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.shattered.networking.proto.World.TaskEntry buildPartial() {
+        com.shattered.networking.proto.World.TaskEntry result = new com.shattered.networking.proto.World.TaskEntry(this);
+        result.uuid_ = uuid_;
+        if (taskBuilder_ == null) {
+          result.task_ = task_;
+        } else {
+          result.task_ = taskBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.shattered.networking.proto.World.TaskEntry) {
+          return mergeFrom((com.shattered.networking.proto.World.TaskEntry)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.shattered.networking.proto.World.TaskEntry other) {
+        if (other == com.shattered.networking.proto.World.TaskEntry.getDefaultInstance()) return this;
+        if (other.getUuid() != 0) {
+          setUuid(other.getUuid());
+        }
+        if (other.hasTask()) {
+          mergeTask(other.getTask());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.shattered.networking.proto.World.TaskEntry parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.shattered.networking.proto.World.TaskEntry) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int uuid_ ;
+      /**
+       * <code>int32 uuid = 1;</code>
+       */
+      public int getUuid() {
+        return uuid_;
+      }
+      /**
+       * <code>int32 uuid = 1;</code>
+       */
+      public Builder setUuid(int value) {
+        
+        uuid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 uuid = 1;</code>
+       */
+      public Builder clearUuid() {
+        
+        uuid_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private com.shattered.networking.proto.World.Task task_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.shattered.networking.proto.World.Task, com.shattered.networking.proto.World.Task.Builder, com.shattered.networking.proto.World.TaskOrBuilder> taskBuilder_;
+      /**
+       * <code>.shattered.protocol.Task task = 2;</code>
+       */
+      public boolean hasTask() {
+        return taskBuilder_ != null || task_ != null;
+      }
+      /**
+       * <code>.shattered.protocol.Task task = 2;</code>
+       */
+      public com.shattered.networking.proto.World.Task getTask() {
+        if (taskBuilder_ == null) {
+          return task_ == null ? com.shattered.networking.proto.World.Task.getDefaultInstance() : task_;
+        } else {
+          return taskBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.shattered.protocol.Task task = 2;</code>
+       */
+      public Builder setTask(com.shattered.networking.proto.World.Task value) {
+        if (taskBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          task_ = value;
+          onChanged();
+        } else {
+          taskBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.shattered.protocol.Task task = 2;</code>
+       */
+      public Builder setTask(
+          com.shattered.networking.proto.World.Task.Builder builderForValue) {
+        if (taskBuilder_ == null) {
+          task_ = builderForValue.build();
+          onChanged();
+        } else {
+          taskBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.shattered.protocol.Task task = 2;</code>
+       */
+      public Builder mergeTask(com.shattered.networking.proto.World.Task value) {
+        if (taskBuilder_ == null) {
+          if (task_ != null) {
+            task_ =
+              com.shattered.networking.proto.World.Task.newBuilder(task_).mergeFrom(value).buildPartial();
+          } else {
+            task_ = value;
+          }
+          onChanged();
+        } else {
+          taskBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.shattered.protocol.Task task = 2;</code>
+       */
+      public Builder clearTask() {
+        if (taskBuilder_ == null) {
+          task_ = null;
+          onChanged();
+        } else {
+          task_ = null;
+          taskBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.shattered.protocol.Task task = 2;</code>
+       */
+      public com.shattered.networking.proto.World.Task.Builder getTaskBuilder() {
+        
+        onChanged();
+        return getTaskFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.shattered.protocol.Task task = 2;</code>
+       */
+      public com.shattered.networking.proto.World.TaskOrBuilder getTaskOrBuilder() {
+        if (taskBuilder_ != null) {
+          return taskBuilder_.getMessageOrBuilder();
+        } else {
+          return task_ == null ?
+              com.shattered.networking.proto.World.Task.getDefaultInstance() : task_;
+        }
+      }
+      /**
+       * <code>.shattered.protocol.Task task = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.shattered.networking.proto.World.Task, com.shattered.networking.proto.World.Task.Builder, com.shattered.networking.proto.World.TaskOrBuilder> 
+          getTaskFieldBuilder() {
+        if (taskBuilder_ == null) {
+          taskBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.shattered.networking.proto.World.Task, com.shattered.networking.proto.World.Task.Builder, com.shattered.networking.proto.World.TaskOrBuilder>(
+                  getTask(),
+                  getParentForChildren(),
+                  isClean());
+          task_ = null;
+        }
+        return taskBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:shattered.protocol.TaskEntry)
+    }
+
+    // @@protoc_insertion_point(class_scope:shattered.protocol.TaskEntry)
+    private static final com.shattered.networking.proto.World.TaskEntry DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.shattered.networking.proto.World.TaskEntry();
+    }
+
+    public static com.shattered.networking.proto.World.TaskEntry getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<TaskEntry>
+        PARSER = new com.google.protobuf.AbstractParser<TaskEntry>() {
+      @java.lang.Override
+      public TaskEntry parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TaskEntry(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<TaskEntry> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TaskEntry> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.shattered.networking.proto.World.TaskEntry getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface TaskOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:shattered.protocol.Task)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 index = 1;</code>
+     */
+    int getIndex();
+
+    /**
+     * <code>bool completed = 2;</code>
+     */
+    boolean getCompleted();
+
+    /**
+     * <code>string description = 3;</code>
+     */
+    java.lang.String getDescription();
+    /**
+     * <code>string description = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getDescriptionBytes();
+  }
+  /**
+   * <pre>
+   *+ustruct:BlueprintType
+   * </pre>
+   *
+   * Protobuf type {@code shattered.protocol.Task}
+   */
+  public  static final class Task extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:shattered.protocol.Task)
+      TaskOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Task.newBuilder() to construct.
+    private Task(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Task() {
+      index_ = 0;
+      completed_ = false;
+      description_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Task(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              index_ = input.readInt32();
+              break;
+            }
+            case 16: {
+
+              completed_ = input.readBool();
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              description_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.shattered.networking.proto.World.internal_static_shattered_protocol_Task_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.shattered.networking.proto.World.internal_static_shattered_protocol_Task_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.shattered.networking.proto.World.Task.class, com.shattered.networking.proto.World.Task.Builder.class);
+    }
+
+    public static final int INDEX_FIELD_NUMBER = 1;
+    private int index_;
+    /**
+     * <code>int32 index = 1;</code>
+     */
+    public int getIndex() {
+      return index_;
+    }
+
+    public static final int COMPLETED_FIELD_NUMBER = 2;
+    private boolean completed_;
+    /**
+     * <code>bool completed = 2;</code>
+     */
+    public boolean getCompleted() {
+      return completed_;
+    }
+
+    public static final int DESCRIPTION_FIELD_NUMBER = 3;
+    private volatile java.lang.Object description_;
+    /**
+     * <code>string description = 3;</code>
+     */
+    public java.lang.String getDescription() {
+      java.lang.Object ref = description_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        description_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string description = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDescriptionBytes() {
+      java.lang.Object ref = description_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        description_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (index_ != 0) {
+        output.writeInt32(1, index_);
+      }
+      if (completed_ != false) {
+        output.writeBool(2, completed_);
+      }
+      if (!getDescriptionBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, description_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (index_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, index_);
+      }
+      if (completed_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(2, completed_);
+      }
+      if (!getDescriptionBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, description_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.shattered.networking.proto.World.Task)) {
+        return super.equals(obj);
+      }
+      com.shattered.networking.proto.World.Task other = (com.shattered.networking.proto.World.Task) obj;
+
+      boolean result = true;
+      result = result && (getIndex()
+          == other.getIndex());
+      result = result && (getCompleted()
+          == other.getCompleted());
+      result = result && getDescription()
+          .equals(other.getDescription());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + INDEX_FIELD_NUMBER;
+      hash = (53 * hash) + getIndex();
+      hash = (37 * hash) + COMPLETED_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getCompleted());
+      hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
+      hash = (53 * hash) + getDescription().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.shattered.networking.proto.World.Task parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.shattered.networking.proto.World.Task parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.World.Task parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.shattered.networking.proto.World.Task parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.World.Task parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.shattered.networking.proto.World.Task parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.World.Task parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.shattered.networking.proto.World.Task parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.World.Task parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.shattered.networking.proto.World.Task parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.World.Task parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.shattered.networking.proto.World.Task parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.shattered.networking.proto.World.Task prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *+ustruct:BlueprintType
+     * </pre>
+     *
+     * Protobuf type {@code shattered.protocol.Task}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:shattered.protocol.Task)
+        com.shattered.networking.proto.World.TaskOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.shattered.networking.proto.World.internal_static_shattered_protocol_Task_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.shattered.networking.proto.World.internal_static_shattered_protocol_Task_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.shattered.networking.proto.World.Task.class, com.shattered.networking.proto.World.Task.Builder.class);
+      }
+
+      // Construct using com.shattered.networking.proto.World.Task.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        index_ = 0;
+
+        completed_ = false;
+
+        description_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.shattered.networking.proto.World.internal_static_shattered_protocol_Task_descriptor;
+      }
+
+      @java.lang.Override
+      public com.shattered.networking.proto.World.Task getDefaultInstanceForType() {
+        return com.shattered.networking.proto.World.Task.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.shattered.networking.proto.World.Task build() {
+        com.shattered.networking.proto.World.Task result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.shattered.networking.proto.World.Task buildPartial() {
+        com.shattered.networking.proto.World.Task result = new com.shattered.networking.proto.World.Task(this);
+        result.index_ = index_;
+        result.completed_ = completed_;
+        result.description_ = description_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.shattered.networking.proto.World.Task) {
+          return mergeFrom((com.shattered.networking.proto.World.Task)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.shattered.networking.proto.World.Task other) {
+        if (other == com.shattered.networking.proto.World.Task.getDefaultInstance()) return this;
+        if (other.getIndex() != 0) {
+          setIndex(other.getIndex());
+        }
+        if (other.getCompleted() != false) {
+          setCompleted(other.getCompleted());
+        }
+        if (!other.getDescription().isEmpty()) {
+          description_ = other.description_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.shattered.networking.proto.World.Task parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.shattered.networking.proto.World.Task) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int index_ ;
+      /**
+       * <code>int32 index = 1;</code>
+       */
+      public int getIndex() {
+        return index_;
+      }
+      /**
+       * <code>int32 index = 1;</code>
+       */
+      public Builder setIndex(int value) {
+        
+        index_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 index = 1;</code>
+       */
+      public Builder clearIndex() {
+        
+        index_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private boolean completed_ ;
+      /**
+       * <code>bool completed = 2;</code>
+       */
+      public boolean getCompleted() {
+        return completed_;
+      }
+      /**
+       * <code>bool completed = 2;</code>
+       */
+      public Builder setCompleted(boolean value) {
+        
+        completed_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool completed = 2;</code>
+       */
+      public Builder clearCompleted() {
+        
+        completed_ = false;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object description_ = "";
+      /**
+       * <code>string description = 3;</code>
+       */
+      public java.lang.String getDescription() {
+        java.lang.Object ref = description_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          description_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string description = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDescriptionBytes() {
+        java.lang.Object ref = description_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          description_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string description = 3;</code>
+       */
+      public Builder setDescription(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        description_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string description = 3;</code>
+       */
+      public Builder clearDescription() {
+        
+        description_ = getDefaultInstance().getDescription();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string description = 3;</code>
+       */
+      public Builder setDescriptionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        description_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:shattered.protocol.Task)
+    }
+
+    // @@protoc_insertion_point(class_scope:shattered.protocol.Task)
+    private static final com.shattered.networking.proto.World.Task DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.shattered.networking.proto.World.Task();
+    }
+
+    public static com.shattered.networking.proto.World.Task getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Task>
+        PARSER = new com.google.protobuf.AbstractParser<Task>() {
+      @java.lang.Override
+      public Task parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Task(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Task> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Task> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.shattered.networking.proto.World.Task getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -37579,6 +37642,553 @@ public final class World {
 
     @java.lang.Override
     public com.shattered.networking.proto.World.ReputationLevelUpNotification getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface IXPNotificationOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:shattered.protocol.IXPNotification)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 id = 1;</code>
+     */
+    int getId();
+
+    /**
+     * <code>int32 experience = 2;</code>
+     */
+    int getExperience();
+  }
+  /**
+   * <pre>
+   *+ustruct:BlueprintType
+   * </pre>
+   *
+   * Protobuf type {@code shattered.protocol.IXPNotification}
+   */
+  public  static final class IXPNotification extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:shattered.protocol.IXPNotification)
+      IXPNotificationOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use IXPNotification.newBuilder() to construct.
+    private IXPNotification(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private IXPNotification() {
+      id_ = 0;
+      experience_ = 0;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private IXPNotification(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              id_ = input.readInt32();
+              break;
+            }
+            case 16: {
+
+              experience_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.shattered.networking.proto.World.internal_static_shattered_protocol_IXPNotification_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.shattered.networking.proto.World.internal_static_shattered_protocol_IXPNotification_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.shattered.networking.proto.World.IXPNotification.class, com.shattered.networking.proto.World.IXPNotification.Builder.class);
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    private int id_;
+    /**
+     * <code>int32 id = 1;</code>
+     */
+    public int getId() {
+      return id_;
+    }
+
+    public static final int EXPERIENCE_FIELD_NUMBER = 2;
+    private int experience_;
+    /**
+     * <code>int32 experience = 2;</code>
+     */
+    public int getExperience() {
+      return experience_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (id_ != 0) {
+        output.writeInt32(1, id_);
+      }
+      if (experience_ != 0) {
+        output.writeInt32(2, experience_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (id_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, id_);
+      }
+      if (experience_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, experience_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.shattered.networking.proto.World.IXPNotification)) {
+        return super.equals(obj);
+      }
+      com.shattered.networking.proto.World.IXPNotification other = (com.shattered.networking.proto.World.IXPNotification) obj;
+
+      boolean result = true;
+      result = result && (getId()
+          == other.getId());
+      result = result && (getExperience()
+          == other.getExperience());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId();
+      hash = (37 * hash) + EXPERIENCE_FIELD_NUMBER;
+      hash = (53 * hash) + getExperience();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.shattered.networking.proto.World.IXPNotification parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.shattered.networking.proto.World.IXPNotification parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.World.IXPNotification parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.shattered.networking.proto.World.IXPNotification parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.World.IXPNotification parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.shattered.networking.proto.World.IXPNotification parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.World.IXPNotification parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.shattered.networking.proto.World.IXPNotification parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.World.IXPNotification parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.shattered.networking.proto.World.IXPNotification parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.shattered.networking.proto.World.IXPNotification parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.shattered.networking.proto.World.IXPNotification parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.shattered.networking.proto.World.IXPNotification prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *+ustruct:BlueprintType
+     * </pre>
+     *
+     * Protobuf type {@code shattered.protocol.IXPNotification}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:shattered.protocol.IXPNotification)
+        com.shattered.networking.proto.World.IXPNotificationOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.shattered.networking.proto.World.internal_static_shattered_protocol_IXPNotification_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.shattered.networking.proto.World.internal_static_shattered_protocol_IXPNotification_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.shattered.networking.proto.World.IXPNotification.class, com.shattered.networking.proto.World.IXPNotification.Builder.class);
+      }
+
+      // Construct using com.shattered.networking.proto.World.IXPNotification.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        id_ = 0;
+
+        experience_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.shattered.networking.proto.World.internal_static_shattered_protocol_IXPNotification_descriptor;
+      }
+
+      @java.lang.Override
+      public com.shattered.networking.proto.World.IXPNotification getDefaultInstanceForType() {
+        return com.shattered.networking.proto.World.IXPNotification.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.shattered.networking.proto.World.IXPNotification build() {
+        com.shattered.networking.proto.World.IXPNotification result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.shattered.networking.proto.World.IXPNotification buildPartial() {
+        com.shattered.networking.proto.World.IXPNotification result = new com.shattered.networking.proto.World.IXPNotification(this);
+        result.id_ = id_;
+        result.experience_ = experience_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.shattered.networking.proto.World.IXPNotification) {
+          return mergeFrom((com.shattered.networking.proto.World.IXPNotification)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.shattered.networking.proto.World.IXPNotification other) {
+        if (other == com.shattered.networking.proto.World.IXPNotification.getDefaultInstance()) return this;
+        if (other.getId() != 0) {
+          setId(other.getId());
+        }
+        if (other.getExperience() != 0) {
+          setExperience(other.getExperience());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.shattered.networking.proto.World.IXPNotification parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.shattered.networking.proto.World.IXPNotification) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int id_ ;
+      /**
+       * <code>int32 id = 1;</code>
+       */
+      public int getId() {
+        return id_;
+      }
+      /**
+       * <code>int32 id = 1;</code>
+       */
+      public Builder setId(int value) {
+        
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 id = 1;</code>
+       */
+      public Builder clearId() {
+        
+        id_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int experience_ ;
+      /**
+       * <code>int32 experience = 2;</code>
+       */
+      public int getExperience() {
+        return experience_;
+      }
+      /**
+       * <code>int32 experience = 2;</code>
+       */
+      public Builder setExperience(int value) {
+        
+        experience_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 experience = 2;</code>
+       */
+      public Builder clearExperience() {
+        
+        experience_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:shattered.protocol.IXPNotification)
+    }
+
+    // @@protoc_insertion_point(class_scope:shattered.protocol.IXPNotification)
+    private static final com.shattered.networking.proto.World.IXPNotification DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.shattered.networking.proto.World.IXPNotification();
+    }
+
+    public static com.shattered.networking.proto.World.IXPNotification getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<IXPNotification>
+        PARSER = new com.google.protobuf.AbstractParser<IXPNotification>() {
+      @java.lang.Override
+      public IXPNotification parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new IXPNotification(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<IXPNotification> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<IXPNotification> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.shattered.networking.proto.World.IXPNotification getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -55606,6 +56216,11 @@ public final class World {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_shattered_protocol_TaskListIdentifier_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_shattered_protocol_TaskRewards_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_shattered_protocol_TaskRewards_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_shattered_protocol_TaskList_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -55620,11 +56235,6 @@ public final class World {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_shattered_protocol_Task_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_shattered_protocol_TaskRewards_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_shattered_protocol_TaskRewards_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_shattered_protocol_CombatLevelUpNotification_descriptor;
   private static final 
@@ -55650,6 +56260,11 @@ public final class World {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_shattered_protocol_ReputationLevelUpNotification_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_shattered_protocol_IXPNotification_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_shattered_protocol_IXPNotification_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_shattered_protocol_MasteryNotification_descriptor;
   private static final 
@@ -55859,121 +56474,123 @@ public final class World {
       "\n\014local_object\030\001 \003(\0132\037.shattered.protoco" +
       "l.LocalObject\"3\n\022ChatRequestMessage\022\014\n\004t" +
       "ype\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\",\n\013GameMessag" +
-      "e\022\014\n\004type\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"p\n\016Chan" +
-      "nelMessage\022\014\n\004type\030\001 \001(\005\022\022\n\nfrom_index\030\002" +
-      " \001(\005\022\021\n\tfrom_name\030\003 \001(\t\022\017\n\007message\030\004 \001(\t" +
-      "\022\030\n\020permission_level\030\005 \001(\005\">\n\020ActorInter" +
-      "action\022\n\n\002id\030\001 \001(\005\022\014\n\004uuid\030\002 \001(\005\022\020\n\010modi" +
-      "fier\030\003 \001(\005\"1\n\017DisorientPlayer\022\014\n\004uuid\030\001 " +
-      "\001(\005\022\020\n\010reorient\030\002 \001(\010\"#\n\014StructWidget\022\023\n" +
-      "\013widget_name\030\001 \001(\t\">\n\006Dialog\022\016\n\006npc_id\030\001" +
-      " \001(\005\022\017\n\007message\030\002 \001(\t\022\023\n\013button_text\030\003 \001" +
-      "(\t\"6\n\014DialogOption\022\021\n\tsprite_id\030\001 \001(\005\022\023\n" +
-      "\013button_text\030\002 \001(\t\"A\n\rDialogOptions\0220\n\006o" +
-      "ption\030\001 \003(\0132 .shattered.protocol.DialogO" +
-      "ption\"\'\n\022DialogSelectOption\022\021\n\toption_id" +
-      "\030\001 \001(\005\"!\n\tSetTarget\022\024\n\014client_index\030\001 \001(" +
-      "\005\"#\n\007Ability\022\014\n\004slot\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\"\"" +
-      "\n\004Item\022\n\n\002id\030\001 \001(\005\022\016\n\006amount\030\002 \001(\005\"\205\001\n\013P" +
-      "artyMember\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\024\n\014" +
-      "combat_level\030\003 \001(\005\022\016\n\006health\030\004 \001(\005\022\022\n\nma" +
-      "x_health\030\005 \001(\005\022\016\n\006energy\030\006 \001(\005\022\022\n\nmax_en" +
-      "ergy\030\007 \001(\005\"\026\n\006Invite\022\014\n\004from\030\001 \001(\t\"5\n\tQu" +
-      "estList\022(\n\005quest\030\001 \003(\0132\031.shattered.proto" +
-      "col.Quest\"$\n\005Quest\022\014\n\004name\030\001 \001(\t\022\r\n\005stat" +
-      "e\030\002 \001(\005\"u\n\nQuestEntry\022\014\n\004name\030\001 \001(\t\022\023\n\013d" +
-      "escription\030\002 \001(\t\022-\n\013item_reward\030\003 \003(\0132\030." +
-      "shattered.protocol.Item\022\025\n\rstring_reward" +
-      "\030\004 \003(\t\"&\n\010QuestLog\022\014\n\004name\030\001 \001(\t\022\014\n\004logs" +
-      "\030\002 \003(\t\"\"\n\022TaskListIdentifier\022\014\n\004uuid\030\002 \001" +
-      "(\005\"]\n\010TaskList\022\014\n\004uuid\030\001 \001(\005\022\014\n\004name\030\002 \001" +
-      "(\t\022\014\n\004zone\030\003 \001(\t\022\'\n\005tasks\030\004 \003(\0132\030.shatte" +
-      "red.protocol.Task\"A\n\tTaskEntry\022\014\n\004uuid\030\001" +
-      " \001(\005\022&\n\004task\030\002 \001(\0132\030.shattered.protocol." +
-      "Task\"o\n\004Task\022\r\n\005index\030\001 \001(\005\022\021\n\tcompleted" +
-      "\030\002 \001(\010\022\023\n\013description\030\003 \001(\t\0220\n\007rewards\030\004" +
-      " \001(\0132\037.shattered.protocol.TaskRewards\"Y\n" +
-      "\013TaskRewards\022\r\n\005coins\030\001 \001(\005\022\'\n\005items\030\002 \003" +
-      "(\0132\030.shattered.protocol.Item\022\022\n\ntext_bas" +
-      "ed\030\003 \003(\t\"*\n\031CombatLevelUpNotification\022\r\n" +
-      "\005level\030\001 \001(\005\"%\n\020AreaNotification\022\021\n\tzone" +
-      "_name\030\001 \001(\t\"&\n\023LearnedNotification\022\017\n\007it" +
-      "em_id\030\001 \001(\005\"\'\n\021QuestNotification\022\022\n\nques" +
-      "t_name\030\001 \001(\t\"<\n\035ReputationLevelUpNotific" +
-      "ation\022\014\n\004name\030\001 \001(\t\022\r\n\005state\030\002 \001(\t\"0\n\023Ma" +
-      "steryNotification\022\n\n\002id\030\001 \001(\005\022\r\n\005state\030\002" +
-      " \001(\005\"C\n\rDefaultAttack\0222\n\010rotation\030\001 \001(\0132" +
-      " .shattered.protocol.WorldRotator\"h\n\nPro" +
-      "jectile\022\n\n\002id\030\001 \001(\005\022\014\n\004uuid\030\002 \001(\005\022\014\n\004tim" +
-      "e\030\003 \001(\003\0222\n\010rotation\030\004 \001(\0132 .shattered.pr" +
-      "otocol.WorldRotator\"n\n\027SpawnProjectileFo" +
-      "rActor\022\r\n\005index\030\001 \001(\005\022\020\n\010to_index\030\002 \001(\005\022" +
-      "2\n\nprojectile\030\003 \001(\0132\036.shattered.protocol" +
-      ".Projectile\"E\n\016LoadProjectile\022\014\n\004uuid\030\001 " +
-      "\001(\005\022\025\n\rprojectile_id\030\002 \001(\005\022\016\n\006reload\030\003 \001" +
-      "(\010\"{\n\026ProjectileHitCharacter\022\021\n\tfrom_uui" +
-      "d\030\001 \001(\005\022\025\n\rprojectile_id\030\002 \001(\005\022\027\n\017projec" +
-      "tile_uuid\030\003 \001(\005\022\014\n\004time\030\004 \001(\003\022\020\n\010hit_uui" +
-      "d\030\005 \001(\005\"9\n\027MeleeHitBoxHitCharacter\022\020\n\010hi" +
-      "t_uuid\030\001 \001(\005\022\014\n\004time\030\002 \001(\003\"Y\n\014SpawnEmitt" +
-      "er\022\022\n\nemitter_id\030\001 \001(\005\0225\n\ttransform\030\002 \001(" +
-      "\0132\".shattered.protocol.WorldTransform\"2\n" +
-      "\026PlaySoundEffectAtActor\022\n\n\002id\030\001 \001(\005\022\014\n\004u" +
-      "uid\030\002 \001(\005\"^\n\031PlaySoundEffectAtLocation\022\n" +
-      "\n\002id\030\001 \001(\005\0225\n\ttransform\030\002 \001(\0132\".shattere" +
-      "d.protocol.WorldTransform\"\036\n\014PlaySoundCu" +
-      "e\022\016\n\006cue_id\030\001 \001(\005\")\n\024RequestRollDirectio" +
-      "n\022\021\n\tdirection\030\001 \001(\005\",\n\027ReverseMovementC" +
-      "ontrols\022\021\n\tbackwards\030\001 \001(\010\"2\n\023UpdateActi" +
-      "onBarSlot\022\017\n\007slot_id\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\"\\" +
-      "\n\027UpdateItemContainerFull\022\024\n\014container_i" +
-      "d\030\001 \001(\005\022+\n\titem_slot\030\002 \003(\0132\030.shattered.p" +
-      "rotocol.Item\"m\n\027UpdateItemContainerSlot\022" +
-      "\024\n\014container_id\030\001 \001(\005\022\017\n\007slot_id\030\002 \001(\005\022+" +
-      "\n\titem_slot\030\003 \001(\0132\030.shattered.protocol.I" +
-      "tem\"e\n\022ShiftContainerSlot\022\024\n\014container_i" +
-      "d\030\001 \001(\005\022\024\n\014from_slot_id\030\002 \001(\005\022\022\n\nto_slot" +
-      "_id\030\003 \001(\005\022\017\n\007item_id\030\004 \001(\005\"\206\001\n\032ShiftCont" +
-      "ainerSlotToWidget\022\031\n\021from_container_id\030\001" +
-      " \001(\005\022\027\n\017to_container_id\030\002 \001(\005\022\024\n\014from_sl" +
-      "ot_id\030\003 \001(\005\022\022\n\nto_slot_id\030\004 \001(\005\022\n\n\002id\030\005 " +
-      "\001(\005\"Z\n\016UseAbilitySlot\022\024\n\014container_id\030\001 " +
-      "\001(\005\022\r\n\005pitch\030\002 \001(\002\022\017\n\007slot_id\030\003 \001(\005\022\022\n\na" +
-      "bility_id\030\004 \001(\005\"7\n\017AbilityCooldown\022\022\n\nab" +
-      "ility_id\030\001 \001(\005\022\020\n\010duration\030\002 \001(\002\"J\n\020UseC" +
-      "ontainerSlot\022\024\n\014container_id\030\001 \001(\005\022\017\n\007sl" +
-      "ot_id\030\002 \001(\005\022\017\n\007item_id\030\003 \001(\005\"}\n\020CombatSt" +
-      "atistics\022\020\n\010accuracy\030\001 \001(\005\022\020\n\010strength\030\002" +
-      " \001(\005\022\017\n\007stamina\030\003 \001(\005\022\022\n\nresilience\030\004 \001(" +
-      "\005\022\r\n\005focus\030\005 \001(\005\022\021\n\tintellect\030\006 \001(\005\"E\n\020C" +
-      "urrentGrimoires\022\030\n\020main_grimoire_id\030\001 \001(" +
-      "\005\022\027\n\017off_grimoire_id\030\002 \001(\005\"\377\004\n\022GrimoireS" +
-      "tatistics\022\032\n\022warrior_experience\030\001 \001(\005\022!\n" +
-      "\031temper_warrior_experience\030\002 \001(\005\022%\n\035safe" +
-      "_guard_warrior_experience\030\003 \001(\005\022\032\n\022palad" +
-      "in_experience\030\004 \001(\005\022 \n\030adept_paladin_exp" +
-      "erience\030\005 \001(\005\022\030\n\020rogue_experience\030\006 \001(\005\022" +
-      "&\n\036assassination_rogue_experience\030\007 \001(\005\022" +
-      "\037\n\027shadow_rogue_experience\030\010 \001(\005\022\031\n\021hunt" +
-      "er_experience\030\t \001(\005\022!\n\031deadeye_hunter_ex" +
-      "perience\030\n \001(\005\022&\n\036beast_master_hunter_ex" +
-      "perience\030\013 \001(\005\022\031\n\021priest_experience\030\014 \001(" +
-      "\005\022\031\n\021shaman_experience\030\r \001(\005\022\030\n\020druid_ex" +
-      "perience\030\016 \001(\005\022\035\n\025life_druid_experience\030" +
-      "\017 \001(\005\022\026\n\016mage_experiene\030\020 \001(\005\022\034\n\024fire_ma" +
-      "ge_experience\030\021 \001(\005\022\033\n\023air_mage_experien" +
-      "ce\030\022 \001(\005\022\032\n\022warlock_experience\030\023 \001(\005\022\036\n\026" +
-      "necromancer_experience\030\024 \001(\005\"\333\002\n\020WeaponS" +
-      "tatistics\022\026\n\016bow_experience\030\001 \001(\005\022\033\n\023cro" +
-      "ssbow_experience\030\002 \001(\005\022\036\n\026twohand_axe_ex" +
-      "perience\030\003 \001(\005\022 \n\030twohand_sword_experien" +
-      "ce\030\004 \001(\005\022\032\n\022hatchet_experience\030\005 \001(\005\022\031\n\021" +
-      "dagger_experience\030\006 \001(\005\022\030\n\020sword_experie" +
-      "nce\030\007 \001(\005\022\027\n\017mace_experience\030\010 \001(\005\022\030\n\020sp" +
-      "ear_experience\030\t \001(\005\022\031\n\021shield_experienc" +
-      "e\030\n \001(\005\022\030\n\020staff_experience\030\013 \001(\005\022\027\n\017wan" +
-      "d_experience\030\014 \001(\005B#\n\036com.shattered.netw" +
-      "orking.proto\370\001\001b\006proto3"
+      "e\022\014\n\004type\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"\207\001\n\016Cha" +
+      "nnelMessage\022\014\n\004type\030\001 \001(\005\022\022\n\nfrom_index\030" +
+      "\002 \001(\005\022\025\n\rfrom_class_id\030\003 \001(\005\022\021\n\tfrom_nam" +
+      "e\030\004 \001(\t\022\017\n\007message\030\005 \001(\t\022\030\n\020permission_l" +
+      "evel\030\006 \001(\005\">\n\020ActorInteraction\022\n\n\002id\030\001 \001" +
+      "(\005\022\014\n\004uuid\030\002 \001(\005\022\020\n\010modifier\030\003 \001(\005\"1\n\017Di" +
+      "sorientPlayer\022\014\n\004uuid\030\001 \001(\005\022\020\n\010reorient\030" +
+      "\002 \001(\010\"#\n\014StructWidget\022\023\n\013widget_name\030\001 \001" +
+      "(\t\">\n\006Dialog\022\016\n\006npc_id\030\001 \001(\005\022\017\n\007message\030" +
+      "\002 \001(\t\022\023\n\013button_text\030\003 \001(\t\"6\n\014DialogOpti" +
+      "on\022\021\n\tsprite_id\030\001 \001(\005\022\023\n\013button_text\030\002 \001" +
+      "(\t\"A\n\rDialogOptions\0220\n\006option\030\001 \003(\0132 .sh" +
+      "attered.protocol.DialogOption\"\'\n\022DialogS" +
+      "electOption\022\021\n\toption_id\030\001 \001(\005\"!\n\tSetTar" +
+      "get\022\024\n\014client_index\030\001 \001(\005\"#\n\007Ability\022\014\n\004" +
+      "slot\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\"\"\n\004Item\022\n\n\002id\030\001 \001" +
+      "(\005\022\016\n\006amount\030\002 \001(\005\"\205\001\n\013PartyMember\022\n\n\002id" +
+      "\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\024\n\014combat_level\030\003 \001" +
+      "(\005\022\016\n\006health\030\004 \001(\005\022\022\n\nmax_health\030\005 \001(\005\022\016" +
+      "\n\006energy\030\006 \001(\005\022\022\n\nmax_energy\030\007 \001(\005\"\026\n\006In" +
+      "vite\022\014\n\004from\030\001 \001(\t\"5\n\tQuestList\022(\n\005quest" +
+      "\030\001 \003(\0132\031.shattered.protocol.Quest\"$\n\005Que" +
+      "st\022\014\n\004name\030\001 \001(\t\022\r\n\005state\030\002 \001(\005\"u\n\nQuest" +
+      "Entry\022\014\n\004name\030\001 \001(\t\022\023\n\013description\030\002 \001(\t" +
+      "\022-\n\013item_reward\030\003 \003(\0132\030.shattered.protoc" +
+      "ol.Item\022\025\n\rstring_reward\030\004 \003(\t\"&\n\010QuestL" +
+      "og\022\014\n\004name\030\001 \001(\t\022\014\n\004logs\030\002 \003(\t\"\"\n\022TaskLi" +
+      "stIdentifier\022\014\n\004uuid\030\002 \001(\005\"Y\n\013TaskReward" +
+      "s\022\r\n\005coins\030\001 \001(\005\022\'\n\005items\030\002 \003(\0132\030.shatte" +
+      "red.protocol.Item\022\022\n\ntext_based\030\003 \003(\t\"\217\001" +
+      "\n\010TaskList\022\014\n\004uuid\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\014" +
+      "\n\004zone\030\003 \001(\t\022\'\n\005tasks\030\004 \003(\0132\030.shattered." +
+      "protocol.Task\0220\n\007rewards\030\005 \001(\0132\037.shatter" +
+      "ed.protocol.TaskRewards\"A\n\tTaskEntry\022\014\n\004" +
+      "uuid\030\001 \001(\005\022&\n\004task\030\002 \001(\0132\030.shattered.pro" +
+      "tocol.Task\"=\n\004Task\022\r\n\005index\030\001 \001(\005\022\021\n\tcom" +
+      "pleted\030\002 \001(\010\022\023\n\013description\030\003 \001(\t\"*\n\031Com" +
+      "batLevelUpNotification\022\r\n\005level\030\001 \001(\005\"%\n" +
+      "\020AreaNotification\022\021\n\tzone_name\030\001 \001(\t\"&\n\023" +
+      "LearnedNotification\022\017\n\007item_id\030\001 \001(\005\"\'\n\021" +
+      "QuestNotification\022\022\n\nquest_name\030\001 \001(\t\"<\n" +
+      "\035ReputationLevelUpNotification\022\014\n\004name\030\001" +
+      " \001(\t\022\r\n\005state\030\002 \001(\t\"1\n\017IXPNotification\022\n" +
+      "\n\002id\030\001 \001(\005\022\022\n\nexperience\030\002 \001(\005\"0\n\023Master" +
+      "yNotification\022\n\n\002id\030\001 \001(\005\022\r\n\005state\030\002 \001(\005" +
+      "\"C\n\rDefaultAttack\0222\n\010rotation\030\001 \001(\0132 .sh" +
+      "attered.protocol.WorldRotator\"h\n\nProject" +
+      "ile\022\n\n\002id\030\001 \001(\005\022\014\n\004uuid\030\002 \001(\005\022\014\n\004time\030\003 " +
+      "\001(\003\0222\n\010rotation\030\004 \001(\0132 .shattered.protoc" +
+      "ol.WorldRotator\"n\n\027SpawnProjectileForAct" +
+      "or\022\r\n\005index\030\001 \001(\005\022\020\n\010to_index\030\002 \001(\005\0222\n\np" +
+      "rojectile\030\003 \001(\0132\036.shattered.protocol.Pro" +
+      "jectile\"E\n\016LoadProjectile\022\014\n\004uuid\030\001 \001(\005\022" +
+      "\025\n\rprojectile_id\030\002 \001(\005\022\016\n\006reload\030\003 \001(\010\"{" +
+      "\n\026ProjectileHitCharacter\022\021\n\tfrom_uuid\030\001 " +
+      "\001(\005\022\025\n\rprojectile_id\030\002 \001(\005\022\027\n\017projectile" +
+      "_uuid\030\003 \001(\005\022\014\n\004time\030\004 \001(\003\022\020\n\010hit_uuid\030\005 " +
+      "\001(\005\"9\n\027MeleeHitBoxHitCharacter\022\020\n\010hit_uu" +
+      "id\030\001 \001(\005\022\014\n\004time\030\002 \001(\003\"Y\n\014SpawnEmitter\022\022" +
+      "\n\nemitter_id\030\001 \001(\005\0225\n\ttransform\030\002 \001(\0132\"." +
+      "shattered.protocol.WorldTransform\"2\n\026Pla" +
+      "ySoundEffectAtActor\022\n\n\002id\030\001 \001(\005\022\014\n\004uuid\030" +
+      "\002 \001(\005\"^\n\031PlaySoundEffectAtLocation\022\n\n\002id" +
+      "\030\001 \001(\005\0225\n\ttransform\030\002 \001(\0132\".shattered.pr" +
+      "otocol.WorldTransform\"\036\n\014PlaySoundCue\022\016\n" +
+      "\006cue_id\030\001 \001(\005\")\n\024RequestRollDirection\022\021\n" +
+      "\tdirection\030\001 \001(\005\",\n\027ReverseMovementContr" +
+      "ols\022\021\n\tbackwards\030\001 \001(\010\"2\n\023UpdateActionBa" +
+      "rSlot\022\017\n\007slot_id\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\"\\\n\027Up" +
+      "dateItemContainerFull\022\024\n\014container_id\030\001 " +
+      "\001(\005\022+\n\titem_slot\030\002 \003(\0132\030.shattered.proto" +
+      "col.Item\"m\n\027UpdateItemContainerSlot\022\024\n\014c" +
+      "ontainer_id\030\001 \001(\005\022\017\n\007slot_id\030\002 \001(\005\022+\n\tit" +
+      "em_slot\030\003 \001(\0132\030.shattered.protocol.Item\"" +
+      "e\n\022ShiftContainerSlot\022\024\n\014container_id\030\001 " +
+      "\001(\005\022\024\n\014from_slot_id\030\002 \001(\005\022\022\n\nto_slot_id\030" +
+      "\003 \001(\005\022\017\n\007item_id\030\004 \001(\005\"\206\001\n\032ShiftContaine" +
+      "rSlotToWidget\022\031\n\021from_container_id\030\001 \001(\005" +
+      "\022\027\n\017to_container_id\030\002 \001(\005\022\024\n\014from_slot_i" +
+      "d\030\003 \001(\005\022\022\n\nto_slot_id\030\004 \001(\005\022\n\n\002id\030\005 \001(\005\"" +
+      "Z\n\016UseAbilitySlot\022\024\n\014container_id\030\001 \001(\005\022" +
+      "\r\n\005pitch\030\002 \001(\002\022\017\n\007slot_id\030\003 \001(\005\022\022\n\nabili" +
+      "ty_id\030\004 \001(\005\"7\n\017AbilityCooldown\022\022\n\nabilit" +
+      "y_id\030\001 \001(\005\022\020\n\010duration\030\002 \001(\002\"J\n\020UseConta" +
+      "inerSlot\022\024\n\014container_id\030\001 \001(\005\022\017\n\007slot_i" +
+      "d\030\002 \001(\005\022\017\n\007item_id\030\003 \001(\005\"}\n\020CombatStatis" +
+      "tics\022\020\n\010accuracy\030\001 \001(\005\022\020\n\010strength\030\002 \001(\005" +
+      "\022\017\n\007stamina\030\003 \001(\005\022\022\n\nresilience\030\004 \001(\005\022\r\n" +
+      "\005focus\030\005 \001(\005\022\021\n\tintellect\030\006 \001(\005\"E\n\020Curre" +
+      "ntGrimoires\022\030\n\020main_grimoire_id\030\001 \001(\005\022\027\n" +
+      "\017off_grimoire_id\030\002 \001(\005\"\377\004\n\022GrimoireStati" +
+      "stics\022\032\n\022warrior_experience\030\001 \001(\005\022!\n\031tem" +
+      "per_warrior_experience\030\002 \001(\005\022%\n\035safe_gua" +
+      "rd_warrior_experience\030\003 \001(\005\022\032\n\022paladin_e" +
+      "xperience\030\004 \001(\005\022 \n\030adept_paladin_experie" +
+      "nce\030\005 \001(\005\022\030\n\020rogue_experience\030\006 \001(\005\022&\n\036a" +
+      "ssassination_rogue_experience\030\007 \001(\005\022\037\n\027s" +
+      "hadow_rogue_experience\030\010 \001(\005\022\031\n\021hunter_e" +
+      "xperience\030\t \001(\005\022!\n\031deadeye_hunter_experi" +
+      "ence\030\n \001(\005\022&\n\036beast_master_hunter_experi" +
+      "ence\030\013 \001(\005\022\031\n\021priest_experience\030\014 \001(\005\022\031\n" +
+      "\021shaman_experience\030\r \001(\005\022\030\n\020druid_experi" +
+      "ence\030\016 \001(\005\022\035\n\025life_druid_experience\030\017 \001(" +
+      "\005\022\026\n\016mage_experiene\030\020 \001(\005\022\034\n\024fire_mage_e" +
+      "xperience\030\021 \001(\005\022\033\n\023air_mage_experience\030\022" +
+      " \001(\005\022\032\n\022warlock_experience\030\023 \001(\005\022\036\n\026necr" +
+      "omancer_experience\030\024 \001(\005\"\333\002\n\020WeaponStati" +
+      "stics\022\026\n\016bow_experience\030\001 \001(\005\022\033\n\023crossbo" +
+      "w_experience\030\002 \001(\005\022\036\n\026twohand_axe_experi" +
+      "ence\030\003 \001(\005\022 \n\030twohand_sword_experience\030\004" +
+      " \001(\005\022\032\n\022hatchet_experience\030\005 \001(\005\022\031\n\021dagg" +
+      "er_experience\030\006 \001(\005\022\030\n\020sword_experience\030" +
+      "\007 \001(\005\022\027\n\017mace_experience\030\010 \001(\005\022\030\n\020spear_" +
+      "experience\030\t \001(\005\022\031\n\021shield_experience\030\n " +
+      "\001(\005\022\030\n\020staff_experience\030\013 \001(\005\022\027\n\017wand_ex" +
+      "perience\030\014 \001(\005B#\n\036com.shattered.networki" +
+      "ng.proto\370\001\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -56100,7 +56717,7 @@ public final class World {
     internal_static_shattered_protocol_ChannelMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_ChannelMessage_descriptor,
-        new java.lang.String[] { "Type", "FromIndex", "FromName", "Message", "PermissionLevel", });
+        new java.lang.String[] { "Type", "FromIndex", "FromClassId", "FromName", "Message", "PermissionLevel", });
     internal_static_shattered_protocol_ActorInteraction_descriptor =
       getDescriptor().getMessageTypes().get(19);
     internal_static_shattered_protocol_ActorInteraction_fieldAccessorTable = new
@@ -56203,30 +56820,30 @@ public final class World {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_TaskListIdentifier_descriptor,
         new java.lang.String[] { "Uuid", });
-    internal_static_shattered_protocol_TaskList_descriptor =
+    internal_static_shattered_protocol_TaskRewards_descriptor =
       getDescriptor().getMessageTypes().get(36);
+    internal_static_shattered_protocol_TaskRewards_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_shattered_protocol_TaskRewards_descriptor,
+        new java.lang.String[] { "Coins", "Items", "TextBased", });
+    internal_static_shattered_protocol_TaskList_descriptor =
+      getDescriptor().getMessageTypes().get(37);
     internal_static_shattered_protocol_TaskList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_TaskList_descriptor,
-        new java.lang.String[] { "Uuid", "Name", "Zone", "Tasks", });
+        new java.lang.String[] { "Uuid", "Name", "Zone", "Tasks", "Rewards", });
     internal_static_shattered_protocol_TaskEntry_descriptor =
-      getDescriptor().getMessageTypes().get(37);
+      getDescriptor().getMessageTypes().get(38);
     internal_static_shattered_protocol_TaskEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_TaskEntry_descriptor,
         new java.lang.String[] { "Uuid", "Task", });
     internal_static_shattered_protocol_Task_descriptor =
-      getDescriptor().getMessageTypes().get(38);
+      getDescriptor().getMessageTypes().get(39);
     internal_static_shattered_protocol_Task_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_Task_descriptor,
-        new java.lang.String[] { "Index", "Completed", "Description", "Rewards", });
-    internal_static_shattered_protocol_TaskRewards_descriptor =
-      getDescriptor().getMessageTypes().get(39);
-    internal_static_shattered_protocol_TaskRewards_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_shattered_protocol_TaskRewards_descriptor,
-        new java.lang.String[] { "Coins", "Items", "TextBased", });
+        new java.lang.String[] { "Index", "Completed", "Description", });
     internal_static_shattered_protocol_CombatLevelUpNotification_descriptor =
       getDescriptor().getMessageTypes().get(40);
     internal_static_shattered_protocol_CombatLevelUpNotification_fieldAccessorTable = new
@@ -56257,152 +56874,158 @@ public final class World {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_ReputationLevelUpNotification_descriptor,
         new java.lang.String[] { "Name", "State", });
-    internal_static_shattered_protocol_MasteryNotification_descriptor =
+    internal_static_shattered_protocol_IXPNotification_descriptor =
       getDescriptor().getMessageTypes().get(45);
+    internal_static_shattered_protocol_IXPNotification_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_shattered_protocol_IXPNotification_descriptor,
+        new java.lang.String[] { "Id", "Experience", });
+    internal_static_shattered_protocol_MasteryNotification_descriptor =
+      getDescriptor().getMessageTypes().get(46);
     internal_static_shattered_protocol_MasteryNotification_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_MasteryNotification_descriptor,
         new java.lang.String[] { "Id", "State", });
     internal_static_shattered_protocol_DefaultAttack_descriptor =
-      getDescriptor().getMessageTypes().get(46);
+      getDescriptor().getMessageTypes().get(47);
     internal_static_shattered_protocol_DefaultAttack_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_DefaultAttack_descriptor,
         new java.lang.String[] { "Rotation", });
     internal_static_shattered_protocol_Projectile_descriptor =
-      getDescriptor().getMessageTypes().get(47);
+      getDescriptor().getMessageTypes().get(48);
     internal_static_shattered_protocol_Projectile_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_Projectile_descriptor,
         new java.lang.String[] { "Id", "Uuid", "Time", "Rotation", });
     internal_static_shattered_protocol_SpawnProjectileForActor_descriptor =
-      getDescriptor().getMessageTypes().get(48);
+      getDescriptor().getMessageTypes().get(49);
     internal_static_shattered_protocol_SpawnProjectileForActor_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_SpawnProjectileForActor_descriptor,
         new java.lang.String[] { "Index", "ToIndex", "Projectile", });
     internal_static_shattered_protocol_LoadProjectile_descriptor =
-      getDescriptor().getMessageTypes().get(49);
+      getDescriptor().getMessageTypes().get(50);
     internal_static_shattered_protocol_LoadProjectile_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_LoadProjectile_descriptor,
         new java.lang.String[] { "Uuid", "ProjectileId", "Reload", });
     internal_static_shattered_protocol_ProjectileHitCharacter_descriptor =
-      getDescriptor().getMessageTypes().get(50);
+      getDescriptor().getMessageTypes().get(51);
     internal_static_shattered_protocol_ProjectileHitCharacter_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_ProjectileHitCharacter_descriptor,
         new java.lang.String[] { "FromUuid", "ProjectileId", "ProjectileUuid", "Time", "HitUuid", });
     internal_static_shattered_protocol_MeleeHitBoxHitCharacter_descriptor =
-      getDescriptor().getMessageTypes().get(51);
+      getDescriptor().getMessageTypes().get(52);
     internal_static_shattered_protocol_MeleeHitBoxHitCharacter_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_MeleeHitBoxHitCharacter_descriptor,
         new java.lang.String[] { "HitUuid", "Time", });
     internal_static_shattered_protocol_SpawnEmitter_descriptor =
-      getDescriptor().getMessageTypes().get(52);
+      getDescriptor().getMessageTypes().get(53);
     internal_static_shattered_protocol_SpawnEmitter_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_SpawnEmitter_descriptor,
         new java.lang.String[] { "EmitterId", "Transform", });
     internal_static_shattered_protocol_PlaySoundEffectAtActor_descriptor =
-      getDescriptor().getMessageTypes().get(53);
+      getDescriptor().getMessageTypes().get(54);
     internal_static_shattered_protocol_PlaySoundEffectAtActor_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_PlaySoundEffectAtActor_descriptor,
         new java.lang.String[] { "Id", "Uuid", });
     internal_static_shattered_protocol_PlaySoundEffectAtLocation_descriptor =
-      getDescriptor().getMessageTypes().get(54);
+      getDescriptor().getMessageTypes().get(55);
     internal_static_shattered_protocol_PlaySoundEffectAtLocation_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_PlaySoundEffectAtLocation_descriptor,
         new java.lang.String[] { "Id", "Transform", });
     internal_static_shattered_protocol_PlaySoundCue_descriptor =
-      getDescriptor().getMessageTypes().get(55);
+      getDescriptor().getMessageTypes().get(56);
     internal_static_shattered_protocol_PlaySoundCue_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_PlaySoundCue_descriptor,
         new java.lang.String[] { "CueId", });
     internal_static_shattered_protocol_RequestRollDirection_descriptor =
-      getDescriptor().getMessageTypes().get(56);
+      getDescriptor().getMessageTypes().get(57);
     internal_static_shattered_protocol_RequestRollDirection_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_RequestRollDirection_descriptor,
         new java.lang.String[] { "Direction", });
     internal_static_shattered_protocol_ReverseMovementControls_descriptor =
-      getDescriptor().getMessageTypes().get(57);
+      getDescriptor().getMessageTypes().get(58);
     internal_static_shattered_protocol_ReverseMovementControls_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_ReverseMovementControls_descriptor,
         new java.lang.String[] { "Backwards", });
     internal_static_shattered_protocol_UpdateActionBarSlot_descriptor =
-      getDescriptor().getMessageTypes().get(58);
+      getDescriptor().getMessageTypes().get(59);
     internal_static_shattered_protocol_UpdateActionBarSlot_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_UpdateActionBarSlot_descriptor,
         new java.lang.String[] { "SlotId", "Id", });
     internal_static_shattered_protocol_UpdateItemContainerFull_descriptor =
-      getDescriptor().getMessageTypes().get(59);
+      getDescriptor().getMessageTypes().get(60);
     internal_static_shattered_protocol_UpdateItemContainerFull_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_UpdateItemContainerFull_descriptor,
         new java.lang.String[] { "ContainerId", "ItemSlot", });
     internal_static_shattered_protocol_UpdateItemContainerSlot_descriptor =
-      getDescriptor().getMessageTypes().get(60);
+      getDescriptor().getMessageTypes().get(61);
     internal_static_shattered_protocol_UpdateItemContainerSlot_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_UpdateItemContainerSlot_descriptor,
         new java.lang.String[] { "ContainerId", "SlotId", "ItemSlot", });
     internal_static_shattered_protocol_ShiftContainerSlot_descriptor =
-      getDescriptor().getMessageTypes().get(61);
+      getDescriptor().getMessageTypes().get(62);
     internal_static_shattered_protocol_ShiftContainerSlot_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_ShiftContainerSlot_descriptor,
         new java.lang.String[] { "ContainerId", "FromSlotId", "ToSlotId", "ItemId", });
     internal_static_shattered_protocol_ShiftContainerSlotToWidget_descriptor =
-      getDescriptor().getMessageTypes().get(62);
+      getDescriptor().getMessageTypes().get(63);
     internal_static_shattered_protocol_ShiftContainerSlotToWidget_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_ShiftContainerSlotToWidget_descriptor,
         new java.lang.String[] { "FromContainerId", "ToContainerId", "FromSlotId", "ToSlotId", "Id", });
     internal_static_shattered_protocol_UseAbilitySlot_descriptor =
-      getDescriptor().getMessageTypes().get(63);
+      getDescriptor().getMessageTypes().get(64);
     internal_static_shattered_protocol_UseAbilitySlot_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_UseAbilitySlot_descriptor,
         new java.lang.String[] { "ContainerId", "Pitch", "SlotId", "AbilityId", });
     internal_static_shattered_protocol_AbilityCooldown_descriptor =
-      getDescriptor().getMessageTypes().get(64);
+      getDescriptor().getMessageTypes().get(65);
     internal_static_shattered_protocol_AbilityCooldown_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_AbilityCooldown_descriptor,
         new java.lang.String[] { "AbilityId", "Duration", });
     internal_static_shattered_protocol_UseContainerSlot_descriptor =
-      getDescriptor().getMessageTypes().get(65);
+      getDescriptor().getMessageTypes().get(66);
     internal_static_shattered_protocol_UseContainerSlot_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_UseContainerSlot_descriptor,
         new java.lang.String[] { "ContainerId", "SlotId", "ItemId", });
     internal_static_shattered_protocol_CombatStatistics_descriptor =
-      getDescriptor().getMessageTypes().get(66);
+      getDescriptor().getMessageTypes().get(67);
     internal_static_shattered_protocol_CombatStatistics_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_CombatStatistics_descriptor,
         new java.lang.String[] { "Accuracy", "Strength", "Stamina", "Resilience", "Focus", "Intellect", });
     internal_static_shattered_protocol_CurrentGrimoires_descriptor =
-      getDescriptor().getMessageTypes().get(67);
+      getDescriptor().getMessageTypes().get(68);
     internal_static_shattered_protocol_CurrentGrimoires_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_CurrentGrimoires_descriptor,
         new java.lang.String[] { "MainGrimoireId", "OffGrimoireId", });
     internal_static_shattered_protocol_GrimoireStatistics_descriptor =
-      getDescriptor().getMessageTypes().get(68);
+      getDescriptor().getMessageTypes().get(69);
     internal_static_shattered_protocol_GrimoireStatistics_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_GrimoireStatistics_descriptor,
         new java.lang.String[] { "WarriorExperience", "TemperWarriorExperience", "SafeGuardWarriorExperience", "PaladinExperience", "AdeptPaladinExperience", "RogueExperience", "AssassinationRogueExperience", "ShadowRogueExperience", "HunterExperience", "DeadeyeHunterExperience", "BeastMasterHunterExperience", "PriestExperience", "ShamanExperience", "DruidExperience", "LifeDruidExperience", "MageExperiene", "FireMageExperience", "AirMageExperience", "WarlockExperience", "NecromancerExperience", });
     internal_static_shattered_protocol_WeaponStatistics_descriptor =
-      getDescriptor().getMessageTypes().get(69);
+      getDescriptor().getMessageTypes().get(70);
     internal_static_shattered_protocol_WeaponStatistics_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_shattered_protocol_WeaponStatistics_descriptor,

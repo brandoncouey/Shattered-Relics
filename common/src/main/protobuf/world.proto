@@ -196,9 +196,10 @@ message GameMessage {
 message ChannelMessage {
     int32 type = 1;
     int32 from_index = 2;
-    string from_name = 3;
-    string message = 4;
-    int32 permission_level = 5;
+    int32 from_class_id = 3;
+    string from_name = 4;
+    string message = 5;
+    int32 permission_level = 6;
 }
 
 //+ue:exclude
@@ -307,6 +308,12 @@ message TaskListIdentifier {
     int32 uuid = 2;
 }
 
+//+ustruct:BlueprintType
+message TaskRewards {
+    int32 coins = 1;
+    repeated Item items = 2;
+    repeated string text_based = 3;
+}
 
 //+ustruct:BlueprintType
 message TaskList {
@@ -314,6 +321,7 @@ message TaskList {
     string name = 2;
     string zone = 3;
     repeated Task tasks = 4;
+    TaskRewards rewards = 5;
 }
 
 //+ustruct:BlueprintType
@@ -322,21 +330,11 @@ message TaskEntry {
     Task task = 2;
 }
 
-
-
 //+ustruct:BlueprintType
 message Task {
     int32 index = 1;
     bool completed = 2;
     string description = 3;
-    TaskRewards rewards = 4;
-}
-
-//+ustruct:BlueprintType
-message TaskRewards {
-    int32 coins = 1;
-    repeated Item items = 2;
-    repeated string text_based = 3;
 }
 
 //+ustruct:BlueprintType
@@ -363,6 +361,12 @@ message QuestNotification {
 message ReputationLevelUpNotification {
     string name = 1;
     string state = 2;
+}
+
+//+ustruct:BlueprintType
+message IXPNotification {
+    int32 id = 1;
+    int32 experience = 2;
 }
 
 //+ustruct:BlueprintType
